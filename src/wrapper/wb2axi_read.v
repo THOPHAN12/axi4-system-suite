@@ -16,9 +16,10 @@
  */
 
 module wb2axi_read #(
-    parameter ADDR_WIDTH = 32,
-    parameter DATA_WIDTH = 32,
-    parameter ID_WIDTH   = 4
+    parameter ADDR_WIDTH   = 32,
+    parameter DATA_WIDTH   = 32,
+    parameter ID_WIDTH     = 4,
+    parameter ENABLE_DEBUG = 1'b0
 ) (
     input  wire                    ACLK,
     input  wire                    ARESETN,
@@ -66,7 +67,6 @@ reg [1:0] next_state;
 // Address request latch
 reg [ADDR_WIDTH-1:0] addr_latch;
 reg addr_captured;  // Flag to track if address has been captured for current transaction
-reg [4:0] addr_capture_delay;  // Delay counter to wait for address to stabilize in bit-serial mode
 reg [ADDR_WIDTH-1:0] wb_adr_prev;  // Previous cycle address for debug
 reg [31:0] cycle_count;  // Cycle counter for debug
 reg wb_cyc_prev;  // Previous cycle wb_cyc for edge detection
@@ -144,7 +144,6 @@ always @(posedge ACLK or negedge ARESETN) begin
         M_AXI_arid    <= {ID_WIDTH{1'b0}};
         addr_latch    <= 32'h0;
         addr_captured <= 1'b0;
-        addr_capture_delay <= 5'h0;
         wb_adr_prev   <= 32'hFFFFFFFF;  // Initialize to non-zero to detect first change
         cycle_count   <= 32'h0;
         wb_cyc_prev   <= 1'b0;
@@ -163,17 +162,20 @@ always @(posedge ACLK or negedge ARESETN) begin
                 
                 // Debug: Track wb_cyc transitions
                 if (wb_cyc && !wb_cyc_prev) begin
-                    $display("[%0t] wb2axi_read: wb_cyc RISING EDGE! wb_adr=0x%08h, cnt_done=%0d", 
-                             $time, wb_adr, i_cnt_done);
+                    if (ENABLE_DEBUG) begin
+                        $display("[%0t] wb2axi_read: wb_cyc RISING EDGE! wb_adr=0x%08h, cnt_done=%0d", 
+                                 $time, wb_adr, i_cnt_done);
+                    end
                 end else if (!wb_cyc && wb_cyc_prev) begin
-                    $display("[%0t] wb2axi_read: wb_cyc FALLING EDGE! cycle_count=%0d, addr_captured=%0d", 
-                             $time, cycle_count, addr_captured);
+                    if (ENABLE_DEBUG) begin
+                        $display("[%0t] wb2axi_read: wb_cyc FALLING EDGE! cycle_count=%0d, addr_captured=%0d", 
+                                 $time, cycle_count, addr_captured);
+                    end
                 end
                 
                 // Clear capture flag when in IDLE and no active transaction
                 if (!wb_cyc) begin
                     addr_captured <= 1'b0;
-                    addr_capture_delay <= 5'h0;
                     cycle_count <= 32'h0;
                     // Don't reset wb_adr_prev here - keep it to track address changes across transactions
                     // Note: wb_cyc_prev is now updated in separate always block to avoid race conditions
@@ -183,36 +185,48 @@ always @(posedge ACLK or negedge ARESETN) begin
                 end else if (wb_cyc && !wb_ack) begin
                     // Debug: Print when wb_cyc is first asserted
                     if (cycle_count == 0) begin
-                        $display("[%0t] wb2axi_read: wb_cyc ASSERTED! wb_adr=0x%08h, cnt_done=%0d", 
-                                 $time, wb_adr, i_cnt_done);
+                        if (ENABLE_DEBUG) begin
+                            $display("[%0t] wb2axi_read: wb_cyc ASSERTED! wb_adr=0x%08h, cnt_done=%0d", 
+                                     $time, wb_adr, i_cnt_done);
+                        end
                     end
                     // Debug: Track address changes
                     cycle_count <= cycle_count + 1'b1;
                     
                     // Debug: Print address changes (only when address actually changes)
                     if (wb_adr != wb_adr_prev) begin
-                        $display("[%0t] wb2axi_read: wb_adr changed: 0x%08h -> 0x%08h (cycle %0d, state=%0d, cnt_done=%0d)", 
-                                 $time, wb_adr_prev, wb_adr, cycle_count, state, i_cnt_done);
+                        if (ENABLE_DEBUG) begin
+                            $display("[%0t] wb2axi_read: wb_adr changed: 0x%08h -> 0x%08h (cycle %0d, state=%0d, cnt_done=%0d)", 
+                                     $time, wb_adr_prev, wb_adr, cycle_count, state, i_cnt_done);
+                        end
                     end
                     // Debug: Print cnt_done status periodically and when it changes
                     if (cycle_count % 32 == 0 && cycle_count > 0) begin
-                        $display("[%0t] wb2axi_read: Status - wb_cyc=%0d, cnt_done=%0d, addr_captured=%0d, wb_adr=0x%08h", 
-                                 $time, wb_cyc, i_cnt_done, addr_captured, wb_adr);
+                        if (ENABLE_DEBUG) begin
+                            $display("[%0t] wb2axi_read: Status - wb_cyc=%0d, cnt_done=%0d, addr_captured=%0d, wb_adr=0x%08h", 
+                                     $time, wb_cyc, i_cnt_done, addr_captured, wb_adr);
+                        end
                     end
                     // Debug: Print when cnt_done is asserted
                     if (i_cnt_done && !addr_captured) begin
-                        $display("[%0t] wb2axi_read: cnt_done ASSERTED! wb_cyc=%0d, wb_adr=0x%08h, cycle=%0d", 
-                                 $time, wb_cyc, wb_adr, cycle_count);
+                        if (ENABLE_DEBUG) begin
+                            $display("[%0t] wb2axi_read: cnt_done ASSERTED! wb_cyc=%0d, wb_adr=0x%08h, cycle=%0d", 
+                                     $time, wb_cyc, wb_adr, cycle_count);
+                        end
                     end
                     // Debug: Print cnt_done every cycle for first 100 cycles to see pattern
                     if (cycle_count < 100) begin
-                        $display("[%0t] wb2axi_read: Cycle %0d - wb_cyc=%0d, wb_ack=%0d, cnt_done=%0d, wb_adr=0x%08h, addr_captured=%0d, M_AXI_arvalid=%0d", 
-                                 $time, cycle_count, wb_cyc, wb_ack, i_cnt_done, wb_adr, addr_captured, M_AXI_arvalid);
+                        if (ENABLE_DEBUG) begin
+                            $display("[%0t] wb2axi_read: Cycle %0d - wb_cyc=%0d, wb_ack=%0d, cnt_done=%0d, wb_adr=0x%08h, addr_captured=%0d, M_AXI_arvalid=%0d", 
+                                     $time, cycle_count, wb_cyc, wb_ack, i_cnt_done, wb_adr, addr_captured, M_AXI_arvalid);
+                        end
                     end
                     // Debug: Print address value at key cycles to understand bit-serial encoding
                     if (cycle_count == 0 || cycle_count == 31 || cycle_count == 32 || cycle_count == 33) begin
-                        $display("[%0t] wb2axi_read: Key cycle %0d - wb_adr=0x%08h (binary: %032b)", 
-                                 $time, cycle_count, wb_adr, wb_adr);
+                        if (ENABLE_DEBUG) begin
+                            $display("[%0t] wb2axi_read: Key cycle %0d - wb_adr=0x%08h (binary: %032b)", 
+                                     $time, cycle_count, wb_adr, wb_adr);
+                        end
                     end
                     // Update previous address for next cycle comparison
                     wb_adr_prev <= wb_adr;
@@ -242,9 +256,10 @@ always @(posedge ACLK or negedge ARESETN) begin
                         // But only if cnt_done_prev was set during THIS transaction (cycle_count > 0)
                         // This ensures we capture the stable address after the shift completes
                         if (cnt_done_prev && wb_cyc && cycle_count > 0) begin
-                            // Debug: Print when capturing address
-                            $display("[%0t] wb2axi_read: Capturing address (1 cycle after cnt_done): wb_adr=0x%08h, masked=0x%08h (cycle %0d)", 
-                                     $time, wb_adr, (wb_adr & 32'hFFFF_FFFC), cycle_count);
+                            if (ENABLE_DEBUG) begin
+                                $display("[%0t] wb2axi_read: Capturing address (1 cycle after cnt_done): wb_adr=0x%08h, masked=0x%08h (cycle %0d)", 
+                                         $time, wb_adr, (wb_adr & 32'hFFFF_FFFC), cycle_count);
+                            end
                             
                             // Address is now stable - capture it
                             // Word-align address (clear bits 1:0) - don't mask high bits
@@ -269,9 +284,10 @@ always @(posedge ACLK or negedge ARESETN) begin
                         // However, we need to capture at cycle 33 (after the 32nd shift completes)
                         // This is the PRIMARY method when cnt_done is not available
                         else if (cycle_count >= 33 && wb_cyc) begin
-                            // Debug: Print when capturing address
-                            $display("[%0t] wb2axi_read: Capturing address (33 cycles elapsed): wb_adr=0x%08h, masked=0x%08h (cycle %0d)", 
-                                     $time, wb_adr, (wb_adr & 32'hFFFF_FFFC), cycle_count);
+                            if (ENABLE_DEBUG) begin
+                                $display("[%0t] wb2axi_read: Capturing address (33 cycles elapsed): wb_adr=0x%08h, masked=0x%08h (cycle %0d)", 
+                                         $time, wb_adr, (wb_adr & 32'hFFFF_FFFC), cycle_count);
+                            end
                             
                             // Address should be stable after 33 cycles (32 shifts + 1 cycle for stability) - capture it
                             addr_latch <= (wb_adr & 32'hFFFF_FFFC);  // Word-align only (clear bits [1:0])
@@ -366,7 +382,13 @@ always @(posedge ACLK or negedge ARESETN) begin
         wb_rdt <= 32'h0;
         wb_ack <= 1'b0;
     end else begin
+        wb_ack <= 1'b0;
+
         case (state)
+            IDLE: begin
+                M_AXI_rready <= 1'b0;
+            end
+
             ADDR_REQ: begin
                 if (M_AXI_arvalid && M_AXI_arready) begin
                     M_AXI_rready <= 1'b1;
@@ -375,34 +397,17 @@ always @(posedge ACLK or negedge ARESETN) begin
             
             DATA_WAIT: begin
                 // Assert wb_ack when data is received
-                // In bit-serial mode, we need to be careful about timing
-                // but we should still assert wb_ack to allow processor to progress
                 if (M_AXI_rvalid && M_AXI_rready) begin
                     wb_rdt <= M_AXI_rdata;
-                    // Assert wb_ack immediately when data is received
-                    // This allows processor to progress to next instruction
-                    // Note: In bit-serial mode, cnt_done may have already asserted
-                    // during address transmission, so we don't need to wait for it here
                     wb_ack <= 1'b1;
                     M_AXI_rready <= 1'b0;
-                end else if (wb_ack && !wb_cyc) begin
-                    // Deassert wb_ack when wb_cyc deasserts (transaction complete)
-                    wb_ack <= 1'b0;
                 end
             end
             
             default: begin
-                if (state != IDLE) begin
-                    wb_ack <= 1'b0;
-                end
                 M_AXI_rready <= 1'b0;
             end
         endcase
-        
-        // Clear ack after one cycle if cycle is deasserted
-        if (wb_ack && !wb_cyc) begin
-            wb_ack <= 1'b0;
-        end
     end
 end
 
