@@ -12,19 +12,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Write_Arbiter_tb
 
-} {} {}} D:/AXI/src/axi_interconnect/rtl/channel_controllers/write/BR_Channel_Controller_Top.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/rtl/channel_controllers/write/BR_Channel_Controller_Top.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module BR_Channel_Controller_Top
-
-Top level modules:
-	BR_Channel_Controller_Top
-
 } {} {}} D:/AXI/src/axi_interconnect/rtl/datapath/mux/AW_MUX_2_1.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/rtl/datapath/mux/AW_MUX_2_1.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module AW_MUX_2_1
 
 Top level modules:
 	AW_MUX_2_1
+
+} {} {}} D:/AXI/src/axi_interconnect/rtl/channel_controllers/write/BR_Channel_Controller_Top.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/rtl/channel_controllers/write/BR_Channel_Controller_Top.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module BR_Channel_Controller_Top
+
+Top level modules:
+	BR_Channel_Controller_Top
 
 } {} {}} D:/AXI/src/axi_interconnect/rtl/arbitration/Read_Arbiter.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/rtl/arbitration/Read_Arbiter.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -68,19 +68,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Write_Addr_Channel_Dec
 
-} {} {}} D:/AXI/src/axi_interconnect/rtl/decoders/Read_Addr_Channel_Dec.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/rtl/decoders/Read_Addr_Channel_Dec.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module Read_Addr_Channel_Dec
-
-Top level modules:
-	Read_Addr_Channel_Dec
-
 } {} {}} D:/AXI/src/axi_interconnect/rtl/channel_controllers/read/AR_Channel_Controller_Top.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/rtl/channel_controllers/read/AR_Channel_Controller_Top.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module AR_Channel_Controller_Top
 
 Top level modules:
 	AR_Channel_Controller_Top
+
+} {} {}} D:/AXI/src/axi_interconnect/rtl/decoders/Read_Addr_Channel_Dec.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/rtl/decoders/Read_Addr_Channel_Dec.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module Read_Addr_Channel_Dec
+
+Top level modules:
+	Read_Addr_Channel_Dec
 
 } {} {}} D:/AXI/tb/interconnect_tb/utils/Faling_Edge_Detc_tb.v {1 {vlog -work work -stats=none D:/AXI/tb/interconnect_tb/utils/Faling_Edge_Detc_tb.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -327,13 +327,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	WD_Channel_Controller_Top_tb
 
-} {} {}} D:/AXI/src/axi_interconnect/rtl/channel_controllers/write/WD_Channel_Controller_Top.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/rtl/channel_controllers/write/WD_Channel_Controller_Top.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module WD_Channel_Controller_Top
-
-Top level modules:
-	WD_Channel_Controller_Top
-
 } {} {}} D:/AXI/src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Arb.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Arb.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module Write_Resp_Channel_Arb
@@ -341,12 +334,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Write_Resp_Channel_Arb
 
-} {} {}} D:/AXI/src/axi_interconnect/rtl/buffers/Queue.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/rtl/buffers/Queue.v
+} {} {}} D:/AXI/src/axi_interconnect/rtl/channel_controllers/write/WD_Channel_Controller_Top.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/rtl/channel_controllers/write/WD_Channel_Controller_Top.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module Queue
+-- Compiling module WD_Channel_Controller_Top
 
 Top level modules:
-	Queue
+	WD_Channel_Controller_Top
 
 } {} {}} D:/AXI/src/axi_interconnect/rtl/arbitration/Qos_Arbiter.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/rtl/arbitration/Qos_Arbiter.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -355,12 +348,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Qos_Arbiter
 
-} {} {}} D:/AXI/tb/interconnect_tb/core/test_case1.v {1 {vlog -work work -stats=none D:/AXI/tb/interconnect_tb/core/test_case1.v
+} {} {}} D:/AXI/src/axi_interconnect/rtl/buffers/Queue.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/rtl/buffers/Queue.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module test_case1
+-- Compiling module Queue
 
 Top level modules:
-	test_case1
+	Queue
 
 } {} {}} D:/AXI/tb/interconnect_tb/datapath/demux/Demux_1x2_en_tb.v {1 {vlog -work work -stats=none D:/AXI/tb/interconnect_tb/datapath/demux/Demux_1x2_en_tb.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -369,6 +362,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Demux_1x2_en_tb
 
+} {} {}} D:/AXI/tb/interconnect_tb/core/test_case1.v {1 {vlog -work work -stats=none D:/AXI/tb/interconnect_tb/core/test_case1.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module test_case1
+
+Top level modules:
+	test_case1
+
 } {} {}} D:/AXI/src/axi_interconnect/rtl/handshake/AW_HandShake_Checker.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/rtl/handshake/AW_HandShake_Checker.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module AW_HandShake_Checker
@@ -376,19 +376,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	AW_HandShake_Checker
 
-} {} {}} D:/AXI/tb/interconnect_tb/datapath/mux/Mux_2x1_tb.v {1 {vlog -work work -stats=none D:/AXI/tb/interconnect_tb/datapath/mux/Mux_2x1_tb.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module Mux_2x1_tb
-
-Top level modules:
-	Mux_2x1_tb
-
 } {} {}} D:/AXI/tb/interconnect_tb/core/test_case5.v {1 {vlog -work work -stats=none D:/AXI/tb/interconnect_tb/core/test_case5.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module test_case5
 
 Top level modules:
 	test_case5
+
+} {} {}} D:/AXI/tb/interconnect_tb/datapath/mux/Mux_2x1_tb.v {1 {vlog -work work -stats=none D:/AXI/tb/interconnect_tb/datapath/mux/Mux_2x1_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module Mux_2x1_tb
+
+Top level modules:
+	Mux_2x1_tb
 
 } {} {}} D:/AXI/src/axi_interconnect/rtl/buffers/Resp_Queue.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/rtl/buffers/Resp_Queue.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
