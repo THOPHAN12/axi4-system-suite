@@ -8,6 +8,7 @@
 module Simple_Memory_Slave #(
     parameter ADDR_WIDTH = 32,
     parameter DATA_WIDTH = 32,
+    parameter ID_WIDTH   = 1,   // Master ID width for BID
     parameter MEM_SIZE   = 256  // 256 words = 1KB
 ) (
     // Global signals
@@ -17,6 +18,7 @@ module Simple_Memory_Slave #(
     // ========================================================================
     // AXI4 Write Address Channel
     // ========================================================================
+    input  wire  [ID_WIDTH-1:0]          S_AXI_awid,     // Master ID from interconnect
     input  wire  [ADDR_WIDTH-1:0]        S_AXI_awaddr,
     input  wire  [7:0]                   S_AXI_awlen,
     input  wire  [2:0]                   S_AXI_awsize,
@@ -41,6 +43,7 @@ module Simple_Memory_Slave #(
     // ========================================================================
     // AXI4 Write Response Channel
     // ========================================================================
+    output reg   [ID_WIDTH-1:0]          S_AXI_bid,      // Echo back Master ID
     output reg   [1:0]                   S_AXI_bresp,
     output reg                           S_AXI_bvalid,
     input  wire                          S_AXI_bready,
@@ -76,6 +79,7 @@ module Simple_Memory_Slave #(
     // Write address channel state
     reg [ADDR_WIDTH-1:0] write_addr;
     reg [7:0]            write_len;
+    reg [ID_WIDTH-1:0]   write_id;  // Store Master ID
     reg                  write_addr_received;
     
     // Write data channel state
@@ -105,12 +109,14 @@ module Simple_Memory_Slave #(
             S_AXI_awready <= 1'b1;  // Ready to accept address after reset
             write_addr <= 32'h0;
             write_len <= 8'h0;
+            write_id <= {ID_WIDTH{1'b0}};
             write_addr_received <= 1'b0;
         end else begin
             if (S_AXI_awvalid && S_AXI_awready) begin
-                // Handshake complete, latch address and deassert awready
+                // Handshake complete, latch address, ID and deassert awready
                 write_addr <= S_AXI_awaddr;
                 write_len <= S_AXI_awlen;
+                write_id <= S_AXI_awid;  // Store Master ID
                 write_addr_received <= 1'b1;
                 S_AXI_awready <= 1'b0;  // Not ready until current transaction completes
             end else if (!write_addr_received && !write_data_received) begin
@@ -168,10 +174,12 @@ module Simple_Memory_Slave #(
     always @(posedge ACLK) begin
         if (!ARESETN) begin
             S_AXI_bvalid <= 1'b0;
+            S_AXI_bid <= {ID_WIDTH{1'b0}};
             S_AXI_bresp <= 2'b00;  // OKAY response
         end else begin
             if (write_addr_received && write_data_received && !S_AXI_bvalid) begin
                 S_AXI_bvalid <= 1'b1;
+                S_AXI_bid <= write_id;  // Echo back Master ID
                 S_AXI_bresp <= 2'b00;  // OKAY response
             end else if (S_AXI_bvalid && S_AXI_bready) begin
                 S_AXI_bvalid <= 1'b0;

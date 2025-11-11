@@ -657,11 +657,13 @@ module alu_master_system #(
     Simple_Memory_Slave #(
         .ADDR_WIDTH(ADDR_WIDTH),
         .DATA_WIDTH(DATA_WIDTH),
+        .ID_WIDTH(Master_ID_Width),
         .MEM_SIZE(MEM_SIZE)
     ) u_slave0 (
         .ACLK(ACLK),
         .ARESETN(ARESETN),
         // Write Address Channel
+        .S_AXI_awid(M00_AXI_awaddr_ID),  // Master ID from interconnect
         .S_AXI_awaddr(M00_AXI_awaddr),
         .S_AXI_awlen(M00_AXI_awlen),
         .S_AXI_awsize(M00_AXI_awsize),
@@ -680,6 +682,7 @@ module alu_master_system #(
         .S_AXI_wvalid(M00_AXI_wvalid),
         .S_AXI_wready(M00_AXI_wready),
         // Write Response Channel
+        .S_AXI_bid(M00_AXI_BID),  // Echo back Master ID to interconnect
         .S_AXI_bresp(M00_AXI_bresp),
         .S_AXI_bvalid(M00_AXI_bvalid),
         .S_AXI_bready(M00_AXI_bready),
@@ -709,11 +712,13 @@ module alu_master_system #(
     Simple_Memory_Slave #(
         .ADDR_WIDTH(ADDR_WIDTH),
         .DATA_WIDTH(DATA_WIDTH),
+        .ID_WIDTH(Master_ID_Width),
         .MEM_SIZE(MEM_SIZE)
     ) u_slave1 (
         .ACLK(ACLK),
         .ARESETN(ARESETN),
         // Write Address Channel
+        .S_AXI_awid(M01_AXI_awaddr_ID),  // Master ID from interconnect
         .S_AXI_awaddr(M01_AXI_awaddr),
         .S_AXI_awlen(M01_AXI_awlen),
         .S_AXI_awsize(M01_AXI_awsize),
@@ -732,6 +737,7 @@ module alu_master_system #(
         .S_AXI_wvalid(M01_AXI_wvalid),
         .S_AXI_wready(M01_AXI_wready),
         // Write Response Channel
+        .S_AXI_bid(M01_AXI_BID),  // Echo back Master ID to interconnect
         .S_AXI_bresp(M01_AXI_bresp),
         .S_AXI_bvalid(M01_AXI_bvalid),
         .S_AXI_bready(M01_AXI_bready),
