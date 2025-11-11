@@ -1,0 +1,41 @@
+library verilog;
+use verilog.vl_types.all;
+entity Controller is
+    port(
+        clkk            : in     vl_logic;
+        resett          : in     vl_logic;
+        slave0_addr1    : in     vl_logic_vector(31 downto 0);
+        slave0_addr2    : in     vl_logic_vector(31 downto 0);
+        slave1_addr1    : in     vl_logic_vector(31 downto 0);
+        slave1_addr2    : in     vl_logic_vector(31 downto 0);
+        slave2_addr1    : in     vl_logic_vector(31 downto 0);
+        slave2_addr2    : in     vl_logic_vector(31 downto 0);
+        slave3_addr1    : in     vl_logic_vector(31 downto 0);
+        slave3_addr2    : in     vl_logic_vector(31 downto 0);
+        M_ADDR          : in     vl_logic_vector(31 downto 0);
+        S0_ARREADY      : in     vl_logic;
+        S1_ARREADY      : in     vl_logic;
+        S2_ARREADY      : in     vl_logic;
+        S3_ARREADY      : in     vl_logic;
+        M0_ARVALID      : in     vl_logic;
+        M1_ARVALID      : in     vl_logic;
+        M0_RREADY       : in     vl_logic;
+        M1_RREADY       : in     vl_logic;
+        S0_RVALID       : in     vl_logic;
+        S1_RVALID       : in     vl_logic;
+        S2_RVALID       : in     vl_logic;
+        S3_RVALID       : in     vl_logic;
+        S0_RLAST        : in     vl_logic;
+        S1_RLAST        : in     vl_logic;
+        S2_RLAST        : in     vl_logic;
+        S3_RLAST        : in     vl_logic;
+        select_slave_address: out    vl_logic_vector(1 downto 0);
+        select_data_M0  : out    vl_logic_vector(1 downto 0);
+        select_data_M1  : out    vl_logic_vector(1 downto 0);
+        en_S0           : out    vl_logic_vector(1 downto 0);
+        en_S1           : out    vl_logic_vector(1 downto 0);
+        en_S2           : out    vl_logic_vector(1 downto 0);
+        en_S3           : out    vl_logic_vector(1 downto 0);
+        select_master_address: out    vl_logic
+    );
+end Controller;

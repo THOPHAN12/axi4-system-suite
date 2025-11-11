@@ -1,0 +1,62 @@
+library verilog;
+use verilog.vl_types.all;
+entity WD_Channel_Controller_Top is
+    generic(
+        Slaves_Num      : integer := 2;
+        Slaves_ID_Size  : vl_notype;
+        Address_width   : integer := 32;
+        S00_Write_data_bus_width: integer := 32;
+        S00_Write_data_bytes_num: vl_notype;
+        S01_Write_data_bus_width: integer := 32;
+        S01_Write_data_bytes_num: vl_notype;
+        M00_Write_data_bus_width: integer := 32;
+        M00_Write_data_bytes_num: vl_notype;
+        Num_Of_Slaves   : integer := 2
+    );
+    port(
+        AW_Selected_Slave: in     vl_logic_vector;
+        AW_Access_Grant : in     vl_logic;
+        Token           : in     vl_logic;
+        Queue_Is_Full   : out    vl_logic;
+        Write_Data_Master: out    vl_logic_vector;
+        Write_Data_Master2: out    vl_logic_vector;
+        Write_Data_Finsh: out    vl_logic;
+        Write_Data_Finsh2: out    vl_logic;
+        Is_Master_Part_Of_Split: out    vl_logic;
+        Is_Master_Part_Of_Split2: out    vl_logic;
+        ACLK            : in     vl_logic;
+        ARESETN         : in     vl_logic;
+        S00_AXI_wdata   : in     vl_logic_vector;
+        S00_AXI_wstrb   : in     vl_logic_vector;
+        S00_AXI_wlast   : in     vl_logic;
+        S00_AXI_wvalid  : in     vl_logic;
+        S00_AXI_wready  : out    vl_logic;
+        S01_AXI_wdata   : in     vl_logic_vector;
+        S01_AXI_wstrb   : in     vl_logic_vector;
+        S01_AXI_wlast   : in     vl_logic;
+        S01_AXI_wvalid  : in     vl_logic;
+        S01_AXI_wready  : out    vl_logic;
+        M00_AXI_wdata   : out    vl_logic_vector;
+        M00_AXI_wstrb   : out    vl_logic_vector;
+        M00_AXI_wlast   : out    vl_logic;
+        M00_AXI_wvalid  : out    vl_logic;
+        M00_AXI_wready  : in     vl_logic;
+        M01_AXI_wdata   : out    vl_logic_vector;
+        M01_AXI_wstrb   : out    vl_logic_vector;
+        M01_AXI_wlast   : out    vl_logic;
+        M01_AXI_wvalid  : out    vl_logic;
+        M01_AXI_wready  : in     vl_logic;
+        Q_Enable_W_Data_In: in     vl_logic_vector
+    );
+    attribute mti_svvh_generic_type : integer;
+    attribute mti_svvh_generic_type of Slaves_Num : constant is 1;
+    attribute mti_svvh_generic_type of Slaves_ID_Size : constant is 3;
+    attribute mti_svvh_generic_type of Address_width : constant is 1;
+    attribute mti_svvh_generic_type of S00_Write_data_bus_width : constant is 1;
+    attribute mti_svvh_generic_type of S00_Write_data_bytes_num : constant is 3;
+    attribute mti_svvh_generic_type of S01_Write_data_bus_width : constant is 1;
+    attribute mti_svvh_generic_type of S01_Write_data_bytes_num : constant is 3;
+    attribute mti_svvh_generic_type of M00_Write_data_bus_width : constant is 1;
+    attribute mti_svvh_generic_type of M00_Write_data_bytes_num : constant is 3;
+    attribute mti_svvh_generic_type of Num_Of_Slaves : constant is 1;
+end WD_Channel_Controller_Top;

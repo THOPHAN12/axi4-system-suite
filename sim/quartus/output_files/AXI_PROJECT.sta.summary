@@ -1,0 +1,53 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'ACLK'
+Slack : -6.751
+TNS   : -1555.998
+
+Type  : Slow Model Setup 'AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
+Slack : -1.447
+TNS   : -52.730
+
+Type  : Slow Model Hold 'ACLK'
+Slack : -2.526
+TNS   : -24.803
+
+Type  : Slow Model Hold 'AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
+Slack : -2.040
+TNS   : -92.195
+
+Type  : Slow Model Minimum Pulse Width 'ACLK'
+Slack : -1.627
+TNS   : -502.730
+
+Type  : Slow Model Minimum Pulse Width 'AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Setup 'ACLK'
+Slack : -3.006
+TNS   : -503.586
+
+Type  : Fast Model Setup 'AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
+Slack : -0.508
+TNS   : -11.077
+
+Type  : Fast Model Hold 'ACLK'
+Slack : -1.568
+TNS   : -19.085
+
+Type  : Fast Model Hold 'AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
+Slack : -1.207
+TNS   : -57.741
+
+Type  : Fast Model Minimum Pulse Width 'ACLK'
+Slack : -1.627
+TNS   : -502.730
+
+Type  : Fast Model Minimum Pulse Width 'AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------
