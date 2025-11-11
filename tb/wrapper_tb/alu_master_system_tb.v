@@ -166,3 +166,67 @@ module alu_master_system_tb;
 
 endmodule
 
+// ========================================================================
+// Debug monitors (handshake tracing)
+// ========================================================================
+// Note: Hierarchical references into DUT to observe internal AXI signals
+//       Print only in early cycles to avoid huge logs
+integer dbg_cycle;
+initial dbg_cycle = 0;
+
+always @(posedge alu_master_system_tb.ACLK) begin
+    dbg_cycle = dbg_cycle + 1;
+    if (dbg_cycle < 20000) begin
+        // Master0 AR handshake at S00
+        if (alu_master_system_tb.dut.S00_AXI_arvalid && alu_master_system_tb.dut.S00_AXI_arready) begin
+            $display("[%0t] S00 AR HS addr=%h len=%0d", $time,
+                     alu_master_system_tb.dut.S00_AXI_araddr,
+                     alu_master_system_tb.dut.S00_AXI_arlen);
+        end
+        // Interconnect -> Slave0 AR handshake (M00)
+        if (alu_master_system_tb.dut.M00_AXI_arvalid && alu_master_system_tb.dut.M00_AXI_arready) begin
+            $display("[%0t] M00 AR HS addr=%h len=%0d", $time,
+                     alu_master_system_tb.dut.M00_AXI_araddr,
+                     alu_master_system_tb.dut.M00_AXI_arlen);
+        end
+        // Slave0 R channel handshake
+        if (alu_master_system_tb.dut.M00_AXI_rvalid && alu_master_system_tb.dut.M00_AXI_rready) begin
+            $display("[%0t] M00 R HS data=%h last=%0d resp=%0d", $time,
+                     alu_master_system_tb.dut.M00_AXI_rdata,
+                     alu_master_system_tb.dut.M00_AXI_rlast,
+                     alu_master_system_tb.dut.M00_AXI_rresp);
+        end
+        // Master0 R channel observation
+        if (alu_master_system_tb.dut.S00_AXI_rvalid && alu_master_system_tb.dut.S00_AXI_rready) begin
+            $display("[%0t] S00 R HS data=%h last=%0d resp=%0d", $time,
+                     alu_master_system_tb.dut.S00_AXI_rdata,
+                     alu_master_system_tb.dut.S00_AXI_rlast,
+                     alu_master_system_tb.dut.S00_AXI_rresp);
+        end
+
+        // Write channel handshakes (in case timeout is at write)
+        if (alu_master_system_tb.dut.S00_AXI_awvalid && alu_master_system_tb.dut.S00_AXI_awready) begin
+            $display("[%0t] S00 AW HS addr=%h len=%0d", $time,
+                     alu_master_system_tb.dut.S00_AXI_awaddr,
+                     alu_master_system_tb.dut.S00_AXI_awlen);
+        end
+        if (alu_master_system_tb.dut.M00_AXI_wvalid && alu_master_system_tb.dut.M00_AXI_wready) begin
+            $display("[%0t] M00 W HS data=%h last=%0d strb=%b", $time,
+                     alu_master_system_tb.dut.M00_AXI_wdata,
+                     alu_master_system_tb.dut.M00_AXI_wlast,
+                     alu_master_system_tb.dut.M00_AXI_wstrb);
+        end
+        if (alu_master_system_tb.dut.M00_AXI_bvalid && alu_master_system_tb.dut.M00_AXI_bready) begin
+            $display("[%0t] M00 B HS resp=%0d", $time, alu_master_system_tb.dut.M00_AXI_bresp);
+        end
+
+        // High-level control
+        if (alu_master_system_tb.master0_start) begin
+            $display("[%0t] master0_start=1", $time);
+        end
+        if (alu_master_system_tb.master0_done) begin
+            $display("[%0t] master0_done=1", $time);
+        end
+    end
+end
+

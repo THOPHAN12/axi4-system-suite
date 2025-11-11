@@ -94,8 +94,8 @@ module Simple_Memory_Slave #(
     wire [7:0] write_word_addr;
     wire [7:0] read_word_addr;
     
-    assign write_word_addr = (write_addr >> 2) & 8'hFF;  // Convert byte address to word address
-    assign read_word_addr  = (read_addr >> 2) & 8'hFF;   // Convert byte address to word address
+    assign write_word_addr = write_addr[9:2];  // Convert byte address to word address (bits [9:2])
+    assign read_word_addr  = read_addr[9:2];   // Convert byte address to word address (bits [9:2])
     
     // ========================================================================
     // Write Address Channel
@@ -135,9 +135,12 @@ module Simple_Memory_Slave #(
                 S_AXI_wready <= 1'b1;
                 // Write data to memory
                 if (write_word_addr < MEM_SIZE) begin
-                    memory[write_word_addr] <= S_AXI_wdata;
+                    if (S_AXI_wstrb[0]) memory[write_word_addr][7:0]   <= S_AXI_wdata[7:0];
+                    if (S_AXI_wstrb[1]) memory[write_word_addr][15:8]  <= S_AXI_wdata[15:8];
+                    if (S_AXI_wstrb[2]) memory[write_word_addr][23:16] <= S_AXI_wdata[23:16];
+                    if (S_AXI_wstrb[3]) memory[write_word_addr][31:24] <= S_AXI_wdata[31:24];
                 end
-                write_count <= write_count + 1;
+                write_count <= write_count + 8'h1;
                 if (S_AXI_wlast) begin
                     write_data_received <= 1'b1;
                     write_count <= 8'h0;
@@ -174,17 +177,18 @@ module Simple_Memory_Slave #(
     // ========================================================================
     always @(posedge ACLK) begin
         if (!ARESETN) begin
-            S_AXI_arready <= 1'b0;
+            S_AXI_arready <= 1'b1;  // Ready to accept address after reset
             read_addr <= 32'h0;
             read_len <= 8'h0;
-            read_addr_received <= 1'b0;
         end else begin
-            if (S_AXI_arvalid && !read_addr_received && !S_AXI_rvalid) begin
-                S_AXI_arready <= 1'b1;
+            if (S_AXI_arvalid && S_AXI_arready) begin
+                // Handshake complete, latch address and deassert arready
                 read_addr <= S_AXI_araddr;
                 read_len <= S_AXI_arlen;
-                read_addr_received <= 1'b1;
-                read_count <= 8'h0;
+                S_AXI_arready <= 1'b0;  // Not ready until current transaction completes
+            end else if (!read_addr_received && !S_AXI_rvalid) begin
+                // Ready to accept new address when no transaction in progress
+                S_AXI_arready <= 1'b1;
             end else begin
                 S_AXI_arready <= 1'b0;
             end
@@ -194,6 +198,10 @@ module Simple_Memory_Slave #(
     // ========================================================================
     // Read Data Channel
     // ========================================================================
+    // Internal signal to detect address handshake
+    wire ar_handshake;
+    assign ar_handshake = S_AXI_arvalid && S_AXI_arready;
+    
     always @(posedge ACLK) begin
         if (!ARESETN) begin
             S_AXI_rvalid <= 1'b0;
@@ -201,20 +209,27 @@ module Simple_Memory_Slave #(
             S_AXI_rresp <= 2'b00;
             S_AXI_rlast <= 1'b0;
             read_count <= 8'h0;
+            read_addr_received <= 1'b0;
         end else begin
-            if (read_addr_received && !S_AXI_rvalid) begin
-                // Provide read data
+            // Set read_addr_received when address handshake completes
+            if (ar_handshake) begin
+                read_addr_received <= 1'b1;
+                read_count <= 8'h0;
+            end
+            // Provide read data when address is received (next cycle after handshake)
+            else if (read_addr_received && !S_AXI_rvalid) begin
                 S_AXI_rvalid <= 1'b1;
                 if (read_word_addr < MEM_SIZE) begin
                     S_AXI_rdata <= memory[read_word_addr];
+                    S_AXI_rresp <= 2'b00;  // OKAY response
                 end else begin
                     S_AXI_rdata <= 32'h0;
                     S_AXI_rresp <= 2'b10;  // SLVERR - address out of range
                 end
-                S_AXI_rresp <= 2'b00;  // OKAY response
                 S_AXI_rlast <= 1'b1;   // Single transfer for now
-            end else if (S_AXI_rvalid && S_AXI_rready) begin
-                // Reset after read data is accepted
+            end 
+            // Reset after read data is accepted
+            else if (S_AXI_rvalid && S_AXI_rready) begin
                 S_AXI_rvalid <= 1'b0;
                 S_AXI_rlast <= 1'b0;
                 read_addr_received <= 1'b0;

@@ -3,50 +3,122 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'ACLK'
-Slack : -6.751
-TNS   : -1555.998
+Slack : -4.864
+TNS   : -938.483
 
-Type  : Slow Model Setup 'AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
-Slack : -1.447
-TNS   : -52.730
+Type  : Slow Model Setup 'CPU_ALU_Master:u_master0|CPU_Controller:u_controller|current_state.FETCH_INSTR'
+Slack : -2.085
+TNS   : -17.910
+
+Type  : Slow Model Setup 'CPU_ALU_Master:u_master1|CPU_Controller:u_controller|current_state.FETCH_INSTR'
+Slack : -1.773
+TNS   : -8.423
+
+Type  : Slow Model Setup 'AXI_Interconnect_Full:u_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
+Slack : -1.293
+TNS   : -8.679
+
+Type  : Slow Model Setup 'CPU_ALU_Master:u_master0|CPU_Controller:u_controller|current_state.STORE_RESULT'
+Slack : -0.309
+TNS   : -3.038
 
 Type  : Slow Model Hold 'ACLK'
-Slack : -2.526
-TNS   : -24.803
+Slack : -2.539
+TNS   : -127.948
 
-Type  : Slow Model Hold 'AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
-Slack : -2.040
-TNS   : -92.195
+Type  : Slow Model Hold 'AXI_Interconnect_Full:u_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
+Slack : -2.034
+TNS   : -14.340
+
+Type  : Slow Model Hold 'CPU_ALU_Master:u_master0|CPU_Controller:u_controller|current_state.STORE_RESULT'
+Slack : 0.283
+TNS   : 0.000
+
+Type  : Slow Model Hold 'CPU_ALU_Master:u_master0|CPU_Controller:u_controller|current_state.FETCH_INSTR'
+Slack : 0.328
+TNS   : 0.000
+
+Type  : Slow Model Hold 'CPU_ALU_Master:u_master1|CPU_Controller:u_controller|current_state.FETCH_INSTR'
+Slack : 0.589
+TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'ACLK'
 Slack : -1.627
-TNS   : -502.730
+TNS   : -643.288
 
-Type  : Slow Model Minimum Pulse Width 'AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
+Type  : Slow Model Minimum Pulse Width 'AXI_Interconnect_Full:u_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CPU_ALU_Master:u_master0|CPU_Controller:u_controller|current_state.FETCH_INSTR'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CPU_ALU_Master:u_master0|CPU_Controller:u_controller|current_state.STORE_RESULT'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CPU_ALU_Master:u_master1|CPU_Controller:u_controller|current_state.FETCH_INSTR'
 Slack : 0.500
 TNS   : 0.000
 
 Type  : Fast Model Setup 'ACLK'
-Slack : -3.006
-TNS   : -503.586
+Slack : -1.734
+TNS   : -293.333
 
-Type  : Fast Model Setup 'AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
-Slack : -0.508
-TNS   : -11.077
+Type  : Fast Model Setup 'CPU_ALU_Master:u_master0|CPU_Controller:u_controller|current_state.FETCH_INSTR'
+Slack : -0.575
+TNS   : -4.879
+
+Type  : Fast Model Setup 'CPU_ALU_Master:u_master1|CPU_Controller:u_controller|current_state.FETCH_INSTR'
+Slack : -0.571
+TNS   : -2.299
+
+Type  : Fast Model Setup 'AXI_Interconnect_Full:u_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
+Slack : -0.455
+TNS   : -2.894
+
+Type  : Fast Model Setup 'CPU_ALU_Master:u_master0|CPU_Controller:u_controller|current_state.STORE_RESULT'
+Slack : 0.003
+TNS   : 0.000
 
 Type  : Fast Model Hold 'ACLK'
-Slack : -1.568
-TNS   : -19.085
+Slack : -1.580
+TNS   : -125.186
 
-Type  : Fast Model Hold 'AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
-Slack : -1.207
-TNS   : -57.741
+Type  : Fast Model Hold 'AXI_Interconnect_Full:u_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
+Slack : -1.197
+TNS   : -8.726
+
+Type  : Fast Model Hold 'CPU_ALU_Master:u_master0|CPU_Controller:u_controller|current_state.FETCH_INSTR'
+Slack : 0.538
+TNS   : 0.000
+
+Type  : Fast Model Hold 'CPU_ALU_Master:u_master0|CPU_Controller:u_controller|current_state.STORE_RESULT'
+Slack : 0.587
+TNS   : 0.000
+
+Type  : Fast Model Hold 'CPU_ALU_Master:u_master1|CPU_Controller:u_controller|current_state.FETCH_INSTR'
+Slack : 0.702
+TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'ACLK'
 Slack : -1.627
-TNS   : -502.730
+TNS   : -643.288
 
-Type  : Fast Model Minimum Pulse Width 'AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
+Type  : Fast Model Minimum Pulse Width 'AXI_Interconnect_Full:u_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0]'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CPU_ALU_Master:u_master0|CPU_Controller:u_controller|current_state.FETCH_INSTR'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CPU_ALU_Master:u_master0|CPU_Controller:u_controller|current_state.STORE_RESULT'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CPU_ALU_Master:u_master1|CPU_Controller:u_controller|current_state.FETCH_INSTR'
 Slack : 0.500
 TNS   : 0.000
 

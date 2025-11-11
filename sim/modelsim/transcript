@@ -1,1369 +1,6 @@
 # Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
 # OpenFile {C:/Users/Nguyen Ha Hai/axi4-system-suite/sim/modelsim/AXI.mpf} 
 # Loading project AXI
-# Compile of Write_Arbiter_RR.v was successful.
-# Compile of Qos_Arbiter.v was successful.
-# Compile of Write_Arbiter.v was successful.
-# Compile of Queue.v was successful.
-# Compile of Resp_Queue.v was successful.
-# Compile of Controller.v was successful.
-# Compile of AW_Channel_Controller_Top.v was successful.
-# Compile of BR_Channel_Controller_Top.v was successful.
-# Compile of WD_Channel_Controller_Top.v was successful.
-# Compile of AXI_Interconnect.v was successful.
-# Compile of AXI_Interconnect_Full.v was successful.
-# Compile of Demux_1_2.v was successful.
-# Compile of Demux_1x2.v was successful.
-# Compile of Demux_1x2_en.v was successful.
-# Compile of AW_MUX_2_1.v was successful.
-# Compile of BReady_MUX_2_1.v was successful.
-# Compile of Mux_2x1.v was successful.
-# Compile of Mux_2x1_en.v was successful.
-# Compile of WD_MUX_2_1.v was successful.
-# Compile of Write_Addr_Channel_Dec.v was successful.
-# Compile of Write_Resp_Channel_Arb.v was successful.
-# Compile of Write_Resp_Channel_Dec.v was successful.
-# Compile of AW_HandShake_Checker.v was successful.
-# Compile of WD_HandShake.v was successful.
-# Compile of WR_HandShake.v was successful.
-# Compile of Faling_Edge_Detc.v was successful.
-# Compile of Raising_Edge_Det.v was successful.
-# Compile of Qos_Arbiter_tb.v was successful.
-# Compile of Write_Arbiter_RR_tb.v was successful.
-# Compile of Write_Arbiter_tb.v was successful.
-# Compile of Queue_tb.v was successful.
-# Compile of Resp_Queue_tb.v was successful.
-# Compile of Controller_tb.v was successful.
-# Compile of AW_Channel_Controller_Top_tb.v was successful.
-# Compile of BR_Channel_Controller_Top_tb.v was successful.
-# Compile of WD_Channel_Controller_Top_tb.v was successful.
-# Compile of AXI_Interconnect_tb.v was successful.
-# Compile of test_case1.v was successful.
-# Compile of test_case2.v was successful.
-# Compile of test_case3.v was successful.
-# Compile of test_case4.v was successful.
-# Compile of test_case5.v was successful.
-# Compile of Demux_1_2_tb.v was successful.
-# Compile of Demux_1x2_en_tb.v was successful.
-# Compile of Demux_1x2_tb.v was successful.
-# Compile of AW_MUX_2_1_tb.v was successful.
-# Compile of BReady_MUX_2_1_tb.v was successful.
-# Compile of Mux_2x1_en_tb.v was successful.
-# Compile of Mux_2x1_tb.v was successful.
-# Compile of WD_MUX_2_1_tb.v was successful.
-# Compile of Write_Addr_Channel_Dec_tb.v was successful.
-# Compile of Write_Resp_Channel_Dec_tb.v was successful.
-# Compile of AW_HandShake_Checker_tb.v was successful.
-# Compile of WD_HandShake_tb.v was successful.
-# Compile of WR_HandShake_tb.v was successful.
-# Compile of Faling_Edge_Detc_tb.v was successful.
-# Compile of Raising_Edge_Det_tb.v was successful.
-# Compile of Read_Arbiter.v was successful.
-# Compile of AR_Channel_Controller_Top.v was successful.
-# Compile of Demux_1x4.v was successful.
-# Compile of Mux_4x1.v was successful.
-# Compile of Read_Addr_Channel_Dec.v was successful.
-# 62 compiles, 0 failed with no errors. 
-do {C:/Users/Nguyen Ha Hai/axi4-system-suite/sim/modelsim/compile_and_sim.tcl}
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/sim/modelsim
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/tb
-# 
-# ============================================================================
-# ModelSim Compilation Script
-# ============================================================================
-# Script location: 
-# Project directory: C:/Users/Nguyen Ha Hai/axi4-system-suite/sim/modelsim
-# Source base directory: C:/Users/Nguyen Ha Hai/axi4-system-suite/src
-# Testbench directory: C:/Users/Nguyen Ha Hai/axi4-system-suite/tb
-# ============================================================================
-# 
-# Khoi tao work library...
-# 0
-# Work directory da ton tai, su dung library hien co...
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/wrapper
-# 
-# 1. Compiling SERV RISC-V Core files...
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_state.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_immdec.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_compdec.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_decode.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_alu.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_ctrl.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_csr.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_bufreg.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_bufreg2.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_aligner.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_mem_if.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_rf_if.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_rf_ram_if.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_rf_ram.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_rf_top.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_top.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_state
-# 
-# Top level modules:
-# 	serv_state
-#    Compiled: serv_state.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_immdec
-# 
-# Top level modules:
-# 	serv_immdec
-#    Compiled: serv_immdec.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_compdec
-# 
-# Top level modules:
-# 	serv_compdec
-#    Compiled: serv_compdec.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_decode
-# 
-# Top level modules:
-# 	serv_decode
-#    Compiled: serv_decode.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_alu
-# 
-# Top level modules:
-# 	serv_alu
-#    Compiled: serv_alu.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_ctrl
-# 
-# Top level modules:
-# 	serv_ctrl
-#    Compiled: serv_ctrl.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_csr
-# 
-# Top level modules:
-# 	serv_csr
-#    Compiled: serv_csr.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_bufreg
-# 
-# Top level modules:
-# 	serv_bufreg
-#    Compiled: serv_bufreg.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_bufreg2
-# 
-# Top level modules:
-# 	serv_bufreg2
-#    Compiled: serv_bufreg2.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_aligner
-# 
-# Top level modules:
-# 	serv_aligner
-#    Compiled: serv_aligner.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_mem_if
-# 
-# Top level modules:
-# 	serv_mem_if
-#    Compiled: serv_mem_if.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_rf_if
-# 
-# Top level modules:
-# 	serv_rf_if
-#    Compiled: serv_rf_if.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_rf_ram_if
-# 
-# Top level modules:
-# 	serv_rf_ram_if
-#    Compiled: serv_rf_ram_if.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_rf_ram
-# 
-# Top level modules:
-# 	serv_rf_ram
-#    Compiled: serv_rf_ram.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_rf_top
-# 
-# Top level modules:
-# 	serv_rf_top
-#    Compiled: serv_rf_top.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_top
-# 
-# Top level modules:
-# 	serv_top
-#    Compiled: serv_top.v
-# 
-# 2. Compiling AXI Interconnect files...
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/utils/Faling_Edge_Detc.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/utils/Raising_Edge_Det.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Faling_Edge_Detc
-# 
-# Top level modules:
-# 	Faling_Edge_Detc
-#    Compiled: Faling_Edge_Detc.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Raising_Edge_Det
-# 
-# Top level modules:
-# 	Raising_Edge_Det
-#    Compiled: Raising_Edge_Det.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/handshake/AW_HandShake_Checker.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/handshake/WD_HandShake.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/handshake/WR_HandShake.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module AW_HandShake_Checker
-# 
-# Top level modules:
-# 	AW_HandShake_Checker
-#    Compiled: AW_HandShake_Checker.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module WD_HandShake
-# 
-# Top level modules:
-# 	WD_HandShake
-#    Compiled: WD_HandShake.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module WR_HandShake
-# 
-# Top level modules:
-# 	WR_HandShake
-#    Compiled: WR_HandShake.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/AW_MUX_2_1.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/BReady_MUX_2_1.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/Mux_2x1.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/Mux_2x1_en.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/Mux_4x1.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/WD_MUX_2_1.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module AW_MUX_2_1
-# 
-# Top level modules:
-# 	AW_MUX_2_1
-#    Compiled: AW_MUX_2_1.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module BReady_MUX_2_1
-# 
-# Top level modules:
-# 	BReady_MUX_2_1
-#    Compiled: BReady_MUX_2_1.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Mux_2x1
-# 
-# Top level modules:
-# 	Mux_2x1
-#    Compiled: Mux_2x1.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Mux_2x1_en
-# 
-# Top level modules:
-# 	Mux_2x1_en
-#    Compiled: Mux_2x1_en.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Mux_4x1
-# 
-# Top level modules:
-# 	Mux_4x1
-#    Compiled: Mux_4x1.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module WD_MUX_2_1
-# 
-# Top level modules:
-# 	WD_MUX_2_1
-#    Compiled: WD_MUX_2_1.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/demux/Demux_1x2.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/demux/Demux_1x2_en.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/demux/Demux_1x4.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/demux/Demux_1_2.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Demux_1x2
-# 
-# Top level modules:
-# 	Demux_1x2
-#    Compiled: Demux_1x2.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Demux_1x2_en
-# 
-# Top level modules:
-# 	Demux_1x2_en
-#    Compiled: Demux_1x2_en.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Demux_1x4
-# 
-# Top level modules:
-# 	Demux_1x4
-#    Compiled: Demux_1x4.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Demux_1_2
-# 
-# Top level modules:
-# 	Demux_1_2
-#    Compiled: Demux_1_2.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/buffers/Queue.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/buffers/Resp_Queue.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Queue
-# 
-# Top level modules:
-# 	Queue
-#    Compiled: Queue.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Resp_Queue
-# 
-# Top level modules:
-# 	Resp_Queue
-#    Compiled: Resp_Queue.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/arbitration/Qos_Arbiter.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/arbitration/Read_Arbiter.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/arbitration/Write_Arbiter.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/arbitration/Write_Arbiter_RR.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Qos_Arbiter
-# 
-# Top level modules:
-# 	Qos_Arbiter
-#    Compiled: Qos_Arbiter.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Read_Arbiter
-# 
-# Top level modules:
-# 	Read_Arbiter
-#    Compiled: Read_Arbiter.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Write_Arbiter
-# 
-# Top level modules:
-# 	Write_Arbiter
-#    Compiled: Write_Arbiter.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Write_Arbiter_RR
-# 
-# Top level modules:
-# 	Write_Arbiter_RR
-#    Compiled: Write_Arbiter_RR.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/decoders/Read_Addr_Channel_Dec.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/decoders/Write_Addr_Channel_Dec.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Arb.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Dec.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Read_Addr_Channel_Dec
-# 
-# Top level modules:
-# 	Read_Addr_Channel_Dec
-#    Compiled: Read_Addr_Channel_Dec.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Write_Addr_Channel_Dec
-# 
-# Top level modules:
-# 	Write_Addr_Channel_Dec
-#    Compiled: Write_Addr_Channel_Dec.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Write_Resp_Channel_Arb
-# 
-# Top level modules:
-# 	Write_Resp_Channel_Arb
-#    Compiled: Write_Resp_Channel_Arb.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Write_Resp_Channel_Dec
-# 
-# Top level modules:
-# 	Write_Resp_Channel_Dec
-#    Compiled: Write_Resp_Channel_Dec.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/channel_controllers/write/AW_Channel_Controller_Top.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/channel_controllers/write/BR_Channel_Controller_Top.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/channel_controllers/write/WD_Channel_Controller_Top.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module AW_Channel_Controller_Top
-# 
-# Top level modules:
-# 	AW_Channel_Controller_Top
-#    Compiled: AW_Channel_Controller_Top.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module BR_Channel_Controller_Top
-# 
-# Top level modules:
-# 	BR_Channel_Controller_Top
-#    Compiled: BR_Channel_Controller_Top.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module WD_Channel_Controller_Top
-# 
-# Top level modules:
-# 	WD_Channel_Controller_Top
-#    Compiled: WD_Channel_Controller_Top.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/channel_controllers/read/AR_Channel_Controller_Top.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/channel_controllers/read/Controller.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module AR_Channel_Controller_Top
-# 
-# Top level modules:
-# 	AR_Channel_Controller_Top
-#    Compiled: AR_Channel_Controller_Top.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Controller
-# 
-# Top level modules:
-# 	Controller
-#    Compiled: Controller.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/core/AXI_Interconnect.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/core/AXI_Interconnect_2S_RDONLY.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/core/AXI_Interconnect_Full.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module AXI_Interconnect
-# 
-# Top level modules:
-# 	AXI_Interconnect
-#    Compiled: AXI_Interconnect.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module AXI_Interconnect_2S_RDONLY
-# 
-# Top level modules:
-# 	AXI_Interconnect_2S_RDONLY
-#    Compiled: AXI_Interconnect_2S_RDONLY.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module AXI_Interconnect_Full
-# 
-# Top level modules:
-# 	AXI_Interconnect_Full
-#    Compiled: AXI_Interconnect_Full.v
-# 
-# 3. Compiling Wrapper modules...
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/wrapper/wb2axi_read.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/wrapper/wb2axi_write.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/wrapper/serv_axi_wrapper.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/wrapper/serv_axi_system.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module wb2axi_read
-# 
-# Top level modules:
-# 	wb2axi_read
-#    Compiled: wb2axi_read.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module wb2axi_write
-# 
-# Top level modules:
-# 	wb2axi_write
-#    Compiled: wb2axi_write.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_axi_wrapper
-# 
-# Top level modules:
-# 	serv_axi_wrapper
-#    Compiled: serv_axi_wrapper.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_axi_system
-# 
-# Top level modules:
-# 	serv_axi_system
-#    Compiled: serv_axi_system.v
-# 
-# 4. Compiling Memory Slave models...
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/wrapper/axi_rom_slave.v
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/wrapper/axi_memory_slave.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module axi_rom_slave
-# 
-# Top level modules:
-# 	axi_rom_slave
-#    Compiled: axi_rom_slave.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module axi_memory_slave
-# 
-# Top level modules:
-# 	axi_memory_slave
-#    Compiled: axi_memory_slave.v
-# 
-# 5. Compiling Testbench...
-# C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/serv_axi_system_tb.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module serv_axi_system_tb
-# 
-# Top level modules:
-# 	serv_axi_system_tb
-#    Compiled: serv_axi_system_tb.v
-# 
-# ============================================================================
-# Compilation Complete!
-# ============================================================================
-# 
-# De chay simulation, su dung:
-#   vsim -t ps work.serv_axi_system_tb
-#   add wave -radix hex /serv_axi_system_tb/*
-#   run -all
-# ============================================================================
-# 
-add wave -radix hex /serv_axi_system_tb/*
-run -all
-# No Design Loaded!
-do {C:/Users/Nguyen Ha Hai/axi4-system-suite/sim/modelsim/run_simulation.tcl}
-# 
-# ============================================================================
-# Loading simulation...
-# ============================================================================
-# Note: Neu co loi 'Could not find', vui long chay compile truoc:
-#   source compile_and_sim.tcl
-# ============================================================================
-# 
-# vsim -voptargs=+acc -t ps work.serv_axi_system_tb 
-# Loading work.serv_axi_system_tb
-# Loading work.serv_axi_system
-# Loading work.serv_axi_wrapper
-# Loading work.serv_rf_top
-# Loading work.serv_rf_ram_if
-# Loading work.serv_rf_ram
-# Loading work.serv_top
-# Loading work.serv_state
-# Loading work.serv_decode
-# Loading work.serv_immdec
-# Loading work.serv_bufreg
-# Loading work.serv_bufreg2
-# Loading work.serv_ctrl
-# Loading work.serv_alu
-# Loading work.serv_rf_if
-# Loading work.serv_mem_if
-# Loading work.wb2axi_read
-# Loading work.wb2axi_write
-# Loading work.AXI_Interconnect_Full
-# Loading work.AW_Channel_Controller_Top
-# Loading work.Qos_Arbiter
-# Loading work.Faling_Edge_Detc
-# Loading work.Raising_Edge_Det
-# Loading work.AW_HandShake_Checker
-# Loading work.Demux_1_2
-# Loading work.AW_MUX_2_1
-# Loading work.Write_Addr_Channel_Dec
-# Loading work.WD_Channel_Controller_Top
-# Loading work.Queue
-# Loading work.WD_HandShake
-# Loading work.WD_MUX_2_1
-# Loading work.BR_Channel_Controller_Top
-# Loading work.WR_HandShake
-# Loading work.Write_Resp_Channel_Arb
-# Loading work.BReady_MUX_2_1
-# Loading work.Write_Resp_Channel_Dec
-# Loading work.AR_Channel_Controller_Top
-# Loading work.Read_Arbiter
-# Loading work.Mux_2x1
-# Loading work.Read_Addr_Channel_Dec
-# Loading work.Controller
-# Loading work.Demux_1x4
-# Loading work.Mux_4x1
-# Loading work.axi_rom_slave
-# Loading work.axi_memory_slave
-# Loading work.serv_csr
-# ** Warning: (vsim-8607) C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_csr.v(93): Non-positive replication multiplier inside concat. Replication will be ignored.
-# 
-# INFO: Memory initialized to 0x00000000 (no init file specified)
-# =========================================
-# SERV AXI System Testbench Started
-# =========================================
-# [455000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [455000] Instruction Fetch: Address = 0x00000000
-# [465000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [465000] Instruction Read: Data = 0x00000000
-# [855000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [855000] Instruction Fetch: Address = 0x00000000
-# [865000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [865000] Instruction Read: Data = 0x00000000
-# [1395000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [1395000] Instruction Fetch: Address = 0x00000000
-# [1405000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [1405000] Instruction Read: Data = 0x00000000
-# [1935000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [1935000] Instruction Fetch: Address = 0x00000000
-# [1945000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [1945000] Instruction Read: Data = 0x00000000
-# [2475000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [2475000] Instruction Fetch: Address = 0x00000000
-# [2485000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [2485000] Instruction Read: Data = 0x00000000
-# [3015000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [3015000] Instruction Fetch: Address = 0x00000000
-# [3025000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [3025000] Instruction Read: Data = 0x00000000
-# [3555000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [3555000] Instruction Fetch: Address = 0x00000000
-# [3565000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [3565000] Instruction Read: Data = 0x00000000
-# [4095000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [4095000] Instruction Fetch: Address = 0x00000000
-# [4105000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [4105000] Instruction Read: Data = 0x00000000
-# [4635000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [4635000] Instruction Fetch: Address = 0x00000000
-# [4645000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [4645000] Instruction Read: Data = 0x00000000
-# [5175000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [5175000] Instruction Fetch: Address = 0x00000000
-# [5185000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [5185000] Instruction Read: Data = 0x00000000
-# [5715000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [5715000] Instruction Fetch: Address = 0x00000000
-# [5725000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [5725000] Instruction Read: Data = 0x00000000
-# [6255000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [6255000] Instruction Fetch: Address = 0x00000000
-# [6265000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [6265000] Instruction Read: Data = 0x00000000
-# [6795000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [6795000] Instruction Fetch: Address = 0x00000000
-# [6805000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [6805000] Instruction Read: Data = 0x00000000
-# [7335000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [7335000] Instruction Fetch: Address = 0x00000000
-# [7345000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [7345000] Instruction Read: Data = 0x00000000
-# [7875000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [7875000] Instruction Fetch: Address = 0x00000000
-# [7885000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [7885000] Instruction Read: Data = 0x00000000
-# [8415000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [8415000] Instruction Fetch: Address = 0x00000000
-# [8425000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [8425000] Instruction Read: Data = 0x00000000
-# [8955000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [8955000] Instruction Fetch: Address = 0x00000000
-# [8965000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [8965000] Instruction Read: Data = 0x00000000
-# [9495000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [9495000] Instruction Fetch: Address = 0x00000000
-# [9505000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [9505000] Instruction Read: Data = 0x00000000
-# [10035000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [10035000] Instruction Fetch: Address = 0x00000000
-# [10045000] Memory Read: addr=0x00000000, mem_idx=0, data=0x00000000
-# [10045000] Instruction Read: Data = 0x00000000
-# ** Note: $finish    : C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/serv_axi_system_tb.v(101)
-#    Time: 10100 ns  Iteration: 0  Instance: /serv_axi_system_tb
-# 1
-# Break in Module serv_axi_system_tb at C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/serv_axi_system_tb.v line 101
-# Simulation Breakpoint: 1
-# Break in Module serv_axi_system_tb at C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/serv_axi_system_tb.v line 101
-# MACRO C:\Users\Nguyen Ha Hai\axi4-system-suite\sim\modelsim\run_simulation.tcl PAUSED at line 64
-# Compile of Write_Arbiter_RR.v was successful.
-# Compile of Qos_Arbiter.v was successful.
-# Compile of Write_Arbiter.v was successful.
-# Compile of Queue.v was successful.
-# Compile of Resp_Queue.v was successful.
-# Compile of Controller.v was successful.
-# Compile of AW_Channel_Controller_Top.v was successful.
-# Compile of BR_Channel_Controller_Top.v was successful.
-# Compile of WD_Channel_Controller_Top.v was successful.
-# Compile of AXI_Interconnect.v was successful.
-# Compile of AXI_Interconnect_Full.v was successful.
-# Compile of Demux_1_2.v was successful.
-# Compile of Demux_1x2.v was successful.
-# Compile of Demux_1x2_en.v was successful.
-# Compile of AW_MUX_2_1.v was successful.
-# Compile of BReady_MUX_2_1.v was successful.
-# Compile of Mux_2x1.v was successful.
-# Compile of Mux_2x1_en.v was successful.
-# Compile of WD_MUX_2_1.v was successful.
-# Compile of Write_Addr_Channel_Dec.v was successful.
-# Compile of Write_Resp_Channel_Arb.v was successful.
-# Compile of Write_Resp_Channel_Dec.v was successful.
-# Compile of AW_HandShake_Checker.v was successful.
-# Compile of WD_HandShake.v was successful.
-# Compile of WR_HandShake.v was successful.
-# Compile of Faling_Edge_Detc.v was successful.
-# Compile of Raising_Edge_Det.v was successful.
-# Compile of Qos_Arbiter_tb.v was successful.
-# Compile of Write_Arbiter_RR_tb.v was successful.
-# Compile of Write_Arbiter_tb.v was successful.
-# Compile of Queue_tb.v was successful.
-# Compile of Resp_Queue_tb.v was successful.
-# Compile of Controller_tb.v was successful.
-# Compile of AW_Channel_Controller_Top_tb.v was successful.
-# Compile of BR_Channel_Controller_Top_tb.v was successful.
-# Compile of WD_Channel_Controller_Top_tb.v was successful.
-# Compile of AXI_Interconnect_tb.v was successful.
-# Compile of test_case1.v was successful.
-# Compile of test_case2.v was successful.
-# Compile of test_case3.v was successful.
-# Compile of test_case4.v was successful.
-# Compile of test_case5.v was successful.
-# Compile of Demux_1_2_tb.v was successful.
-# Compile of Demux_1x2_en_tb.v was successful.
-# Compile of Demux_1x2_tb.v was successful.
-# Compile of AW_MUX_2_1_tb.v was successful.
-# Compile of BReady_MUX_2_1_tb.v was successful.
-# Compile of Mux_2x1_en_tb.v was successful.
-# Compile of Mux_2x1_tb.v was successful.
-# Compile of WD_MUX_2_1_tb.v was successful.
-# Compile of Write_Addr_Channel_Dec_tb.v was successful.
-# Compile of Write_Resp_Channel_Dec_tb.v was successful.
-# Compile of AW_HandShake_Checker_tb.v was successful.
-# Compile of WD_HandShake_tb.v was successful.
-# Compile of WR_HandShake_tb.v was successful.
-# Compile of Faling_Edge_Detc_tb.v was successful.
-# Compile of Raising_Edge_Det_tb.v was successful.
-# Compile of Read_Arbiter.v was successful.
-# Compile of AR_Channel_Controller_Top.v was successful.
-# Compile of Demux_1x4.v was successful.
-# Compile of Mux_4x1.v was successful.
-# Compile of Read_Addr_Channel_Dec.v was successful.
-# Compile of ALU_Core.v was successful.
-# Compile of CPU_ALU_Master.v was successful.
-# Compile of CPU_Controller.v was successful.
-# Compile of CPU_ALU_Master_tb.v was successful.
-# Compile of Simple_Memory_Slave.v was successful.
-# 67 compiles, 0 failed with no errors. 
-# Compile of alu_master_system.v was successful.
-# Compile of alu_master_system_tb.v was successful.
-# 2 compiles, 0 failed with no errors. 
-vsim -voptargs=+acc -t ps work.alu_master_system_tb
-# vsim -voptargs=+acc -t ps work.alu_master_system_tb 
-# Loading work.alu_master_system_tb
-# Loading work.alu_master_system
-# Loading work.CPU_ALU_Master
-# Loading work.ALU_Core
-# Loading work.CPU_Controller
-# Loading work.AXI_Interconnect_Full
-# Loading work.AW_Channel_Controller_Top
-# Loading work.Qos_Arbiter
-# Loading work.Faling_Edge_Detc
-# Loading work.Raising_Edge_Det
-# Loading work.AW_HandShake_Checker
-# Loading work.Demux_1_2
-# Loading work.AW_MUX_2_1
-# Loading work.Write_Addr_Channel_Dec
-# Loading work.WD_Channel_Controller_Top
-# Loading work.Queue
-# Loading work.WD_HandShake
-# Loading work.WD_MUX_2_1
-# Loading work.BR_Channel_Controller_Top
-# Loading work.WR_HandShake
-# Loading work.Write_Resp_Channel_Arb
-# Loading work.BReady_MUX_2_1
-# Loading work.Write_Resp_Channel_Dec
-# Loading work.AR_Channel_Controller_Top
-# Loading work.Read_Arbiter
-# Loading work.Mux_2x1
-# Loading work.Read_Addr_Channel_Dec
-# Loading work.Controller
-# Loading work.Demux_1x4
-# Loading work.Mux_4x1
-# Loading work.Simple_Memory_Slave
-# ** Error: (vsim-3053) C:/Users/Nguyen Ha Hai/axi4-system-suite/src/wrapper/alu_master_system.v(347): Illegal output or inout port connection for "port 'M_AXI_awregion'".
-# 
-#         Region: /alu_master_system_tb/dut/u_master0
-# ** Error: (vsim-3053) C:/Users/Nguyen Ha Hai/axi4-system-suite/src/wrapper/alu_master_system.v(401): Illegal output or inout port connection for "port 'M_AXI_awregion'".
-# 
-#         Region: /alu_master_system_tb/dut/u_master1
-# Error loading design
-# Compile of Write_Arbiter_RR.v was successful.
-# Compile of Qos_Arbiter.v was successful.
-# Compile of Write_Arbiter.v was successful.
-# Compile of Queue.v was successful.
-# Compile of Resp_Queue.v was successful.
-# Compile of Controller.v was successful.
-# Compile of AW_Channel_Controller_Top.v was successful.
-# Compile of BR_Channel_Controller_Top.v was successful.
-# Compile of WD_Channel_Controller_Top.v was successful.
-# Compile of AXI_Interconnect.v was successful.
-# Compile of AXI_Interconnect_Full.v was successful.
-# Compile of Demux_1_2.v was successful.
-# Compile of Demux_1x2.v was successful.
-# Compile of Demux_1x2_en.v was successful.
-# Compile of AW_MUX_2_1.v was successful.
-# Compile of BReady_MUX_2_1.v was successful.
-# Compile of Mux_2x1.v was successful.
-# Compile of Mux_2x1_en.v was successful.
-# Compile of WD_MUX_2_1.v was successful.
-# Compile of Write_Addr_Channel_Dec.v was successful.
-# Compile of Write_Resp_Channel_Arb.v was successful.
-# Compile of Write_Resp_Channel_Dec.v was successful.
-# Compile of AW_HandShake_Checker.v was successful.
-# Compile of WD_HandShake.v was successful.
-# Compile of WR_HandShake.v was successful.
-# Compile of Faling_Edge_Detc.v was successful.
-# Compile of Raising_Edge_Det.v was successful.
-# Compile of Qos_Arbiter_tb.v was successful.
-# Compile of Write_Arbiter_RR_tb.v was successful.
-# Compile of Write_Arbiter_tb.v was successful.
-# Compile of Queue_tb.v was successful.
-# Compile of Resp_Queue_tb.v was successful.
-# Compile of Controller_tb.v was successful.
-# Compile of AW_Channel_Controller_Top_tb.v was successful.
-# Compile of BR_Channel_Controller_Top_tb.v was successful.
-# Compile of WD_Channel_Controller_Top_tb.v was successful.
-# Compile of AXI_Interconnect_tb.v was successful.
-# Compile of test_case1.v was successful.
-# Compile of test_case2.v was successful.
-# Compile of test_case3.v was successful.
-# Compile of test_case4.v was successful.
-# Compile of test_case5.v was successful.
-# Compile of Demux_1_2_tb.v was successful.
-# Compile of Demux_1x2_en_tb.v was successful.
-# Compile of Demux_1x2_tb.v was successful.
-# Compile of AW_MUX_2_1_tb.v was successful.
-# Compile of BReady_MUX_2_1_tb.v was successful.
-# Compile of Mux_2x1_en_tb.v was successful.
-# Compile of Mux_2x1_tb.v was successful.
-# Compile of WD_MUX_2_1_tb.v was successful.
-# Compile of Write_Addr_Channel_Dec_tb.v was successful.
-# Compile of Write_Resp_Channel_Dec_tb.v was successful.
-# Compile of AW_HandShake_Checker_tb.v was successful.
-# Compile of WD_HandShake_tb.v was successful.
-# Compile of WR_HandShake_tb.v was successful.
-# Compile of Faling_Edge_Detc_tb.v was successful.
-# Compile of Raising_Edge_Det_tb.v was successful.
-# Compile of Read_Arbiter.v was successful.
-# Compile of AR_Channel_Controller_Top.v was successful.
-# Compile of Demux_1x4.v was successful.
-# Compile of Mux_4x1.v was successful.
-# Compile of Read_Addr_Channel_Dec.v was successful.
-# Compile of ALU_Core.v was successful.
-# Compile of CPU_ALU_Master.v was successful.
-# Compile of CPU_Controller.v was successful.
-# Compile of CPU_ALU_Master_tb.v was successful.
-# Compile of Simple_Memory_Slave.v was successful.
-# Compile of alu_master_system.v was successful.
-# Compile of alu_master_system_tb.v was successful.
-# 69 compiles, 0 failed with no errors. 
-vsim -voptargs=+acc -t ps work.alu_master_system_tb
-# vsim -voptargs=+acc -t ps work.alu_master_system_tb 
-# Loading work.alu_master_system_tb
-# Loading work.alu_master_system
-# Loading work.CPU_ALU_Master
-# Loading work.ALU_Core
-# Loading work.CPU_Controller
-# Loading work.AXI_Interconnect_Full
-# Loading work.AW_Channel_Controller_Top
-# Loading work.Qos_Arbiter
-# Loading work.Faling_Edge_Detc
-# Loading work.Raising_Edge_Det
-# Loading work.AW_HandShake_Checker
-# Loading work.Demux_1_2
-# Loading work.AW_MUX_2_1
-# Loading work.Write_Addr_Channel_Dec
-# Loading work.WD_Channel_Controller_Top
-# Loading work.Queue
-# Loading work.WD_HandShake
-# Loading work.WD_MUX_2_1
-# Loading work.BR_Channel_Controller_Top
-# Loading work.WR_HandShake
-# Loading work.Write_Resp_Channel_Arb
-# Loading work.BReady_MUX_2_1
-# Loading work.Write_Resp_Channel_Dec
-# Loading work.AR_Channel_Controller_Top
-# Loading work.Read_Arbiter
-# Loading work.Mux_2x1
-# Loading work.Read_Addr_Channel_Dec
-# Loading work.Controller
-# Loading work.Demux_1x4
-# Loading work.Mux_4x1
-# Loading work.Simple_Memory_Slave
-add wave sim:/alu_master_system_tb/*
-run -all
-# ========================================
-# ALU Master System Testbench Started
-# ========================================
-# [150000] Reset released
-# 
-# [200000] Test 1: Master 0 accessing Slave 0
-# 
-# [1000000000] ERROR: Testbench timeout!
-# ** Note: $finish    : C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(156)
-#    Time: 1 ms  Iteration: 0  Instance: /alu_master_system_tb
-# 1
-# Break in Module alu_master_system_tb at C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v line 156
-# Compile of alu_master_system_tb.v failed with 2 errors.
-# Compile of alu_master_system_tb.v was successful.
-vsim -voptargs=+acc -t ps work.alu_master_system_tb
-# vsim -voptargs=+acc -t ps work.alu_master_system_tb 
-# Loading work.alu_master_system_tb
-# Loading work.alu_master_system
-# Loading work.CPU_ALU_Master
-# Loading work.ALU_Core
-# Loading work.CPU_Controller
-# Loading work.AXI_Interconnect_Full
-# Loading work.AW_Channel_Controller_Top
-# Loading work.Qos_Arbiter
-# Loading work.Faling_Edge_Detc
-# Loading work.Raising_Edge_Det
-# Loading work.AW_HandShake_Checker
-# Loading work.Demux_1_2
-# Loading work.AW_MUX_2_1
-# Loading work.Write_Addr_Channel_Dec
-# Loading work.WD_Channel_Controller_Top
-# Loading work.Queue
-# Loading work.WD_HandShake
-# Loading work.WD_MUX_2_1
-# Loading work.BR_Channel_Controller_Top
-# Loading work.WR_HandShake
-# Loading work.Write_Resp_Channel_Arb
-# Loading work.BReady_MUX_2_1
-# Loading work.Write_Resp_Channel_Dec
-# Loading work.AR_Channel_Controller_Top
-# Loading work.Read_Arbiter
-# Loading work.Mux_2x1
-# Loading work.Read_Addr_Channel_Dec
-# Loading work.Controller
-# Loading work.Demux_1x4
-# Loading work.Mux_4x1
-# Loading work.Simple_Memory_Slave
-# Compile of alu_master_system_tb.v was successful.
-vsim -voptargs=+acc -t ps work.alu_master_system_tb
-# vsim -voptargs=+acc -t ps work.alu_master_system_tb 
-# Loading work.alu_master_system_tb
-# Loading work.alu_master_system
-# Loading work.CPU_ALU_Master
-# Loading work.ALU_Core
-# Loading work.CPU_Controller
-# Loading work.AXI_Interconnect_Full
-# Loading work.AW_Channel_Controller_Top
-# Loading work.Qos_Arbiter
-# Loading work.Faling_Edge_Detc
-# Loading work.Raising_Edge_Det
-# Loading work.AW_HandShake_Checker
-# Loading work.Demux_1_2
-# Loading work.AW_MUX_2_1
-# Loading work.Write_Addr_Channel_Dec
-# Loading work.WD_Channel_Controller_Top
-# Loading work.Queue
-# Loading work.WD_HandShake
-# Loading work.WD_MUX_2_1
-# Loading work.BR_Channel_Controller_Top
-# Loading work.WR_HandShake
-# Loading work.Write_Resp_Channel_Arb
-# Loading work.BReady_MUX_2_1
-# Loading work.Write_Resp_Channel_Dec
-# Loading work.AR_Channel_Controller_Top
-# Loading work.Read_Arbiter
-# Loading work.Mux_2x1
-# Loading work.Read_Addr_Channel_Dec
-# Loading work.Controller
-# Loading work.Demux_1x4
-# Loading work.Mux_4x1
-# Loading work.Simple_Memory_Slave
-add wave sim:/alu_master_system_tb/*
-run -all
-# ========================================
-# ALU Master System Testbench Started
-# ========================================
-# [150000] Reset released
-# 
-# [200000] Test 1: Master 0 accessing Slave 0
-# 
-# [1000000000] ERROR: Testbench timeout!
-# ** Note: $finish    : C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(156)
-#    Time: 1 ms  Iteration: 0  Instance: /alu_master_system_tb
-# 1
-# Break in Module alu_master_system_tb at C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v line 156
-# Compile of alu_master_system.v was successful.
-# Compile of alu_master_system_tb.v was successful.
-# 2 compiles, 0 failed with no errors. 
-vsim -voptargs=+acc -t ps work.alu_master_system_tb
-# vsim -voptargs=+acc -t ps work.alu_master_system_tb 
-# Loading work.alu_master_system_tb
-# Loading work.alu_master_system
-# Loading work.CPU_ALU_Master
-# Loading work.ALU_Core
-# Loading work.CPU_Controller
-# Loading work.AXI_Interconnect_Full
-# Loading work.AW_Channel_Controller_Top
-# Loading work.Qos_Arbiter
-# Loading work.Faling_Edge_Detc
-# Loading work.Raising_Edge_Det
-# Loading work.AW_HandShake_Checker
-# Loading work.Demux_1_2
-# Loading work.AW_MUX_2_1
-# Loading work.Write_Addr_Channel_Dec
-# Loading work.WD_Channel_Controller_Top
-# Loading work.Queue
-# Loading work.WD_HandShake
-# Loading work.WD_MUX_2_1
-# Loading work.BR_Channel_Controller_Top
-# Loading work.WR_HandShake
-# Loading work.Write_Resp_Channel_Arb
-# Loading work.BReady_MUX_2_1
-# Loading work.Write_Resp_Channel_Dec
-# Loading work.AR_Channel_Controller_Top
-# Loading work.Read_Arbiter
-# Loading work.Mux_2x1
-# Loading work.Read_Addr_Channel_Dec
-# Loading work.Controller
-# Loading work.Demux_1x4
-# Loading work.Mux_4x1
-# Loading work.Simple_Memory_Slave
-# ** Error: (vsim-3389) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(87): Port 'debug_slave0_araddr' not found in the connected module (9th connection).
-# 
-#         Region: /alu_master_system_tb/dut
-# ** Error: (vsim-3389) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(87): Port 'debug_slave0_arvalid' not found in the connected module (10th connection).
-# 
-#         Region: /alu_master_system_tb/dut
-# ** Error: (vsim-3389) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(87): Port 'debug_slave0_arready' not found in the connected module (11th connection).
-# 
-#         Region: /alu_master_system_tb/dut
-# ** Error: (vsim-3389) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(87): Port 'debug_slave0_rdata' not found in the connected module (12th connection).
-# 
-#         Region: /alu_master_system_tb/dut
-# ** Error: (vsim-3389) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(87): Port 'debug_slave0_rvalid' not found in the connected module (13th connection).
-# 
-#         Region: /alu_master_system_tb/dut
-# ** Error: (vsim-3389) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(87): Port 'debug_slave1_araddr' not found in the connected module (14th connection).
-# 
-#         Region: /alu_master_system_tb/dut
-# ** Error: (vsim-3389) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(87): Port 'debug_slave1_arvalid' not found in the connected module (15th connection).
-# 
-#         Region: /alu_master_system_tb/dut
-# ** Error: (vsim-3389) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(87): Port 'debug_slave1_arready' not found in the connected module (16th connection).
-# 
-#         Region: /alu_master_system_tb/dut
-# ** Error: (vsim-3389) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(87): Port 'debug_slave2_araddr' not found in the connected module (17th connection).
-# 
-#         Region: /alu_master_system_tb/dut
-# ** Error: (vsim-3389) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(87): Port 'debug_slave2_arvalid' not found in the connected module (18th connection).
-# 
-#         Region: /alu_master_system_tb/dut
-# ** Error: (vsim-3389) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(87): Port 'debug_slave2_arready' not found in the connected module (19th connection).
-# 
-#         Region: /alu_master_system_tb/dut
-# ** Error: (vsim-3389) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(87): Port 'debug_slave3_araddr' not found in the connected module (20th connection).
-# 
-#         Region: /alu_master_system_tb/dut
-# ** Error: (vsim-3389) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(87): Port 'debug_slave3_arvalid' not found in the connected module (21st connection).
-# 
-#         Region: /alu_master_system_tb/dut
-# ** Error: (vsim-3389) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(87): Port 'debug_slave3_arready' not found in the connected module (22nd connection).
-# 
-#         Region: /alu_master_system_tb/dut
-# ** Fatal: (vsim-3365) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(87): Too many port connections. Expected 8, found 22.
-#    Time: 0 ps  Iteration: 0  Instance: /alu_master_system_tb/dut File: C:/Users/Nguyen Ha Hai/axi4-system-suite/src/wrapper/alu_master_system.v
-# FATAL ERROR while loading design
-# Error loading design
-# Compile of alu_master_system.v was successful.
-# Compile of alu_master_system_tb.v was successful.
-# 2 compiles, 0 failed with no errors. 
-vsim -voptargs=+acc -t ps work.alu_master_system_tb
-# vsim -voptargs=+acc -t ps work.alu_master_system_tb 
-# Loading work.alu_master_system_tb
-# Loading work.alu_master_system
-# Loading work.CPU_ALU_Master
-# Loading work.ALU_Core
-# Loading work.CPU_Controller
-# Loading work.AXI_Interconnect_Full
-# Loading work.AW_Channel_Controller_Top
-# Loading work.Qos_Arbiter
-# Loading work.Faling_Edge_Detc
-# Loading work.Raising_Edge_Det
-# Loading work.AW_HandShake_Checker
-# Loading work.Demux_1_2
-# Loading work.AW_MUX_2_1
-# Loading work.Write_Addr_Channel_Dec
-# Loading work.WD_Channel_Controller_Top
-# Loading work.Queue
-# Loading work.WD_HandShake
-# Loading work.WD_MUX_2_1
-# Loading work.BR_Channel_Controller_Top
-# Loading work.WR_HandShake
-# Loading work.Write_Resp_Channel_Arb
-# Loading work.BReady_MUX_2_1
-# Loading work.Write_Resp_Channel_Dec
-# Loading work.AR_Channel_Controller_Top
-# Loading work.Read_Arbiter
-# Loading work.Mux_2x1
-# Loading work.Read_Addr_Channel_Dec
-# Loading work.Controller
-# Loading work.Demux_1x4
-# Loading work.Mux_4x1
-# Loading work.Simple_Memory_Slave
-add wave sim:/alu_master_system_tb/*
-run -all
-# ========================================
-# ALU Master System Testbench Started
-# ========================================
-# [150000] Reset released
-# 
-# [200000] Test 1: Master 0 accessing Slave 0
-# 
-# [1000000000] ERROR: Testbench timeout!
-# ** Note: $finish    : C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(156)
-#    Time: 1 ms  Iteration: 0  Instance: /alu_master_system_tb
-# 1
-# Break in Module alu_master_system_tb at C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v line 156
-# Compile of Write_Arbiter_RR.v was successful.
-# Compile of Qos_Arbiter.v was successful.
-# Compile of Write_Arbiter.v was successful.
-# Compile of Queue.v was successful.
-# Compile of Resp_Queue.v was successful.
-# Compile of Controller.v was successful.
-# Compile of AW_Channel_Controller_Top.v was successful.
-# Compile of BR_Channel_Controller_Top.v was successful.
-# Compile of WD_Channel_Controller_Top.v was successful.
-# Compile of AXI_Interconnect.v was successful.
-# Compile of AXI_Interconnect_Full.v was successful.
-# Compile of Demux_1_2.v was successful.
-# Compile of Demux_1x2.v was successful.
-# Compile of Demux_1x2_en.v was successful.
-# Compile of AW_MUX_2_1.v was successful.
-# Compile of BReady_MUX_2_1.v was successful.
-# Compile of Mux_2x1.v was successful.
-# Compile of Mux_2x1_en.v was successful.
-# Compile of WD_MUX_2_1.v was successful.
-# Compile of Write_Addr_Channel_Dec.v was successful.
-# Compile of Write_Resp_Channel_Arb.v was successful.
-# Compile of Write_Resp_Channel_Dec.v was successful.
-# Compile of AW_HandShake_Checker.v was successful.
-# Compile of WD_HandShake.v was successful.
-# Compile of WR_HandShake.v was successful.
-# Compile of Faling_Edge_Detc.v was successful.
-# Compile of Raising_Edge_Det.v was successful.
-# Compile of Qos_Arbiter_tb.v was successful.
-# Compile of Write_Arbiter_RR_tb.v was successful.
-# Compile of Write_Arbiter_tb.v was successful.
-# Compile of Queue_tb.v was successful.
-# Compile of Resp_Queue_tb.v was successful.
-# Compile of Controller_tb.v was successful.
-# Compile of AW_Channel_Controller_Top_tb.v was successful.
-# Compile of BR_Channel_Controller_Top_tb.v was successful.
-# Compile of WD_Channel_Controller_Top_tb.v was successful.
-# Compile of AXI_Interconnect_tb.v was successful.
-# Compile of test_case1.v was successful.
-# Compile of test_case2.v was successful.
-# Compile of test_case3.v was successful.
-# Compile of test_case4.v was successful.
-# Compile of test_case5.v was successful.
-# Compile of Demux_1_2_tb.v was successful.
-# Compile of Demux_1x2_en_tb.v was successful.
-# Compile of Demux_1x2_tb.v was successful.
-# Compile of AW_MUX_2_1_tb.v was successful.
-# Compile of BReady_MUX_2_1_tb.v was successful.
-# Compile of Mux_2x1_en_tb.v was successful.
-# Compile of Mux_2x1_tb.v was successful.
-# Compile of WD_MUX_2_1_tb.v was successful.
-# Compile of Write_Addr_Channel_Dec_tb.v was successful.
-# Compile of Write_Resp_Channel_Dec_tb.v was successful.
-# Compile of AW_HandShake_Checker_tb.v was successful.
-# Compile of WD_HandShake_tb.v was successful.
-# Compile of WR_HandShake_tb.v was successful.
-# Compile of Faling_Edge_Detc_tb.v was successful.
-# Compile of Raising_Edge_Det_tb.v was successful.
-# Compile of Read_Arbiter.v was successful.
-# Compile of AR_Channel_Controller_Top.v was successful.
-# Compile of Demux_1x4.v was successful.
-# Compile of Mux_4x1.v was successful.
-# Compile of Read_Addr_Channel_Dec.v was successful.
-# Compile of ALU_Core.v was successful.
-# Compile of CPU_ALU_Master.v was successful.
-# Compile of CPU_Controller.v was successful.
-# Compile of CPU_ALU_Master_tb.v was successful.
-# Compile of Simple_Memory_Slave.v was successful.
-# Compile of alu_master_system.v was successful.
-# Compile of alu_master_system_tb.v was successful.
-# Compile of Simple_AXI_Master_Test.v was successful.
-# 70 compiles, 0 failed with no errors. 
-vsim -voptargs=+acc -t ps work.alu_master_system_tb
-# vsim -voptargs=+acc -t ps work.alu_master_system_tb 
-# Loading work.alu_master_system_tb
-# Loading work.alu_master_system
-# Loading work.Simple_AXI_Master_Test
-# Loading work.AXI_Interconnect_Full
-# Loading work.AW_Channel_Controller_Top
-# Loading work.Qos_Arbiter
-# Loading work.Faling_Edge_Detc
-# Loading work.Raising_Edge_Det
-# Loading work.AW_HandShake_Checker
-# Loading work.Demux_1_2
-# Loading work.AW_MUX_2_1
-# Loading work.Write_Addr_Channel_Dec
-# Loading work.WD_Channel_Controller_Top
-# Loading work.Queue
-# Loading work.WD_HandShake
-# Loading work.WD_MUX_2_1
-# Loading work.BR_Channel_Controller_Top
-# Loading work.WR_HandShake
-# Loading work.Write_Resp_Channel_Arb
-# Loading work.BReady_MUX_2_1
-# Loading work.Write_Resp_Channel_Dec
-# Loading work.AR_Channel_Controller_Top
-# Loading work.Read_Arbiter
-# Loading work.Mux_2x1
-# Loading work.Read_Addr_Channel_Dec
-# Loading work.Controller
-# Loading work.Demux_1x4
-# Loading work.Mux_4x1
-# Loading work.Simple_Memory_Slave
-# ** Warning: (vsim-3017) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(56): [TFMPC] - Too few port connections. Expected 10, found 8.
-# 
-#         Region: /alu_master_system_tb/dut
-# ** Warning: (vsim-3722) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(56): [TFMPC] - Missing connection for port 'master0_base_address'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(56): [TFMPC] - Missing connection for port 'master1_base_address'.
-# 
-# Compile of alu_master_system.v was successful.
-add wave sim:/alu_master_system_tb/*
-run -all
-# ========================================
-# ALU Master System Testbench Started
-# ========================================
-# [150000] Reset released
-# 
-# [200000] Test 1: Master 0 accessing Slave 0
-# 
-# [1000000000] ERROR: Testbench timeout!
-# ** Note: $finish    : C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(156)
-#    Time: 1 ms  Iteration: 0  Instance: /alu_master_system_tb
-# 1
-# Break in Module alu_master_system_tb at C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v line 156
-vsim -voptargs=+acc -t ps work.alu_master_system_tb
-# vsim -voptargs=+acc -t ps work.alu_master_system_tb 
-# Loading work.alu_master_system_tb
-# Loading work.alu_master_system
-# Loading work.CPU_ALU_Master
-# Loading work.ALU_Core
-# Loading work.CPU_Controller
-# Loading work.AXI_Interconnect_Full
-# Loading work.AW_Channel_Controller_Top
-# Loading work.Qos_Arbiter
-# Loading work.Faling_Edge_Detc
-# Loading work.Raising_Edge_Det
-# Loading work.AW_HandShake_Checker
-# Loading work.Demux_1_2
-# Loading work.AW_MUX_2_1
-# Loading work.Write_Addr_Channel_Dec
-# Loading work.WD_Channel_Controller_Top
-# Loading work.Queue
-# Loading work.WD_HandShake
-# Loading work.WD_MUX_2_1
-# Loading work.BR_Channel_Controller_Top
-# Loading work.WR_HandShake
-# Loading work.Write_Resp_Channel_Arb
-# Loading work.BReady_MUX_2_1
-# Loading work.Write_Resp_Channel_Dec
-# Loading work.AR_Channel_Controller_Top
-# Loading work.Read_Arbiter
-# Loading work.Mux_2x1
-# Loading work.Read_Addr_Channel_Dec
-# Loading work.Controller
-# Loading work.Demux_1x4
-# Loading work.Mux_4x1
-# Loading work.Simple_Memory_Slave
-add wave sim:/alu_master_system_tb/*
-run -all
-# ========================================
-# ALU Master System Testbench Started
-# ========================================
-# [150000] Reset released
-# 
-# [200000] Test 1: Master 0 accessing Slave 0
-# 
-# [1000000000] ERROR: Testbench timeout!
-# ** Note: $finish    : C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(156)
-#    Time: 1 ms  Iteration: 0  Instance: /alu_master_system_tb
-# 1
-# Break in Module alu_master_system_tb at C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v line 156
-do {C:/Users/Nguyen Ha Hai/axi4-system-suite/sim/modelsim/run_test.tcl}
-# Modifying C:/Users/Nguyen Ha Hai/axi4-system-suite/sim/modelsim/AXI.mpf
-# ../..
-# ../../src
-# ../../Master_ALU
-# ../../Slave_Memory
-# ../../tb
-# ==========================================
-# Compiling Design Files...
-# ==========================================
-# Compiling Simple AXI Master Test...
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Simple_AXI_Master_Test
-# ** Note: (vlog-143) Recognized 1 FSM in module "Simple_AXI_Master_Test(verilog)".
-# 
-# 
-# Top level modules:
-# 	Simple_AXI_Master_Test
-# Compiling Slave Memory...
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Simple_Memory_Slave
-# 
-# Top level modules:
-# 	Simple_Memory_Slave
-# Compiling AXI Interconnect...
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# ** Error: (vlog-7) Failed to open design unit file "../../src/axi_interconnect/rtl/core/AXI4_Slave_Routing_Registers.v" in read mode.
-# 
-# No such file or directory. (errno = ENOENT)
-# ** Error: C:/altera/13.0sp1/modelsim_ase/win32aloem/vlog failed.
-# Error in macro C:\Users\Nguyen Ha Hai\axi4-system-suite\sim\modelsim\run_test.tcl line 34
-# C:/altera/13.0sp1/modelsim_ase/win32aloem/vlog failed.
-#     while executing
-# "vlog +acc -work work "$src_path/axi_interconnect/rtl/core/AXI4_Slave_Routing_Registers.v""
-# Compile of Write_Arbiter_RR.v was successful.
-# Compile of Qos_Arbiter.v was successful.
-# Compile of Write_Arbiter.v was successful.
-# Compile of Queue.v was successful.
-# Compile of Resp_Queue.v was successful.
-# Compile of Controller.v was successful.
-# Compile of AW_Channel_Controller_Top.v was successful.
-# Compile of BR_Channel_Controller_Top.v was successful.
-# Compile of WD_Channel_Controller_Top.v was successful.
-# Compile of AXI_Interconnect.v was successful.
-# Compile of AXI_Interconnect_Full.v was successful.
-# Compile of Demux_1_2.v was successful.
-# Compile of Demux_1x2.v was successful.
-# Compile of Demux_1x2_en.v was successful.
-# Compile of AW_MUX_2_1.v was successful.
-# Compile of BReady_MUX_2_1.v was successful.
-# Compile of Mux_2x1.v was successful.
-# Compile of Mux_2x1_en.v was successful.
-# Compile of WD_MUX_2_1.v was successful.
-# Compile of Write_Addr_Channel_Dec.v was successful.
-# Compile of Write_Resp_Channel_Arb.v was successful.
-# Compile of Write_Resp_Channel_Dec.v was successful.
-# Compile of AW_HandShake_Checker.v was successful.
-# Compile of WD_HandShake.v was successful.
-# Compile of WR_HandShake.v was successful.
-# Compile of Faling_Edge_Detc.v was successful.
-# Compile of Raising_Edge_Det.v was successful.
-# Compile of Qos_Arbiter_tb.v was successful.
-# Compile of Write_Arbiter_RR_tb.v was successful.
-# Compile of Write_Arbiter_tb.v was successful.
-# Compile of Queue_tb.v was successful.
-# Compile of Resp_Queue_tb.v was successful.
-# Compile of Controller_tb.v was successful.
-# Compile of AW_Channel_Controller_Top_tb.v was successful.
-# Compile of BR_Channel_Controller_Top_tb.v was successful.
-# Compile of WD_Channel_Controller_Top_tb.v was successful.
-# Compile of AXI_Interconnect_tb.v was successful.
-# Compile of test_case1.v was successful.
-# Compile of test_case2.v was successful.
-# Compile of test_case3.v was successful.
-# Compile of test_case4.v was successful.
-# Compile of test_case5.v was successful.
-# Compile of Demux_1_2_tb.v was successful.
-# Compile of Demux_1x2_en_tb.v was successful.
-# Compile of Demux_1x2_tb.v was successful.
-# Compile of AW_MUX_2_1_tb.v was successful.
-# Compile of BReady_MUX_2_1_tb.v was successful.
-# Compile of Mux_2x1_en_tb.v was successful.
-# Compile of Mux_2x1_tb.v was successful.
-# Compile of WD_MUX_2_1_tb.v was successful.
-# Compile of Write_Addr_Channel_Dec_tb.v was successful.
-# Compile of Write_Resp_Channel_Dec_tb.v was successful.
-# Compile of AW_HandShake_Checker_tb.v was successful.
-# Compile of WD_HandShake_tb.v was successful.
-# Compile of WR_HandShake_tb.v was successful.
-# Compile of Faling_Edge_Detc_tb.v was successful.
-# Compile of Raising_Edge_Det_tb.v was successful.
-# Compile of Read_Arbiter.v was successful.
-# Compile of AR_Channel_Controller_Top.v was successful.
-# Compile of Demux_1x4.v was successful.
-# Compile of Mux_4x1.v was successful.
-# Compile of Read_Addr_Channel_Dec.v was successful.
-# Compile of ALU_Core.v was successful.
-# Compile of CPU_ALU_Master.v was successful.
-# Compile of CPU_Controller.v was successful.
-# Compile of CPU_ALU_Master_tb.v was successful.
-# Compile of Simple_Memory_Slave.v was successful.
-# Compile of alu_master_system.v was successful.
-# Compile of alu_master_system_tb.v was successful.
-# Compile of Simple_AXI_Master_Test.v was successful.
-# 70 compiles, 0 failed with no errors. 
 do {C:/Users/Nguyen Ha Hai/axi4-system-suite/sim/modelsim/run_test.tcl}
 # Modifying C:/Users/Nguyen Ha Hai/axi4-system-suite/sim/modelsim/AXI.mpf
 # ../..
@@ -1617,81 +254,712 @@ do {C:/Users/Nguyen Ha Hai/axi4-system-suite/sim/modelsim/run_test.tcl}
 # Loading work.Demux_1x4
 # Loading work.Mux_4x1
 # Loading work.Simple_Memory_Slave
-# 
-# ========================================================================
-#           ALU Master System Testbench Started
-# ========================================================================
-# System Configuration:
-#   - 2 CPU_ALU_Master instances
-#   - 4 Memory Slaves
-#   - AXI Interconnect
-# ========================================================================
-# 
+# ========================================
+# ALU Master System Testbench Started
+# ========================================
 # [150000] Reset released
 # 
-# ========================================
-# Initializing Slave 0 Memory for Master 0
-# ========================================
-#   [0x00] = 0x0004080c (Instruction: ADD [0x0C]=[0x04]+[0x08])
-#   [0x04] = 0x00001234 (Operand A)
-#   [0x08] = 0x00005678 (Operand B)
-#   [0x0C] = 0x00000000 (Result placeholder)
-# 
-# ========================================
-# [450000] Test 1: Starting Master 0
-#   Master 0 will execute program from Slave 0 (0x0000_0000)
-# ========================================
-# [485000] M0_READ_ADDR:  0x00000000
-# [495000] M0_READ_DATA:  0x0004080c
-# [535000] M0_READ_ADDR:  0x00000004
-# [545000] M0_READ_DATA:  0x00001234
-# [575000] M0_READ_ADDR:  0x00000008
-# [585000] M0_READ_DATA:  0x00005678
-# [625000] M0_WRITE_ADDR: 0x0000000c
-# [635000] M0_WRITE_DATA: 0x000068ac
-# 
-# [100455000] ERROR: Master 0 TIMEOUT after 10000 cycles
-#   This may be normal if CPU is still executing.
-#   Check waveform for details.
-# 
-# ========================================
-# [101455000] Test 2: Starting Master 1
-#   Master 1 will also execute from Slave 0 (PC starts at 0x00)
-#   Note: Both masters use same PC=0x00, so they execute same program
-# ========================================
-# 
-# [201455000] ERROR: Master 1 TIMEOUT after 10000 cycles
-#   This may be normal if CPU is still executing.
-#   Check waveform for details.
-# 
-# ========================================================================
-#                       TEST COMPLETE
-# ========================================================================
-# NOTES:
-#   1. Both CPU Masters start from PC=0x00, so they execute same program
-#   2. To test different slaves, CPU_Controller needs BASE_ADDR parameter
-#   3. Current test shows both masters can execute successfully
-#   4. For comprehensive interconnect testing, use Simple_AXI_Master_Test
-# 
-# 
-# If you see timeouts:
-#   - Check CPU_Controller.v for correct instruction format
-#   - Check waveform: alu_master_system_tb.vcd
-#   - Check AXI transaction log above
-# ========================================================================
-# ** Note: $finish    : ../../tb/wrapper_tb/alu_master_system_tb.v(253)
-#    Time: 202655 ns  Iteration: 0  Instance: /alu_master_system_tb
-add wave sim:/alu_master_system_tb/*
-# Break in Module alu_master_system_tb at ../../tb/wrapper_tb/alu_master_system_tb.v line 253
-# Simulation Breakpoint: Break in Module alu_master_system_tb at ../../tb/wrapper_tb/alu_master_system_tb.v line 253
-# MACRO C:\Users\Nguyen Ha Hai\axi4-system-suite\sim\modelsim\run_test.tcl PAUSED at line 121
-run -all
+# [200000] Test 1: Master 0 accessing Slave 0
 # 
 # [1000000000] ERROR: Testbench timeout!
-# ** Note: $finish    : ../../tb/wrapper_tb/alu_master_system_tb.v(262)
+# ** Note: $finish    : ../../tb/wrapper_tb/alu_master_system_tb.v(156)
 #    Time: 1 ms  Iteration: 0  Instance: /alu_master_system_tb
 # 1
-# Break in Module alu_master_system_tb at ../../tb/wrapper_tb/alu_master_system_tb.v line 262
+# Break in Module alu_master_system_tb at ../../tb/wrapper_tb/alu_master_system_tb.v line 156
 # Simulation Breakpoint: 1
-# Break in Module alu_master_system_tb at ../../tb/wrapper_tb/alu_master_system_tb.v line 262
+# Break in Module alu_master_system_tb at ../../tb/wrapper_tb/alu_master_system_tb.v line 156
 # MACRO C:\Users\Nguyen Ha Hai\axi4-system-suite\sim\modelsim\run_test.tcl PAUSED at line 121
+# Compile of Write_Arbiter_RR.v was successful.
+# Compile of Qos_Arbiter.v was successful.
+# Compile of Write_Arbiter.v was successful.
+# Compile of Queue.v was successful.
+# Compile of Resp_Queue.v was successful.
+# Compile of Controller.v was successful.
+# Compile of AW_Channel_Controller_Top.v was successful.
+# Compile of BR_Channel_Controller_Top.v was successful.
+# Compile of WD_Channel_Controller_Top.v was successful.
+# Compile of AXI_Interconnect.v was successful.
+# Compile of AXI_Interconnect_Full.v was successful.
+# Compile of Demux_1_2.v was successful.
+# Compile of Demux_1x2.v was successful.
+# Compile of Demux_1x2_en.v was successful.
+# Compile of AW_MUX_2_1.v was successful.
+# Compile of BReady_MUX_2_1.v was successful.
+# Compile of Mux_2x1.v was successful.
+# Compile of Mux_2x1_en.v was successful.
+# Compile of WD_MUX_2_1.v was successful.
+# Compile of Write_Addr_Channel_Dec.v was successful.
+# Compile of Write_Resp_Channel_Arb.v was successful.
+# Compile of Write_Resp_Channel_Dec.v was successful.
+# Compile of AW_HandShake_Checker.v was successful.
+# Compile of WD_HandShake.v was successful.
+# Compile of WR_HandShake.v was successful.
+# Compile of Faling_Edge_Detc.v was successful.
+# Compile of Raising_Edge_Det.v was successful.
+# Compile of Qos_Arbiter_tb.v was successful.
+# Compile of Write_Arbiter_RR_tb.v was successful.
+# Compile of Write_Arbiter_tb.v was successful.
+# Compile of Queue_tb.v was successful.
+# Compile of Resp_Queue_tb.v was successful.
+# Compile of Controller_tb.v was successful.
+# Compile of AW_Channel_Controller_Top_tb.v was successful.
+# Compile of BR_Channel_Controller_Top_tb.v was successful.
+# Compile of WD_Channel_Controller_Top_tb.v was successful.
+# Compile of AXI_Interconnect_tb.v was successful.
+# Compile of test_case1.v was successful.
+# Compile of test_case2.v was successful.
+# Compile of test_case3.v was successful.
+# Compile of test_case4.v was successful.
+# Compile of test_case5.v was successful.
+# Compile of Demux_1_2_tb.v was successful.
+# Compile of Demux_1x2_en_tb.v was successful.
+# Compile of Demux_1x2_tb.v was successful.
+# Compile of AW_MUX_2_1_tb.v was successful.
+# Compile of BReady_MUX_2_1_tb.v was successful.
+# Compile of Mux_2x1_en_tb.v was successful.
+# Compile of Mux_2x1_tb.v was successful.
+# Compile of WD_MUX_2_1_tb.v was successful.
+# Compile of Write_Addr_Channel_Dec_tb.v was successful.
+# Compile of Write_Resp_Channel_Dec_tb.v was successful.
+# Compile of AW_HandShake_Checker_tb.v was successful.
+# Compile of WD_HandShake_tb.v was successful.
+# Compile of WR_HandShake_tb.v was successful.
+# Compile of Faling_Edge_Detc_tb.v was successful.
+# Compile of Raising_Edge_Det_tb.v was successful.
+# Compile of Read_Arbiter.v was successful.
+# Compile of AR_Channel_Controller_Top.v was successful.
+# Compile of Demux_1x4.v was successful.
+# Compile of Mux_4x1.v was successful.
+# Compile of Read_Addr_Channel_Dec.v was successful.
+# Compile of ALU_Core.v was successful.
+# Compile of CPU_ALU_Master.v was successful.
+# Compile of CPU_Controller.v was successful.
+# Compile of CPU_ALU_Master_tb.v was successful.
+# Compile of Simple_Memory_Slave.v was successful.
+# Compile of alu_master_system.v was successful.
+# Compile of alu_master_system_tb.v was successful.
+# Compile of Simple_AXI_Master_Test.v was successful.
+# 70 compiles, 0 failed with no errors. 
+vsim -voptargs=+acc work.alu_master_system_tb
+# vsim -voptargs=+acc work.alu_master_system_tb 
+# Loading work.alu_master_system_tb
+# Loading work.alu_master_system
+# Loading work.CPU_ALU_Master
+# Loading work.ALU_Core
+# Loading work.CPU_Controller
+# Loading work.AXI_Interconnect_Full
+# Loading work.AW_Channel_Controller_Top
+# Loading work.Qos_Arbiter
+# Loading work.Faling_Edge_Detc
+# Loading work.Raising_Edge_Det
+# Loading work.AW_HandShake_Checker
+# Loading work.Demux_1_2
+# Loading work.AW_MUX_2_1
+# Loading work.Write_Addr_Channel_Dec
+# Loading work.WD_Channel_Controller_Top
+# Loading work.Queue
+# Loading work.WD_HandShake
+# Loading work.WD_MUX_2_1
+# Loading work.BR_Channel_Controller_Top
+# Loading work.WR_HandShake
+# Loading work.Write_Resp_Channel_Arb
+# Loading work.BReady_MUX_2_1
+# Loading work.Write_Resp_Channel_Dec
+# Loading work.AR_Channel_Controller_Top
+# Loading work.Read_Arbiter
+# Loading work.Mux_2x1
+# Loading work.Read_Addr_Channel_Dec
+# Loading work.Controller
+# Loading work.Demux_1x4
+# Loading work.Mux_4x1
+# Loading work.Simple_Memory_Slave
+add wave sim:/alu_master_system_tb/*
+run -all
+# ========================================
+# ALU Master System Testbench Started
+# ========================================
+# [150000] Reset released
+# 
+# [200000] Test 1: Master 0 accessing Slave 0
+# 
+# [1000000000] ERROR: Testbench timeout!
+# ** Note: $finish    : C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(156)
+#    Time: 1 ms  Iteration: 0  Instance: /alu_master_system_tb
+# 1
+# Break in Module alu_master_system_tb at C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v line 156
+# Compile of Write_Arbiter_RR.v was successful.
+# Compile of Qos_Arbiter.v was successful.
+# Compile of Write_Arbiter.v was successful.
+# Compile of Queue.v was successful.
+# Compile of Resp_Queue.v was successful.
+# Compile of Controller.v was successful.
+# Compile of AW_Channel_Controller_Top.v was successful.
+# Compile of BR_Channel_Controller_Top.v was successful.
+# Compile of WD_Channel_Controller_Top.v was successful.
+# Compile of AXI_Interconnect.v was successful.
+# Compile of AXI_Interconnect_Full.v was successful.
+# Compile of Demux_1_2.v was successful.
+# Compile of Demux_1x2.v was successful.
+# Compile of Demux_1x2_en.v was successful.
+# Compile of AW_MUX_2_1.v was successful.
+# Compile of BReady_MUX_2_1.v was successful.
+# Compile of Mux_2x1.v was successful.
+# Compile of Mux_2x1_en.v was successful.
+# Compile of WD_MUX_2_1.v was successful.
+# Compile of Write_Addr_Channel_Dec.v was successful.
+# Compile of Write_Resp_Channel_Arb.v was successful.
+# Compile of Write_Resp_Channel_Dec.v was successful.
+# Compile of AW_HandShake_Checker.v was successful.
+# Compile of WD_HandShake.v was successful.
+# Compile of WR_HandShake.v was successful.
+# Compile of Faling_Edge_Detc.v was successful.
+# Compile of Raising_Edge_Det.v was successful.
+# Compile of Qos_Arbiter_tb.v was successful.
+# Compile of Write_Arbiter_RR_tb.v was successful.
+# Compile of Write_Arbiter_tb.v was successful.
+# Compile of Queue_tb.v was successful.
+# Compile of Resp_Queue_tb.v was successful.
+# Compile of Controller_tb.v was successful.
+# Compile of AW_Channel_Controller_Top_tb.v was successful.
+# Compile of BR_Channel_Controller_Top_tb.v was successful.
+# Compile of WD_Channel_Controller_Top_tb.v was successful.
+# Compile of AXI_Interconnect_tb.v was successful.
+# Compile of test_case1.v was successful.
+# Compile of test_case2.v was successful.
+# Compile of test_case3.v was successful.
+# Compile of test_case4.v was successful.
+# Compile of test_case5.v was successful.
+# Compile of Demux_1_2_tb.v was successful.
+# Compile of Demux_1x2_en_tb.v was successful.
+# Compile of Demux_1x2_tb.v was successful.
+# Compile of AW_MUX_2_1_tb.v was successful.
+# Compile of BReady_MUX_2_1_tb.v was successful.
+# Compile of Mux_2x1_en_tb.v was successful.
+# Compile of Mux_2x1_tb.v was successful.
+# Compile of WD_MUX_2_1_tb.v was successful.
+# Compile of Write_Addr_Channel_Dec_tb.v was successful.
+# Compile of Write_Resp_Channel_Dec_tb.v was successful.
+# Compile of AW_HandShake_Checker_tb.v was successful.
+# Compile of WD_HandShake_tb.v was successful.
+# Compile of WR_HandShake_tb.v was successful.
+# Compile of Faling_Edge_Detc_tb.v was successful.
+# Compile of Raising_Edge_Det_tb.v was successful.
+# Compile of Read_Arbiter.v was successful.
+# Compile of AR_Channel_Controller_Top.v was successful.
+# Compile of Demux_1x4.v was successful.
+# Compile of Mux_4x1.v was successful.
+# Compile of Read_Addr_Channel_Dec.v was successful.
+# Compile of ALU_Core.v was successful.
+# Compile of CPU_ALU_Master.v was successful.
+# Compile of CPU_Controller.v was successful.
+# Compile of CPU_ALU_Master_tb.v was successful.
+# Compile of Simple_Memory_Slave.v was successful.
+# Compile of alu_master_system.v was successful.
+# Compile of alu_master_system_tb.v was successful.
+# Compile of Simple_AXI_Master_Test.v was successful.
+# 70 compiles, 0 failed with no errors. 
+vsim -voptargs=+acc work.alu_master_system_tb
+# vsim -voptargs=+acc work.alu_master_system_tb 
+# Loading work.alu_master_system_tb
+# Loading work.alu_master_system
+# Loading work.CPU_ALU_Master
+# Loading work.ALU_Core
+# Loading work.CPU_Controller
+# Loading work.AXI_Interconnect_Full
+# Loading work.AW_Channel_Controller_Top
+# Loading work.Qos_Arbiter
+# Loading work.Faling_Edge_Detc
+# Loading work.Raising_Edge_Det
+# Loading work.AW_HandShake_Checker
+# Loading work.Demux_1_2
+# Loading work.AW_MUX_2_1
+# Loading work.Write_Addr_Channel_Dec
+# Loading work.WD_Channel_Controller_Top
+# Loading work.Queue
+# Loading work.WD_HandShake
+# Loading work.WD_MUX_2_1
+# Loading work.BR_Channel_Controller_Top
+# Loading work.WR_HandShake
+# Loading work.Write_Resp_Channel_Arb
+# Loading work.BReady_MUX_2_1
+# Loading work.Write_Resp_Channel_Dec
+# Loading work.AR_Channel_Controller_Top
+# Loading work.Read_Arbiter
+# Loading work.Mux_2x1
+# Loading work.Read_Addr_Channel_Dec
+# Loading work.Controller
+# Loading work.Demux_1x4
+# Loading work.Mux_4x1
+# Loading work.Simple_Memory_Slave
+add wave sim:/alu_master_system_tb/*
+run -all
+# ========================================
+# ALU Master System Testbench Started
+# ========================================
+# [150000] Reset released
+# 
+# [200000] Test 1: Master 0 accessing Slave 0
+# 
+# [1000000000] ERROR: Testbench timeout!
+# ** Note: $finish    : C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(156)
+#    Time: 1 ms  Iteration: 0  Instance: /alu_master_system_tb
+# 1
+# Break in Module alu_master_system_tb at C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v line 156
+# Compile of Write_Arbiter_RR.v was successful.
+# Compile of Qos_Arbiter.v was successful.
+# Compile of Write_Arbiter.v was successful.
+# Compile of Queue.v was successful.
+# Compile of Resp_Queue.v was successful.
+# Compile of Controller.v was successful.
+# Compile of AW_Channel_Controller_Top.v was successful.
+# Compile of BR_Channel_Controller_Top.v was successful.
+# Compile of WD_Channel_Controller_Top.v was successful.
+# Compile of AXI_Interconnect.v was successful.
+# Compile of AXI_Interconnect_Full.v was successful.
+# Compile of Demux_1_2.v was successful.
+# Compile of Demux_1x2.v was successful.
+# Compile of Demux_1x2_en.v was successful.
+# Compile of AW_MUX_2_1.v was successful.
+# Compile of BReady_MUX_2_1.v was successful.
+# Compile of Mux_2x1.v was successful.
+# Compile of Mux_2x1_en.v was successful.
+# Compile of WD_MUX_2_1.v was successful.
+# Compile of Write_Addr_Channel_Dec.v was successful.
+# Compile of Write_Resp_Channel_Arb.v was successful.
+# Compile of Write_Resp_Channel_Dec.v was successful.
+# Compile of AW_HandShake_Checker.v was successful.
+# Compile of WD_HandShake.v was successful.
+# Compile of WR_HandShake.v was successful.
+# Compile of Faling_Edge_Detc.v was successful.
+# Compile of Raising_Edge_Det.v was successful.
+# Compile of Qos_Arbiter_tb.v was successful.
+# Compile of Write_Arbiter_RR_tb.v was successful.
+# Compile of Write_Arbiter_tb.v was successful.
+# Compile of Queue_tb.v was successful.
+# Compile of Resp_Queue_tb.v was successful.
+# Compile of Controller_tb.v was successful.
+# Compile of AW_Channel_Controller_Top_tb.v was successful.
+# Compile of BR_Channel_Controller_Top_tb.v was successful.
+# Compile of WD_Channel_Controller_Top_tb.v was successful.
+# Compile of AXI_Interconnect_tb.v was successful.
+# Compile of test_case1.v was successful.
+# Compile of test_case2.v was successful.
+# Compile of test_case3.v was successful.
+# Compile of test_case4.v was successful.
+# Compile of test_case5.v was successful.
+# Compile of Demux_1_2_tb.v was successful.
+# Compile of Demux_1x2_en_tb.v was successful.
+# Compile of Demux_1x2_tb.v was successful.
+# Compile of AW_MUX_2_1_tb.v was successful.
+# Compile of BReady_MUX_2_1_tb.v was successful.
+# Compile of Mux_2x1_en_tb.v was successful.
+# Compile of Mux_2x1_tb.v was successful.
+# Compile of WD_MUX_2_1_tb.v was successful.
+# Compile of Write_Addr_Channel_Dec_tb.v was successful.
+# Compile of Write_Resp_Channel_Dec_tb.v was successful.
+# Compile of AW_HandShake_Checker_tb.v was successful.
+# Compile of WD_HandShake_tb.v was successful.
+# Compile of WR_HandShake_tb.v was successful.
+# Compile of Faling_Edge_Detc_tb.v was successful.
+# Compile of Raising_Edge_Det_tb.v was successful.
+# Compile of Read_Arbiter.v was successful.
+# Compile of AR_Channel_Controller_Top.v was successful.
+# Compile of Demux_1x4.v was successful.
+# Compile of Mux_4x1.v was successful.
+# Compile of Read_Addr_Channel_Dec.v was successful.
+# Compile of ALU_Core.v was successful.
+# Compile of CPU_ALU_Master.v was successful.
+# Compile of CPU_Controller.v was successful.
+# Compile of CPU_ALU_Master_tb.v was successful.
+# Compile of Simple_Memory_Slave.v was successful.
+# Compile of alu_master_system.v was successful.
+# Compile of alu_master_system_tb.v was successful.
+# Compile of Simple_AXI_Master_Test.v was successful.
+# 70 compiles, 0 failed with no errors. 
+vsim -voptargs=+acc work.alu_master_system_tb
+# vsim -voptargs=+acc work.alu_master_system_tb 
+# Loading work.alu_master_system_tb
+# Loading work.alu_master_system
+# Loading work.CPU_ALU_Master
+# Loading work.ALU_Core
+# Loading work.CPU_Controller
+# Loading work.AXI_Interconnect_Full
+# Loading work.AW_Channel_Controller_Top
+# Loading work.Qos_Arbiter
+# Loading work.Faling_Edge_Detc
+# Loading work.Raising_Edge_Det
+# Loading work.AW_HandShake_Checker
+# Loading work.Demux_1_2
+# Loading work.AW_MUX_2_1
+# Loading work.Write_Addr_Channel_Dec
+# Loading work.WD_Channel_Controller_Top
+# Loading work.Queue
+# Loading work.WD_HandShake
+# Loading work.WD_MUX_2_1
+# Loading work.BR_Channel_Controller_Top
+# Loading work.WR_HandShake
+# Loading work.Write_Resp_Channel_Arb
+# Loading work.BReady_MUX_2_1
+# Loading work.Write_Resp_Channel_Dec
+# Loading work.AR_Channel_Controller_Top
+# Loading work.Read_Arbiter
+# Loading work.Mux_2x1
+# Loading work.Read_Addr_Channel_Dec
+# Loading work.Controller
+# Loading work.Demux_1x4
+# Loading work.Mux_4x1
+# Loading work.Simple_Memory_Slave
+add wave sim:/alu_master_system_tb/*
+run -all
+# ========================================
+# ALU Master System Testbench Started
+# ========================================
+# [150000] Reset released
+# 
+# [200000] Test 1: Master 0 accessing Slave 0
+# 
+# [1000000000] ERROR: Testbench timeout!
+# ** Note: $finish    : C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(156)
+#    Time: 1 ms  Iteration: 0  Instance: /alu_master_system_tb
+# 1
+# Break in Module alu_master_system_tb at C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v line 156
+# Compile of Write_Arbiter_RR.v was successful.
+# Compile of Qos_Arbiter.v was successful.
+# Compile of Write_Arbiter.v was successful.
+# Compile of Queue.v was successful.
+# Compile of Resp_Queue.v was successful.
+# Compile of Controller.v was successful.
+# Compile of AW_Channel_Controller_Top.v was successful.
+# Compile of BR_Channel_Controller_Top.v was successful.
+# Compile of WD_Channel_Controller_Top.v was successful.
+# Compile of AXI_Interconnect.v was successful.
+# Compile of AXI_Interconnect_Full.v was successful.
+# Compile of Demux_1_2.v was successful.
+# Compile of Demux_1x2.v was successful.
+# Compile of Demux_1x2_en.v was successful.
+# Compile of AW_MUX_2_1.v was successful.
+# Compile of BReady_MUX_2_1.v was successful.
+# Compile of Mux_2x1.v was successful.
+# Compile of Mux_2x1_en.v was successful.
+# Compile of WD_MUX_2_1.v was successful.
+# Compile of Write_Addr_Channel_Dec.v was successful.
+# Compile of Write_Resp_Channel_Arb.v was successful.
+# Compile of Write_Resp_Channel_Dec.v was successful.
+# Compile of AW_HandShake_Checker.v was successful.
+# Compile of WD_HandShake.v was successful.
+# Compile of WR_HandShake.v was successful.
+# Compile of Faling_Edge_Detc.v was successful.
+# Compile of Raising_Edge_Det.v was successful.
+# Compile of Qos_Arbiter_tb.v was successful.
+# Compile of Write_Arbiter_RR_tb.v was successful.
+# Compile of Write_Arbiter_tb.v was successful.
+# Compile of Queue_tb.v was successful.
+# Compile of Resp_Queue_tb.v was successful.
+# Compile of Controller_tb.v was successful.
+# Compile of AW_Channel_Controller_Top_tb.v was successful.
+# Compile of BR_Channel_Controller_Top_tb.v was successful.
+# Compile of WD_Channel_Controller_Top_tb.v was successful.
+# Compile of AXI_Interconnect_tb.v was successful.
+# Compile of test_case1.v was successful.
+# Compile of test_case2.v was successful.
+# Compile of test_case3.v was successful.
+# Compile of test_case4.v was successful.
+# Compile of test_case5.v was successful.
+# Compile of Demux_1_2_tb.v was successful.
+# Compile of Demux_1x2_en_tb.v was successful.
+# Compile of Demux_1x2_tb.v was successful.
+# Compile of AW_MUX_2_1_tb.v was successful.
+# Compile of BReady_MUX_2_1_tb.v was successful.
+# Compile of Mux_2x1_en_tb.v was successful.
+# Compile of Mux_2x1_tb.v was successful.
+# Compile of WD_MUX_2_1_tb.v was successful.
+# Compile of Write_Addr_Channel_Dec_tb.v was successful.
+# Compile of Write_Resp_Channel_Dec_tb.v was successful.
+# Compile of AW_HandShake_Checker_tb.v was successful.
+# Compile of WD_HandShake_tb.v was successful.
+# Compile of WR_HandShake_tb.v was successful.
+# Compile of Faling_Edge_Detc_tb.v was successful.
+# Compile of Raising_Edge_Det_tb.v was successful.
+# Compile of Read_Arbiter.v was successful.
+# Compile of AR_Channel_Controller_Top.v was successful.
+# Compile of Demux_1x4.v was successful.
+# Compile of Mux_4x1.v was successful.
+# Compile of Read_Addr_Channel_Dec.v was successful.
+# Compile of ALU_Core.v was successful.
+# Compile of CPU_ALU_Master.v was successful.
+# Compile of CPU_Controller.v was successful.
+# Compile of CPU_ALU_Master_tb.v was successful.
+# Compile of Simple_Memory_Slave.v was successful.
+# Compile of alu_master_system.v was successful.
+# Compile of alu_master_system_tb.v was successful.
+# Compile of Simple_AXI_Master_Test.v was successful.
+# 70 compiles, 0 failed with no errors. 
+vsim -voptargs=+acc work.alu_master_system_tb
+# vsim -voptargs=+acc work.alu_master_system_tb 
+# Loading work.alu_master_system_tb
+# Loading work.alu_master_system
+# Loading work.CPU_ALU_Master
+# Loading work.ALU_Core
+# Loading work.CPU_Controller
+# Loading work.AXI_Interconnect_Full
+# Loading work.AW_Channel_Controller_Top
+# Loading work.Qos_Arbiter
+# Loading work.Faling_Edge_Detc
+# Loading work.Raising_Edge_Det
+# Loading work.AW_HandShake_Checker
+# Loading work.Demux_1_2
+# Loading work.AW_MUX_2_1
+# Loading work.Write_Addr_Channel_Dec
+# Loading work.WD_Channel_Controller_Top
+# Loading work.Queue
+# Loading work.WD_HandShake
+# Loading work.WD_MUX_2_1
+# Loading work.BR_Channel_Controller_Top
+# Loading work.WR_HandShake
+# Loading work.Write_Resp_Channel_Arb
+# Loading work.BReady_MUX_2_1
+# Loading work.Write_Resp_Channel_Dec
+# Loading work.AR_Channel_Controller_Top
+# Loading work.Read_Arbiter
+# Loading work.Mux_2x1
+# Loading work.Read_Addr_Channel_Dec
+# Loading work.Controller
+# Loading work.Demux_1x4
+# Loading work.Mux_4x1
+# Loading work.Simple_Memory_Slave
+add wave sim:/alu_master_system_tb/*
+run -all
+# ========================================
+# ALU Master System Testbench Started
+# ========================================
+# [150000] Reset released
+# 
+# [200000] Test 1: Master 0 accessing Slave 0
+# 
+# [1000000000] ERROR: Testbench timeout!
+# ** Note: $finish    : C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(156)
+#    Time: 1 ms  Iteration: 0  Instance: /alu_master_system_tb
+# 1
+# Break in Module alu_master_system_tb at C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v line 156
+# Compile of Write_Arbiter_RR.v was successful.
+# Compile of Qos_Arbiter.v was successful.
+# Compile of Write_Arbiter.v was successful.
+# Compile of Queue.v was successful.
+# Compile of Resp_Queue.v was successful.
+# Compile of Controller.v was successful.
+# Compile of AW_Channel_Controller_Top.v was successful.
+# Compile of BR_Channel_Controller_Top.v was successful.
+# Compile of WD_Channel_Controller_Top.v was successful.
+# Compile of AXI_Interconnect.v was successful.
+# Compile of AXI_Interconnect_Full.v was successful.
+# Compile of Demux_1_2.v was successful.
+# Compile of Demux_1x2.v was successful.
+# Compile of Demux_1x2_en.v was successful.
+# Compile of AW_MUX_2_1.v was successful.
+# Compile of BReady_MUX_2_1.v was successful.
+# Compile of Mux_2x1.v was successful.
+# Compile of Mux_2x1_en.v was successful.
+# Compile of WD_MUX_2_1.v was successful.
+# Compile of Write_Addr_Channel_Dec.v was successful.
+# Compile of Write_Resp_Channel_Arb.v was successful.
+# Compile of Write_Resp_Channel_Dec.v was successful.
+# Compile of AW_HandShake_Checker.v was successful.
+# Compile of WD_HandShake.v was successful.
+# Compile of WR_HandShake.v was successful.
+# Compile of Faling_Edge_Detc.v was successful.
+# Compile of Raising_Edge_Det.v was successful.
+# Compile of Qos_Arbiter_tb.v was successful.
+# Compile of Write_Arbiter_RR_tb.v was successful.
+# Compile of Write_Arbiter_tb.v was successful.
+# Compile of Queue_tb.v was successful.
+# Compile of Resp_Queue_tb.v was successful.
+# Compile of Controller_tb.v was successful.
+# Compile of AW_Channel_Controller_Top_tb.v was successful.
+# Compile of BR_Channel_Controller_Top_tb.v was successful.
+# Compile of WD_Channel_Controller_Top_tb.v was successful.
+# Compile of AXI_Interconnect_tb.v was successful.
+# Compile of test_case1.v was successful.
+# Compile of test_case2.v was successful.
+# Compile of test_case3.v was successful.
+# Compile of test_case4.v was successful.
+# Compile of test_case5.v was successful.
+# Compile of Demux_1_2_tb.v was successful.
+# Compile of Demux_1x2_en_tb.v was successful.
+# Compile of Demux_1x2_tb.v was successful.
+# Compile of AW_MUX_2_1_tb.v was successful.
+# Compile of BReady_MUX_2_1_tb.v was successful.
+# Compile of Mux_2x1_en_tb.v was successful.
+# Compile of Mux_2x1_tb.v was successful.
+# Compile of WD_MUX_2_1_tb.v was successful.
+# Compile of Write_Addr_Channel_Dec_tb.v was successful.
+# Compile of Write_Resp_Channel_Dec_tb.v was successful.
+# Compile of AW_HandShake_Checker_tb.v was successful.
+# Compile of WD_HandShake_tb.v was successful.
+# Compile of WR_HandShake_tb.v was successful.
+# Compile of Faling_Edge_Detc_tb.v was successful.
+# Compile of Raising_Edge_Det_tb.v was successful.
+# Compile of Read_Arbiter.v was successful.
+# Compile of AR_Channel_Controller_Top.v was successful.
+# Compile of Demux_1x4.v was successful.
+# Compile of Mux_4x1.v was successful.
+# Compile of Read_Addr_Channel_Dec.v was successful.
+# Compile of ALU_Core.v was successful.
+# Compile of CPU_ALU_Master.v was successful.
+# Compile of CPU_Controller.v was successful.
+# Compile of CPU_ALU_Master_tb.v was successful.
+# Compile of Simple_Memory_Slave.v was successful.
+# Compile of alu_master_system.v was successful.
+# Compile of alu_master_system_tb.v was successful.
+# Compile of Simple_AXI_Master_Test.v was successful.
+# 70 compiles, 0 failed with no errors. 
+vsim -voptargs=+acc work.alu_master_system_tb
+# vsim -voptargs=+acc work.alu_master_system_tb 
+# Loading work.alu_master_system_tb
+# Loading work.alu_master_system
+# Loading work.CPU_ALU_Master
+# Loading work.ALU_Core
+# Loading work.CPU_Controller
+# Loading work.AXI_Interconnect_Full
+# Loading work.AW_Channel_Controller_Top
+# Loading work.Qos_Arbiter
+# Loading work.Faling_Edge_Detc
+# Loading work.Raising_Edge_Det
+# Loading work.AW_HandShake_Checker
+# Loading work.Demux_1_2
+# Loading work.AW_MUX_2_1
+# Loading work.Write_Addr_Channel_Dec
+# Loading work.WD_Channel_Controller_Top
+# Loading work.Queue
+# Loading work.WD_HandShake
+# Loading work.WD_MUX_2_1
+# Loading work.BR_Channel_Controller_Top
+# Loading work.WR_HandShake
+# Loading work.Write_Resp_Channel_Arb
+# Loading work.BReady_MUX_2_1
+# Loading work.Write_Resp_Channel_Dec
+# Loading work.AR_Channel_Controller_Top
+# Loading work.Read_Arbiter
+# Loading work.Mux_2x1
+# Loading work.Read_Addr_Channel_Dec
+# Loading work.Controller
+# Loading work.Demux_1x4
+# Loading work.Mux_4x1
+# Loading work.Simple_Memory_Slave
+# Compile of Write_Arbiter_RR.v was successful.
+# Compile of Qos_Arbiter.v was successful.
+# Compile of Write_Arbiter.v was successful.
+# Compile of Queue.v was successful.
+# Compile of Resp_Queue.v was successful.
+# Compile of Controller.v was successful.
+# Compile of AW_Channel_Controller_Top.v was successful.
+# Compile of BR_Channel_Controller_Top.v was successful.
+# Compile of WD_Channel_Controller_Top.v was successful.
+# Compile of AXI_Interconnect.v was successful.
+# Compile of AXI_Interconnect_Full.v was successful.
+# Compile of Demux_1_2.v was successful.
+# Compile of Demux_1x2.v was successful.
+# Compile of Demux_1x2_en.v was successful.
+# Compile of AW_MUX_2_1.v was successful.
+# Compile of BReady_MUX_2_1.v was successful.
+# Compile of Mux_2x1.v was successful.
+# Compile of Mux_2x1_en.v was successful.
+# Compile of WD_MUX_2_1.v was successful.
+# Compile of Write_Addr_Channel_Dec.v was successful.
+# Compile of Write_Resp_Channel_Arb.v was successful.
+# Compile of Write_Resp_Channel_Dec.v was successful.
+# Compile of AW_HandShake_Checker.v was successful.
+# Compile of WD_HandShake.v was successful.
+# Compile of WR_HandShake.v was successful.
+# Compile of Faling_Edge_Detc.v was successful.
+# Compile of Raising_Edge_Det.v was successful.
+# Compile of Qos_Arbiter_tb.v was successful.
+# Compile of Write_Arbiter_RR_tb.v was successful.
+# Compile of Write_Arbiter_tb.v was successful.
+# Compile of Queue_tb.v was successful.
+# Compile of Resp_Queue_tb.v was successful.
+# Compile of Controller_tb.v was successful.
+# Compile of AW_Channel_Controller_Top_tb.v was successful.
+# Compile of BR_Channel_Controller_Top_tb.v was successful.
+# Compile of WD_Channel_Controller_Top_tb.v was successful.
+# Compile of AXI_Interconnect_tb.v was successful.
+# Compile of test_case1.v was successful.
+# Compile of test_case2.v was successful.
+# Compile of test_case3.v was successful.
+# Compile of test_case4.v was successful.
+# Compile of test_case5.v was successful.
+# Compile of Demux_1_2_tb.v was successful.
+# Compile of Demux_1x2_en_tb.v was successful.
+# Compile of Demux_1x2_tb.v was successful.
+# Compile of AW_MUX_2_1_tb.v was successful.
+# Compile of BReady_MUX_2_1_tb.v was successful.
+# Compile of Mux_2x1_en_tb.v was successful.
+# Compile of Mux_2x1_tb.v was successful.
+# Compile of WD_MUX_2_1_tb.v was successful.
+# Compile of Write_Addr_Channel_Dec_tb.v was successful.
+# Compile of Write_Resp_Channel_Dec_tb.v was successful.
+# Compile of AW_HandShake_Checker_tb.v was successful.
+# Compile of WD_HandShake_tb.v was successful.
+# Compile of WR_HandShake_tb.v was successful.
+# Compile of Faling_Edge_Detc_tb.v was successful.
+# Compile of Raising_Edge_Det_tb.v was successful.
+# Compile of Read_Arbiter.v was successful.
+# Compile of AR_Channel_Controller_Top.v was successful.
+# Compile of Demux_1x4.v was successful.
+# Compile of Mux_4x1.v was successful.
+# Compile of Read_Addr_Channel_Dec.v was successful.
+# Compile of ALU_Core.v was successful.
+# Compile of CPU_ALU_Master.v was successful.
+# Compile of CPU_Controller.v was successful.
+# Compile of CPU_ALU_Master_tb.v was successful.
+# Compile of Simple_Memory_Slave.v was successful.
+# Compile of alu_master_system.v was successful.
+# Compile of alu_master_system_tb.v was successful.
+# Compile of Simple_AXI_Master_Test.v was successful.
+# 70 compiles, 0 failed with no errors. 
+vsim -voptargs=+acc work.alu_master_system_tb
+# vsim -voptargs=+acc work.alu_master_system_tb 
+# Loading work.alu_master_system_tb
+# Loading work.alu_master_system
+# Loading work.CPU_ALU_Master
+# Loading work.ALU_Core
+# Loading work.CPU_Controller
+# Loading work.AXI_Interconnect_Full
+# Loading work.AW_Channel_Controller_Top
+# Loading work.Qos_Arbiter
+# Loading work.Faling_Edge_Detc
+# Loading work.Raising_Edge_Det
+# Loading work.AW_HandShake_Checker
+# Loading work.Demux_1_2
+# Loading work.AW_MUX_2_1
+# Loading work.Write_Addr_Channel_Dec
+# Loading work.WD_Channel_Controller_Top
+# Loading work.Queue
+# Loading work.WD_HandShake
+# Loading work.WD_MUX_2_1
+# Loading work.BR_Channel_Controller_Top
+# Loading work.WR_HandShake
+# Loading work.Write_Resp_Channel_Arb
+# Loading work.BReady_MUX_2_1
+# Loading work.Write_Resp_Channel_Dec
+# Loading work.AR_Channel_Controller_Top
+# Loading work.Read_Arbiter
+# Loading work.Mux_2x1
+# Loading work.Read_Addr_Channel_Dec
+# Loading work.Controller
+# Loading work.Demux_1x4
+# Loading work.Mux_4x1
+# Loading work.Simple_Memory_Slave
+add wave sim:/alu_master_system_tb/*
+run -all
+# ========================================
+# ALU Master System Testbench Started
+# ========================================
+# [150000] Reset released
+# 
+# [200000] Test 1: Master 0 accessing Slave 0
+# 
+# [1000000000] ERROR: Testbench timeout!
+# ** Note: $finish    : C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v(156)
+#    Time: 1 ms  Iteration: 0  Instance: /alu_master_system_tb
+# 1
+# Break in Module alu_master_system_tb at C:/Users/Nguyen Ha Hai/axi4-system-suite/tb/wrapper_tb/alu_master_system_tb.v line 156

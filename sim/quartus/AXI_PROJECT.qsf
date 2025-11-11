@@ -48,13 +48,19 @@ set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
 set_global_assignment -name DEVICE_FILTER_PIN_COUNT 672
 set_global_assignment -name DEVICE_FILTER_SPEED_GRADE FASTEST
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
-set_global_assignment -name TOP_LEVEL_ENTITY serv_axi_system
+set_global_assignment -name TOP_LEVEL_ENTITY alu_master_system
 set_global_assignment -name SEARCH_PATH "D:/AXI/src/cores/serv/rtl"
 set_global_assignment -name SEARCH_PATH "D:/AXI/src/axi_interconnect/rtl/includes"
 set_global_assignment -name SEARCH_PATH "C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl"
 set_global_assignment -name SEARCH_PATH "C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/includes"
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VERILOG_FILE ../../src/wrapper/alu_master_system.v
+set_global_assignment -name VERILOG_FILE ../../Slave_Memory/Simple_Memory_Slave.v
+set_global_assignment -name VERILOG_FILE ../../Master_ALU/ALU/CPU_Controller.v
+set_global_assignment -name VERILOG_FILE ../../Master_ALU/ALU/CPU_ALU_Master.v
+set_global_assignment -name VERILOG_FILE ../../Master_ALU/ALU/ALU_Core.v
+set_global_assignment -name VERILOG_FILE ../../Master_ALU/ALU/Simple_AXI_Master_Test.v
 set_global_assignment -name VERILOG_FILE "C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_state.v"
 set_global_assignment -name VERILOG_FILE "C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_immdec.v"
 set_global_assignment -name VERILOG_FILE "C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_compdec.v"

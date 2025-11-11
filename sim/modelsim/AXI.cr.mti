@@ -19,19 +19,19 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	Write_Arbiter_tb
 
-} {} {}} D:/AXI/src/axi_interconnect/rtl/datapath/mux/AW_MUX_2_1.v {1 {vlog -work work D:/AXI/src/axi_interconnect/rtl/datapath/mux/AW_MUX_2_1.v
-Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module AW_MUX_2_1
-
-Top level modules:
-	AW_MUX_2_1
-
 } {} {}} D:/AXI/src/axi_interconnect/rtl/channel_controllers/write/BR_Channel_Controller_Top.v {1 {vlog -work work D:/AXI/src/axi_interconnect/rtl/channel_controllers/write/BR_Channel_Controller_Top.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module BR_Channel_Controller_Top
 
 Top level modules:
 	BR_Channel_Controller_Top
+
+} {} {}} D:/AXI/src/axi_interconnect/rtl/datapath/mux/AW_MUX_2_1.v {1 {vlog -work work D:/AXI/src/axi_interconnect/rtl/datapath/mux/AW_MUX_2_1.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module AW_MUX_2_1
+
+Top level modules:
+	AW_MUX_2_1
 
 } {} {}} D:/AXI/src/axi_interconnect/rtl/arbitration/Read_Arbiter.v {1 {vlog -work work D:/AXI/src/axi_interconnect/rtl/arbitration/Read_Arbiter.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
@@ -334,13 +334,6 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	WR_HandShake
 
-} {} {}} D:/AXI/tb/interconnect_tb/decoders/Write_Addr_Channel_Dec_tb.v {1 {vlog -work work D:/AXI/tb/interconnect_tb/decoders/Write_Addr_Channel_Dec_tb.v
-Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module Write_Addr_Channel_Dec_tb
-
-Top level modules:
-	Write_Addr_Channel_Dec_tb
-
 } {} {}} D:/AXI/tb/interconnect_tb/channel_controllers/write/WD_Channel_Controller_Top_tb.v {1 {vlog -work work D:/AXI/tb/interconnect_tb/channel_controllers/write/WD_Channel_Controller_Top_tb.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module WD_Channel_Controller_Top_tb
@@ -348,12 +341,12 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	WD_Channel_Controller_Top_tb
 
-} {} {}} D:/AXI/src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Arb.v {1 {vlog -work work D:/AXI/src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Arb.v
+} {} {}} D:/AXI/tb/interconnect_tb/decoders/Write_Addr_Channel_Dec_tb.v {1 {vlog -work work D:/AXI/tb/interconnect_tb/decoders/Write_Addr_Channel_Dec_tb.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module Write_Resp_Channel_Arb
+-- Compiling module Write_Addr_Channel_Dec_tb
 
 Top level modules:
-	Write_Resp_Channel_Arb
+	Write_Addr_Channel_Dec_tb
 
 } {} {}} D:/AXI/src/axi_interconnect/rtl/channel_controllers/write/WD_Channel_Controller_Top.v {1 {vlog -work work D:/AXI/src/axi_interconnect/rtl/channel_controllers/write/WD_Channel_Controller_Top.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
@@ -362,12 +355,12 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	WD_Channel_Controller_Top
 
-} {} {}} D:/AXI/src/axi_interconnect/rtl/arbitration/Qos_Arbiter.v {1 {vlog -work work D:/AXI/src/axi_interconnect/rtl/arbitration/Qos_Arbiter.v
+} {} {}} D:/AXI/src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Arb.v {1 {vlog -work work D:/AXI/src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Arb.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module Qos_Arbiter
+-- Compiling module Write_Resp_Channel_Arb
 
 Top level modules:
-	Qos_Arbiter
+	Write_Resp_Channel_Arb
 
 } {} {}} D:/AXI/src/axi_interconnect/rtl/buffers/Queue.v {1 {vlog -work work D:/AXI/src/axi_interconnect/rtl/buffers/Queue.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
@@ -376,19 +369,19 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	Queue
 
+} {} {}} D:/AXI/src/axi_interconnect/rtl/arbitration/Qos_Arbiter.v {1 {vlog -work work D:/AXI/src/axi_interconnect/rtl/arbitration/Qos_Arbiter.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Qos_Arbiter
+
+Top level modules:
+	Qos_Arbiter
+
 } {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/Master_ALU/ALU_tb/CPU_ALU_Master_tb.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/Master_ALU/ALU_tb/CPU_ALU_Master_tb.v}
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module CPU_ALU_Master_tb
 
 Top level modules:
 	CPU_ALU_Master_tb
-
-} {} {}} D:/AXI/tb/interconnect_tb/datapath/demux/Demux_1x2_en_tb.v {1 {vlog -work work D:/AXI/tb/interconnect_tb/datapath/demux/Demux_1x2_en_tb.v
-Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module Demux_1x2_en_tb
-
-Top level modules:
-	Demux_1x2_en_tb
 
 } {} {}} D:/AXI/tb/interconnect_tb/core/test_case1.v {1 {vlog -work work D:/AXI/tb/interconnect_tb/core/test_case1.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
@@ -397,12 +390,12 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	test_case1
 
-} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/Master_ALU/ALU/ALU_Core.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/Master_ALU/ALU/ALU_Core.v}
+} {} {}} D:/AXI/tb/interconnect_tb/datapath/demux/Demux_1x2_en_tb.v {1 {vlog -work work D:/AXI/tb/interconnect_tb/datapath/demux/Demux_1x2_en_tb.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module ALU_Core
+-- Compiling module Demux_1x2_en_tb
 
 Top level modules:
-	ALU_Core
+	Demux_1x2_en_tb
 
 } {} {}} D:/AXI/src/axi_interconnect/rtl/handshake/AW_HandShake_Checker.v {1 {vlog -work work D:/AXI/src/axi_interconnect/rtl/handshake/AW_HandShake_Checker.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
@@ -411,12 +404,12 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	AW_HandShake_Checker
 
-} {} {}} D:/AXI/tb/interconnect_tb/core/test_case5.v {1 {vlog -work work D:/AXI/tb/interconnect_tb/core/test_case5.v
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/Master_ALU/ALU/ALU_Core.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/Master_ALU/ALU/ALU_Core.v}
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module test_case5
+-- Compiling module ALU_Core
 
 Top level modules:
-	test_case5
+	ALU_Core
 
 } {} {}} D:/AXI/tb/interconnect_tb/datapath/mux/Mux_2x1_tb.v {1 {vlog -work work D:/AXI/tb/interconnect_tb/datapath/mux/Mux_2x1_tb.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
@@ -425,6 +418,13 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	Mux_2x1_tb
 
+} {} {}} D:/AXI/tb/interconnect_tb/core/test_case5.v {1 {vlog -work work D:/AXI/tb/interconnect_tb/core/test_case5.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module test_case5
+
+Top level modules:
+	test_case5
+
 } {} {}} D:/AXI/src/axi_interconnect/rtl/buffers/Resp_Queue.v {1 {vlog -work work D:/AXI/src/axi_interconnect/rtl/buffers/Resp_Queue.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module Resp_Queue
@@ -432,19 +432,19 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	Resp_Queue
 
-} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/Master_ALU/ALU/Simple_AXI_Master_Test.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/Master_ALU/ALU/Simple_AXI_Master_Test.v}
-Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module Simple_AXI_Master_Test
-
-Top level modules:
-	Simple_AXI_Master_Test
-
 } {} {}} D:/AXI/tb/interconnect_tb/handshake/WR_HandShake_tb.v {1 {vlog -work work D:/AXI/tb/interconnect_tb/handshake/WR_HandShake_tb.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module WR_HandShake_tb
 
 Top level modules:
 	WR_HandShake_tb
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/Master_ALU/ALU/Simple_AXI_Master_Test.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/Master_ALU/ALU/Simple_AXI_Master_Test.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Simple_AXI_Master_Test
+
+Top level modules:
+	Simple_AXI_Master_Test
 
 } {} {}} D:/AXI/src/axi_interconnect/rtl/arbitration/Write_Arbiter_RR.v {1 {vlog -work work D:/AXI/src/axi_interconnect/rtl/arbitration/Write_Arbiter_RR.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
@@ -467,18 +467,18 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	AW_MUX_2_1_tb
 
-} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/Master_ALU/ALU/CPU_Controller.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/Master_ALU/ALU/CPU_Controller.v}
-Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module CPU_Controller
-
-Top level modules:
-	CPU_Controller
-
 } {} {}} D:/AXI/src/axi_interconnect/rtl/arbitration/Write_Arbiter.v {1 {vlog -work work D:/AXI/src/axi_interconnect/rtl/arbitration/Write_Arbiter.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module Write_Arbiter
 
 Top level modules:
 	Write_Arbiter
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/Master_ALU/ALU/CPU_Controller.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/Master_ALU/ALU/CPU_Controller.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module CPU_Controller
+
+Top level modules:
+	CPU_Controller
 
 } {} {}}
