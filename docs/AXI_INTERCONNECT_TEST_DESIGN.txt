@@ -1,0 +1,294 @@
+================================================================================
+ĐỀ ÁN: HỆ THỐNG TEST AXI INTERCONNECT VỚI 2 MASTER VÀ 4 SLAVE
+================================================================================
+
+TỔNG QUAN HỆ THỐNG:
+===================
+
+Hệ thống này kết nối 2 AXI Master với 4 AXI Slave thông qua một AXI Interconnect,
+cho phép test các tình huống giao tiếp và arbitration giữa các master và slave.
+
+KIẾN TRÚC HỆ THỐNG:
+===================
+
+    [Simple_AXI_Master_Test 0]    [Simple_AXI_Master_Test 1]
+              |                              |
+         [S00_AXI]                      [S01_AXI]
+              |                              |
+              +-------------+----------------+
+                            |
+                [AXI_Interconnect_Full]
+                            |
+           +-------+--------+--------+-------+
+           |       |        |        |       |
+        [M00]   [M01]    [M02]    [M03]
+           |       |        |        |       |
+     [Slave0] [Slave1] [Slave2] [Slave3]
+     (Memory) (Memory) (Memory) (Memory)
+
+ÁNH XẠ ĐỊA CHỈ:
+===============
+
+Interconnect sử dụng 2 MSB bits [31:30] để decode địa chỉ đến slave:
+
+  +--------+-------------------+-------------------+
+  | Slave  | Address Range     | MSB [31:30]       |
+  +--------+-------------------+-------------------+
+  | Slave 0| 0x0000_0000 -     | 00                |
+  |        | 0x3FFF_FFFF       |                   |
+  +--------+-------------------+-------------------+
+  | Slave 1| 0x4000_0000 -     | 01                |
+  |        | 0x7FFF_FFFF       |                   |
+  +--------+-------------------+-------------------+
+  | Slave 2| 0x8000_0000 -     | 10                |
+  |        | 0xBFFF_FFFF       |                   |
+  +--------+-------------------+-------------------+
+  | Slave 3| 0xC000_0000 -     | 11                |
+  |        | 0xFFFF_FFFF       |                   |
+  +--------+-------------------+-------------------+
+
+CÁC MODULE THIẾT KẾ:
+====================
+
+1. Simple_AXI_Master_Test.v
+   - Đường dẫn: Master_ALU/ALU/Simple_AXI_Master_Test.v
+   - Mục đích: AXI Master đơn giản để test interconnect
+   - Chức năng:
+     * Nhận base_address và start signal từ testbench
+     * Thực hiện Write-Read-Verify sequence
+     * Generate test data dựa trên address
+     * Trả về done signal khi hoàn thành
+   - Giao thức:
+     * Write: AWADDR -> WDATA -> BRESP
+     * Read:  ARADDR -> RDATA
+   - Parameters:
+     * ADDR_WIDTH = 32
+     * DATA_WIDTH = 32
+
+2. Simple_Memory_Slave.v
+   - Đường dẫn: Slave_Memory/Simple_Memory_Slave.v
+   - Mục đích: Memory slave với AXI4 interface
+   - Chức năng:
+     * 256-word (1KB) memory array
+     * Hỗ trợ AXI4 read/write transactions
+     * Byte-addressable (tự động convert byte address -> word address)
+   - Parameters:
+     * ADDR_WIDTH = 32
+     * DATA_WIDTH = 32
+     * MEM_SIZE = 256
+
+3. AXI_Interconnect_Full.v
+   - Đường dẫn: src/axi_interconnect/rtl/core/AXI_Interconnect_Full.v
+   - Mục đích: Kết nối và routing giữa masters và slaves
+   - Chức năng:
+     * Arbitration giữa 2 masters
+     * Address decoding dựa trên MSB [31:30]
+     * Routing AXI transactions từ master đến đúng slave
+     * Hỗ trợ parallel access từ 2 masters đến 2 slaves khác nhau
+   - Cấu hình:
+     * Num_Of_Masters = 2
+     * Num_Of_Slaves = 4
+   - Lưu ý: M02 và M03 (Slave 2, 3) chỉ có read channels
+
+4. alu_master_system.v
+   - Đường dẫn: src/wrapper/alu_master_system.v
+   - Mục đích: Top-level module tích hợp toàn bộ hệ thống
+   - Kết nối:
+     * u_master0: Simple_AXI_Master_Test instance 0
+     * u_master1: Simple_AXI_Master_Test instance 1
+     * u_interconnect: AXI_Interconnect_Full
+     * u_slave0, u_slave1, u_slave2, u_slave3: Memory slaves
+   - Ports:
+     * ACLK, ARESETN: Clock và Reset
+     * master0_start, master0_base_address: Control Master 0
+     * master0_busy, master0_done: Status Master 0
+     * master1_start, master1_base_address: Control Master 1
+     * master1_busy, master1_done: Status Master 1
+
+5. alu_master_system_tb.v
+   - Đường dẫn: tb/wrapper_tb/alu_master_system_tb.v
+   - Mục đích: Comprehensive testbench
+   - Tính năng:
+     * 13 test cases tự động
+     * Monitor chi tiết AXI transactions:
+       - Master 0: M0_AW, M0_W, M0_B, M0_AR, M0_R
+       - Master 1: M1_AW, M1_W, M1_B, M1_AR, M1_R
+       - Slave 0-3: S0-S3_AW, S0-S3_W, S0-S3_B, S0-S3_AR, S0-S3_R
+     * Test summary report
+     * Timeout detection
+     * VCD waveform dump
+
+TEST SCENARIOS:
+===============
+
+GROUP 1: Individual Master Tests (Test 1-8)
+--------------------------------------------
+  Test 1: Master 0 -> Slave 0 (addr: 0x0000_0100)
+  Test 2: Master 0 -> Slave 1 (addr: 0x4000_0200)
+  Test 3: Master 0 -> Slave 2 (addr: 0x8000_0300)
+  Test 4: Master 0 -> Slave 3 (addr: 0xC000_0400)
+  
+  Test 5: Master 1 -> Slave 0 (addr: 0x0000_0100)
+  Test 6: Master 1 -> Slave 1 (addr: 0x4000_0200)
+  Test 7: Master 1 -> Slave 2 (addr: 0x8000_0300)
+  Test 8: Master 1 -> Slave 3 (addr: 0xC000_0400)
+
+Mục đích: Kiểm tra routing cơ bản từ mỗi master đến từng slave
+
+GROUP 2: Arbitration Tests (Test 9-12)
+---------------------------------------
+  Test 9:  Both Masters -> Slave 0
+  Test 10: Both Masters -> Slave 1
+  Test 11: Both Masters -> Slave 2
+  Test 12: Both Masters -> Slave 3
+
+Mục đích: Kiểm tra arbitration khi 2 masters cùng access 1 slave
+
+GROUP 3: Parallel Access Test (Test 13)
+----------------------------------------
+  Test 13: Master 0 -> Slave 0, Master 1 -> Slave 2
+
+Mục đích: Kiểm tra khả năng parallel access của interconnect
+
+EXPECTED BEHAVIOR:
+==================
+
+1. Individual Tests:
+   - Master starts transaction
+   - Interconnect routes to correct slave based on address
+   - Write transaction completes
+   - Read transaction retrieves same data
+   - Master asserts done signal
+
+2. Arbitration Tests:
+   - Both masters start simultaneously
+   - Interconnect grants access to one master first
+   - Second master waits
+   - Both complete successfully
+
+3. Parallel Test:
+   - Both masters access different slaves
+   - Both transactions proceed in parallel
+   - Both complete quickly without waiting
+
+MONITOR OUTPUT FORMAT:
+======================
+
+Format: [timestamp] CHANNEL: details
+
+Examples:
+  [250] M0_AW: addr=0x00000100, len=0, size=2
+  [260] M0_W:  data=0xA5A50100, strb=0xF, last=1
+  [270] M0_B:  resp=0 (OKAY)
+  [280] S0_AW: addr=0x00000100 from interconnect
+  [290] S0_W:  data=0xA5A50100
+  [300] S0_B:  Write response sent
+
+KÝ HIỆU:
+  M0/M1: Master 0/1
+  S0-S3: Slave 0-3
+  AW: Write Address
+  W:  Write Data
+  B:  Write Response
+  AR: Read Address
+  R:  Read Data
+
+FILES CREATED/MODIFIED:
+=======================
+
+New Files:
+  - Master_ALU/ALU/Simple_AXI_Master_Test.v
+  - sim/modelsim/run_test.tcl
+  - sim/modelsim/run_test.bat
+  - sim/modelsim/README_TEST.txt
+  - docs/AXI_INTERCONNECT_TEST_DESIGN.txt
+
+Modified Files:
+  - src/wrapper/alu_master_system.v
+    * Replaced CPU_ALU_Master with Simple_AXI_Master_Test
+    * Added base_address inputs for masters
+  
+  - tb/wrapper_tb/alu_master_system_tb.v
+    * Complete rewrite with 13 test cases
+    * Added comprehensive AXI monitors
+    * Added test summary reporting
+
+SIMULATION INSTRUCTIONS:
+========================
+
+Windows:
+  cd sim/modelsim
+  run_test.bat
+
+Linux/Mac:
+  cd sim/modelsim
+  vsim -c -do run_test.tcl
+
+EXPECTED OUTPUT:
+================
+
+========================================================================
+          AXI INTERCONNECT COMPREHENSIVE TEST SUITE
+========================================================================
+Configuration:
+  - 2 AXI Masters (Master 0, Master 1)
+  - 4 AXI Slaves  (Slave 0-3)
+  ...
+
+[TEST 1] Master 0 -> Slave 0 (addr=0x00000100)
+------------------------------------------------------------
+  [250] M0_AW: addr=0x00000100, len=0, size=2
+  [260] M0_W:  data=0xA5A50100, strb=0xF, last=1
+  ...
+  [500] *** Master 0 completed successfully ***
+
+...
+
+========================================================================
+                      TEST SUMMARY
+========================================================================
+Total Tests: 13
+Passed:      13
+Failed:      0
+
+*** ALL TESTS PASSED ***
+========================================================================
+
+TROUBLESHOOTING:
+================
+
+Problem: Test timeout
+Solution: 
+  - Check waveform for AXI handshake issues
+  - Verify interconnect routing configuration
+  - Check slave memory initialization
+
+Problem: Compilation error
+Solution:
+  - Delete work library: vdel -all
+  - Verify all source files exist
+  - Check file paths in run_test.tcl
+
+Problem: Arbitration failure
+Solution:
+  - Check interconnect arbitration logic
+  - Verify both masters complete (check done signals)
+  - Increase timeout value if needed
+
+FUTURE ENHANCEMENTS:
+====================
+
+1. Add burst transaction support
+2. Test error responses (SLVERR, DECERR)
+3. Add performance metrics (latency, throughput)
+4. Test with different data patterns
+5. Add random delay injection
+6. Test outstanding transactions
+7. Add QoS and priority testing
+
+================================================================================
+Document Version: 1.0
+Date: November 10, 2025
+Author: AI Assistant
+================================================================================
+

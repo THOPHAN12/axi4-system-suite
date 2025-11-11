@@ -146,7 +146,7 @@ always @(posedge ACLK or negedge ARESETN) begin
         addr_captured <= 1'b0;
         wb_adr_prev   <= 32'hFFFFFFFF;  // Initialize to non-zero to detect first change
         cycle_count   <= 32'h0;
-        wb_cyc_prev   <= 1'b0;
+        // Note: wb_cyc_prev is reset in separate always block (lines 113-129) to avoid multiple drivers
     end else begin
         case (state)
             IDLE: begin
