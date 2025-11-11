@@ -1,0 +1,37 @@
+
+State Machine - |serv_axi_system|AXI_Interconnect_Full:u_axi_interconnect|Controller:Read_controller|curr_state_address
+Name curr_state_address.Idle_address curr_state_address.M1_Address curr_state_address.M0_Address 
+curr_state_address.Idle_address 0 0 0 
+curr_state_address.M0_Address 1 0 1 
+curr_state_address.M1_Address 1 1 0 
+
+State Machine - |serv_axi_system|AXI_Interconnect_Full:u_axi_interconnect|Controller:Read_controller|curr_state_slave2
+Name curr_state_slave2.Slave2_2 curr_state_slave2.Slave1_2 curr_state_slave2.Slave0_2 curr_state_slave2.Idle_slave_2 curr_state_slave2.Slave3_2 
+curr_state_slave2.Idle_slave_2 0 0 0 0 0 
+curr_state_slave2.Slave0_2 0 0 1 1 0 
+curr_state_slave2.Slave1_2 0 1 0 1 0 
+curr_state_slave2.Slave2_2 1 0 0 1 0 
+curr_state_slave2.Slave3_2 0 0 0 1 1 
+
+State Machine - |serv_axi_system|AXI_Interconnect_Full:u_axi_interconnect|Controller:Read_controller|curr_state_slave
+Name curr_state_slave.Slave2 curr_state_slave.Slave1 curr_state_slave.Slave0 curr_state_slave.Idle_slave curr_state_slave.Slave3 
+curr_state_slave.Idle_slave 0 0 0 0 0 
+curr_state_slave.Slave0 0 0 1 1 0 
+curr_state_slave.Slave1 0 1 0 1 0 
+curr_state_slave.Slave2 1 0 0 1 0 
+curr_state_slave.Slave3 0 0 0 1 1 
+
+State Machine - |serv_axi_system|serv_axi_wrapper:u_serv_wrapper|wb2axi_write:u_wb2axi_data|state
+Name state.READ_DATA state.READ_ADDR state.WRITE_RESP state.WRITE_DATA state.WRITE_ADDR state.IDLE 
+state.IDLE 0 0 0 0 0 0 
+state.WRITE_ADDR 0 0 0 0 1 1 
+state.WRITE_DATA 0 0 0 1 0 1 
+state.WRITE_RESP 0 0 1 0 0 1 
+state.READ_ADDR 0 1 0 0 0 1 
+state.READ_DATA 1 0 0 0 0 1 
+
+State Machine - |serv_axi_system|serv_axi_wrapper:u_serv_wrapper|wb2axi_read:u_wb2axi_inst|state
+Name state.IDLE state.DATA_WAIT state.ADDR_REQ 
+state.IDLE 0 0 0 
+state.ADDR_REQ 1 0 1 
+state.DATA_WAIT 1 1 0 
