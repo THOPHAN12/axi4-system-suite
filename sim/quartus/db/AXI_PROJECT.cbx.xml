@@ -1,5 +1,6 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="AXI_PROJECT">
+		<CBX_INST_ENTRY INSTANCE_NAME="|dual_master_system_ip|serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_rf_ram:rf_ram|altsyncram:memory_rtl_0" CBX_FILE_NAME="altsyncram_qrf1.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

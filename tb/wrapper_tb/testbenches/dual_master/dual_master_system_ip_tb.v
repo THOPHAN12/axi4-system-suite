@@ -1,0 +1,196 @@
+/*
+ * dual_master_system_ip_tb.v : Testbench for Complete Dual Master System IP
+ * 
+ * Tests the complete IP module with integrated memory slaves:
+ * - SERV RISC-V processor
+ * - ALU Master
+ * - 4 Memory Slaves (Instruction, Data, ALU, Reserved)
+ */
+
+`timescale 1ns/1ps
+
+module dual_master_system_ip_tb;
+
+// Parameters
+parameter ADDR_WIDTH = 32;
+parameter DATA_WIDTH = 32;
+parameter ID_WIDTH   = 4;
+parameter CLK_PERIOD = 10;  // 100 MHz
+
+// Clock and Reset
+reg  ACLK;
+reg  ARESETN;
+reg  i_timer_irq;
+
+// ALU Master Control
+reg  alu_master_start;
+wire alu_master_busy;
+wire alu_master_done;
+
+// Status signals
+wire inst_mem_ready;
+wire data_mem_ready;
+wire alu_mem_ready;
+wire reserved_mem_ready;
+
+// Clock generation
+always begin
+    ACLK = 1'b0;
+    #(CLK_PERIOD/2);
+    ACLK = 1'b1;
+    #(CLK_PERIOD/2);
+end
+
+// Reset generation
+initial begin
+    ARESETN = 1'b0;
+    i_timer_irq = 1'b0;
+    alu_master_start = 1'b0;
+    #(CLK_PERIOD * 10);
+    ARESETN = 1'b1;
+    $display("[%0t] Reset released", $time);
+    #(CLK_PERIOD * 1000);
+    $finish;
+end
+
+// DUT Instance - Complete IP Module
+dual_master_system_ip #(
+    .ADDR_WIDTH             (ADDR_WIDTH),
+    .DATA_WIDTH             (DATA_WIDTH),
+    .ID_WIDTH               (ID_WIDTH),
+    .WITH_CSR               (1),
+    .W                      (1),
+    .PRE_REGISTER           (1),
+    .RESET_STRATEGY         ("MINI"),
+    .RESET_PC               (32'h0000_0000),
+    .DEBUG                  (1'b0),
+    .MDU                    (1'b0),
+    .COMPRESSED             (0),
+    .Masters_Num            (2),
+    .Address_width           (32),
+    .S00_Aw_len             (8),
+    .S00_Write_data_bus_width(32),
+    .S00_Write_data_bytes_num(4),
+    .S00_AR_len             (8),
+    .S00_Read_data_bus_width(32),
+    .S01_Aw_len             (8),
+    .S01_Write_data_bus_width(32),
+    .S01_AR_len             (8),
+    .M00_Aw_len             (8),
+    .M00_Write_data_bus_width(32),
+    .M00_Write_data_bytes_num(4),
+    .M00_AR_len             (8),
+    .M00_Read_data_bus_width(32),
+    .M01_Aw_len             (8),
+    .M01_AR_len             (8),
+    .M02_Aw_len             (8),
+    .M02_AR_len             (8),
+    .M02_Read_data_bus_width(32),
+    .M03_Aw_len             (8),
+    .M03_AR_len             (8),
+    .M03_Read_data_bus_width(32),
+    .Is_Master_AXI_4        (1'b1),
+    .M1_ID                  (0),
+    .M2_ID                  (1),
+    .Resp_ID_width          (2),
+    .Num_Of_Masters         (2),
+    .Num_Of_Slaves          (4),
+    .Master_ID_Width        (1),
+    .AXI4_AR_len            (8),
+    .AXI4_Aw_len            (8),
+    .SLAVE0_ADDR1           (32'h0000_0000),  // Instruction memory
+    .SLAVE0_ADDR2           (32'h3FFF_FFFF),
+    .SLAVE1_ADDR1           (32'h4000_0000),  // Data memory
+    .SLAVE1_ADDR2           (32'h7FFF_FFFF),
+    .SLAVE2_ADDR1           (32'h8000_0000),  // ALU memory
+    .SLAVE2_ADDR2           (32'hBFFF_FFFF),
+    .SLAVE3_ADDR1           (32'hC000_0000),  // Reserved memory
+    .SLAVE3_ADDR2           (32'hFFFF_FFFF),
+    .INST_MEM_SIZE          (1024),
+    .DATA_MEM_SIZE          (1024),
+    .ALU_MEM_SIZE           (1024),
+    .RESERVED_MEM_SIZE      (1024),
+    .INST_MEM_INIT_FILE     ("../../sim/modelsim/test_program_simple.hex"),
+    .DATA_MEM_INIT_FILE      (""),
+    .ALU_MEM_INIT_FILE       (""),
+    .RESERVED_MEM_INIT_FILE  ("")
+) u_dut (
+    .ACLK                   (ACLK),
+    .ARESETN                (ARESETN),
+    .i_timer_irq            (i_timer_irq),
+    .alu_master_start       (alu_master_start),
+    .alu_master_busy        (alu_master_busy),
+    .alu_master_done        (alu_master_done),
+    .inst_mem_ready         (inst_mem_ready),
+    .data_mem_ready         (data_mem_ready),
+    .alu_mem_ready          (alu_mem_ready),
+    .reserved_mem_ready     (reserved_mem_ready)
+);
+
+// Monitoring
+initial begin
+    $dumpfile("dual_master_system_ip_tb.vcd");
+    $dumpvars(0, dual_master_system_ip_tb);
+    
+    $display("============================================================================");
+    $display("Dual Master System IP Testbench");
+    $display("============================================================================");
+    $display("Complete IP Module with Integrated Memory Slaves");
+    $display("  - SERV RISC-V Core (Instruction + Data buses)");
+    $display("  - ALU Master");
+    $display("  - Instruction Memory (ROM): Integrated");
+    $display("  - Data Memory (RAM): Integrated");
+    $display("  - ALU Memory (RAM): Integrated");
+    $display("  - Reserved Memory (ROM): Integrated");
+    $display("  - No external slave connections needed!");
+    $display("============================================================================");
+    $display("");
+end
+
+// Test stimulus
+initial begin
+    // Wait for reset
+    wait(ARESETN);
+    #(CLK_PERIOD * 10);
+    
+    $display("[%0t] System ready", $time);
+    $display("[%0t] Instruction Memory Ready: %b", $time, inst_mem_ready);
+    $display("[%0t] Data Memory Ready: %b", $time, data_mem_ready);
+    $display("[%0t] ALU Memory Ready: %b", $time, alu_mem_ready);
+    $display("[%0t] Reserved Memory Ready: %b", $time, reserved_mem_ready);
+    $display("");
+    
+    $display("[%0t] SERV RISC-V will start fetching instructions", $time);
+    $display("[%0t] ALU Master Status: busy=%b, done=%b", $time, alu_master_busy, alu_master_done);
+    $display("");
+    
+    // Wait a bit for SERV to start
+    #(CLK_PERIOD * 50);
+    
+    // Start ALU Master
+    $display("[%0t] Starting ALU Master...", $time);
+    alu_master_start = 1'b1;
+    #(CLK_PERIOD);
+    alu_master_start = 1'b0;
+    
+    // Monitor ALU Master progress
+    wait(alu_master_busy);
+    $display("[%0t] ALU Master is busy", $time);
+    
+    // Wait for ALU Master to complete
+    wait(alu_master_done);
+    $display("[%0t] ALU Master completed", $time);
+    $display("");
+    
+    // Continue monitoring for a while
+    #(CLK_PERIOD * 500);
+    
+    $display("[%0t] Test completed", $time);
+    $display("============================================================================");
+end
+
+// Monitor AXI transactions (optional - for debugging)
+// This can be expanded to monitor specific transactions if needed
+
+endmodule
+

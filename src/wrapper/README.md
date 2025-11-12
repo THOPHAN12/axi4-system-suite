@@ -1,24 +1,113 @@
-# SERV RISC-V to AXI4 Wrapper
+# Wrapper Modules
 
-Wrapper module chuyển đổi SERV RISC-V processor từ Wishbone interface sang AXI4 Master interface.
+## Cấu Trúc Thư Mục
 
-## Cấu trúc
+Thư mục này chứa các wrapper modules để tích hợp SERV RISC-V processor và ALU Master với AXI4 Interconnect. Các file đã được tổ chức theo chức năng để dễ quản lý:
 
 ```
-wrapper/
-├── wb2axi_read.v      - Wishbone to AXI4 Read converter (cho Instruction Bus)
-├── wb2axi_write.v     - Wishbone to AXI4 Write converter (cho Data Bus)
-├── serv_axi_wrapper.v - Top-level wrapper kết nối SERV với AXI4
-└── README.md          - Tài liệu này
+src/wrapper/
+├── converters/           # Wishbone to AXI converters
+│   ├── wb2axi_read.v
+│   ├── wb2axi_write.v
+│   └── serv_axi_wrapper.v
+├── systems/              # System integration modules
+│   ├── serv_axi_system.v
+│   ├── dual_master_system.v
+│   └── alu_master_system.v
+├── ip/                   # Self-contained IP modules
+│   ├── serv_axi_system_ip.v
+│   └── dual_master_system_ip.v
+└── memory/               # Memory slave modules
+    ├── axi_rom_slave.v
+    └── axi_memory_slave.v
 ```
 
-## Kiến trúc
+## Modules
 
-### SERV RISC-V Processor
-- **Instruction Bus (ibus)**: Read-only Wishbone interface
-- **Data Bus (dbus)**: Read-write Wishbone interface
+### Converters (`converters/`)
 
-### Wrapper Architecture
+#### `wb2axi_read.v`
+- **Mục đích**: Chuyển đổi Wishbone read-only interface sang AXI4 Read channels
+- **Sử dụng**: Instruction bus của SERV RISC-V
+- **Interface**: Wishbone (input) → AXI4 Read (AR + R channels)
+
+#### `wb2axi_write.v`
+- **Mục đích**: Chuyển đổi Wishbone read-write interface sang AXI4 Write channels
+- **Sử dụng**: Data bus của SERV RISC-V
+- **Interface**: Wishbone (input) → AXI4 Write (AW + W + B channels)
+
+#### `serv_axi_wrapper.v`
+- **Mục đích**: Top-level wrapper kết nối SERV RISC-V với AXI4
+- **Chức năng**:
+  - Instantiates SERV RISC-V core
+  - Connects instruction bus qua `wb2axi_read`
+  - Connects data bus qua `wb2axi_write`
+  - Exposes AXI4 Master interfaces
+
+### Systems (`systems/`)
+
+#### `serv_axi_system.v`
+- **Mục đích**: Complete SERV RISC-V system với AXI Interconnect
+- **Chức năng**:
+  - SERV RISC-V processor
+  - AXI Interconnect
+  - External memory slaves (instruction và data memory)
+  - Timer interrupt support
+
+#### `dual_master_system.v`
+- **Mục đích**: Dual master system (SERV + ALU Master)
+- **Chức năng**:
+  - SERV RISC-V processor
+  - ALU Master
+  - AXI Interconnect với 2 masters, 4 slaves
+  - Address routing và arbitration
+
+#### `alu_master_system.v`
+- **Mục đích**: ALU Master system
+- **Chức năng**:
+  - Multiple ALU Masters
+  - AXI Interconnect
+  - Multiple memory slaves
+  - Data integrity verification
+
+### IP Modules (`ip/`)
+
+#### `serv_axi_system_ip.v`
+- **Mục đích**: Self-contained SERV RISC-V IP module
+- **Chức năng**:
+  - Complete SERV system
+  - Integrated instruction và data memory
+  - No external connections needed
+  - Only exposes: ACLK, ARESETN, timer interrupt
+
+#### `dual_master_system_ip.v`
+- **Mục đích**: Self-contained Dual Master System IP module
+- **Chức năng**:
+  - SERV + ALU Master
+  - Integrated memory slaves (Instruction, Data, ALU, Reserved)
+  - ALU Master control signals
+  - Memory status outputs
+  - No external AXI connections needed
+
+### Memory Slaves (`memory/`)
+
+#### `axi_rom_slave.v`
+- **Mục đích**: AXI4 Read-Only Memory slave
+- **Chức năng**:
+  - Instruction memory cho SERV
+  - Supports memory initialization từ hex file
+  - Read-only AXI4 interface
+
+#### `axi_memory_slave.v`
+- **Mục đích**: AXI4 Read-Write Memory slave
+- **Chức năng**:
+  - Data memory cho SERV và ALU Master
+  - Read-write AXI4 interface
+  - Supports memory initialization
+
+## Kiến Trúc
+
+### SERV RISC-V to AXI4 Flow
 
 ```
 [SERV RISC-V Core]
@@ -36,150 +125,82 @@ wrapper/
    +---+---+
        |
 [AXI Interconnect]
+       |
+   +---+---+
+   |       |
+[Inst Mem] [Data Mem]
 ```
 
-## Modules
+### Dual Master System
 
-### 1. `wb2axi_read.v`
-Chuyển đổi Wishbone read-only interface sang AXI4 Read channels (AR + R).
+```
+[SERV]    [ALU Master]
+   |            |
+   +-----+------+
+         |
+[AXI Interconnect (2M, 4S)]
+         |
+   +-----+-----+-----+-----+
+   |     |     |     |     |
+[Inst] [Data] [ALU] [Reserved]
+```
 
-**Wishbone Interface:**
-- `wb_adr[31:0]` - Address
-- `wb_cyc` - Cycle (valid request)
-- `wb_rdt[31:0]` - Read data (output)
-- `wb_ack` - Acknowledge (output)
+## Cách Sử Dụng
 
-**AXI4 Interface:**
-- AR Channel: Read Address
-- R Channel: Read Data
+### Sử dụng IP Modules (Khuyến nghị)
 
-**FSM States:**
-- `IDLE` - Chờ request
-- `ADDR_REQ` - Gửi địa chỉ đọc
-- `DATA_WAIT` - Chờ dữ liệu đọc
-
-### 2. `wb2axi_write.v`
-Chuyển đổi Wishbone read-write interface sang AXI4 Write channels (AW + W + B) và Read channels (AR + R).
-
-**Wishbone Interface:**
-- `wb_adr[31:0]` - Address
-- `wb_dat[31:0]` - Write data
-- `wb_sel[3:0]` - Byte select
-- `wb_we` - Write enable
-- `wb_cyc` - Cycle (valid request)
-- `wb_rdt[31:0]` - Read data (output, cho read operations)
-- `wb_ack` - Acknowledge (output)
-
-**AXI4 Interface:**
-- AW Channel: Write Address
-- W Channel: Write Data
-- B Channel: Write Response
-- AR Channel: Read Address (cho read operations)
-- R Channel: Read Data (cho read operations)
-
-**FSM States:**
-- `IDLE` - Chờ request
-- `WRITE_ADDR` - Gửi địa chỉ ghi
-- `WRITE_DATA` - Gửi dữ liệu ghi
-- `WRITE_RESP` - Chờ response
-- `READ_ADDR` - Gửi địa chỉ đọc
-- `READ_DATA` - Chờ dữ liệu đọc
-
-### 3. `serv_axi_wrapper.v`
-Top-level wrapper kết nối SERV processor với AXI4.
-
-**Ports:**
-- `ACLK` - Clock (cùng clock cho SERV và AXI)
-- `ARESETN` - Reset (active-low, AXI style)
-- `i_timer_irq` - Timer interrupt (optional)
-- `M0_AXI_*` - AXI4 Master Port 0 (Instruction Bus, Read-only)
-- `M1_AXI_*` - AXI4 Master Port 1 (Data Bus, Read-write)
-
-**Internal Connections:**
-- SERV `o_ibus_*` → `wb2axi_read` → `M0_AXI_*`
-- SERV `o_dbus_*` → `wb2axi_write` → `M1_AXI_*`
-
-## Sử dụng
-
-### 1. Kết nối với AXI Interconnect
+IP modules là self-contained và dễ sử dụng nhất:
 
 ```verilog
-// Instantiate SERV wrapper
-serv_axi_wrapper #(
-    .ADDR_WIDTH     (32),
-    .DATA_WIDTH     (32),
-    .ID_WIDTH       (4),
-    .WITH_CSR       (1),
-    .RESET_PC       (32'h0000_0000)
-) u_serv_wrapper (
-    .ACLK           (clk),
-    .ARESETN        (rstn),
-    .i_timer_irq    (timer_irq),
-    
-    // AXI Master 0 (Instruction)
-    .M0_AXI_arid    (S00_AXI_arid),    // Connect to Interconnect S00 port
-    .M0_AXI_araddr  (S00_AXI_araddr),
-    // ... (all other M0_AXI_* signals)
-    
-    // AXI Master 1 (Data)
-    .M1_AXI_awid    (S01_AXI_awid),    // Connect to Interconnect S01 port
-    .M1_AXI_awaddr  (S01_AXI_awaddr),
-    // ... (all other M1_AXI_* signals)
+// Dual Master System IP
+dual_master_system_ip #(
+    .INST_MEM_SIZE(8192),
+    .DATA_MEM_SIZE(8192),
+    .ALU_MEM_SIZE(4096)
+) u_dual_master_ip (
+    .ACLK(aclk),
+    .ARESETN(aresetn),
+    .i_timer_irq(timer_irq),
+    .alu_master_start(start),
+    .alu_master_busy(busy),
+    .alu_master_done(done),
+    .inst_mem_ready(inst_ready),
+    .data_mem_ready(data_ready),
+    .alu_mem_ready(alu_ready)
 );
 ```
 
-### 2. Kết nối với AXI Interconnect trong testbench
+### Sử dụng System Modules
+
+System modules yêu cầu external memory slaves:
 
 ```verilog
-// In AXI_Interconnect_Full instantiation:
-AXI_Interconnect_Full #(
-    .Masters_Num    (2),  // SERV wrapper provides 2 masters
-    .Num_Of_Slaves  (2),
-    // ... other parameters
-) u_interconnect (
-    // Master 0 (Instruction Bus)
-    .S00_AXI_arid       (serv_wrapper_M0_AXI_arid),
-    .S00_AXI_araddr     (serv_wrapper_M0_AXI_araddr),
-    // ...
-    
-    // Master 1 (Data Bus)
-    .S01_AXI_awid       (serv_wrapper_M1_AXI_awid),
-    .S01_AXI_awaddr     (serv_wrapper_M1_AXI_awaddr),
-    // ...
+// SERV AXI System
+serv_axi_system u_serv_system (
+    .ACLK(aclk),
+    .ARESETN(aresetn),
+    .i_timer_irq(timer_irq),
+    // AXI Master interfaces
+    .M00_AXI_*(...),  // Instruction memory
+    .M01_AXI_*(...)   // Data memory
 );
+
+// External memory slaves
+axi_rom_slave u_inst_mem (...);
+axi_memory_slave u_data_mem (...);
 ```
 
-## Lưu ý
+## File Organization Benefits
 
-1. **Reset Polarity:**
-   - SERV sử dụng `i_rst` (active-high)
-   - AXI sử dụng `ARESETN` (active-low)
-   - Wrapper tự động chuyển đổi: `i_rst = ~ARESETN`
+1. **Dễ tìm kiếm**: Modules được phân loại theo chức năng
+2. **Dễ quản lý**: Mỗi loại module có thư mục riêng
+3. **Dễ mở rộng**: Dễ dàng thêm module mới vào đúng thư mục
+4. **Rõ ràng**: Phân biệt rõ converters, systems, IP modules, và memory slaves
 
-2. **RF (Register File) Interface:**
-   - SERV cần Register File implementation
-   - Hiện tại wrapper có placeholder cho RF
-   - Cần implement `serv_rf_ram` hoặc RF module khác
+## Lưu Ý
 
-3. **QoS Settings:**
-   - Instruction bus có thể set QoS cao hơn data bus
-   - Sử dụng `M0_AXI_arqos` và `M1_AXI_awqos/arqos` để điều chỉnh
-
-4. **Address Mapping:**
-   - Đảm bảo address ranges được map đúng trong AXI Interconnect
-   - Instruction bus thường map đến ROM/Flash
-   - Data bus map đến RAM/Peripherals
-
-## Testing
-
-1. Tạo testbench kết nối wrapper với AXI Interconnect
-2. Load RISC-V test program vào memory
-3. Verify instruction fetch qua M0_AXI
-4. Verify data read/write qua M1_AXI
-5. Check timing và handshake signals
-
-## Tài liệu tham khảo
-
-- SERV RISC-V: https://github.com/olofk/serv
-- AXI4 Protocol Specification (ARM IHI 0022E)
-- Wishbone B4 Specification
+- Tất cả modules sử dụng relative paths để reference dependencies
+- IP modules là self-contained và không cần external connections
+- System modules yêu cầu external memory slaves
+- Converters được sử dụng bởi `serv_axi_wrapper`
+- Memory slaves có thể được sử dụng độc lập hoặc trong IP modules

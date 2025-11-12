@@ -16,13 +16,15 @@ set project_name "AXI_PROJECT"
 
 # Lay thu muc project hien tai
 set project_dir [file normalize [file dirname [info script]]]
-# Tu sim/quartus, len 2 cap de den AXI root, roi vao src
-# Duong dan: sim/quartus -> .. -> sim -> .. -> AXI -> src
-set src_base_dir [file normalize [file join $project_dir .. .. src]]
+# Tu sim/quartus, len 2 cap de den AXI root
+# Duong dan: sim/quartus -> .. -> sim -> .. -> AXI
+set root_dir [file normalize [file join $project_dir .. ..]]
+set src_base_dir [file join $root_dir "src"]
 
 # Lua chon khac: Dung absolute path (tin cay hon, giong add_to_navigator.tcl)
 # Bo comment dong duoi va comment dong tren neu relative path khong hoat dong
-# set src_base_dir [file normalize "D:/AXI/src"]
+# set root_dir [file normalize "D:/AXI"]
+# set src_base_dir [file join $root_dir "src"]
 
 # Debug: In ra duong dan de kiem tra
 puts "\n============================================================================"
@@ -152,8 +154,8 @@ puts "2. Adding Wishbone to AXI Converter Modules..."
 set wrapper_dir [file join $src_base_dir "wrapper"]
 
 set wb2axi_files {
-    "wb2axi_read.v"
-    "wb2axi_write.v"
+    "converters/wb2axi_read.v"
+    "converters/wb2axi_write.v"
 }
 
 set wb2axi_count 0
@@ -170,7 +172,7 @@ puts "   Added $wb2axi_count converter files\n"
 # 3. SERV AXI Wrapper
 # ============================================================================
 puts "3. Adding SERV AXI Wrapper..."
-set wrapper_file [file join $wrapper_dir "serv_axi_wrapper.v"]
+set wrapper_file [file join $wrapper_dir "converters" "serv_axi_wrapper.v"]
 if {[add_verilog_file $wrapper_file]} {
     set total_files [expr $total_files + 1]
     puts "    Added serv_axi_wrapper.v\n"
@@ -237,17 +239,46 @@ puts "   Added $count core files\n"
 set total_files [expr $total_files + $interconnect_count]
 
 # ============================================================================
-# 5. Top-Level System Integration (Tuy chon)
+# 5. Top-Level System Integration
 # ============================================================================
-puts "5. Adding System Integration Module (Optional)..."
-set system_file [file join $wrapper_dir "serv_axi_system.v"]
-if {[file exists $system_file]} {
-    if {[add_verilog_file $system_file]} {
-        set total_files [expr $total_files + 1]
-        puts "    Added serv_axi_system.v\n"
+puts "5. Adding System Integration Modules..."
+set system_files {
+    "systems/serv_axi_system.v"
+    "systems/dual_master_system.v"
+    "systems/alu_master_system.v"
+}
+
+set ip_files {
+    "ip/serv_axi_system_ip.v"
+    "ip/dual_master_system_ip.v"
+}
+
+set system_count 0
+foreach file $system_files {
+    set file_path [file join $wrapper_dir $file]
+    if {[file exists $file_path]} {
+        if {[add_verilog_file $file_path]} {
+            incr system_count
+        }
     }
+}
+
+set ip_count 0
+foreach file $ip_files {
+    set file_path [file join $wrapper_dir $file]
+    if {[file exists $file_path]} {
+        if {[add_verilog_file $file_path]} {
+            incr ip_count
+        }
+    }
+}
+
+set total_system_count [expr $system_count + $ip_count]
+if {$total_system_count > 0} {
+    set total_files [expr $total_files + $total_system_count]
+    puts "   Added $system_count system files and $ip_count IP files\n"
 } else {
-    puts "   ⚠ serv_axi_system.v not found (optional)\n"
+    puts "   ⚠ System integration files not found\n"
 }
 
 # ============================================================================
@@ -255,8 +286,8 @@ if {[file exists $system_file]} {
 # ============================================================================
 puts "6. Adding Memory Slave Models (Optional - for simulation)..."
 set memory_files {
-    "axi_rom_slave.v"
-    "axi_memory_slave.v"
+    "memory/axi_rom_slave.v"
+    "memory/axi_memory_slave.v"
 }
 
 set memory_count 0
@@ -276,10 +307,65 @@ if {$memory_count > 0} {
 }
 
 # ============================================================================
-# Set Top-Level Entity (neu dung serv_axi_system)
+# 7. Master ALU Files
+# ============================================================================
+puts "7. Adding Master ALU Files..."
+set alu_dir [file join $root_dir "Master_ALU" "ALU"]
+
+set alu_files {
+    "ALU_Core.v"
+    "CPU_ALU_Master.v"
+    "CPU_Controller.v"
+    "Simple_AXI_Master_Test.v"
+}
+
+set alu_count 0
+foreach file $alu_files {
+    set file_path [file join $alu_dir $file]
+    if {[file exists $file_path]} {
+        if {[add_verilog_file $file_path]} {
+            incr alu_count
+        }
+    }
+}
+if {$alu_count > 0} {
+    set total_files [expr $total_files + $alu_count]
+    puts "   Added $alu_count ALU master files\n"
+} else {
+    puts "   ⚠ Master ALU files not found\n"
+}
+
+# ============================================================================
+# 8. Slave Memory Files
+# ============================================================================
+puts "8. Adding Slave Memory Files..."
+set slave_dir [file join $root_dir "Slave_Memory"]
+
+set slave_files {
+    "Simple_Memory_Slave.v"
+}
+
+set slave_count 0
+foreach file $slave_files {
+    set file_path [file join $slave_dir $file]
+    if {[file exists $file_path]} {
+        if {[add_verilog_file $file_path]} {
+            incr slave_count
+        }
+    }
+}
+if {$slave_count > 0} {
+    set total_files [expr $total_files + $slave_count]
+    puts "   Added $slave_count slave memory files\n"
+} else {
+    puts "   ⚠ Slave Memory files not found\n"
+}
+
+# ============================================================================
+# Set Top-Level Entity
 # ============================================================================
 
-puts "7. Setting Top-Level Entity..."
+puts "9. Setting Top-Level Entity..."
 # Bo comment mot trong cac dong sau dua tren top-level module cua ban:
 
 # Lua chon 1: Dung serv_axi_wrapper (standalone wrapper)
@@ -287,21 +373,37 @@ puts "7. Setting Top-Level Entity..."
 # puts "    Top-Level: serv_axi_wrapper\n"
 
 # Lua chon 2: Dung serv_axi_system (full system voi interconnect)
-set_global_assignment -name TOP_LEVEL_ENTITY "serv_axi_system"
-puts "    Top-Level: serv_axi_system\n"
+# set_global_assignment -name TOP_LEVEL_ENTITY "serv_axi_system"
+# puts "    Top-Level: serv_axi_system\n"
 
-# Lua chon 3: Dung AXI_Interconnect_Full (chi interconnect)
+# Lua chon 3: Dung serv_axi_system_ip (complete IP module)
+# set_global_assignment -name TOP_LEVEL_ENTITY "serv_axi_system_ip"
+# puts "    Top-Level: serv_axi_system_ip\n"
+
+# Lua chon 4: Dung dual_master_system (SERV + ALU Master)
+# set_global_assignment -name TOP_LEVEL_ENTITY "dual_master_system"
+# puts "    Top-Level: dual_master_system\n"
+
+# Lua chon 5: Dung dual_master_system_ip (complete IP module) ⭐ **KHUYEN NGHI**
+set_global_assignment -name TOP_LEVEL_ENTITY "dual_master_system_ip"
+puts "    Top-Level: dual_master_system_ip\n"
+
+# Lua chon 6: Dung alu_master_system (ALU master system)
+# set_global_assignment -name TOP_LEVEL_ENTITY "alu_master_system"
+# puts "    Top-Level: alu_master_system\n"
+
+# Lua chon 7: Dung AXI_Interconnect_Full (chi interconnect)
 # set_global_assignment -name TOP_LEVEL_ENTITY "AXI_Interconnect_Full"
 # puts "    Top-Level: AXI_Interconnect_Full\n"
 
-# Lua chon 4: Giu nguyen top-level hien tai
+# Lua chon 8: Giu nguyen top-level hien tai
 # puts "   ℹ Keeping existing top-level entity\n"
 
 # ============================================================================
 # Set Include Directories (neu can)
 # ============================================================================
 
-puts "8. Setting Include Directories..."
+puts "10. Setting Include Directories..."
 set serv_includes [file join $src_base_dir "cores" "serv" "rtl"]
 set interconnect_includes [file join $src_base_dir "axi_interconnect" "rtl" "includes"]
 
@@ -327,13 +429,16 @@ puts "==========================================================================
 puts "Total files added: $total_files"
 puts "  - SERV Core files: $serv_count"
 puts "  - WB2AXI Converters: $wb2axi_count"
-puts "  - Wrapper: 1"
+puts "  - Wrapper files: [expr $system_count + $memory_count]"
 puts "  - AXI Interconnect files: $interconnect_count"
-if {$memory_count > 0} {
-    puts "  - Memory Slaves: $memory_count"
+if {$alu_count > 0} {
+    puts "  - ALU Master files: $alu_count"
+}
+if {$slave_count > 0} {
+    puts "  - Slave Memory files: $slave_count"
 }
 puts ""
-puts "Top-Level Entity: serv_axi_system"
+puts "Top-Level Entity: dual_master_system_ip"
 puts ""
 puts "============================================================================"
 puts " Files da duoc them vao Project Navigator!"

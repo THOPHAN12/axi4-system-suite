@@ -52,6 +52,7 @@ module AXI_Interconnect_tb #(
     reg    [1:0]                   S01_AXI_arlock ; // lock type
     reg    [3:0]                   S01_AXI_arcache; // a opptional signal for connecting to diffrent types of  memories
     reg    [2:0]                   S01_AXI_arprot ;// identifies the level of protection
+    reg    [3:0]                   S01_AXI_arregion; // AXI4 region signal
     reg    [3:0]                   S01_AXI_arqos  ; // for priority transactions
     reg                            S01_AXI_arvalid; // Address write valid signal 
     wire                           S01_AXI_arready; // Address write ready signal 
@@ -105,6 +106,7 @@ module AXI_Interconnect_tb #(
     reg    [1:0]                   S00_AXI_arlock ; // lock type
     reg    [3:0]                   S00_AXI_arcache; // a opptional signal for connecting to diffrent types of  memories
     reg    [2:0]                   S00_AXI_arprot ;// identifies the level of protection
+    reg    [3:0]                   S00_AXI_arregion; // AXI4 region signal
     reg    [3:0]                   S00_AXI_arqos  ; // for priority transactions
     reg                            S00_AXI_arvalid; // Address write valid signal 
     wire                           S00_AXI_arready; // Address write ready signal 
@@ -354,6 +356,9 @@ initial begin
     S01_Stim('h0AAAAAAA,'h0,'b0,'b0,'b0);
     S00_AXI_wlast='b0;
     S01_AXI_wlast='b0;
+    // Initialize arregion signals
+    S00_AXI_arregion = 4'b0;
+    S01_AXI_arregion = 4'b0;
     $display("* [%0t] Stimulus signals initialized", $time);
     
     // Master initialization
@@ -862,7 +867,7 @@ begin
     S01_AXI_awvalid='b0;
     #(0.75*Interconnect_Clock_Period);
     end else begin
-        $display("* [%0t]œ— FAIL: S01 arbitration failed", $time);
+        $display("* [%0t]ï¿½ï¿½ FAIL: S01 arbitration failed", $time);
         test_fail_count_sub = test_fail_count_sub + 1;
     end
     repeat(5)#Interconnect_Clock_Period;
@@ -926,7 +931,7 @@ begin
     M00_AXI_awready='b1;
     @(posedge ACLK) ;
     if((M00_AXI_awready==S00_AXI_awvalid)&&(M00_AXI_wready==S01_AXI_wvalid)) begin
-        $display("* [%0t]“ PASS: Both S00 and S01 handshakes completed", $time);
+        $display("* [%0t]ï¿½ PASS: Both S00 and S01 handshakes completed", $time);
         test_pass_count_sub = test_pass_count_sub + 1;
     #(0.25*Interconnect_Clock_Period);
     M00_AXI_awready='b0;
@@ -935,7 +940,7 @@ begin
     S01_AXI_wvalid='b0;
     #(0.75*Interconnect_Clock_Period);
     end else begin
-        $display("* [%0t]œ— FAIL: Transfer from S01 and S00 failed", $time);
+        $display("* [%0t]ï¿½ï¿½ FAIL: Transfer from S01 and S00 failed", $time);
         test_fail_count_sub = test_fail_count_sub + 1;
     end
     
@@ -967,7 +972,7 @@ begin
     M00_AXI_wready='b1;
     @(posedge ACLK) ;
     if(M00_AXI_wready==S01_AXI_wvalid) begin
-        $display("* [%0t]œ“ PASS: S01 last write data beat handshake completed", $time);
+        $display("* [%0t]ï¿½ï¿½ PASS: S01 last write data beat handshake completed", $time);
         test_pass_count_sub = test_pass_count_sub + 1;
     #(0.25*Interconnect_Clock_Period);
     M00_AXI_wready='b0;
@@ -975,7 +980,7 @@ begin
     S01_AXI_wvalid='b0;
     #(0.75*Interconnect_Clock_Period);
     end else begin
-        $display("* [%0t]œ— FAIL: Transfer from S01 (last beat) failed", $time);
+        $display("* [%0t]ï¿½ï¿½ FAIL: Transfer from S01 (last beat) failed", $time);
         test_fail_count_sub = test_fail_count_sub + 1;
     end
 
@@ -1021,7 +1026,7 @@ begin
     S00_AXI_wvalid='b0;
     #(0.75*Interconnect_Clock_Period);
     end else begin
-        $display("* [%0t]— FAIL: Transfer from S00 failed", $time);
+        $display("* [%0t]ï¿½ FAIL: Transfer from S00 failed", $time);
         test_fail_count_sub = test_fail_count_sub + 1;
     end
 
@@ -1043,7 +1048,7 @@ begin
     M00_AXI_bvalid='b0;
     #(0.75*Interconnect_Clock_Period);
     end else begin
-        $display("* [%0t]œ— FAIL: Write response from S00 failed", $time);
+        $display("* [%0t]ï¿½ï¿½ FAIL: Write response from S00 failed", $time);
         test_fail_count_sub = test_fail_count_sub + 1;
     end
     repeat(2)#Interconnect_Clock_Period;
@@ -1534,6 +1539,7 @@ u_AXI_Interconnect(
     .S01_AXI_arlock   (S01_AXI_arlock   ),
     .S01_AXI_arcache  (S01_AXI_arcache  ),
     .S01_AXI_arprot   (S01_AXI_arprot   ),
+    .S01_AXI_arregion (S01_AXI_arregion ),
     .S01_AXI_arqos    (S01_AXI_arqos    ),
     .S01_AXI_arvalid  (S01_AXI_arvalid  ),
     .S01_AXI_arready  (S01_AXI_arready  ),
@@ -1571,6 +1577,7 @@ u_AXI_Interconnect(
     .S00_AXI_arlock   (S00_AXI_arlock   ),
     .S00_AXI_arcache  (S00_AXI_arcache  ),
     .S00_AXI_arprot   (S00_AXI_arprot   ),
+    .S00_AXI_arregion (S00_AXI_arregion ),
     .S00_AXI_arqos    (S00_AXI_arqos    ),
     .S00_AXI_arvalid  (S00_AXI_arvalid  ),
     .S00_AXI_arready  (S00_AXI_arready  ),
