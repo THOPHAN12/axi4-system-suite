@@ -14,12 +14,13 @@ src/wrapper/
 │   ├── serv_axi_system.v
 │   ├── dual_master_system.v
 │   └── alu_master_system.v
-├── ip/                   # Self-contained IP modules
+├── ip/                   # Self-contained IP modules (SoC-level IP)
 │   ├── serv_axi_system_ip.v
 │   └── dual_master_system_ip.v
-└── memory/               # Memory slave modules
+└── memory/               # AXI memory slave modules
     ├── axi_rom_slave.v
-    └── axi_memory_slave.v
+    ├── axi_memory_slave.v
+    └── Simple_Memory_Slave.v
 ```
 
 ## Modules
@@ -104,6 +105,13 @@ src/wrapper/
   - Data memory cho SERV và ALU Master
   - Read-write AXI4 interface
   - Supports memory initialization
+
+#### `Simple_Memory_Slave.v`
+- **Mục đích**: AXI4 Read-Write Memory slave đơn giản (không dùng ID)
+- **Chức năng**:
+  - Bộ nhớ nhỏ cho các IP riêng (ví dụ ALU Master system hoặc AXI Interconnect test)
+  - Giao diện AXI4 tối giản: không có `ID` và không dùng file init
+  - Phù hợp cho các thiết kế nhẹ, dễ đọc, dễ debug
 
 ## Kiến Trúc
 

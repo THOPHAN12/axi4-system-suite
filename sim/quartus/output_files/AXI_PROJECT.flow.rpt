@@ -1,5 +1,5 @@
 Flow report for AXI_PROJECT
-Wed Nov 12 08:43:46 2025
+Sun Nov 16 21:41:20 2025
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,22 +40,22 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Wed Nov 12 08:43:46 2025           ;
+; Flow Status                        ; Successful - Sun Nov 16 21:41:16 2025           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; AXI_PROJECT                                     ;
 ; Top-level Entity Name              ; dual_master_system_ip                           ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C35F672C6                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 15,101                                          ;
-;     Total combinational functions  ; 6,845                                           ;
-;     Dedicated logic registers      ; 8,627                                           ;
+; Total logic elements               ; 11,237 / 33,216 ( 34 % )                        ;
+;     Total combinational functions  ; 6,845 / 33,216 ( 21 % )                         ;
+;     Dedicated logic registers      ; 8,627 / 33,216 ( 26 % )                         ;
 ; Total registers                    ; 8627                                            ;
-; Total pins                         ; 10                                              ;
+; Total pins                         ; 10 / 475 ( 2 % )                                ;
 ; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 0                                               ;
-; Embedded Multiplier 9-bit elements ; 0                                               ;
-; Total PLLs                         ; 0                                               ;
+; Total memory bits                  ; 0 / 483,840 ( 0 % )                             ;
+; Embedded Multiplier 9-bit elements ; 0 / 70 ( 0 % )                                  ;
+; Total PLLs                         ; 0 / 4 ( 0 % )                                   ;
 +------------------------------------+-------------------------------------------------+
 
 
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/12/2025 08:43:27 ;
+; Start date & time ; 11/16/2025 21:39:51 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; AXI_PROJECT         ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+----------------------------------------------------------------------------+---------------+-----------------------+------------+
 ; Assignment Name                     ; Value                                                                      ; Default Value ; Entity Name           ; Section Id ;
 +-------------------------------------+----------------------------------------------------------------------------+---------------+-----------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 255757338281413.176291180717884                                            ; --            ; --                    ; --         ;
+; COMPILER_SIGNATURE_ID               ; 255757338281413.176330399116888                                            ; --            ; --                    ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                                         ; --            ; --                    ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                                          ; --            ; --                    ; --         ;
 ; PARTITION_COLOR                     ; 16764057                                                                   ; --            ; dual_master_system_ip ; Top        ;
@@ -92,29 +92,38 @@ applicable agreement for further details.
 +-------------------------------------+----------------------------------------------------------------------------+---------------+-----------------------+------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                        ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:19     ; 1.0                     ; 4756 MB             ; 00:00:18                           ;
-; Total                ; 00:00:19     ; --                      ; --                  ; 00:00:18                           ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                             ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis      ; 00:00:17     ; 1.0                     ; 4720 MB             ; 00:00:17                           ;
+; Fitter                    ; 00:01:01     ; 2.1                     ; 5640 MB             ; 00:01:31                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 4615 MB             ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 4775 MB             ; 00:00:03                           ;
+; Total                     ; 00:01:23     ; --                      ; --                  ; 00:01:53                           ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+-----------------------------------------------------------------------------------+
-; Flow OS Summary                                                                   ;
-+----------------------+------------------+-----------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
-+----------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis ; phanngocductho   ; Windows 7 ; 6.2        ; x86_64         ;
-+----------------------+------------------+-----------+------------+----------------+
++----------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                        ;
++---------------------------+------------------+-----------+------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++---------------------------+------------------+-----------+------------+----------------+
+; Analysis & Synthesis      ; phanngocductho   ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; phanngocductho   ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; phanngocductho   ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; phanngocductho   ; Windows 7 ; 6.2        ; x86_64         ;
++---------------------------+------------------+-----------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off AXI_PROJECT -c AXI_PROJECT
+quartus_fit --read_settings_files=off --write_settings_files=off AXI_PROJECT -c AXI_PROJECT
+quartus_asm --read_settings_files=off --write_settings_files=off AXI_PROJECT -c AXI_PROJECT
+quartus_sta AXI_PROJECT -c AXI_PROJECT
 
 
 
