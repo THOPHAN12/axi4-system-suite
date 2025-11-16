@@ -339,7 +339,7 @@ if {$alu_count > 0} {
 # 8. Slave Memory Files
 # ============================================================================
 puts "8. Adding Slave Memory Files..."
-set slave_dir [file join $root_dir "Slave_Memory"]
+set slave_dir [file join $src_base_dir "wrapper" "memory"]
 
 set slave_files {
     "Simple_Memory_Slave.v"
