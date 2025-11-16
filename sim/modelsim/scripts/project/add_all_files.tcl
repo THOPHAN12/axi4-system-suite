@@ -444,6 +444,10 @@ set total_added [expr $total_added + $count]
 set count [add_directory_files [file join $wrapper_path "memory"] "*.v" "15. Adding Memory Slaves..."]
 set total_added [expr $total_added + $count]
 
+# 16. ALU Core Files (src/cores/alu)
+set count [add_directory_files [file join $project_root "src" "cores" "alu"] "*.v" "16. Adding ALU Core Files..."]
+set total_added [expr $total_added + $count]
+
 # 17. Testbench (optional - có thể bỏ qua nếu không muốn)
 puts "\n17. Adding Testbench Files (optional)..."
 # Scan testbenches subdirectories

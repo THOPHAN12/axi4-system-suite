@@ -1,17 +1,32 @@
 # ============================================================================
 # TCL Script to Auto-Create Project and Add All Files
-# Usage: source add_files_auto.tcl
+# Usage (trong ModelSim Transcript):
+#   source scripts/project/add_files_auto.tcl
 # 
 # Chức năng:
 # - Tự động tạo project nếu chưa có, hoặc mở project nếu đã tồn tại
-# - Tự động add TẤT CẢ file .v vào project
+# - Tự động add TẤT CẢ file .v vào project (thông qua add_all_files.tcl)
 # - CHỈ add file MỚI (file đã có trong project sẽ bị bỏ qua)
 # - Có thể chạy nhiều lần mà không bị duplicate files
 # - Tự động phát hiện file mới được thêm vào thư mục
 # ============================================================================
 
+# Tự động xác định đường dẫn thư mục scripts/project
+set script_file [info script]
+if {[string equal $script_file ""] || ![file exists $script_file]} {
+    # Fallback: dùng current working directory
+    set script_dir [pwd]
+    puts "add_files_auto.tcl: Using current directory as script_dir = $script_dir"
+} else {
+    set script_dir [file dirname [file normalize $script_file]]
+    puts "add_files_auto.tcl: Script directory = $script_dir"
+}
+
+# Tính thư mục ModelSim project home:
+#   D:/AXI/sim/modelsim/scripts/project  ->  D:/AXI/sim/modelsim
+set project_homedir [file normalize [file join $script_dir .. ..]]
+
 set project_name "AXI_Project"
-set project_homedir "D:/AXI/sim/modelsim"
 set project_path [file join $project_homedir $project_name]
 
 # Kiểm tra xem project đã tồn tại chưa
