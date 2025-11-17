@@ -83,7 +83,9 @@ puts "==========================================================================
 # ============================================================================
 # Ensure Project is Open
 # ============================================================================
-set project_path "D:/AXI/sim/modelsim/AXI_Project"
+set project_name "AXI_Project"
+set project_dir [file normalize [file join $script_dir $project_name]]
+set project_file [file normalize [file join $project_dir "${project_name}.mpf"]]
 set project_is_open 0
 
 # Function to verify project is actually open (with retry)
@@ -120,21 +122,25 @@ proc get_project_info {} {
 }
 
 # Function to open project
-proc open_project_force {path} {
+proc open_project_force {} {
+    global project_dir project_file project_name
     # Close any existing project first
     catch {project close}
     after 200
     
-    if {[file exists "$path.mpf"]} {
-        puts "Opening existing project: $path"
-        if {![catch {project open $path}]} {
+    if {[file exists $project_file]} {
+        puts "Opening existing project: $project_file"
+        if {![catch {project open $project_file}]} {
             # Give more time for project to load
             after 500
             return 1
         }
     } else {
-        puts "Creating new project: $path"
-        if {![catch {project new "D:/AXI/sim/modelsim" "AXI_Project"}]} {
+        puts "Creating new project: $project_dir (name: $project_name)"
+        if {![file exists $project_dir]} {
+            file mkdir $project_dir
+        }
+        if {![catch {project new $project_dir $project_name}]} {
             # Give more time for project to be created
             after 500
             return 1
@@ -143,39 +149,20 @@ proc open_project_force {path} {
     return 0
 }
 
-# Step 1: Check if project is already open (reliable method)
-if {[verify_project_open 3 100]} {
-    puts "Project is already open: [get_project_info]"
+# Step 1: Force open our target project (always close existing)
+puts "Ensuring ModelSim project '$project_name' is open..."
+if {[open_project_force]} {
+    puts "Project open command issued, verifying..."
+} else {
+    puts "ERROR: Unable to open or create project at $project_dir"
+}
+
+# Step 2: Verify project actually opened
+if {[verify_project_open 10 200]} {
+    puts "Project is open: [get_project_info]"
     set project_is_open 1
 } else {
-    puts "No project is currently open. Opening project..."
-    
-    # Step 2: Try to open project
-    if {[open_project_force $project_path]} {
-        # Step 3: Verify it's actually open (with more retries and longer delay)
-        if {[verify_project_open 10 300]} {
-            puts "Project opened successfully: [get_project_info]"
-            set project_is_open 1
-        } else {
-            puts "WARNING: Project open command succeeded but verification failed"
-            puts "Retrying with longer delay..."
-            after 500
-            if {[open_project_force $project_path]} {
-                if {[verify_project_open 10 300]} {
-                    puts "Project opened successfully on retry: [get_project_info]"
-                    set project_is_open 1
-                } else {
-                    puts "WARNING: Still cannot verify project after retry"
-                    puts "Attempting final verification..."
-                    after 1000
-                    if {[verify_project_open 5 500]} {
-                        puts "Project verified on final attempt: [get_project_info]"
-                        set project_is_open 1
-                    }
-                }
-            }
-        }
-    }
+    puts "ERROR: Unable to verify that project is open."
 }
 
 # Final verification - must pass before proceeding (with generous retry)
@@ -203,7 +190,7 @@ if {!$project_is_open} {
 
 # If still not verified, but project file exists and was opened, 
 # try to proceed with a test add operation
-if {!$project_is_open && [file exists "$project_path.mpf"]} {
+if {!$project_is_open && [file exists $project_file]} {
     puts "WARNING: Verification failed but project file exists."
     puts "Attempting to proceed - will test by trying to add files..."
     puts "If this fails, files will not be added."
@@ -213,9 +200,9 @@ if {!$project_is_open && [file exists "$project_path.mpf"]} {
 if {!$project_is_open} {
     puts "ERROR: Could not open or verify project!"
     puts "Please try one of the following:"
-    puts "  1. Open project manually: project open $project_path"
+    puts "  1. Open project manually: project open $project_file"
     puts "  2. Or use: source D:/AXI/sim/modelsim/scripts/project/add_files_auto.tcl"
-    puts "  3. Or create project: project new D:/AXI/sim/modelsim AXI_Project"
+    puts "  3. Or create project: project new $project_dir $project_name"
     return
 }
 

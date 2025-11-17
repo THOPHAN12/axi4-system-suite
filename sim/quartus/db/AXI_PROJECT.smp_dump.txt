@@ -1,9 +1,16 @@
 
-State Machine - |dual_master_system_ip|axi_rom_slave:u_reserved_mem|rd_state
+State Machine - |dual_master_system_ip|axi_memory_slave:u_reserved_mem|rd_state
 Name rd_state.RD_IDLE rd_state.RD_DATA rd_state.RD_ADDR 
 rd_state.RD_IDLE 0 0 0 
 rd_state.RD_ADDR 1 0 1 
 rd_state.RD_DATA 1 1 0 
+
+State Machine - |dual_master_system_ip|axi_memory_slave:u_reserved_mem|wr_state
+Name wr_state.WR_RESP wr_state.WR_DATA wr_state.WR_ADDR wr_state.WR_IDLE 
+wr_state.WR_IDLE 0 0 0 0 
+wr_state.WR_ADDR 0 0 1 1 
+wr_state.WR_DATA 0 1 0 1 
+wr_state.WR_RESP 1 0 0 1 
 
 State Machine - |dual_master_system_ip|axi_memory_slave:u_alu_mem|rd_state
 Name rd_state.RD_IDLE rd_state.RD_DATA rd_state.RD_ADDR 
@@ -31,11 +38,18 @@ wr_state.WR_ADDR 0 0 1 1
 wr_state.WR_DATA 0 1 0 1 
 wr_state.WR_RESP 1 0 0 1 
 
-State Machine - |dual_master_system_ip|axi_rom_slave:u_inst_mem|rd_state
+State Machine - |dual_master_system_ip|axi_memory_slave:u_inst_mem|rd_state
 Name rd_state.RD_IDLE rd_state.RD_DATA rd_state.RD_ADDR 
 rd_state.RD_IDLE 0 0 0 
 rd_state.RD_ADDR 1 0 1 
 rd_state.RD_DATA 1 1 0 
+
+State Machine - |dual_master_system_ip|axi_memory_slave:u_inst_mem|wr_state
+Name wr_state.WR_RESP wr_state.WR_DATA wr_state.WR_ADDR wr_state.WR_IDLE 
+wr_state.WR_IDLE 0 0 0 0 
+wr_state.WR_ADDR 0 0 1 1 
+wr_state.WR_DATA 0 1 0 1 
+wr_state.WR_RESP 1 0 0 1 
 
 State Machine - |dual_master_system_ip|AXI_Interconnect_Full:u_axi_interconnect|Controller:Read_controller|curr_state_address
 Name curr_state_address.Idle_address curr_state_address.M1_Address curr_state_address.M0_Address 
@@ -60,14 +74,15 @@ curr_state_slave.Slave2 1 0 0 1 0
 curr_state_slave.Slave3 0 0 0 1 1 
 
 State Machine - |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state
-Name current_state.STORE_RESULT current_state.EXECUTE current_state.FETCH_OP2 current_state.FETCH_OP1 current_state.DECODE current_state.FETCH_INSTR current_state.IDLE 
-current_state.IDLE 0 0 0 0 0 0 0 
-current_state.FETCH_INSTR 0 0 0 0 0 1 1 
-current_state.DECODE 0 0 0 0 1 0 1 
-current_state.FETCH_OP1 0 0 0 1 0 0 1 
-current_state.FETCH_OP2 0 0 1 0 0 0 1 
-current_state.EXECUTE 0 1 0 0 0 0 1 
-current_state.STORE_RESULT 1 0 0 0 0 0 1 
+Name current_state.LATCH_RESULT current_state.STORE_RESULT current_state.EXECUTE current_state.FETCH_OP2 current_state.FETCH_OP1 current_state.DECODE current_state.FETCH_INSTR current_state.IDLE 
+current_state.IDLE 0 0 0 0 0 0 0 0 
+current_state.FETCH_INSTR 0 0 0 0 0 0 1 1 
+current_state.DECODE 0 0 0 0 0 1 0 1 
+current_state.FETCH_OP1 0 0 0 0 1 0 0 1 
+current_state.FETCH_OP2 0 0 0 1 0 0 0 1 
+current_state.EXECUTE 0 0 1 0 0 0 0 1 
+current_state.STORE_RESULT 0 1 0 0 0 0 0 1 
+current_state.LATCH_RESULT 1 0 0 0 0 0 0 1 
 
 State Machine - |dual_master_system_ip|serv_axi_wrapper:u_serv_wrapper|wb2axi_write:u_wb2axi_data|state
 Name state.READ_DATA state.READ_ADDR state.WRITE_RESP state.WRITE_DATA state.WRITE_ADDR state.IDLE 

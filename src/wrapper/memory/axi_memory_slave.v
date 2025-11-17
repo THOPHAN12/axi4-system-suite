@@ -292,12 +292,18 @@ always @(posedge ACLK) begin
     if (!ARESETN) begin
         S_AXI_rdata <= {DATA_WIDTH{1'b0}};
     end else begin
-        if (mem_rd_en && mem_rd_addr < MEM_SIZE) begin
-            S_AXI_rdata <= memory[mem_rd_addr];
-            $display("[%0t] MEM_SLAVE[%m] READ: addr=%0d data=0x%08h (from memory[%0d])", $time, mem_rd_addr, memory[mem_rd_addr], mem_rd_addr);
+        if (mem_rd_en) begin
+            if (mem_rd_addr < MEM_SIZE) begin
+                S_AXI_rdata <= memory[mem_rd_addr];
+                $display("[%0t] MEM_SLAVE[%m] READ: addr=%0d data=0x%08h (from memory[%0d])",
+                         $time, mem_rd_addr, memory[mem_rd_addr], mem_rd_addr);
+            end else begin
+                S_AXI_rdata <= {DATA_WIDTH{1'b0}};
+                $display("[%0t] MEM_SLAVE[%m] READ: FAILED (addr=%0d out of range MEM_SIZE=%0d)",
+                         $time, mem_rd_addr, MEM_SIZE);
+            end
         end else begin
             S_AXI_rdata <= {DATA_WIDTH{1'b0}};
-            $display("[%0t] MEM_SLAVE[%m] READ: FAILED (mem_rd_en=%0b addr=%0d MEM_SIZE=%0d)", $time, mem_rd_en, mem_rd_addr, MEM_SIZE);
         end
     end
 end

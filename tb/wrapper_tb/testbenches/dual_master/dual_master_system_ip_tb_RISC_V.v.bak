@@ -1,0 +1,257 @@
+/*
+ * dual_master_system_ip_tb_RISC_V.v : SERV-focused testbench
+ *
+ * Executes a small RISC-V program (loaded via INST_MEM_INIT_FILE) that
+ * exercises the SERV core, writes a test value into Data RAM, and reports
+ * PASS/FAIL status via a well-known memory flag.
+ */
+
+`timescale 1ns/1ps
+
+module dual_master_system_ip_tb_RISC_V;
+
+// Parameters
+parameter ADDR_WIDTH = 32;
+parameter DATA_WIDTH = 32;
+parameter ID_WIDTH   = 4;
+parameter CLK_PERIOD = 10;  // 100 MHz
+
+// Clock and Reset
+reg  ACLK;
+reg  ARESETN;
+reg  i_timer_irq;
+
+// ALU Master Control (kept for completeness, held idle)
+reg  alu_master_start;
+wire alu_master_busy;
+wire alu_master_done;
+
+// Status signals
+wire inst_mem_ready;
+wire data_mem_ready;
+wire alu_mem_ready;
+wire reserved_mem_ready;
+
+// Address map mirror (for readability)
+localparam [31:0] SLAVE0_ADDR_START = 32'h0000_0000;
+localparam [31:0] SLAVE0_ADDR_END   = 32'h3FFF_FFFF;
+localparam [31:0] SLAVE1_ADDR_START = 32'h4000_0000;
+localparam [31:0] SLAVE1_ADDR_END   = 32'h7FFF_FFFF;
+localparam [31:0] SLAVE2_ADDR_START = 32'h8000_0000;
+localparam [31:0] SLAVE2_ADDR_END   = 32'hBFFF_FFFF;
+localparam [31:0] SLAVE3_ADDR_START = 32'hC000_0000;
+localparam [31:0] SLAVE3_ADDR_END   = 32'hFFFF_FFFF;
+
+// RISC-V software-driven test configuration (Data RAM window)
+localparam [31:0] DATA_REGION_BASE   = SLAVE1_ADDR_START;
+localparam [31:0] DATA_RESULT_ADDR   = DATA_REGION_BASE + 32'h0;
+localparam [31:0] DATA_STATUS_ADDR   = DATA_REGION_BASE + 32'h4;
+localparam integer DATA_RESULT_IDX   = (DATA_RESULT_ADDR - SLAVE1_ADDR_START) >> 2;
+localparam integer DATA_STATUS_IDX   = (DATA_STATUS_ADDR - SLAVE1_ADDR_START) >> 2;
+localparam [31:0] EXPECTED_RESULT    = 32'd42;
+localparam [31:0] STATUS_PASS_VALUE  = 32'h0000_0001;
+localparam [31:0] STATUS_FAIL_VALUE  = 32'hFFFF_FFFF;
+localparam integer MAX_CYCLES        = 5000000;
+
+// Clock generation
+always begin
+    ACLK = 1'b0;
+    #(CLK_PERIOD/2);
+    ACLK = 1'b1;
+    #(CLK_PERIOD/2);
+end
+
+// Reset generation
+initial begin
+    ARESETN = 1'b0;
+    i_timer_irq = 1'b0;
+    alu_master_start = 1'b0;
+    #(CLK_PERIOD * 10);
+    ARESETN = 1'b1;
+    $display("[%0t] Reset released", $time);
+end
+
+// DUT Instance - Complete IP Module
+dual_master_system_ip #(
+    .ADDR_WIDTH             (ADDR_WIDTH),
+    .DATA_WIDTH             (DATA_WIDTH),
+    .ID_WIDTH               (ID_WIDTH),
+    .WITH_CSR               (1),
+    .W                      (1),
+    .PRE_REGISTER           (1),
+    .RESET_STRATEGY         ("MINI"),
+    .RESET_PC               (32'h0000_0000),
+    .DEBUG                  (1'b0),
+    .MDU                    (1'b0),
+    .COMPRESSED             (0),
+    .Masters_Num            (2),
+    .Address_width          (32),
+    .S00_Aw_len             (8),
+    .S00_Write_data_bus_width(32),
+    .S00_Write_data_bytes_num(4),
+    .S00_AR_len             (8),
+    .S00_Read_data_bus_width(32),
+    .S01_Aw_len             (8),
+    .S01_Write_data_bus_width(32),
+    .S01_AR_len             (8),
+    .M00_Aw_len             (8),
+    .M00_Write_data_bus_width(32),
+    .M00_Write_data_bytes_num(4),
+    .M00_AR_len             (8),
+    .M00_Read_data_bus_width(32),
+    .M01_Aw_len             (8),
+    .M01_AR_len             (8),
+    .M02_Aw_len             (8),
+    .M02_AR_len             (8),
+    .M02_Read_data_bus_width(32),
+    .M03_Aw_len             (8),
+    .M03_AR_len             (8),
+    .M03_Read_data_bus_width(32),
+    .Is_Master_AXI_4        (1'b1),
+    .M1_ID                  (0),
+    .M2_ID                  (1),
+    .Resp_ID_width          (2),
+    .Num_Of_Masters         (2),
+    .Num_Of_Slaves          (4),
+    .Master_ID_Width        (1),
+    .AXI4_AR_len            (8),
+    .AXI4_Aw_len            (8),
+    .SLAVE0_ADDR1           (SLAVE0_ADDR_START),
+    .SLAVE0_ADDR2           (SLAVE0_ADDR_END),
+    .SLAVE1_ADDR1           (SLAVE1_ADDR_START),
+    .SLAVE1_ADDR2           (SLAVE1_ADDR_END),
+    .SLAVE2_ADDR1           (SLAVE2_ADDR_START),
+    .SLAVE2_ADDR2           (SLAVE2_ADDR_END),
+    .SLAVE3_ADDR1           (SLAVE3_ADDR_START),
+    .SLAVE3_ADDR2           (SLAVE3_ADDR_END),
+    .INST_MEM_SIZE          (1024),
+    .DATA_MEM_SIZE          (1024),
+    .ALU_MEM_SIZE           (1024),
+    .RESERVED_MEM_SIZE      (1024),
+    .INST_MEM_INIT_FILE     ("../../riscv_mem_test.hex"),
+    .DATA_MEM_INIT_FILE     (""),
+    .ALU_MEM_INIT_FILE      (""),
+    .RESERVED_MEM_INIT_FILE ("")
+) u_dut (
+    .ACLK                   (ACLK),
+    .ARESETN                (ARESETN),
+    .i_timer_irq            (i_timer_irq),
+    .alu_master_start       (alu_master_start),
+    .alu_master_busy        (alu_master_busy),
+    .alu_master_done        (alu_master_done),
+    .inst_mem_ready         (inst_mem_ready),
+    .data_mem_ready         (data_mem_ready),
+    .alu_mem_ready          (alu_mem_ready),
+    .reserved_mem_ready     (reserved_mem_ready)
+);
+
+// Monitoring banner
+initial begin
+    $dumpfile("dual_master_system_ip_tb_RISC_V.vcd");
+    $dumpvars(0, dual_master_system_ip_tb_RISC_V);
+    $display("============================================================================");
+    $display("Dual Master System IP Testbench (SERV program driven)");
+    $display("----------------------------------------------------------------------------");
+    $display("SERV executes firmware from Instruction RAM, performs load/store via AXI,");
+    $display("and reports status through Data RAM flags.");
+    $display("============================================================================");
+end
+
+// Helper task: display decoded address map once reset is complete
+task automatic display_memory_map;
+    begin
+        $display("AXI Slave Address Map:");
+        $display("  Slave0 (Instruction) : 0x%08h - 0x%08h", SLAVE0_ADDR_START, SLAVE0_ADDR_END);
+        $display("  Slave1 (Data)        : 0x%08h - 0x%08h", SLAVE1_ADDR_START, SLAVE1_ADDR_END);
+        $display("  Slave2 (ALU)         : 0x%08h - 0x%08h", SLAVE2_ADDR_START, SLAVE2_ADDR_END);
+        $display("  Slave3 (Reserved)    : 0x%08h - 0x%08h", SLAVE3_ADDR_START, SLAVE3_ADDR_END);
+        $display("");
+    end
+endtask
+
+// Scoreboard: wait for SERV firmware to raise PASS/FAIL flag
+task automatic wait_for_serv_result;
+    integer cycle;
+    reg [31:0] status_word;
+    reg [31:0] result_word;
+    begin
+        for (cycle = 0; cycle < MAX_CYCLES; cycle = cycle + 1) begin
+            @(posedge ACLK);
+            status_word = u_dut.u_data_mem.memory[DATA_STATUS_IDX];
+            if (status_word == STATUS_PASS_VALUE) begin
+                result_word = u_dut.u_data_mem.memory[DATA_RESULT_IDX];
+                $display("[%0t] SERV firmware signaled PASS", $time);
+                $display("        Result word @0x%08h = 0x%08h (DEC %0d)",
+                         DATA_RESULT_ADDR, result_word, result_word);
+                if (result_word === EXPECTED_RESULT) begin
+                    $display("        EXPECTED_RESULT matched (%0d).", EXPECTED_RESULT);
+                end else begin
+                    $display("        WARNING: Expected %0d but observed %0d.",
+                             EXPECTED_RESULT, result_word);
+                end
+                $finish;
+            end else if (status_word == STATUS_FAIL_VALUE) begin
+                result_word = u_dut.u_data_mem.memory[DATA_RESULT_IDX];
+                $display("[%0t] SERV firmware signaled FAIL", $time);
+                $display("        Result word @0x%08h = 0x%08h", DATA_RESULT_ADDR, result_word);
+                $fatal(1, "SERV firmware reported failure flag");
+            end
+        end
+        $fatal(1, "Timeout waiting for SERV firmware PASS/FAIL flag (>%0d cycles)", MAX_CYCLES);
+    end
+endtask
+
+// Debug: monitor SERV data bus transactions
+always @(posedge ACLK) begin
+    if (ARESETN && u_dut.u_serv_wrapper.wb_dbus_cyc) begin
+        if (u_dut.u_serv_wrapper.wb_dbus_we) begin
+            $display("[%0t] SERV WB WRITE: addr=0x%08h data=0x%08h sel=0x%1h ack=%0b",
+                     $time,
+                     u_dut.u_serv_wrapper.wb_dbus_adr,
+                     u_dut.u_serv_wrapper.wb_dbus_dat,
+                     u_dut.u_serv_wrapper.wb_dbus_sel,
+                     u_dut.u_serv_wrapper.wb_dbus_ack);
+        end else if (u_dut.u_serv_wrapper.wb_dbus_ack) begin
+            $display("[%0t] SERV WB READ: addr=0x%08h data=0x%08h",
+                     $time,
+                     u_dut.u_serv_wrapper.wb_dbus_adr,
+                     u_dut.u_serv_wrapper.wb_dbus_dat);
+        end
+    end
+end
+
+always @(posedge ACLK) begin
+    if (ARESETN && u_dut.M01_AXI_awvalid) begin
+        $display("[%0t] AXI DATA AW: addr=0x%08h ready=%0b",
+                 $time,
+                 u_dut.M01_AXI_awaddr,
+                 u_dut.M01_AXI_awready);
+    end
+end
+
+always @(posedge ACLK) begin
+    if (ARESETN && u_dut.S01_AXI_awvalid) begin
+        $display("[%0t] AXI MASTER1 AW: addr=0x%08h ready=%0b",
+                 $time,
+                 u_dut.S01_AXI_awaddr,
+                 u_dut.S01_AXI_awready);
+    end
+end
+
+// Test stimulus: let SERV run freely and monitor memory-mapped status
+initial begin
+    wait(ARESETN);
+    #(CLK_PERIOD * 10);
+
+    $display("[%0t] System ready", $time);
+    $display("[%0t] Instruction Memory Ready: %b", $time, inst_mem_ready);
+    $display("[%0t] Data Memory Ready: %b", $time, data_mem_ready);
+    $display("[%0t] ALU Memory Ready: %b", $time, alu_mem_ready);
+    $display("[%0t] Reserved Memory Ready: %b", $time, reserved_mem_ready);
+    display_memory_map();
+
+    $display("[%0t] SERV firmware executing from Instruction RAM...", $time);
+    wait_for_serv_result();
+end
+
+endmodule

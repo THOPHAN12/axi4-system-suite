@@ -311,9 +311,9 @@ if {[file exists $ip_file]} {
 
 # 17. Testbench
 puts "\n17. Compiling Testbench..."
-set tb_file [file join $tb_path "wrapper_tb" "testbenches" "dual_master" "dual_master_system_ip_tb.v"]
+set tb_file [file join $tb_path "wrapper_tb" "testbenches" "dual_master" "dual_master_system_ip_tb_ALU.v"]
 if {[file exists $tb_file]} {
-    puts "  Compiling: dual_master_system_ip_tb.v"
+    puts "  Compiling: dual_master_system_ip_tb_ALU.v"
     vlog -work work $tb_file
 } else {
     puts "ERROR: Testbench not found: $tb_file"
@@ -334,40 +334,40 @@ puts "==========================================================================
 puts ""
 
 # Start simulation with GUI
-vsim -voptargs=+acc -t ps work.dual_master_system_ip_tb
+vsim -voptargs=+acc -t ps work.dual_master_system_ip_tb_ALU
 
 # Add waves
 puts "Adding waves to Wave window..."
 add wave -divider "Clock and Reset"
-add wave -radix binary /dual_master_system_ip_tb/ACLK
-add wave -radix binary /dual_master_system_ip_tb/ARESETN
-add wave -radix binary /dual_master_system_ip_tb/i_timer_irq
+add wave -radix binary /dual_master_system_ip_tb_ALU/ACLK
+add wave -radix binary /dual_master_system_ip_tb_ALU/ARESETN
+add wave -radix binary /dual_master_system_ip_tb_ALU/i_timer_irq
 
 add wave -divider "ALU Master Control"
-add wave -radix binary /dual_master_system_ip_tb/alu_master_start
-add wave -radix binary /dual_master_system_ip_tb/alu_master_busy
-add wave -radix binary /dual_master_system_ip_tb/alu_master_done
+add wave -radix binary /dual_master_system_ip_tb_ALU/alu_master_start
+add wave -radix binary /dual_master_system_ip_tb_ALU/alu_master_busy
+add wave -radix binary /dual_master_system_ip_tb_ALU/alu_master_done
 
 add wave -divider "Memory Status"
-add wave -radix binary /dual_master_system_ip_tb/inst_mem_ready
-add wave -radix binary /dual_master_system_ip_tb/data_mem_ready
-add wave -radix binary /dual_master_system_ip_tb/alu_mem_ready
-add wave -radix binary /dual_master_system_ip_tb/reserved_mem_ready
+add wave -radix binary /dual_master_system_ip_tb_ALU/inst_mem_ready
+add wave -radix binary /dual_master_system_ip_tb_ALU/data_mem_ready
+add wave -radix binary /dual_master_system_ip_tb_ALU/alu_mem_ready
+add wave -radix binary /dual_master_system_ip_tb_ALU/reserved_mem_ready
 
 add wave -divider "Test Counters"
-add wave -radix decimal /dual_master_system_ip_tb/pass_count
-add wave -radix decimal /dual_master_system_ip_tb/fail_count
-add wave -radix decimal /dual_master_system_ip_tb/test_idx
+add wave -radix decimal /dual_master_system_ip_tb_ALU/pass_count
+add wave -radix decimal /dual_master_system_ip_tb_ALU/fail_count
+add wave -radix decimal /dual_master_system_ip_tb_ALU/test_idx
 
 add wave -divider "DUT - ALU Master"
-add wave -radix hex /dual_master_system_ip_tb/u_dut/u_alu_master/*
-add wave -radix hex /dual_master_system_ip_tb/u_dut/u_alu_master/u_controller/*
-add wave -radix hex /dual_master_system_ip_tb/u_dut/u_alu_master/u_alu/*
+add wave -radix hex /dual_master_system_ip_tb_ALU/u_dut/u_alu_master/*
+add wave -radix hex /dual_master_system_ip_tb_ALU/u_dut/u_alu_master/u_controller/*
+add wave -radix hex /dual_master_system_ip_tb_ALU/u_dut/u_alu_master/u_alu/*
 
 add wave -divider "DUT - Memory Slaves"
-add wave -radix hex /dual_master_system_ip_tb/u_dut/u_inst_mem/*
-add wave -radix hex /dual_master_system_ip_tb/u_dut/u_data_mem/*
-add wave -radix hex /dual_master_system_ip_tb/u_dut/u_alu_mem/*
+add wave -radix hex /dual_master_system_ip_tb_ALU/u_dut/u_inst_mem/*
+add wave -radix hex /dual_master_system_ip_tb_ALU/u_dut/u_data_mem/*
+add wave -radix hex /dual_master_system_ip_tb_ALU/u_dut/u_alu_mem/*
 
 # Configure wave window
 configure wave -namecolwidth 250

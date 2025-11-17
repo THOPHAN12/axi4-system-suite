@@ -362,6 +362,85 @@ module dual_master_system_ip #(
     wire                    S01_AXI_rlast;
     wire                    S01_AXI_rvalid;
     wire                    S01_AXI_rready;
+
+    // SERV data AXI bus (bypasses interconnect to Data RAM)
+    wire [ID_WIDTH-1:0]     SERV_DATA_AXI_awid;
+    wire [ADDR_WIDTH-1:0]   SERV_DATA_AXI_awaddr;
+    wire [7:0]              SERV_DATA_AXI_awlen;
+    wire [2:0]              SERV_DATA_AXI_awsize;
+    wire [1:0]              SERV_DATA_AXI_awburst;
+    wire [1:0]              SERV_DATA_AXI_awlock;
+    wire [3:0]              SERV_DATA_AXI_awcache;
+    wire [2:0]              SERV_DATA_AXI_awprot;
+    wire [3:0]              SERV_DATA_AXI_awqos;
+    wire [3:0]              SERV_DATA_AXI_awregion;
+    wire                    SERV_DATA_AXI_awvalid;
+    wire                    SERV_DATA_AXI_awready;
+
+    wire [DATA_WIDTH-1:0]   SERV_DATA_AXI_wdata;
+    wire [(DATA_WIDTH/8)-1:0] SERV_DATA_AXI_wstrb;
+    wire                    SERV_DATA_AXI_wlast;
+    wire                    SERV_DATA_AXI_wvalid;
+    wire                    SERV_DATA_AXI_wready;
+
+    wire [ID_WIDTH-1:0]     SERV_DATA_AXI_bid;
+    wire [1:0]              SERV_DATA_AXI_bresp;
+    wire                    SERV_DATA_AXI_bvalid;
+    wire                    SERV_DATA_AXI_bready;
+
+    wire [ID_WIDTH-1:0]     SERV_DATA_AXI_arid;
+    wire [ADDR_WIDTH-1:0]   SERV_DATA_AXI_araddr;
+    wire [7:0]              SERV_DATA_AXI_arlen;
+    wire [2:0]              SERV_DATA_AXI_arsize;
+    wire [1:0]              SERV_DATA_AXI_arburst;
+    wire [1:0]              SERV_DATA_AXI_arlock;
+    wire [3:0]              SERV_DATA_AXI_arcache;
+    wire [2:0]              SERV_DATA_AXI_arprot;
+    wire [3:0]              SERV_DATA_AXI_arqos;
+    wire [3:0]              SERV_DATA_AXI_arregion;
+    wire                    SERV_DATA_AXI_arvalid;
+    wire                    SERV_DATA_AXI_arready;
+
+    wire [ID_WIDTH-1:0]     SERV_DATA_AXI_rid;
+    wire [DATA_WIDTH-1:0]   SERV_DATA_AXI_rdata;
+    wire [1:0]              SERV_DATA_AXI_rresp;
+    wire                    SERV_DATA_AXI_rlast;
+    wire                    SERV_DATA_AXI_rvalid;
+    wire                    SERV_DATA_AXI_rready;
+
+    // Tie unused interconnect master inputs (original S01 bus) to zero
+    assign S01_AXI_awid     = {ID_WIDTH{1'b0}};
+    assign S01_AXI_awaddr   = {ADDR_WIDTH{1'b0}};
+    assign S01_AXI_awlen    = 8'h0;
+    assign S01_AXI_awsize   = 3'h0;
+    assign S01_AXI_awburst  = 2'h0;
+    assign S01_AXI_awlock   = 2'h0;
+    assign S01_AXI_awcache  = 4'h0;
+    assign S01_AXI_awprot   = 3'h0;
+    assign S01_AXI_awqos    = 4'h0;
+    assign S01_AXI_awregion = 4'h0;
+    assign S01_AXI_awvalid  = 1'b0;
+
+    assign S01_AXI_wdata    = {DATA_WIDTH{1'b0}};
+    assign S01_AXI_wstrb    = {(DATA_WIDTH/8){1'b0}};
+    assign S01_AXI_wlast    = 1'b0;
+    assign S01_AXI_wvalid   = 1'b0;
+
+    assign S01_AXI_bready   = 1'b0;
+
+    assign S01_AXI_arid     = {ID_WIDTH{1'b0}};
+    assign S01_AXI_araddr   = {ADDR_WIDTH{1'b0}};
+    assign S01_AXI_arlen    = 8'h0;
+    assign S01_AXI_arsize   = 3'h0;
+    assign S01_AXI_arburst  = 2'h0;
+    assign S01_AXI_arlock   = 2'h0;
+    assign S01_AXI_arcache  = 4'h0;
+    assign S01_AXI_arprot   = 3'h0;
+    assign S01_AXI_arqos    = 4'h0;
+    assign S01_AXI_arregion = 4'h0;
+    assign S01_AXI_arvalid  = 1'b0;
+
+    assign S01_AXI_rready   = 1'b0;
     
     // Missing signal for ALU Master (bid) - Intentional: unused but required for AXI protocol
     wire [ID_WIDTH-1:0]     S02_AXI_bid;
@@ -453,49 +532,49 @@ module dual_master_system_ip #(
         .M0_AXI_rready  (S00_AXI_rready),
         
         // AXI Master 1 (Data Bus)
-        .M1_AXI_awid    (S01_AXI_awid),
-        .M1_AXI_awaddr  (S01_AXI_awaddr),
-        .M1_AXI_awlen   (S01_AXI_awlen),
-        .M1_AXI_awsize  (S01_AXI_awsize),
-        .M1_AXI_awburst (S01_AXI_awburst),
-        .M1_AXI_awlock  (S01_AXI_awlock),
-        .M1_AXI_awcache (S01_AXI_awcache),
-        .M1_AXI_awprot  (S01_AXI_awprot),
-        .M1_AXI_awqos   (S01_AXI_awqos),
-        .M1_AXI_awregion(S01_AXI_awregion),
-        .M1_AXI_awvalid (S01_AXI_awvalid),
-        .M1_AXI_awready (S01_AXI_awready),
+        .M1_AXI_awid    (SERV_DATA_AXI_awid),
+        .M1_AXI_awaddr  (SERV_DATA_AXI_awaddr),
+        .M1_AXI_awlen   (SERV_DATA_AXI_awlen),
+        .M1_AXI_awsize  (SERV_DATA_AXI_awsize),
+        .M1_AXI_awburst (SERV_DATA_AXI_awburst),
+        .M1_AXI_awlock  (SERV_DATA_AXI_awlock),
+        .M1_AXI_awcache (SERV_DATA_AXI_awcache),
+        .M1_AXI_awprot  (SERV_DATA_AXI_awprot),
+        .M1_AXI_awqos   (SERV_DATA_AXI_awqos),
+        .M1_AXI_awregion(SERV_DATA_AXI_awregion),
+        .M1_AXI_awvalid (SERV_DATA_AXI_awvalid),
+        .M1_AXI_awready (SERV_DATA_AXI_awready),
         
-        .M1_AXI_wdata   (S01_AXI_wdata),
-        .M1_AXI_wstrb   (S01_AXI_wstrb),
-        .M1_AXI_wlast   (S01_AXI_wlast),
-        .M1_AXI_wvalid  (S01_AXI_wvalid),
-        .M1_AXI_wready  (S01_AXI_wready),
+        .M1_AXI_wdata   (SERV_DATA_AXI_wdata),
+        .M1_AXI_wstrb   (SERV_DATA_AXI_wstrb),
+        .M1_AXI_wlast   (SERV_DATA_AXI_wlast),
+        .M1_AXI_wvalid  (SERV_DATA_AXI_wvalid),
+        .M1_AXI_wready  (SERV_DATA_AXI_wready),
         
-        .M1_AXI_bid     (S01_AXI_bid),
-        .M1_AXI_bresp   (S01_AXI_bresp),
-        .M1_AXI_bvalid  (S01_AXI_bvalid),
-        .M1_AXI_bready  (S01_AXI_bready),
+        .M1_AXI_bid     (SERV_DATA_AXI_bid),
+        .M1_AXI_bresp   (SERV_DATA_AXI_bresp),
+        .M1_AXI_bvalid  (SERV_DATA_AXI_bvalid),
+        .M1_AXI_bready  (SERV_DATA_AXI_bready),
         
-        .M1_AXI_arid    (S01_AXI_arid),
-        .M1_AXI_araddr  (S01_AXI_araddr),
-        .M1_AXI_arlen   (S01_AXI_arlen),
-        .M1_AXI_arsize  (S01_AXI_arsize),
-        .M1_AXI_arburst (S01_AXI_arburst),
-        .M1_AXI_arlock  (S01_AXI_arlock),
-        .M1_AXI_arcache (S01_AXI_arcache),
-        .M1_AXI_arprot  (S01_AXI_arprot),
-        .M1_AXI_arqos   (S01_AXI_arqos),
-        .M1_AXI_arregion(S01_AXI_arregion),
-        .M1_AXI_arvalid (S01_AXI_arvalid),
-        .M1_AXI_arready (S01_AXI_arready),
+        .M1_AXI_arid    (SERV_DATA_AXI_arid),
+        .M1_AXI_araddr  (SERV_DATA_AXI_araddr),
+        .M1_AXI_arlen   (SERV_DATA_AXI_arlen),
+        .M1_AXI_arsize  (SERV_DATA_AXI_arsize),
+        .M1_AXI_arburst (SERV_DATA_AXI_arburst),
+        .M1_AXI_arlock  (SERV_DATA_AXI_arlock),
+        .M1_AXI_arcache (SERV_DATA_AXI_arcache),
+        .M1_AXI_arprot  (SERV_DATA_AXI_arprot),
+        .M1_AXI_arqos   (SERV_DATA_AXI_arqos),
+        .M1_AXI_arregion(SERV_DATA_AXI_arregion),
+        .M1_AXI_arvalid (SERV_DATA_AXI_arvalid),
+        .M1_AXI_arready (SERV_DATA_AXI_arready),
         
-        .M1_AXI_rid     (S01_AXI_rid),
-        .M1_AXI_rdata   (S01_AXI_rdata),
-        .M1_AXI_rresp   (S01_AXI_rresp),
-        .M1_AXI_rlast   (S01_AXI_rlast),
-        .M1_AXI_rvalid  (S01_AXI_rvalid),
-        .M1_AXI_rready  (S01_AXI_rready)
+        .M1_AXI_rid     (SERV_DATA_AXI_rid),
+        .M1_AXI_rdata   (SERV_DATA_AXI_rdata),
+        .M1_AXI_rresp   (SERV_DATA_AXI_rresp),
+        .M1_AXI_rlast   (SERV_DATA_AXI_rlast),
+        .M1_AXI_rvalid  (SERV_DATA_AXI_rvalid),
+        .M1_AXI_rready  (SERV_DATA_AXI_rready)
     );
     
     // ========================================================================
@@ -682,7 +761,7 @@ module dual_master_system_ip #(
         .S00_AXI_rvalid(S00_AXI_rvalid),
         .S00_AXI_rready(S00_AXI_rready),
         
-        // Master 1 (SERV Data Bus - Read-write)
+        // Master 1 (SERV Data Bus - unused path through interconnect)
         .S01_ACLK(ACLK),
         .S01_ARESETN(ARESETN),
         .S01_AXI_awaddr(S01_AXI_awaddr),
@@ -710,7 +789,7 @@ module dual_master_system_ip #(
         .S01_AXI_arlock(S01_AXI_arlock),
         .S01_AXI_arcache(S01_AXI_arcache),
         .S01_AXI_arprot(S01_AXI_arprot),
-        .S01_AXI_arregion(4'b0),
+        .S01_AXI_arregion(S01_AXI_arregion),
         .S01_AXI_arqos(S01_AXI_arqos),
         .S01_AXI_arvalid(S01_AXI_arvalid),
         .S01_AXI_arready(S01_AXI_arready),
@@ -923,45 +1002,45 @@ module dual_master_system_ip #(
     ) u_data_mem (
         .ACLK               (ACLK),
         .ARESETN            (ARESETN),
-        .S_AXI_awid         (M01_AXI_awid),
-        .S_AXI_awaddr       (M01_AXI_awaddr),
-        .S_AXI_awlen        (M01_AXI_awlen),
-        .S_AXI_awsize       (M01_AXI_awsize),
-        .S_AXI_awburst      (M01_AXI_awburst),
-        .S_AXI_awlock       (M01_AXI_awlock),
-        .S_AXI_awcache      (M01_AXI_awcache),
-        .S_AXI_awprot       (M01_AXI_awprot),
-        .S_AXI_awqos        (M01_AXI_awqos),
-        .S_AXI_awregion     (M01_AXI_awregion),
-        .S_AXI_awvalid      (M01_AXI_awvalid),
-        .S_AXI_awready      (M01_AXI_awready),
-        .S_AXI_wdata        (M01_AXI_wdata),
-        .S_AXI_wstrb        (M01_AXI_wstrb),
-        .S_AXI_wlast        (M01_AXI_wlast),
-        .S_AXI_wvalid       (M01_AXI_wvalid),
-        .S_AXI_wready       (M01_AXI_wready),
-        .S_AXI_bid          (M01_AXI_bid),
-        .S_AXI_bresp        (M01_AXI_bresp),
-        .S_AXI_bvalid       (M01_AXI_bvalid),
-        .S_AXI_bready       (M01_AXI_bready),
-        .S_AXI_arid         (M01_AXI_arid),
-        .S_AXI_araddr       (M01_AXI_araddr),
-        .S_AXI_arlen        (M01_AXI_arlen),
-        .S_AXI_arsize       (M01_AXI_arsize),
-        .S_AXI_arburst      (M01_AXI_arburst),
-        .S_AXI_arlock       (M01_AXI_arlock),
-        .S_AXI_arcache      (M01_AXI_arcache),
-        .S_AXI_arprot       (M01_AXI_arprot),
-        .S_AXI_arqos        (M01_AXI_arqos),
-        .S_AXI_arregion     (M01_AXI_arregion),
-        .S_AXI_arvalid      (M01_AXI_arvalid),
-        .S_AXI_arready      (M01_AXI_arready),
-        .S_AXI_rid          (M01_AXI_rid),
-        .S_AXI_rdata        (M01_AXI_rdata),
-        .S_AXI_rresp        (M01_AXI_rresp),
-        .S_AXI_rlast        (M01_AXI_rlast),
-        .S_AXI_rvalid       (M01_AXI_rvalid),
-        .S_AXI_rready       (M01_AXI_rready)
+        .S_AXI_awid         (SERV_DATA_AXI_awid),
+        .S_AXI_awaddr       (SERV_DATA_AXI_awaddr),
+        .S_AXI_awlen        (SERV_DATA_AXI_awlen),
+        .S_AXI_awsize       (SERV_DATA_AXI_awsize),
+        .S_AXI_awburst      (SERV_DATA_AXI_awburst),
+        .S_AXI_awlock       (SERV_DATA_AXI_awlock),
+        .S_AXI_awcache      (SERV_DATA_AXI_awcache),
+        .S_AXI_awprot       (SERV_DATA_AXI_awprot),
+        .S_AXI_awqos        (SERV_DATA_AXI_awqos),
+        .S_AXI_awregion     (SERV_DATA_AXI_awregion),
+        .S_AXI_awvalid      (SERV_DATA_AXI_awvalid),
+        .S_AXI_awready      (SERV_DATA_AXI_awready),
+        .S_AXI_wdata        (SERV_DATA_AXI_wdata),
+        .S_AXI_wstrb        (SERV_DATA_AXI_wstrb),
+        .S_AXI_wlast        (SERV_DATA_AXI_wlast),
+        .S_AXI_wvalid       (SERV_DATA_AXI_wvalid),
+        .S_AXI_wready       (SERV_DATA_AXI_wready),
+        .S_AXI_bid          (SERV_DATA_AXI_bid),
+        .S_AXI_bresp        (SERV_DATA_AXI_bresp),
+        .S_AXI_bvalid       (SERV_DATA_AXI_bvalid),
+        .S_AXI_bready       (SERV_DATA_AXI_bready),
+        .S_AXI_arid         (SERV_DATA_AXI_arid),
+        .S_AXI_araddr       (SERV_DATA_AXI_araddr),
+        .S_AXI_arlen        (SERV_DATA_AXI_arlen),
+        .S_AXI_arsize       (SERV_DATA_AXI_arsize),
+        .S_AXI_arburst      (SERV_DATA_AXI_arburst),
+        .S_AXI_arlock       (SERV_DATA_AXI_arlock),
+        .S_AXI_arcache      (SERV_DATA_AXI_arcache),
+        .S_AXI_arprot       (SERV_DATA_AXI_arprot),
+        .S_AXI_arqos        (SERV_DATA_AXI_arqos),
+        .S_AXI_arregion     (SERV_DATA_AXI_arregion),
+        .S_AXI_arvalid      (SERV_DATA_AXI_arvalid),
+        .S_AXI_arready      (SERV_DATA_AXI_arready),
+        .S_AXI_rid          (SERV_DATA_AXI_rid),
+        .S_AXI_rdata        (SERV_DATA_AXI_rdata),
+        .S_AXI_rresp        (SERV_DATA_AXI_rresp),
+        .S_AXI_rlast        (SERV_DATA_AXI_rlast),
+        .S_AXI_rvalid       (SERV_DATA_AXI_rvalid),
+        .S_AXI_rready       (SERV_DATA_AXI_rready)
     );
     
     // ========================================================================

@@ -1,5 +1,5 @@
 Flow report for AXI_PROJECT
-Mon Nov 17 10:48:03 2025
+Mon Nov 17 18:51:15 2025
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,17 +40,17 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Mon Nov 17 10:48:03 2025           ;
+; Flow Status                        ; Successful - Mon Nov 17 18:51:15 2025           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; AXI_PROJECT                                     ;
 ; Top-level Entity Name              ; dual_master_system_ip                           ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C35F672C6                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 15,035                                          ;
-;     Total combinational functions  ; 6,779                                           ;
-;     Dedicated logic registers      ; 8,627                                           ;
-; Total registers                    ; 8627                                            ;
+; Total logic elements               ; 15,077                                          ;
+;     Total combinational functions  ; 6,821                                           ;
+;     Dedicated logic registers      ; 8,668                                           ;
+; Total registers                    ; 8668                                            ;
 ; Total pins                         ; 10                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/17/2025 10:47:45 ;
+; Start date & time ; 11/17/2025 18:50:50 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; AXI_PROJECT         ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+----------------------------------------------------------------------------+---------------+-----------------------+------------+
 ; Assignment Name                     ; Value                                                                      ; Default Value ; Entity Name           ; Section Id ;
 +-------------------------------------+----------------------------------------------------------------------------+---------------+-----------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 255757338281413.176335126418900                                            ; --            ; --                    ; --         ;
+; COMPILER_SIGNATURE_ID               ; 255757338281413.176338024920208                                            ; --            ; --                    ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                                         ; --            ; --                    ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                                          ; --            ; --                    ; --         ;
 ; PARTITION_COLOR                     ; 16764057                                                                   ; --            ; dual_master_system_ip ; Top        ;
@@ -97,8 +97,8 @@ applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:17     ; 1.0                     ; 4719 MB             ; 00:00:17                           ;
-; Total                ; 00:00:17     ; --                      ; --                  ; 00:00:17                           ;
+; Analysis & Synthesis ; 00:00:24     ; 1.0                     ; 4755 MB             ; 00:00:22                           ;
+; Total                ; 00:00:24     ; --                      ; --                  ; 00:00:22                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Mon Nov 17 10:48:03 2025
+Analysis & Synthesis Status : Successful - Mon Nov 17 18:51:15 2025
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : AXI_PROJECT
 Top-level Entity Name : dual_master_system_ip
 Family : Cyclone II
-Total logic elements : 15,035
-    Total combinational functions : 6,779
-    Dedicated logic registers : 8,627
-Total registers : 8627
+Total logic elements : 15,077
+    Total combinational functions : 6,821
+    Dedicated logic registers : 8,668
+Total registers : 8668
 Total pins : 10
 Total virtual pins : 0
 Total memory bits : 0

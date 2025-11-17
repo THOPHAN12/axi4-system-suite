@@ -85,6 +85,14 @@ localparam Slave0_Base_Addr = 2'b00,
 wire [Base_Addr_Width - 1 : 0] Base_Addr_Master;
 assign Base_Addr_Master = Master_AXI_awaddr[Address_width-1:Address_width-Base_Addr_Width];
 
+// Debug visibility for write address decoding
+always @(*) begin
+    if (Master_AXI_awvalid) begin
+        $display("[%0t] WRITE_DEC: addr=0x%08h base_addr=%02b -> Slave%0d",
+                 $time, Master_AXI_awaddr, Base_Addr_Master, Base_Addr_Master);
+    end
+end
+
 
 always @(*) begin
     // Default values - All outputs should have default to avoid multiple drivers
