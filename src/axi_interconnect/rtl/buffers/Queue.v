@@ -13,21 +13,24 @@ module Queue #(
     output wire                 Master_Valid,
     output wire  [ID_Size-1:0]  Write_Data_Master
 );
-integer i;
+// Integer i is used only in for loop initialization, not as a state variable
+// This prevents inferred latch warning
 reg [ID_Size-1:0] Queue [Slaves_Num-1:0];
 reg [Slaves_Num-1:0] Split_Burst_Queue ;
 reg [ID_Size:0] Read_Pointer,Write_Pointer;
 wire Write_Data_HandShake_En;
 reg Pulse;
+integer i;  // Loop variable for initialization - declared at module level
 assign Master_Valid=Write_Data_HandShake_En;
 
 always @(posedge ACLK or negedge ARESETN) begin
     if (!ARESETN) begin
-        for (i =0 ;i<Slaves_Num ;i=i+1 ) begin
-            Queue[i]<='b0;
+        // Initialize queue array - i is loop variable only, not a state
+        for (i = 0; i < Slaves_Num; i = i + 1) begin
+            Queue[i] <= 'b0;
         end
     end else if (AW_Access_Grant) begin
-        Queue[Write_Pointer[0]]<=Slave_ID;
+        Queue[Write_Pointer[0]] <= Slave_ID;
     end
 end
 
@@ -44,14 +47,14 @@ always @(posedge ACLK or negedge ARESETN) begin
     if (!ARESETN) begin
         Write_Pointer<='b0;
     end else if (AW_Access_Grant) begin
-        Write_Pointer<=Write_Pointer+'b1;
+        Write_Pointer<=Write_Pointer+1'b1;  // Explicit 1-bit addition to avoid truncation warning
     end
 end
 always @(posedge ACLK or negedge ARESETN ) begin
     if (!ARESETN) begin
         Read_Pointer<='b0;
     end else if (Write_Data_Finsh) begin
-        Read_Pointer<=Read_Pointer+'b1;
+        Read_Pointer<=Read_Pointer+1'b1;  // Explicit 1-bit addition to avoid truncation warning
     end
 end
 assign Write_Data_Master=Queue[Read_Pointer[0]];

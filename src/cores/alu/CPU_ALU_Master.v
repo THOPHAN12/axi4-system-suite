@@ -138,6 +138,12 @@ module CPU_ALU_Master #(
         .write_done(controller_write_done)
     );
     
+    // Latched write transaction info
+    reg                           write_pending;
+    reg                           controller_write_req_d;
+    reg [ADDR_WIDTH-1:0]          latched_write_addr;
+    reg [DATA_WIDTH-1:0]          latched_write_data;
+
     // ========================================================================
     // AXI Read Address Channel Control
     // ========================================================================
@@ -192,6 +198,37 @@ module CPU_ALU_Master #(
     assign controller_read_done = M_AXI_rvalid && M_AXI_rready && M_AXI_rlast;
     
     // ========================================================================
+    // Latch write transactions from controller
+    // ========================================================================
+    always @(posedge ACLK) begin
+        if (!ARESETN) begin
+            controller_write_req_d <= 1'b0;
+        end else begin
+            controller_write_req_d <= controller_write_req;
+        end
+    end
+    
+    always @(posedge ACLK) begin
+        if (!ARESETN) begin
+            write_pending <= 1'b0;
+            latched_write_addr <= {ADDR_WIDTH{1'b0}};
+            latched_write_data <= {DATA_WIDTH{1'b0}};
+        end else begin
+            if (!write_pending) begin
+                if (controller_write_req && !controller_write_req_d) begin
+                    write_pending <= 1'b1;
+                    latched_write_addr <= controller_write_addr;
+                    latched_write_data <= controller_write_data;
+                    $display("[%0t] AXI LATCH: addr=0x%08h data=0x%08h",
+                             $time, controller_write_addr, controller_write_data);
+                end
+            end else if (controller_write_done) begin
+                write_pending <= 1'b0;
+            end
+        end
+    end
+    
+    // ========================================================================
     // AXI Write Address Channel Control
     // ========================================================================
     reg write_addr_sent;
@@ -210,11 +247,12 @@ module CPU_ALU_Master #(
             M_AXI_awqos <= 4'b0000;
             write_addr_sent <= 1'b0;
         end else begin
-            if (controller_write_req && !write_addr_sent) begin
+            if (write_pending && !write_addr_sent) begin
                 M_AXI_awvalid <= 1'b1;
-                M_AXI_awaddr <= controller_write_addr;
+                M_AXI_awaddr <= latched_write_addr;
                 M_AXI_awlen <= 8'h0;  // Single transfer
                 write_addr_sent <= 1'b1;
+                $display("[%0t] AXI AW ISSUE: addr=0x%08h", $time, latched_write_addr);
             end else if (M_AXI_awvalid && M_AXI_awready) begin
                 M_AXI_awvalid <= 1'b0;
             end else if (controller_write_done) begin
@@ -235,11 +273,12 @@ module CPU_ALU_Master #(
             M_AXI_wstrb <= 4'hF;  // All bytes valid
             M_AXI_wlast <= 1'b0;
         end else begin
-            if (controller_write_req && write_addr_sent && !M_AXI_wvalid) begin
+            if (write_pending && write_addr_sent && !M_AXI_wvalid) begin
                 M_AXI_wvalid <= 1'b1;
-                M_AXI_wdata <= controller_write_data;
+                M_AXI_wdata <= latched_write_data;
                 M_AXI_wstrb <= 4'hF;  // All bytes valid
                 M_AXI_wlast <= 1'b1;
+                $display("[%0t] AXI WDATA: addr=0x%08h data=0x%08h", $time, latched_write_addr, latched_write_data);
             end else if (M_AXI_wvalid && M_AXI_wready) begin
                 M_AXI_wvalid <= 1'b0;
                 M_AXI_wlast <= 1'b0;
@@ -256,10 +295,12 @@ module CPU_ALU_Master #(
         if (!ARESETN) begin
             M_AXI_bready <= 1'b0;
         end else begin
-            if (controller_write_req && write_addr_sent) begin
+            if (write_pending && write_addr_sent) begin
                 M_AXI_bready <= 1'b1;
             end else if (M_AXI_bvalid && M_AXI_bready) begin
                 M_AXI_bready <= 1'b0;
+                $display("[%0t] AXI BRESP: addr=0x%08h data=0x%08h",
+                         $time, latched_write_addr, latched_write_data);
             end
         end
     end

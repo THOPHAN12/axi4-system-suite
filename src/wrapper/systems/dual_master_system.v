@@ -328,6 +328,7 @@ module dual_master_system #(
     wire                    S02_AXI_wvalid;
     wire                    S02_AXI_wready;
     
+    wire [ID_WIDTH-1:0]     S02_AXI_bid;      // Explicit declaration to avoid implicit net
     wire [1:0]              S02_AXI_bresp;
     wire                    S02_AXI_bvalid;
     wire                    S02_AXI_bready;
@@ -344,6 +345,7 @@ module dual_master_system #(
     wire                    S02_AXI_arvalid;
     wire                    S02_AXI_arready;
     
+    wire [ID_WIDTH-1:0]     S02_AXI_rid;      // Explicit declaration to avoid implicit net
     wire [DATA_WIDTH-1:0]   S02_AXI_rdata;
     wire [1:0]              S02_AXI_rresp;
     wire                    S02_AXI_rlast;

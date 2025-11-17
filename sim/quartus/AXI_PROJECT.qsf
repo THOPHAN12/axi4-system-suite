@@ -71,9 +71,6 @@ set_global_assignment -name VERILOG_FILE "D:/AXI/src/cores/serv/rtl/serv_rf_ram_
 set_global_assignment -name VERILOG_FILE "D:/AXI/src/cores/serv/rtl/serv_rf_ram.v"
 set_global_assignment -name VERILOG_FILE "D:/AXI/src/cores/serv/rtl/serv_rf_top.v"
 set_global_assignment -name VERILOG_FILE "D:/AXI/src/cores/serv/rtl/serv_top.v"
-set_global_assignment -name VERILOG_FILE "D:/AXI/src/wrapper/wb2axi_read.v"
-set_global_assignment -name VERILOG_FILE "D:/AXI/src/wrapper/wb2axi_write.v"
-set_global_assignment -name VERILOG_FILE "D:/AXI/src/wrapper/serv_axi_wrapper.v"
 set_global_assignment -name VERILOG_FILE "D:/AXI/src/axi_interconnect/rtl/utils/Faling_Edge_Detc.v"
 set_global_assignment -name VERILOG_FILE "D:/AXI/src/axi_interconnect/rtl/utils/Raising_Edge_Det.v"
 set_global_assignment -name VERILOG_FILE "D:/AXI/src/axi_interconnect/rtl/handshake/AW_HandShake_Checker.v"
@@ -107,18 +104,11 @@ set_global_assignment -name VERILOG_FILE "D:/AXI/src/axi_interconnect/rtl/channe
 set_global_assignment -name VERILOG_FILE "D:/AXI/src/axi_interconnect/rtl/core/AXI_Interconnect.v"
 set_global_assignment -name VERILOG_FILE "D:/AXI/src/axi_interconnect/rtl/core/AXI_Interconnect_2S_RDONLY.v"
 set_global_assignment -name VERILOG_FILE "D:/AXI/src/axi_interconnect/rtl/core/AXI_Interconnect_Full.v"
-set_global_assignment -name VERILOG_FILE "D:/AXI/src/wrapper/serv_axi_system.v"
-set_global_assignment -name VERILOG_FILE "D:/AXI/src/wrapper/alu_master_system.v"
-set_global_assignment -name VERILOG_FILE "D:/AXI/src/wrapper/axi_rom_slave.v"
-set_global_assignment -name VERILOG_FILE "D:/AXI/src/wrapper/axi_memory_slave.v"
 set_global_assignment -name VERILOG_FILE "D:/AXI/src/cores/alu/ALU_Core.v"
 set_global_assignment -name VERILOG_FILE "D:/AXI/src/cores/alu/CPU_ALU_Master.v"
 set_global_assignment -name VERILOG_FILE "D:/AXI/src/cores/alu/CPU_Controller.v"
 set_global_assignment -name VERILOG_FILE "D:/AXI/src/cores/alu/Simple_AXI_Master_Test.v"
 set_global_assignment -name VERILOG_FILE "D:/AXI/src/wrapper/memory/Simple_Memory_Slave.v"
-set_global_assignment -name VERILOG_FILE "D:/AXI/src/wrapper/serv_axi_system_ip.v"
-set_global_assignment -name VERILOG_FILE "D:/AXI/src/wrapper/dual_master_system.v"
-set_global_assignment -name VERILOG_FILE "D:/AXI/src/wrapper/dual_master_system_ip.v"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -132,5 +122,4 @@ set_global_assignment -name VERILOG_FILE "D:/AXI/src/wrapper/ip/serv_axi_system_
 set_global_assignment -name VERILOG_FILE "D:/AXI/src/wrapper/ip/dual_master_system_ip.v"
 set_global_assignment -name VERILOG_FILE "D:/AXI/src/wrapper/memory/axi_rom_slave.v"
 set_global_assignment -name VERILOG_FILE "D:/AXI/src/wrapper/memory/axi_memory_slave.v"
-set_global_assignment -name VERILOG_FILE ../../src/wrapper/dual_master_system_ip.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -14,11 +14,7 @@ module AXI_Interconnect_tb #(
           M01_AR_len='d8, //!AXI4 - 8 bits for burst length
           Num_Of_Masters='d2,Master_ID_Width=$clog2(Num_Of_Masters)
 ) ();
-/*                   /****** Slave S01 Ports *******/
-                    /******************************/
-    //* Slave General Port;
-    reg                            S01_ACLK;
-    reg                            S01_ARESETN;
+/*                   /****** Slave 01_ARESETN;
     //* Address Write Channel
     reg    [Address_width-1:0]     S01_AXI_awaddr;// the write address
     reg    [S01_Aw_len-1:0]        S01_AXI_awlen; // number of transfer per burst //! For AXI4 limit is 256 for inc bursts only 
@@ -35,7 +31,11 @@ module AXI_Interconnect_tb #(
     
     reg    [S00_Write_data_bus_width-1:0]   S01_AXI_wdata;//Write data bus
     reg    [S00_Write_data_bytes_num-1:0]   S01_AXI_wstrb; // strops identifes the active data lines
-    reg                                     S01_AXI_wlast; // last signal to identify the last transfer in a burst
+    reg                         S01 Ports *******/
+                    /******************************/
+    //* Slave General Port;
+    reg                            S01_ACLK;
+    reg                            S            S01_AXI_wlast; // last signal to identify the last transfer in a burst
     reg                                     S01_AXI_wvalid; // write valid signal
     wire                                    S01_AXI_wready; // write ready signal
 

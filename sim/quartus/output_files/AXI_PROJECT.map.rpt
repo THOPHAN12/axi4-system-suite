@@ -1,5 +1,5 @@
 Analysis & Synthesis report for AXI_PROJECT
-Sun Nov 16 21:40:09 2025
+Mon Nov 17 10:48:03 2025
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -25,110 +25,111 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  17. State Machine - |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state
  18. State Machine - |dual_master_system_ip|serv_axi_wrapper:u_serv_wrapper|wb2axi_write:u_wb2axi_data|state
  19. State Machine - |dual_master_system_ip|serv_axi_wrapper:u_serv_wrapper|wb2axi_read:u_wb2axi_inst|state
- 20. User-Specified and Inferred Latches
- 21. Registers Removed During Synthesis
- 22. Removed Registers Triggering Further Register Optimizations
- 23. General Register Statistics
- 24. Inverted Register Statistics
- 25. Registers Packed Into Inferred Megafunctions
- 26. Multiplexer Restructuring Statistics (Restructuring Performed)
- 27. Source assignments for serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_rf_ram:rf_ram|altsyncram:memory_rtl_0|altsyncram_qrf1:auto_generated
- 28. Parameter Settings for User Entity Instance: Top-level Entity: |dual_master_system_ip
- 29. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper
- 30. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core
- 31. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_rf_ram_if:rf_ram_if
- 32. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_rf_ram:rf_ram
- 33. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu
- 34. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_state:state
- 35. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_decode:decode
- 36. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_immdec:immdec
- 37. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_bufreg:bufreg
- 38. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_bufreg2:bufreg2
- 39. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_ctrl:ctrl
- 40. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_alu:alu
- 41. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_rf_if:rf_if
- 42. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_mem_if:mem_if
- 43. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_csr:gen_csr.csr
- 44. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|wb2axi_read:u_wb2axi_inst
- 45. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|wb2axi_write:u_wb2axi_data
- 46. Parameter Settings for User Entity Instance: CPU_ALU_Master:u_alu_master
- 47. Parameter Settings for User Entity Instance: CPU_ALU_Master:u_alu_master|ALU_Core:u_alu
- 48. Parameter Settings for User Entity Instance: CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller
- 49. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect
- 50. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top
- 51. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter
- 52. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Demux_1_2:u_Demux_Address_Write_Ready
- 53. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_MUX_2_1:u_AW_MUX_2_1
- 54. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec
- 55. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top
- 56. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue
- 57. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue2
- 58. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Demux_1_2:u_Demux_Write_Data_Ready
- 59. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Demux_1_2:u_Demux_Write_Data_Ready2
- 60. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_MUX_2_1:u_WD_MUX_2_1
- 61. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_MUX_2_1:u_WD_MUX_2_1_2
- 62. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top
- 63. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb
- 64. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Demux_1_2:u_Demux_1_2
- 65. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec
- 66. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top
- 67. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter
- 68. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:araddr_mux
- 69. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arlen_mux
- 70. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arsize_mux
- 71. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arburst_mux
- 72. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arlock_mux
- 73. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arcache_mux
- 74. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arprot_mux
- 75. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arqos_mux
- 76. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arregion_mux
- 77. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arvalid_mux
- 78. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec
- 79. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Demux_1_2:u_Demux_Address_Read_Ready
- 80. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_2x1:mux_m_addr
- 81. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Demux_1x4:rready_demux_M0
- 82. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Demux_1x4:rready_demux_M1
- 83. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_2x1:rready_mux_M00
- 84. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_2x1:rready_mux_M01
- 85. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_2x1:rready_mux_M02
- 86. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_2x1:rready_mux_M03
- 87. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rvalid_mux_M0
- 88. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rvalid_mux_M1
- 89. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rdata_mux_M0
- 90. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rdata_mux_M1
- 91. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rlast_mux_M0
- 92. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rlast_mux_M1
- 93. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rresp_mux_M0
- 94. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rresp_mux_M1
- 95. Parameter Settings for User Entity Instance: axi_rom_slave:u_inst_mem
- 96. Parameter Settings for User Entity Instance: axi_memory_slave:u_data_mem
- 97. Parameter Settings for User Entity Instance: axi_memory_slave:u_alu_mem
- 98. Parameter Settings for User Entity Instance: axi_rom_slave:u_reserved_mem
- 99. Parameter Settings for Inferred Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_rf_ram:rf_ram|altsyncram:memory_rtl_0
-100. altsyncram Parameter Settings by Entity Instance
-101. Port Connectivity Checks: "axi_rom_slave:u_reserved_mem"
-102. Port Connectivity Checks: "axi_memory_slave:u_alu_mem"
-103. Port Connectivity Checks: "axi_memory_slave:u_data_mem"
-104. Port Connectivity Checks: "axi_rom_slave:u_inst_mem"
-105. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|Controller:Read_controller"
-106. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Raising_Edge_Det:u_Raising_Edge_Det"
-107. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec"
-108. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter"
-109. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top"
-110. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec"
-111. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb"
-112. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top"
-113. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec"
-114. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_HandShake_Checker:u_Address_Write_HandShake_Checker"
-115. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Raising_Edge_Det:u_Raising_Edge_Det"
-116. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter"
-117. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect"
-118. Port Connectivity Checks: "serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_ctrl:ctrl"
-119. Port Connectivity Checks: "serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core"
-120. Port Connectivity Checks: "serv_axi_wrapper:u_serv_wrapper"
-121. Elapsed Time Per Partition
-122. Analysis & Synthesis Messages
-123. Analysis & Synthesis Suppressed Messages
+ 20. Registers Removed During Synthesis
+ 21. Removed Registers Triggering Further Register Optimizations
+ 22. General Register Statistics
+ 23. Inverted Register Statistics
+ 24. Registers Packed Into Inferred Megafunctions
+ 25. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 26. Source assignments for axi_rom_slave:u_inst_mem
+ 27. Source assignments for axi_rom_slave:u_reserved_mem
+ 28. Source assignments for serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_rf_ram:rf_ram|altsyncram:memory_rtl_0|altsyncram_qrf1:auto_generated
+ 29. Parameter Settings for User Entity Instance: Top-level Entity: |dual_master_system_ip
+ 30. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper
+ 31. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core
+ 32. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_rf_ram_if:rf_ram_if
+ 33. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_rf_ram:rf_ram
+ 34. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu
+ 35. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_state:state
+ 36. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_decode:decode
+ 37. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_immdec:immdec
+ 38. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_bufreg:bufreg
+ 39. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_bufreg2:bufreg2
+ 40. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_ctrl:ctrl
+ 41. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_alu:alu
+ 42. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_rf_if:rf_if
+ 43. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_mem_if:mem_if
+ 44. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_csr:gen_csr.csr
+ 45. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|wb2axi_read:u_wb2axi_inst
+ 46. Parameter Settings for User Entity Instance: serv_axi_wrapper:u_serv_wrapper|wb2axi_write:u_wb2axi_data
+ 47. Parameter Settings for User Entity Instance: CPU_ALU_Master:u_alu_master
+ 48. Parameter Settings for User Entity Instance: CPU_ALU_Master:u_alu_master|ALU_Core:u_alu
+ 49. Parameter Settings for User Entity Instance: CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller
+ 50. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect
+ 51. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top
+ 52. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter
+ 53. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Demux_1_2:u_Demux_Address_Write_Ready
+ 54. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_MUX_2_1:u_AW_MUX_2_1
+ 55. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec
+ 56. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top
+ 57. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue
+ 58. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue2
+ 59. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Demux_1_2:u_Demux_Write_Data_Ready
+ 60. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Demux_1_2:u_Demux_Write_Data_Ready2
+ 61. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_MUX_2_1:u_WD_MUX_2_1
+ 62. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_MUX_2_1:u_WD_MUX_2_1_2
+ 63. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top
+ 64. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb
+ 65. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Demux_1_2:u_Demux_1_2
+ 66. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec
+ 67. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top
+ 68. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter
+ 69. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:araddr_mux
+ 70. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arlen_mux
+ 71. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arsize_mux
+ 72. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arburst_mux
+ 73. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arlock_mux
+ 74. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arcache_mux
+ 75. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arprot_mux
+ 76. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arqos_mux
+ 77. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arregion_mux
+ 78. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arvalid_mux
+ 79. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec
+ 80. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Demux_1_2:u_Demux_Address_Read_Ready
+ 81. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_2x1:mux_m_addr
+ 82. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Demux_1x4:rready_demux_M0
+ 83. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Demux_1x4:rready_demux_M1
+ 84. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_2x1:rready_mux_M00
+ 85. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_2x1:rready_mux_M01
+ 86. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_2x1:rready_mux_M02
+ 87. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_2x1:rready_mux_M03
+ 88. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rvalid_mux_M0
+ 89. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rvalid_mux_M1
+ 90. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rdata_mux_M0
+ 91. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rdata_mux_M1
+ 92. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rlast_mux_M0
+ 93. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rlast_mux_M1
+ 94. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rresp_mux_M0
+ 95. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rresp_mux_M1
+ 96. Parameter Settings for User Entity Instance: axi_rom_slave:u_inst_mem
+ 97. Parameter Settings for User Entity Instance: axi_memory_slave:u_data_mem
+ 98. Parameter Settings for User Entity Instance: axi_memory_slave:u_alu_mem
+ 99. Parameter Settings for User Entity Instance: axi_rom_slave:u_reserved_mem
+100. Parameter Settings for Inferred Entity Instance: serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_rf_ram:rf_ram|altsyncram:memory_rtl_0
+101. altsyncram Parameter Settings by Entity Instance
+102. Port Connectivity Checks: "axi_rom_slave:u_reserved_mem"
+103. Port Connectivity Checks: "axi_memory_slave:u_alu_mem"
+104. Port Connectivity Checks: "axi_memory_slave:u_data_mem"
+105. Port Connectivity Checks: "axi_rom_slave:u_inst_mem"
+106. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|Controller:Read_controller"
+107. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Raising_Edge_Det:u_Raising_Edge_Det"
+108. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec"
+109. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter"
+110. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top"
+111. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec"
+112. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb"
+113. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top"
+114. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec"
+115. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_HandShake_Checker:u_Address_Write_HandShake_Checker"
+116. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Raising_Edge_Det:u_Raising_Edge_Det"
+117. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter"
+118. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect"
+119. Port Connectivity Checks: "serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_ctrl:ctrl"
+120. Port Connectivity Checks: "serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core"
+121. Port Connectivity Checks: "serv_axi_wrapper:u_serv_wrapper"
+122. Elapsed Time Per Partition
+123. Analysis & Synthesis Messages
+124. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -154,13 +155,13 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Nov 16 21:40:09 2025           ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 17 10:48:03 2025           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; AXI_PROJECT                                     ;
 ; Top-level Entity Name              ; dual_master_system_ip                           ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 15,101                                          ;
-;     Total combinational functions  ; 6,845                                           ;
+; Total logic elements               ; 15,035                                          ;
+;     Total combinational functions  ; 6,779                                           ;
 ;     Dedicated logic registers      ; 8,627                                           ;
 ; Total registers                    ; 8627                                            ;
 ; Total pins                         ; 10                                              ;
@@ -317,9 +318,9 @@ applicable agreement for further details.
 ; ../../src/axi_interconnect/rtl/channel_controllers/read/AR_Channel_Controller_Top.v  ; yes             ; User Verilog HDL File        ; D:/AXI/src/axi_interconnect/rtl/channel_controllers/read/AR_Channel_Controller_Top.v  ;         ;
 ; ../../src/axi_interconnect/rtl/channel_controllers/read/Controller.v                 ; yes             ; User Verilog HDL File        ; D:/AXI/src/axi_interconnect/rtl/channel_controllers/read/Controller.v                 ;         ;
 ; ../../src/axi_interconnect/rtl/core/AXI_Interconnect_Full.v                          ; yes             ; User Verilog HDL File        ; D:/AXI/src/axi_interconnect/rtl/core/AXI_Interconnect_Full.v                          ;         ;
-; ../../Master_ALU/ALU/ALU_Core.v                                                      ; yes             ; User Verilog HDL File        ; D:/AXI/Master_ALU/ALU/ALU_Core.v                                                      ;         ;
-; ../../Master_ALU/ALU/CPU_ALU_Master.v                                                ; yes             ; User Verilog HDL File        ; D:/AXI/Master_ALU/ALU/CPU_ALU_Master.v                                                ;         ;
-; ../../Master_ALU/ALU/CPU_Controller.v                                                ; yes             ; User Verilog HDL File        ; D:/AXI/Master_ALU/ALU/CPU_Controller.v                                                ;         ;
+; ../../src/cores/alu/ALU_Core.v                                                       ; yes             ; User Verilog HDL File        ; D:/AXI/src/cores/alu/ALU_Core.v                                                       ;         ;
+; ../../src/cores/alu/CPU_ALU_Master.v                                                 ; yes             ; User Verilog HDL File        ; D:/AXI/src/cores/alu/CPU_ALU_Master.v                                                 ;         ;
+; ../../src/cores/alu/CPU_Controller.v                                                 ; yes             ; User Verilog HDL File        ; D:/AXI/src/cores/alu/CPU_Controller.v                                                 ;         ;
 ; ../../src/wrapper/converters/wb2axi_read.v                                           ; yes             ; User Verilog HDL File        ; D:/AXI/src/wrapper/converters/wb2axi_read.v                                           ;         ;
 ; ../../src/wrapper/converters/wb2axi_write.v                                          ; yes             ; User Verilog HDL File        ; D:/AXI/src/wrapper/converters/wb2axi_write.v                                          ;         ;
 ; ../../src/wrapper/converters/serv_axi_wrapper.v                                      ; yes             ; User Verilog HDL File        ; D:/AXI/src/wrapper/converters/serv_axi_wrapper.v                                      ;         ;
@@ -344,17 +345,17 @@ applicable agreement for further details.
 +---------------------------------------------+--------+
 ; Resource                                    ; Usage  ;
 +---------------------------------------------+--------+
-; Estimated Total logic elements              ; 15,101 ;
+; Estimated Total logic elements              ; 15,035 ;
 ;                                             ;        ;
-; Total combinational functions               ; 6845   ;
+; Total combinational functions               ; 6779   ;
 ; Logic element usage by number of LUT inputs ;        ;
-;     -- 4 input functions                    ; 5863   ;
-;     -- 3 input functions                    ; 596    ;
-;     -- <=2 input functions                  ; 386    ;
+;     -- 4 input functions                    ; 5857   ;
+;     -- 3 input functions                    ; 588    ;
+;     -- <=2 input functions                  ; 334    ;
 ;                                             ;        ;
 ; Logic elements by mode                      ;        ;
-;     -- normal mode                          ; 6729   ;
-;     -- arithmetic mode                      ; 116    ;
+;     -- normal mode                          ; 6667   ;
+;     -- arithmetic mode                      ; 112    ;
 ;                                             ;        ;
 ; Total registers                             ; 8627   ;
 ;     -- Dedicated logic registers            ; 8627   ;
@@ -364,8 +365,8 @@ applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0      ;
 ; Maximum fan-out node                        ; ACLK   ;
 ; Maximum fan-out                             ; 8627   ;
-; Total fan-out                               ; 52066  ;
-; Average fan-out                             ; 3.36   ;
+; Total fan-out                               ; 51936  ;
+; Average fan-out                             ; 3.37   ;
 +---------------------------------------------+--------+
 
 
@@ -374,24 +375,24 @@ applicable agreement for further details.
 +---------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                                    ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                 ; Library Name ;
 +---------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |dual_master_system_ip                                        ; 6845 (2)          ; 8627 (0)     ; 0           ; 0            ; 0       ; 0         ; 10   ; 0            ; |dual_master_system_ip                                                                                                                                              ; work         ;
-;    |AXI_Interconnect_Full:u_axi_interconnect|                 ; 50 (0)            ; 12 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|AXI_Interconnect_Full:u_axi_interconnect                                                                                                     ; work         ;
-;       |AR_Channel_Controller_Top:u_AR_Channel_Controller_Top| ; 10 (0)            ; 2 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top                                               ; work         ;
+; |dual_master_system_ip                                        ; 6779 (2)          ; 8627 (0)     ; 0           ; 0            ; 0       ; 0         ; 10   ; 0            ; |dual_master_system_ip                                                                                                                                              ; work         ;
+;    |AXI_Interconnect_Full:u_axi_interconnect|                 ; 51 (0)            ; 12 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|AXI_Interconnect_Full:u_axi_interconnect                                                                                                     ; work         ;
+;       |AR_Channel_Controller_Top:u_AR_Channel_Controller_Top| ; 11 (0)            ; 2 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top                                               ; work         ;
 ;          |AW_HandShake_Checker:u_AR_HandShake_Checker|        ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|AW_HandShake_Checker:u_AR_HandShake_Checker   ; work         ;
 ;          |Mux_2x1:araddr_mux|                                 ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:araddr_mux                            ; work         ;
 ;          |Mux_2x1:arvalid_mux|                                ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arvalid_mux                           ; work         ;
-;          |Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec|      ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec ; work         ;
+;          |Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec|      ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec ; work         ;
 ;          |Read_Arbiter:u_Read_Arbiter|                        ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter                   ; work         ;
 ;       |Controller:Read_controller|                            ; 36 (36)           ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|AXI_Interconnect_Full:u_axi_interconnect|Controller:Read_controller                                                                          ; work         ;
 ;       |Mux_4x1:rvalid_mux_M0|                                 ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rvalid_mux_M0                                                                               ; work         ;
 ;       |Mux_4x1:rvalid_mux_M1|                                 ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rvalid_mux_M1                                                                               ; work         ;
-;    |CPU_ALU_Master:u_alu_master|                              ; 730 (58)          ; 208 (53)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master                                                                                                                  ; work         ;
+;    |CPU_ALU_Master:u_alu_master|                              ; 671 (59)          ; 208 (53)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master                                                                                                                  ; work         ;
 ;       |ALU_Core:u_alu|                                        ; 310 (310)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|ALU_Core:u_alu                                                                                                   ; work         ;
-;       |CPU_Controller:u_controller|                           ; 362 (362)         ; 155 (155)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller                                                                                      ; work         ;
-;    |axi_memory_slave:u_alu_mem|                               ; 5823 (5823)       ; 8270 (8270)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|axi_memory_slave:u_alu_mem                                                                                                                   ; work         ;
-;    |axi_memory_slave:u_data_mem|                              ; 35 (35)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|axi_memory_slave:u_data_mem                                                                                                                  ; work         ;
-;    |axi_rom_slave:u_inst_mem|                                 ; 35 (35)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|axi_rom_slave:u_inst_mem                                                                                                                     ; work         ;
-;    |axi_rom_slave:u_reserved_mem|                             ; 36 (36)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|axi_rom_slave:u_reserved_mem                                                                                                                 ; work         ;
+;       |CPU_Controller:u_controller|                           ; 302 (302)         ; 155 (155)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller                                                                                      ; work         ;
+;    |axi_memory_slave:u_alu_mem|                               ; 5822 (5822)       ; 8270 (8270)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|axi_memory_slave:u_alu_mem                                                                                                                   ; work         ;
+;    |axi_memory_slave:u_data_mem|                              ; 33 (33)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|axi_memory_slave:u_data_mem                                                                                                                  ; work         ;
+;    |axi_rom_slave:u_inst_mem|                                 ; 33 (33)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|axi_rom_slave:u_inst_mem                                                                                                                     ; work         ;
+;    |axi_rom_slave:u_reserved_mem|                             ; 33 (33)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|axi_rom_slave:u_reserved_mem                                                                                                                 ; work         ;
 ;    |serv_axi_wrapper:u_serv_wrapper|                          ; 134 (0)           ; 95 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|serv_axi_wrapper:u_serv_wrapper                                                                                                              ; work         ;
 ;       |serv_rf_top:u_serv_core|                               ; 50 (0)            ; 44 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core                                                                                      ; work         ;
 ;          |serv_rf_ram_if:rf_ram_if|                           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |dual_master_system_ip|serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_rf_ram_if:rf_ram_if                                                             ; work         ;
@@ -559,62 +560,6 @@ Encoding Type:  One-Hot
 ; state.ADDR_REQ  ; 1          ; 0               ; 1                                                     ;
 ; state.DATA_WAIT ; 1          ; 1               ; 0                                                     ;
 +-----------------+------------+-----------------+-------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                                                                                                  ;
-+------------------------------------------------------------------------+------------------------------------------------------------------------------------+------------------------+
-; Latch Name                                                             ; Latch Enable Signal                                                                ; Free of Timing Hazards ;
-+------------------------------------------------------------------------+------------------------------------------------------------------------------------+------------------------+
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[28] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[29] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[30] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[31] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_addr[2]  ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_addr[3]  ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_addr[4]  ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_addr[5]  ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_addr[6]  ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_addr[7]  ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|read_addr[6]   ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state              ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|read_addr[7]   ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state              ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|read_addr[3]   ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state              ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|read_addr[2]   ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state              ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|read_addr[5]   ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state              ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|read_addr[4]   ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state              ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|read_addr[9]   ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state              ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|read_addr[8]   ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state              ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[12] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[11] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[0]  ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[10] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[9]  ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[1]  ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[8]  ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[7]  ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[6]  ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[5]  ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[2]  ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[4]  ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[3]  ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[26] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[25] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[24] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[23] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[22] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[21] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[27] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[20] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[19] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[18] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[17] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[16] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[15] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[14] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|write_data[13] ; CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT ; yes                    ;
-; Number of user-specified and inferred latches = 46                     ;                                                                                    ;                        ;
-+------------------------------------------------------------------------+------------------------------------------------------------------------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -6036,20 +5981,6 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ;                                                                                                                                            ;                                ; serv_axi_wrapper:u_serv_wrapper|wb2axi_write:u_wb2axi_data|addr_latch_write[31],                                                                                  ;
 ;                                                                                                                                            ;                                ; serv_axi_wrapper:u_serv_wrapper|wb2axi_write:u_wb2axi_data|addr_latch_write[30],                                                                                  ;
 ;                                                                                                                                            ;                                ; serv_axi_wrapper:u_serv_wrapper|wb2axi_write:u_wb2axi_data|M_AXI_wlast                                                                                            ;
-; serv_axi_wrapper:u_serv_wrapper|wb2axi_write:u_wb2axi_data|M_AXI_arlen[7]                                                                  ; Stuck at GND                   ; axi_rom_slave:u_reserved_mem|rd_len[7], axi_memory_slave:u_data_mem|rd_len[7],                                                                                    ;
-;                                                                                                                                            ; due to stuck port data_in      ; axi_rom_slave:u_inst_mem|rd_len[7]                                                                                                                                ;
-; serv_axi_wrapper:u_serv_wrapper|wb2axi_write:u_wb2axi_data|M_AXI_arlen[6]                                                                  ; Stuck at GND                   ; axi_rom_slave:u_reserved_mem|rd_len[6], axi_memory_slave:u_data_mem|rd_len[6],                                                                                    ;
-;                                                                                                                                            ; due to stuck port data_in      ; axi_rom_slave:u_inst_mem|rd_len[6]                                                                                                                                ;
-; serv_axi_wrapper:u_serv_wrapper|wb2axi_write:u_wb2axi_data|M_AXI_arlen[5]                                                                  ; Stuck at GND                   ; axi_rom_slave:u_reserved_mem|rd_len[5], axi_memory_slave:u_data_mem|rd_len[5],                                                                                    ;
-;                                                                                                                                            ; due to stuck port data_in      ; axi_rom_slave:u_inst_mem|rd_len[5]                                                                                                                                ;
-; serv_axi_wrapper:u_serv_wrapper|wb2axi_write:u_wb2axi_data|M_AXI_arlen[4]                                                                  ; Stuck at GND                   ; axi_rom_slave:u_reserved_mem|rd_len[4], axi_memory_slave:u_data_mem|rd_len[4],                                                                                    ;
-;                                                                                                                                            ; due to stuck port data_in      ; axi_rom_slave:u_inst_mem|rd_len[4]                                                                                                                                ;
-; serv_axi_wrapper:u_serv_wrapper|wb2axi_write:u_wb2axi_data|M_AXI_arlen[3]                                                                  ; Stuck at GND                   ; axi_rom_slave:u_reserved_mem|rd_len[3], axi_memory_slave:u_data_mem|rd_len[3],                                                                                    ;
-;                                                                                                                                            ; due to stuck port data_in      ; axi_rom_slave:u_inst_mem|rd_len[3]                                                                                                                                ;
-; serv_axi_wrapper:u_serv_wrapper|wb2axi_write:u_wb2axi_data|M_AXI_arlen[2]                                                                  ; Stuck at GND                   ; axi_rom_slave:u_reserved_mem|rd_len[2], axi_memory_slave:u_data_mem|rd_len[2],                                                                                    ;
-;                                                                                                                                            ; due to stuck port data_in      ; axi_rom_slave:u_inst_mem|rd_len[2]                                                                                                                                ;
-; serv_axi_wrapper:u_serv_wrapper|wb2axi_write:u_wb2axi_data|M_AXI_arlen[1]                                                                  ; Stuck at GND                   ; axi_rom_slave:u_reserved_mem|rd_len[1], axi_memory_slave:u_data_mem|rd_len[1],                                                                                    ;
-;                                                                                                                                            ; due to stuck port data_in      ; axi_rom_slave:u_inst_mem|rd_len[1]                                                                                                                                ;
 ; serv_axi_wrapper:u_serv_wrapper|wb2axi_write:u_wb2axi_data|M_AXI_arlen[0]                                                                  ; Stuck at GND                   ; axi_rom_slave:u_reserved_mem|rd_len[0], axi_memory_slave:u_data_mem|rd_len[0],                                                                                    ;
 ;                                                                                                                                            ; due to stuck port data_in      ; axi_rom_slave:u_inst_mem|rd_len[0]                                                                                                                                ;
 ; serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_csr:gen_csr.csr|timer_irq_r                                      ; Stuck at GND                   ; serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_csr:gen_csr.csr|o_new_irq,                                                              ;
@@ -6148,8 +6079,8 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
 ; Total registers                              ; 8627  ;
-; Number of registers using Synchronous Clear  ; 75    ;
-; Number of registers using Synchronous Load   ; 36    ;
+; Number of registers using Synchronous Clear  ; 81    ;
+; Number of registers using Synchronous Load   ; 42    ;
 ; Number of registers using Asynchronous Clear ; 151   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 8510  ;
@@ -6181,40 +6112,40 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|opcode[2]                        ;
-; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|M_AXI_araddr[15]                                             ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|M_AXI_awaddr[2]                                              ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|M_AXI_wdata[9]                                               ;
-; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|instruction[15]                  ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |dual_master_system_ip|serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_rf_ram_if:rf_ram_if|rcnt[4] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|operand2[6]                      ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|operand1[19]                     ;
-; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|pc[27]                           ;
+; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|src_addr1[5]                     ;
+; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|instruction[4]                   ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |dual_master_system_ip|serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_rf_ram_if:rf_ram_if|rcnt[2] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|operand2[12]                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|operand1[27]                     ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|pc[16]                           ;
+; 4:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|M_AXI_araddr[13]                                             ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|M_AXI_awaddr[2]                                              ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|M_AXI_wdata[20]                                              ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 0 LEs                ; 4 LEs                  ; Yes        ; |dual_master_system_ip|serv_axi_wrapper:u_serv_wrapper|wb2axi_read:u_wb2axi_inst|addr_latch[31]                 ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |dual_master_system_ip|serv_axi_wrapper:u_serv_wrapper|wb2axi_read:u_wb2axi_inst|cycle_count[9]                 ;
-; 5:1                ; 30 bits   ; 90 LEs        ; 30 LEs               ; 60 LEs                 ; Yes        ; |dual_master_system_ip|axi_memory_slave:u_alu_mem|rd_addr_current[20]                                           ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 24 LEs               ; 48 LEs                 ; Yes        ; |dual_master_system_ip|axi_memory_slave:u_alu_mem|wr_addr_current[31]                                           ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |dual_master_system_ip|axi_memory_slave:u_alu_mem|wr_addr_current[7]                                            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |dual_master_system_ip|serv_axi_wrapper:u_serv_wrapper|wb2axi_read:u_wb2axi_inst|cycle_count[25]                ;
+; 5:1                ; 30 bits   ; 90 LEs        ; 30 LEs               ; 60 LEs                 ; Yes        ; |dual_master_system_ip|axi_memory_slave:u_alu_mem|rd_addr_current[30]                                           ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 24 LEs               ; 48 LEs                 ; Yes        ; |dual_master_system_ip|axi_memory_slave:u_alu_mem|wr_addr_current[20]                                           ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |dual_master_system_ip|axi_memory_slave:u_alu_mem|wr_addr_current[5]                                            ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|M_AXI_araddr[2]                                              ;
 ; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |dual_master_system_ip|axi_rom_slave:u_reserved_mem|rd_count[7]                                                 ;
 ; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |dual_master_system_ip|axi_memory_slave:u_alu_mem|rd_count[2]                                                   ;
-; 6:1                ; 8 bits    ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |dual_master_system_ip|axi_memory_slave:u_alu_mem|mem_rd_addr[2]                                                ;
-; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |dual_master_system_ip|axi_memory_slave:u_data_mem|rd_count[6]                                                  ;
-; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |dual_master_system_ip|axi_rom_slave:u_inst_mem|rd_count[5]                                                     ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |dual_master_system_ip|serv_axi_wrapper:u_serv_wrapper|wb2axi_read:u_wb2axi_inst|M_AXI_araddr[31]               ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |dual_master_system_ip|axi_memory_slave:u_alu_mem|mem_rd_addr[0]                                                ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |dual_master_system_ip|axi_memory_slave:u_data_mem|rd_count[5]                                                  ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |dual_master_system_ip|axi_rom_slave:u_inst_mem|rd_count[7]                                                     ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |dual_master_system_ip|serv_axi_wrapper:u_serv_wrapper|wb2axi_read:u_wb2axi_inst|M_AXI_araddr[30]               ;
 ; 21:1               ; 8 bits    ; 112 LEs       ; 48 LEs               ; 64 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|result[23]                       ;
 ; 21:1               ; 8 bits    ; 112 LEs       ; 48 LEs               ; 64 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|result[8]                        ;
-; 258:1              ; 32 bits   ; 5504 LEs      ; 5472 LEs             ; 32 LEs                 ; Yes        ; |dual_master_system_ip|axi_memory_slave:u_alu_mem|S_AXI_rdata[10]                                               ;
+; 258:1              ; 32 bits   ; 5504 LEs      ; 5472 LEs             ; 32 LEs                 ; Yes        ; |dual_master_system_ip|axi_memory_slave:u_alu_mem|S_AXI_rdata[13]                                               ;
 ; 22:1               ; 4 bits    ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|result[27]                       ;
 ; 22:1               ; 4 bits    ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|result[6]                        ;
 ; 23:1               ; 2 bits    ; 30 LEs        ; 16 LEs               ; 14 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|result[29]                       ;
 ; 23:1               ; 2 bits    ; 30 LEs        ; 16 LEs               ; 14 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|result[2]                        ;
 ; 24:1               ; 2 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|result[31]                       ;
 ; 24:1               ; 2 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|result[0]                        ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|Selector11                       ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |dual_master_system_ip|AXI_Interconnect_Full:u_axi_interconnect|Controller:Read_controller|next_state_address   ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |dual_master_system_ip|serv_axi_wrapper:u_serv_wrapper|wb2axi_read:u_wb2axi_inst|Selector0                      ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |dual_master_system_ip|axi_rom_slave:u_reserved_mem|Selector4                                                   ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |dual_master_system_ip|axi_memory_slave:u_alu_mem|Selector41                                                    ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |dual_master_system_ip|serv_axi_wrapper:u_serv_wrapper|wb2axi_read:u_wb2axi_inst|Selector1                      ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |dual_master_system_ip|axi_rom_slave:u_reserved_mem|Selector3                                                   ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |dual_master_system_ip|axi_memory_slave:u_alu_mem|Selector42                                                    ;
 ; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |dual_master_system_ip|axi_memory_slave:u_data_mem|Selector40                                                   ;
 ; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |dual_master_system_ip|axi_rom_slave:u_inst_mem|Selector3                                                       ;
 ; 9:1                ; 4 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |dual_master_system_ip|AXI_Interconnect_Full:u_axi_interconnect|Controller:Read_controller|next_state_slave     ;
@@ -6224,6 +6155,24 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; No         ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state                    ;
 ; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |dual_master_system_ip|CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------+
+; Source assignments for axi_rom_slave:u_inst_mem         ;
++---------------------------------+-------+------+--------+
+; Assignment                      ; Value ; From ; To     ;
++---------------------------------+-------+------+--------+
+; AUTO_SHIFT_REGISTER_RECOGNITION ; OFF   ; -    ; memory ;
++---------------------------------+-------+------+--------+
+
+
++---------------------------------------------------------+
+; Source assignments for axi_rom_slave:u_reserved_mem     ;
++---------------------------------+-------+------+--------+
+; Assignment                      ; Value ; From ; To     ;
++---------------------------------+-------+------+--------+
+; AUTO_SHIFT_REGISTER_RECOGNITION ; OFF   ; -    ; memory ;
++---------------------------------+-------+------+--------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -7576,7 +7525,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sun Nov 16 21:39:50 2025
+    Info: Processing started: Mon Nov 17 10:47:44 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AXI_PROJECT -c AXI_PROJECT
 Info (11104): Parallel Compilation has detected 16 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 8 of the 8 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_state.v
@@ -7611,9 +7560,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file /axi/sr
     Info (12023): Found entity 1: serv_rf_top
 Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_top.v
     Info (12023): Found entity 1: serv_top
-Warning (12019): Can't analyze file -- file ../../src/wrapper/wb2axi_read.v is missing
-Warning (12019): Can't analyze file -- file ../../src/wrapper/wb2axi_write.v is missing
-Warning (12019): Can't analyze file -- file ../../src/wrapper/serv_axi_wrapper.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/utils/faling_edge_detc.v
     Info (12023): Found entity 1: Faling_Edge_Detc
 Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/utils/raising_edge_det.v
@@ -7662,27 +7608,12 @@ Info (12021): Found 1 design units, including 1 entities, in source file /axi/sr
     Info (12023): Found entity 1: Write_Addr_Channel_Dec
 Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/decoders/write_resp_channel_arb.v
     Info (12023): Found entity 1: Write_Resp_Channel_Arb
-Warning (10090): Verilog HDL syntax warning at Write_Resp_Channel_Dec.v(17): extra block comment delimiter characters /* within block comment
 Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/decoders/write_resp_channel_dec.v
     Info (12023): Found entity 1: Write_Resp_Channel_Dec
-Warning (10090): Verilog HDL syntax warning at AW_Channel_Controller_Top.v(21): extra block comment delimiter characters /* within block comment
-Warning (10090): Verilog HDL syntax warning at AW_Channel_Controller_Top.v(25): extra block comment delimiter characters /* within block comment
-Warning (10090): Verilog HDL syntax warning at AW_Channel_Controller_Top.v(44): extra block comment delimiter characters /* within block comment
-Warning (10090): Verilog HDL syntax warning at AW_Channel_Controller_Top.v(61): extra block comment delimiter characters /* within block comment
 Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/channel_controllers/write/aw_channel_controller_top.v
     Info (12023): Found entity 1: AW_Channel_Controller_Top
-Warning (10090): Verilog HDL syntax warning at BR_Channel_Controller_Top.v(13): extra block comment delimiter characters /* within block comment
-Warning (10090): Verilog HDL syntax warning at BR_Channel_Controller_Top.v(18): extra block comment delimiter characters /* within block comment
-Warning (10090): Verilog HDL syntax warning at BR_Channel_Controller_Top.v(24): extra block comment delimiter characters /* within block comment
-Warning (10090): Verilog HDL syntax warning at BR_Channel_Controller_Top.v(30): extra block comment delimiter characters /* within block comment
-Warning (10090): Verilog HDL syntax warning at BR_Channel_Controller_Top.v(37): extra block comment delimiter characters /* within block comment
 Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/channel_controllers/write/br_channel_controller_top.v
     Info (12023): Found entity 1: BR_Channel_Controller_Top
-Warning (10090): Verilog HDL syntax warning at WD_Channel_Controller_Top.v(21): extra block comment delimiter characters /* within block comment
-Warning (10090): Verilog HDL syntax warning at WD_Channel_Controller_Top.v(26): extra block comment delimiter characters /* within block comment
-Warning (10090): Verilog HDL syntax warning at WD_Channel_Controller_Top.v(35): extra block comment delimiter characters /* within block comment
-Warning (10090): Verilog HDL syntax warning at WD_Channel_Controller_Top.v(44): extra block comment delimiter characters /* within block comment
-Warning (10090): Verilog HDL syntax warning at WD_Channel_Controller_Top.v(53): extra block comment delimiter characters /* within block comment
 Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/channel_controllers/write/wd_channel_controller_top.v
     Info (12023): Found entity 1: WD_Channel_Controller_Top
 Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/channel_controllers/read/ar_channel_controller_top.v
@@ -7695,23 +7626,16 @@ Info (12021): Found 1 design units, including 1 entities, in source file /axi/sr
     Info (12023): Found entity 1: AXI_Interconnect_2S_RDONLY
 Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/core/axi_interconnect_full.v
     Info (12023): Found entity 1: AXI_Interconnect_Full
-Warning (12019): Can't analyze file -- file ../../src/wrapper/serv_axi_system.v is missing
-Warning (12019): Can't analyze file -- file ../../src/wrapper/alu_master_system.v is missing
-Warning (12019): Can't analyze file -- file ../../src/wrapper/axi_rom_slave.v is missing
-Warning (12019): Can't analyze file -- file ../../src/wrapper/axi_memory_slave.v is missing
-Info (12021): Found 1 design units, including 1 entities, in source file /axi/master_alu/alu/alu_core.v
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/alu/alu_core.v
     Info (12023): Found entity 1: ALU_Core
-Info (12021): Found 1 design units, including 1 entities, in source file /axi/master_alu/alu/cpu_alu_master.v
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/alu/cpu_alu_master.v
     Info (12023): Found entity 1: CPU_ALU_Master
-Info (12021): Found 1 design units, including 1 entities, in source file /axi/master_alu/alu/cpu_controller.v
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/alu/cpu_controller.v
     Info (12023): Found entity 1: CPU_Controller
-Info (12021): Found 1 design units, including 1 entities, in source file /axi/master_alu/alu/simple_axi_master_test.v
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/alu/simple_axi_master_test.v
     Info (12023): Found entity 1: Simple_AXI_Master_Test
-Info (12021): Found 1 design units, including 1 entities, in source file /axi/slave_memory/simple_memory_slave.v
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/wrapper/memory/simple_memory_slave.v
     Info (12023): Found entity 1: Simple_Memory_Slave
-Warning (12019): Can't analyze file -- file ../../src/wrapper/serv_axi_system_ip.v is missing
-Warning (12019): Can't analyze file -- file ../../src/wrapper/dual_master_system.v is missing
-Warning (12019): Can't analyze file -- file ../../src/wrapper/dual_master_system_ip.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/wrapper/converters/wb2axi_read.v
     Info (12023): Found entity 1: wb2axi_read
 Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/wrapper/converters/wb2axi_write.v
@@ -7732,16 +7656,13 @@ Info (12021): Found 1 design units, including 1 entities, in source file /axi/sr
     Info (12023): Found entity 1: axi_rom_slave
 Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/wrapper/memory/axi_memory_slave.v
     Info (12023): Found entity 1: axi_memory_slave
-Warning (10236): Verilog HDL Implicit Net warning at dual_master_system.v(543): created implicit net for "S02_AXI_bid"
-Warning (10236): Verilog HDL Implicit Net warning at dual_master_system.v(563): created implicit net for "S02_AXI_rid"
 Info (12127): Elaborating entity "dual_master_system_ip" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at dual_master_system_ip.v(323): object "S02_AXI_bid" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at dual_master_system_ip.v(368): object "M03_AXI_bready_tie" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at dual_master_system_ip.v(562): object "S02_AXI_rid_unused" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at dual_master_system_ip.v(563): object "S02_AXI_rid_unused" assigned a value but never read
 Info (12128): Elaborating entity "serv_axi_wrapper" for hierarchy "serv_axi_wrapper:u_serv_wrapper"
 Info (12128): Elaborating entity "serv_rf_top" for hierarchy "serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core"
 Info (12128): Elaborating entity "serv_rf_ram_if" for hierarchy "serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_rf_ram_if:rf_ram_if"
-Warning (10230): Verilog HDL assignment warning at serv_rf_ram_if.v(100): truncated value with size 32 to match size of target (5)
 Info (12128): Elaborating entity "serv_rf_ram" for hierarchy "serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_rf_ram:rf_ram"
 Info (12128): Elaborating entity "serv_top" for hierarchy "serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu"
 Info (12128): Elaborating entity "serv_state" for hierarchy "serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_top:cpu|serv_state:state"
@@ -7764,109 +7685,8 @@ Info (10264): Verilog HDL Case Statement information at wb2axi_write.v(392): all
 Info (12128): Elaborating entity "CPU_ALU_Master" for hierarchy "CPU_ALU_Master:u_alu_master"
 Info (12128): Elaborating entity "ALU_Core" for hierarchy "CPU_ALU_Master:u_alu_master|ALU_Core:u_alu"
 Info (12128): Elaborating entity "CPU_Controller" for hierarchy "CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller"
-Warning (10240): Verilog HDL Always Construct warning at CPU_Controller.v(112): inferring latch(es) for variable "read_addr", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at CPU_Controller.v(112): inferring latch(es) for variable "write_addr", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at CPU_Controller.v(112): inferring latch(es) for variable "write_data", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "write_data[0]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[1]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[2]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[3]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[4]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[5]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[6]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[7]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[8]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[9]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[10]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[11]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[12]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[13]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[14]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[15]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[16]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[17]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[18]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[19]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[20]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[21]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[22]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[23]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[24]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[25]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[26]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[27]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[28]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[29]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[30]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_data[31]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[0]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[1]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[2]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[3]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[4]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[5]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[6]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[7]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[8]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[9]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[10]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[11]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[12]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[13]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[14]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[15]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[16]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[17]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[18]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[19]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[20]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[21]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[22]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[23]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[24]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[25]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[26]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[27]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[28]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[29]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[30]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "write_addr[31]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[0]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[1]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[2]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[3]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[4]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[5]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[6]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[7]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[8]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[9]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[10]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[11]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[12]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[13]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[14]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[15]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[16]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[17]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[18]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[19]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[20]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[21]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[22]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[23]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[24]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[25]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[26]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[27]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[28]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[29]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[30]" at CPU_Controller.v(112)
-Info (10041): Inferred latch for "read_addr[31]" at CPU_Controller.v(112)
 Info (12128): Elaborating entity "AXI_Interconnect_Full" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect"
 Info (12128): Elaborating entity "AW_Channel_Controller_Top" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top"
-Warning (10230): Verilog HDL assignment warning at AW_Channel_Controller_Top.v(322): truncated value with size 8 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at AW_Channel_Controller_Top.v(323): truncated value with size 8 to match size of target (4)
 Info (12128): Elaborating entity "Qos_Arbiter" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter"
 Info (12128): Elaborating entity "Faling_Edge_Detc" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Faling_Edge_Detc:u_Faling_Edge_Detc"
 Info (12128): Elaborating entity "Raising_Edge_Det" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Raising_Edge_Det:u_Raising_Edge_Det"
@@ -7876,9 +7696,6 @@ Info (12128): Elaborating entity "AW_MUX_2_1" for hierarchy "AXI_Interconnect_Fu
 Info (12128): Elaborating entity "Write_Addr_Channel_Dec" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec"
 Info (12128): Elaborating entity "WD_Channel_Controller_Top" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top"
 Info (12128): Elaborating entity "Queue" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue"
-Warning (10240): Verilog HDL Always Construct warning at Queue.v(24): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct
-Warning (10230): Verilog HDL assignment warning at Queue.v(47): truncated value with size 32 to match size of target (2)
-Warning (10230): Verilog HDL assignment warning at Queue.v(54): truncated value with size 32 to match size of target (2)
 Info (12128): Elaborating entity "WD_HandShake" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_HandShake:u_WD_HandShake"
 Info (12128): Elaborating entity "WD_MUX_2_1" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_MUX_2_1:u_WD_MUX_2_1"
 Info (12128): Elaborating entity "BR_Channel_Controller_Top" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top"
@@ -7887,8 +7704,8 @@ Info (12128): Elaborating entity "Write_Resp_Channel_Arb" for hierarchy "AXI_Int
 Info (12128): Elaborating entity "BReady_MUX_2_1" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|BReady_MUX_2_1:u_BReady_MUX_2_1"
 Info (12128): Elaborating entity "Demux_1_2" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Demux_1_2:u_Demux_1_2"
 Info (12128): Elaborating entity "Write_Resp_Channel_Dec" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec"
-Warning (10199): Verilog HDL Case Statement warning at Write_Resp_Channel_Dec.v(50): case item expression never matches the case expression
-Warning (10199): Verilog HDL Case Statement warning at Write_Resp_Channel_Dec.v(56): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at Write_Resp_Channel_Dec.v(55): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at Write_Resp_Channel_Dec.v(61): case item expression never matches the case expression
 Info (12128): Elaborating entity "AR_Channel_Controller_Top" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top"
 Info (12128): Elaborating entity "Read_Arbiter" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter"
 Info (12128): Elaborating entity "Mux_2x1" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:araddr_mux"
@@ -7898,320 +7715,25 @@ Info (12128): Elaborating entity "Mux_2x1" for hierarchy "AXI_Interconnect_Full:
 Info (12128): Elaborating entity "Mux_2x1" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arcache_mux"
 Info (12128): Elaborating entity "Mux_2x1" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arvalid_mux"
 Info (12128): Elaborating entity "Read_Addr_Channel_Dec" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec"
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M03_AXI_araddr_ID", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M03_AXI_araddr", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M03_AXI_arlen", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M03_AXI_arsize", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M03_AXI_arburst", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M03_AXI_arlock", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M03_AXI_arcache", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M03_AXI_arprot", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M03_AXI_arregion", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M03_AXI_arqos", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M02_AXI_araddr_ID", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M02_AXI_araddr", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M02_AXI_arlen", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M02_AXI_arsize", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M02_AXI_arburst", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M02_AXI_arlock", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M02_AXI_arcache", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M02_AXI_arprot", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M02_AXI_arregion", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M02_AXI_arqos", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M01_AXI_araddr_ID", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M01_AXI_araddr", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M01_AXI_arlen", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M01_AXI_arsize", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M01_AXI_arburst", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M01_AXI_arlock", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M01_AXI_arcache", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M01_AXI_arprot", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M01_AXI_arregion", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M01_AXI_arqos", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M00_AXI_araddr_ID", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M00_AXI_araddr", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M00_AXI_arlen", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M00_AXI_arsize", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M00_AXI_arburst", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M00_AXI_arlock", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M00_AXI_arcache", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M00_AXI_arprot", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M00_AXI_arregion", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Read_Addr_Channel_Dec.v(123): inferring latch(es) for variable "M00_AXI_arqos", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "M00_AXI_arqos[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arqos[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arqos[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arqos[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arregion[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arregion[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arregion[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arregion[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arprot[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arprot[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arprot[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arcache[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arcache[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arcache[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arcache[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arlock[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arlock[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arburst[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arburst[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arsize[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arsize[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arsize[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arlen[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arlen[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arlen[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arlen[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arlen[4]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arlen[5]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arlen[6]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_arlen[7]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[4]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[5]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[6]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[7]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[8]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[9]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[10]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[11]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[12]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[13]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[14]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[15]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[16]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[17]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[18]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[19]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[20]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[21]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[22]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[23]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[24]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[25]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[26]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[27]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[28]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[29]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[30]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr[31]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M00_AXI_araddr_ID[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arqos[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arqos[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arqos[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arqos[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arregion[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arregion[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arregion[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arregion[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arprot[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arprot[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arprot[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arcache[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arcache[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arcache[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arcache[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arlock[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arlock[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arburst[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arburst[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arsize[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arsize[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arsize[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arlen[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arlen[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arlen[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arlen[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arlen[4]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arlen[5]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arlen[6]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_arlen[7]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[4]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[5]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[6]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[7]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[8]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[9]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[10]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[11]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[12]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[13]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[14]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[15]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[16]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[17]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[18]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[19]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[20]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[21]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[22]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[23]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[24]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[25]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[26]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[27]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[28]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[29]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[30]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr[31]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M01_AXI_araddr_ID[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arqos[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arqos[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arqos[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arqos[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arregion[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arregion[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arregion[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arregion[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arprot[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arprot[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arprot[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arcache[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arcache[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arcache[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arcache[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arlock[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arlock[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arburst[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arburst[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arsize[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arsize[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arsize[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arlen[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arlen[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arlen[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arlen[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arlen[4]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arlen[5]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arlen[6]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_arlen[7]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[4]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[5]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[6]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[7]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[8]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[9]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[10]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[11]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[12]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[13]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[14]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[15]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[16]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[17]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[18]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[19]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[20]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[21]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[22]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[23]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[24]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[25]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[26]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[27]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[28]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[29]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[30]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr[31]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M02_AXI_araddr_ID[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arqos[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arqos[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arqos[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arqos[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arregion[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arregion[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arregion[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arregion[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arprot[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arprot[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arprot[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arcache[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arcache[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arcache[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arcache[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arlock[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arlock[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arburst[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arburst[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arsize[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arsize[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arsize[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arlen[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arlen[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arlen[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arlen[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arlen[4]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arlen[5]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arlen[6]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_arlen[7]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[0]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[1]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[2]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[3]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[4]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[5]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[6]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[7]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[8]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[9]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[10]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[11]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[12]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[13]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[14]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[15]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[16]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[17]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[18]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[19]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[20]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[21]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[22]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[23]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[24]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[25]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[26]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[27]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[28]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[29]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[30]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr[31]" at Read_Addr_Channel_Dec.v(123)
-Info (10041): Inferred latch for "M03_AXI_araddr_ID[0]" at Read_Addr_Channel_Dec.v(123)
 Info (12128): Elaborating entity "Controller" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|Controller:Read_controller"
-Warning (10036): Verilog HDL or VHDL warning at Controller.v(70): object "S0_busy" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Controller.v(70): object "S1_busy" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Controller.v(70): object "S2_busy" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Controller.v(70): object "S3_busy" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Controller.v(71): object "S0_busy" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Controller.v(71): object "S1_busy" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Controller.v(71): object "S2_busy" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Controller.v(71): object "S3_busy" assigned a value but never read
 Info (12128): Elaborating entity "Demux_1x4" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|Demux_1x4:rready_demux_M0"
 Info (12128): Elaborating entity "Mux_4x1" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rvalid_mux_M0"
 Info (12128): Elaborating entity "Mux_4x1" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rdata_mux_M0"
 Info (12128): Elaborating entity "Mux_4x1" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect|Mux_4x1:rresp_mux_M0"
 Info (12128): Elaborating entity "axi_rom_slave" for hierarchy "axi_rom_slave:u_inst_mem"
-Warning (10036): Verilog HDL or VHDL warning at axi_rom_slave.v(51): object "rd_addr" assigned a value but never read
-Info (10648): Verilog HDL Display System Task info at axi_rom_slave.v(73): INFO: Memory initialized to 0x00000000 (no init file specified)
-Warning (10230): Verilog HDL assignment warning at axi_rom_slave.v(144): truncated value with size 32 to match size of target (8)
-Warning (10030): Net "memory.data_a" at axi_rom_slave.v(42) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "memory.waddr_a" at axi_rom_slave.v(42) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "memory.we_a" at axi_rom_slave.v(42) has no driver or initial value, using a default initial value '0'
+Warning (10036): Verilog HDL or VHDL warning at axi_rom_slave.v(56): object "rd_addr" assigned a value but never read
+Info (10648): Verilog HDL Display System Task info at axi_rom_slave.v(78): INFO: Memory initialized to 0x00000000 (no init file specified)
+Warning (10030): Net "memory.data_a" at axi_rom_slave.v(44) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "memory.waddr_a" at axi_rom_slave.v(44) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "memory.we_a" at axi_rom_slave.v(44) has no driver or initial value, using a default initial value '0'
 Info (12128): Elaborating entity "axi_memory_slave" for hierarchy "axi_memory_slave:u_data_mem"
 Warning (10036): Verilog HDL or VHDL warning at axi_memory_slave.v(80): object "wr_addr" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at axi_memory_slave.v(81): object "wr_len" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at axi_memory_slave.v(92): object "rd_addr" assigned a value but never read
-Warning (10230): Verilog HDL assignment warning at axi_memory_slave.v(171): truncated value with size 32 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at axi_memory_slave.v(257): truncated value with size 32 to match size of target (8)
 Info (19000): Inferred 1 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_rf_ram:rf_ram|memory_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
@@ -8252,22 +7774,6 @@ Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
         Warning (14320): Synthesized away node "serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_rf_ram:rf_ram|altsyncram:memory_rtl_0|altsyncram_qrf1:auto_generated|ram_block1a0"
         Warning (14320): Synthesized away node "serv_axi_wrapper:u_serv_wrapper|serv_rf_top:u_serv_core|serv_rf_ram:rf_ram|altsyncram:memory_rtl_0|altsyncram_qrf1:auto_generated|ram_block1a1"
-Warning (13012): Latch CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|read_addr[6] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.FETCH_OP2
-Warning (13012): Latch CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|read_addr[7] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.FETCH_OP2
-Warning (13012): Latch CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|read_addr[3] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.FETCH_OP2
-Warning (13012): Latch CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|read_addr[2] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.FETCH_OP2
-Warning (13012): Latch CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|read_addr[5] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.FETCH_OP2
-Warning (13012): Latch CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|read_addr[4] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.FETCH_OP2
-Warning (13012): Latch CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|read_addr[9] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.FETCH_OP1
-Warning (13012): Latch CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|read_addr[8] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.FETCH_OP1
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (17049): 502 registers lost all their fanouts during netlist optimizations.
@@ -8276,15 +7782,15 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "i_timer_irq"
-Info (21057): Implemented 15145 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 15079 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 6 output pins
-    Info (21061): Implemented 15135 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 117 warnings
+    Info (21061): Implemented 15069 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 22 warnings
     Info: Peak virtual memory: 4730 megabytes
-    Info: Processing ended: Sun Nov 16 21:40:09 2025
+    Info: Processing ended: Mon Nov 17 10:48:03 2025
     Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:18
+    Info: Total CPU time (on all processors): 00:00:19
 
 
 +------------------------------------------+

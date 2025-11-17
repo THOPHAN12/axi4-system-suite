@@ -37,9 +37,14 @@ module axi_rom_slave #(
     input  wire                    S_AXI_rready
 );
 
-// Memory array
+// Memory array (ROM - read-only, no write port needed)
 localparam ADDR_BITS = $clog2(MEM_SIZE);
-(* ramstyle = "M9K" *) reg [DATA_WIDTH-1:0] memory [0:MEM_SIZE-1];
+(* ramstyle = "M9K" *) 
+(* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF" *)
+reg [DATA_WIDTH-1:0] memory [0:MEM_SIZE-1];
+// Note: memory array is initialized via $readmemh, no write port needed for ROM
+// Quartus may emit warnings about internal nets (memory.data_a, memory.waddr_a, memory.we_a) having no driver.
+// This is expected for a simple ROM model without a write port.
 
 // Read FSM
 localparam RD_IDLE      = 2'b00;
@@ -48,8 +53,8 @@ localparam RD_DATA      = 2'b10;
 
 reg [1:0] rd_state;
 reg [ID_WIDTH-1:0] rd_id;
-reg [ADDR_WIDTH-1:0] rd_addr;
-reg [7:0] rd_len;
+reg [ADDR_WIDTH-1:0] rd_addr;  // Intentional: stored but not read (may be used for debug/future)
+reg [7:0] rd_len;               // Intentional: stored but not read (may be used for debug/future)
 reg [7:0] rd_count;
 reg [ADDR_WIDTH-1:0] rd_addr_current;
 
@@ -141,7 +146,7 @@ always @(posedge ACLK or negedge ARESETN) begin
                         S_AXI_rlast <= 1'b0;
                         mem_rd_en <= 1'b0;
                     end else begin
-                        rd_count <= rd_count + 1;
+                        rd_count <= rd_count + 8'd1;  // Explicit 8-bit addition to avoid truncation warning
                         // Increment address based on burst type
                         if (S_AXI_arburst == 2'b01) begin  // INCR
                             rd_addr_current <= rd_addr_current + (DATA_WIDTH/8);
@@ -154,7 +159,7 @@ always @(posedge ACLK or negedge ARESETN) begin
                             mem_rd_addr <= {ADDR_BITS{1'b0}};
                             mem_rd_en <= 1'b0;
                         end
-                        S_AXI_rlast <= (rd_count + 1 == rd_len);
+                        S_AXI_rlast <= ((rd_count + 8'd1) == rd_len);  // Explicit 8-bit addition
                     end
                 end
             end

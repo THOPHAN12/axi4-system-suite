@@ -18,41 +18,36 @@ module WD_Channel_Controller_Top #(
     output wire                      Is_Master_Part_Of_Split,
     output wire                      Is_Master_Part_Of_Split2, // Mahmoud added it
 
-/*                /***** Interconnect Ports *****/
-                /******************************/
+    // Interconnect Ports
     input  wire                          ACLK,
     input  wire                          ARESETN,
 
-/*                /****** Slave S00 Ports *******/
-                    /******************************/
-    //* Write Data Channel
+    // Slave S00 Ports
+    // Write Data Channel
     
     input  wire  [S00_Write_data_bus_width-1:0]   S00_AXI_wdata,//Write data bus
     input  wire  [S00_Write_data_bytes_num-1:0]   S00_AXI_wstrb, // strops identifes the active data lines
     input  wire                                   S00_AXI_wlast, // last signal to identify the last transfer in a burst
     input  wire                                   S00_AXI_wvalid, // write valid signal
     output wire                                   S00_AXI_wready, // write ready signal
-/*                /****** Slave S01 Ports *******/
-                    /******************************/
-    //* Write Data Channel
+    // Slave S01 Ports
+    // Write Data Channel
     
     input  wire  [S01_Write_data_bus_width-1:0]   S01_AXI_wdata,//Write data bus
     input  wire  [S01_Write_data_bytes_num-1:0]   S01_AXI_wstrb, // strops identifes the active data lines
     input  wire                                   S01_AXI_wlast, // last signal to identify the last transfer in a burst
     input  wire                                   S01_AXI_wvalid, // write valid signal
     output wire                                   S01_AXI_wready, // write ready signal
-/*                /****** Master M00 Ports *****/   
-                  /*****************************/
-   //* Write Data Channel
+    // Master M00 Ports
+    // Write Data Channel
     output wire  [M00_Write_data_bus_width-1:0]   M00_AXI_wdata,//Write data bus
     output wire  [M00_Write_data_bytes_num-1:0]   M00_AXI_wstrb, // strops identifes the active data lines
     output wire                                   M00_AXI_wlast, // last signal to identify the last transfer in a burst
     output wire                                   M00_AXI_wvalid, // write valid signal
     input  wire                                   M00_AXI_wready, // write ready signal
 
-    /*                /****** Master M01 Ports *****/ // Added by Mahmoud
-                  /*****************************/
-   //* Write Data Channel
+    // Master M01 Ports (Added by Mahmoud)
+    // Write Data Channel
     output wire  [M00_Write_data_bus_width-1:0]   M01_AXI_wdata,//Write data bus
     output wire  [M00_Write_data_bytes_num-1:0]   M01_AXI_wstrb, // strops identifes the active data lines
     output wire                                   M01_AXI_wlast, // last signal to identify the last transfer in a burst

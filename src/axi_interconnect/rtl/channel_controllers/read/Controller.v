@@ -67,6 +67,7 @@ reg [2:0] curr_state_slave, next_state_slave, curr_state_slave2;
 reg [1:0] curr_state_address, next_state_address;
 reg [2:0] next_state_slave2;
 
+// Intentional: busy signals assigned but not read (may be used for debug/future monitoring)
 reg S0_busy = 0, S1_busy = 0, S2_busy = 0, S3_busy = 0;
 // Removed: last_served_address (Round-Robin) - Using Fixed-Priority QoS Arbiter instead
 

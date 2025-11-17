@@ -97,7 +97,11 @@ module serv_rf_ram_if
 
    assign o_wen = (wtrig0 & wen0_r) | (wtrig1 & wen1_r);
 
-   assign wcnt = rcnt-4;
+   // Calculate wcnt = rcnt - 4, with proper width handling
+   // rcnt is [CMSB:0], so we need to subtract 4 with proper width
+   // 4 = 3'b100, extend to [CMSB:0] width (at least 3 bits needed for value 4)
+   wire [CMSB:0] four_value = (CMSB >= 2) ? {{(CMSB-2){1'b0}}, 3'd4} : ((CMSB == 1) ? 2'd0 : 1'd0);
+   assign wcnt = rcnt - four_value;
 
    always @(posedge i_clk) begin
       if (wcnt[0]) begin

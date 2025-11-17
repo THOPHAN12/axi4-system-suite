@@ -18,13 +18,11 @@ module AW_Channel_Controller_Top #(
  output wire [(AXI4_Aw_len/'d2)-1:0] Rem, //Reminder of the divsion
  output wire [(AXI4_Aw_len/'d2)-1:0] Num_Of_Compl_Bursts, // Number of Complete Bursts
  output wire                         Load_The_Original_Signals,
-/*                /***** Interconnect Ports *****/
-                    /******************************/
+    // Interconnect Ports
     input  wire                          ACLK,
     input  wire                          ARESETN,
-/*                /****** Slave S00 Ports *******/
-                /******************************/
-    //* Slave General Ports
+    // Slave S00 Ports
+    // Slave General Ports
     input  wire                          S00_ACLK,
     input  wire                          S00_ARESETN,
 
@@ -40,10 +38,8 @@ module AW_Channel_Controller_Top #(
     input  wire                          S00_AXI_awvalid, // Address write valid signal 
     output wire                          S00_AXI_awready, // Address write ready signal 
 
-
-/*                /****** Slave S01 Ports *******/
-                /******************************/
-    //* Slave General Ports
+    // Slave S01 Ports
+    // Slave General Ports
     input  wire                          S01_ACLK,
     input  wire                          S01_ARESETN,
     //* Address Write Channel
@@ -58,10 +54,8 @@ module AW_Channel_Controller_Top #(
     input  wire                          S01_AXI_awvalid, // Address write valid signal 
     output wire                          S01_AXI_awready, // Address write ready signal 
 
-/*                /****** Master M00 Ports *****/   
-
-                  /*****************************/
-    //* Slave General Ports
+    // Master M00 Ports
+    // Slave General Ports
     input  wire                          M00_ACLK,
     input  wire                          M00_ARESETN,
 
@@ -319,8 +313,8 @@ assign M00_AXI_awprot_Signal  = AXI4_Sel_S_AXI_awprot;
 assign Sel_S_AXI_awvalid_Signal = AXI4_Sel_S_AXI_awvalid;
 
 // AXI4 signals that don't need conversion
-assign Rem = 8'd0;
-assign Num_Of_Compl_Bursts = 8'd0;
+assign Rem = {(AXI4_Aw_len/'d2){1'b0}};  // Explicit width to avoid truncation warning
+assign Num_Of_Compl_Bursts = {(AXI4_Aw_len/'d2){1'b0}};  // Explicit width to avoid truncation warning
 assign Disconnect_Master = 1'b0;
 assign Load_The_Original_Signals = 1'b1;
 assign Token = 1'b1;

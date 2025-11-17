@@ -33,6 +33,12 @@ Thư mục này chứa tất cả tài liệu về kiến trúc và thiết kế
    - Port connections
    - **Phù hợp cho**: Debug, wiring, integration
 
+### 5. **[AXI_INTERCONNECT_CONFLICTS.md](AXI_INTERCONNECT_CONFLICTS.md)**
+   - Phân tích các trường hợp xung đột
+   - Cơ chế arbitration
+   - Các vấn đề tiềm ẩn và giải pháp
+   - **Phù hợp cho**: Debug, optimization, understanding conflicts
+
 ## 🚀 Bắt Đầu Nhanh
 
 ### Cho Người Mới

@@ -1,0 +1,6 @@
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+C:\altera\13.0sp1\modelsim_ase\win32aloem\vlog.exe -work work -l compile.log +define+DISPLAY_ALU_MEM_BASE D:/AXI/tb/wrapper_tb/testbenches/dual_master/dual_master_system_ip_tb.v 
+-- Compiling module dual_master_system_ip_tb
+
+Top level modules:
+	dual_master_system_ip_tb

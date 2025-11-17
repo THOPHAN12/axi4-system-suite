@@ -3,75 +3,27 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'ACLK'
-Slack : -7.920
-TNS   : -45447.477
-
-Type  : Slow Model Setup 'CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.FETCH_INSTR'
-Slack : -2.575
-TNS   : -18.813
-
-Type  : Slow Model Setup 'CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT'
-Slack : -1.224
-TNS   : -44.107
+Slack : -7.934
+TNS   : -44045.018
 
 Type  : Slow Model Hold 'ACLK'
-Slack : -2.547
-TNS   : -79.900
-
-Type  : Slow Model Hold 'CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.FETCH_INSTR'
-Slack : 0.625
-TNS   : 0.000
-
-Type  : Slow Model Hold 'CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT'
-Slack : 1.187
+Slack : 0.391
 TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'ACLK'
 Slack : -1.380
 TNS   : -8628.380
 
-Type  : Slow Model Minimum Pulse Width 'CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.FETCH_INSTR'
-Slack : 0.500
-TNS   : 0.000
-
-Type  : Slow Model Minimum Pulse Width 'CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT'
-Slack : 0.500
-TNS   : 0.000
-
 Type  : Fast Model Setup 'ACLK'
-Slack : -3.209
-TNS   : -17372.166
-
-Type  : Fast Model Setup 'CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.FETCH_INSTR'
-Slack : -0.912
-TNS   : -6.397
-
-Type  : Fast Model Setup 'CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT'
-Slack : -0.448
-TNS   : -16.088
+Slack : -3.314
+TNS   : -16930.185
 
 Type  : Fast Model Hold 'ACLK'
-Slack : -1.590
-TNS   : -71.063
-
-Type  : Fast Model Hold 'CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.FETCH_INSTR'
-Slack : 0.776
-TNS   : 0.000
-
-Type  : Fast Model Hold 'CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT'
-Slack : 1.011
+Slack : 0.215
 TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'ACLK'
 Slack : -1.380
 TNS   : -8628.380
-
-Type  : Fast Model Minimum Pulse Width 'CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.FETCH_INSTR'
-Slack : 0.500
-TNS   : 0.000
-
-Type  : Fast Model Minimum Pulse Width 'CPU_ALU_Master:u_alu_master|CPU_Controller:u_controller|current_state.STORE_RESULT'
-Slack : 0.500
-TNS   : 0.000
 
 ------------------------------------------------------------

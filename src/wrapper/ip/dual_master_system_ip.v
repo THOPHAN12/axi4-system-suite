@@ -5,10 +5,10 @@
  * - SERV RISC-V Core
  * - ALU Master
  * - AXI Interconnect
- * - Instruction Memory (ROM)
+ * - Instruction Memory (RAM)
  * - Data Memory (RAM)
  * - ALU Memory (RAM)
- * - Reserved Memory (ROM)
+ * - Reserved Memory (RAM)
  * 
  * Architecture:
  * 
@@ -125,6 +125,28 @@ module dual_master_system_ip #(
     // ========================================================================
     
     // Slave 0 (Instruction Memory) AXI signals
+    // Add dummy write channel wires to allow RAM instantiation (writes optional)
+    wire [ID_WIDTH-1:0]     M00_AXI_awid_dummy;
+    wire [ADDR_WIDTH-1:0]   M00_AXI_awaddr_dummy;
+    wire [7:0]              M00_AXI_awlen_dummy;
+    wire [2:0]              M00_AXI_awsize_dummy;
+    wire [1:0]              M00_AXI_awburst_dummy;
+    wire [1:0]              M00_AXI_awlock_dummy;
+    wire [3:0]              M00_AXI_awcache_dummy;
+    wire [2:0]              M00_AXI_awprot_dummy;
+    wire [3:0]              M00_AXI_awqos_dummy;
+    wire [3:0]              M00_AXI_awregion_dummy;
+    wire                    M00_AXI_awvalid_dummy;
+    wire                    M00_AXI_awready_dummy;
+    wire [DATA_WIDTH-1:0]   M00_AXI_wdata_dummy;
+    wire [(DATA_WIDTH/8)-1:0] M00_AXI_wstrb_dummy;
+    wire                    M00_AXI_wlast_dummy;
+    wire                    M00_AXI_wvalid_dummy;
+    wire                    M00_AXI_wready_dummy;
+    wire [ID_WIDTH-1:0]     M00_AXI_bid_dummy;
+    wire [1:0]              M00_AXI_bresp_dummy;
+    wire                    M00_AXI_bvalid_dummy;
+    wire                    M00_AXI_bready_dummy;
     wire [ADDR_WIDTH-1:0]   M00_AXI_araddr;
     wire [7:0]              M00_AXI_arlen;
     wire [2:0]              M00_AXI_arsize;
@@ -233,7 +255,29 @@ module dual_master_system_ip #(
     wire                    M02_AXI_rvalid;
     wire                    M02_AXI_rready;
     
-    // Slave 3 (Reserved Memory) AXI signals (Read-only)
+    // Slave 3 (Reserved Memory) AXI signals
+    // Add dummy write channel wires to allow RAM instantiation (writes optional)
+    wire [ID_WIDTH-1:0]     M03_AXI_awid_dummy;
+    wire [ADDR_WIDTH-1:0]   M03_AXI_awaddr_dummy;
+    wire [7:0]              M03_AXI_awlen_dummy;
+    wire [2:0]              M03_AXI_awsize_dummy;
+    wire [1:0]              M03_AXI_awburst_dummy;
+    wire [1:0]              M03_AXI_awlock_dummy;
+    wire [3:0]              M03_AXI_awcache_dummy;
+    wire [2:0]              M03_AXI_awprot_dummy;
+    wire [3:0]              M03_AXI_awqos_dummy;
+    wire [3:0]              M03_AXI_awregion_dummy;
+    wire                    M03_AXI_awvalid_dummy;
+    wire                    M03_AXI_awready_dummy;
+    wire [DATA_WIDTH-1:0]   M03_AXI_wdata_dummy;
+    wire [(DATA_WIDTH/8)-1:0] M03_AXI_wstrb_dummy;
+    wire                    M03_AXI_wlast_dummy;
+    wire                    M03_AXI_wvalid_dummy;
+    wire                    M03_AXI_wready_dummy;
+    wire [ID_WIDTH-1:0]     M03_AXI_bid_dummy;
+    wire [1:0]              M03_AXI_bresp_dummy;
+    wire                    M03_AXI_bvalid_dummy;
+    wire                    M03_AXI_bready_dummy;
     wire [ID_WIDTH-1:0]     M03_AXI_arid;
     wire [ADDR_WIDTH-1:0]   M03_AXI_araddr;
     wire [7:0]              M03_AXI_arlen;
@@ -319,7 +363,7 @@ module dual_master_system_ip #(
     wire                    S01_AXI_rvalid;
     wire                    S01_AXI_rready;
     
-    // Missing signal for ALU Master (bid)
+    // Missing signal for ALU Master (bid) - Intentional: unused but required for AXI protocol
     wire [ID_WIDTH-1:0]     S02_AXI_bid;
     
     // Internal AXI signals from ALU Master
@@ -365,7 +409,7 @@ module dual_master_system_ip #(
     
     // Tie-off wires
     wire M00_AXI_bready_tie = 1'b0;  // Read-only slave, tie off bready
-    wire M03_AXI_bready_tie = 1'b0;  // Read-only slave, tie off bready
+    wire M03_AXI_bready_tie = 1'b0;  // Read-only slave, tie off bready - Intentional: unused but required for AXI protocol
     
     // ========================================================================
     // SERV AXI Wrapper Instance
@@ -559,6 +603,7 @@ module dual_master_system_ip #(
     assign M02_AXI_rready = S02_AXI_rready;
     // Note: CPU_ALU_Master doesn't have rid port, but memory slave returns rid
     // We'll ignore the rid from memory slave since ALU Master doesn't use it
+    // Intentional: unused but required to connect memory slave output
     wire [ID_WIDTH-1:0] S02_AXI_rid_unused = M02_AXI_rid;  // Connect but unused
     
     // AXI Interconnect for SERV (2 masters: Instruction + Data)
@@ -807,9 +852,11 @@ module dual_master_system_ip #(
     );
     
     // ========================================================================
-    // Instruction Memory (ROM) Slave Instance
+    // Instruction Memory (RAM) Slave Instance
+    // Note: Interconnect M00 write channel is currently not routed; tie dummy
+    //       write inputs to 0 and ignore outputs. Read path remains functional.
     // ========================================================================
-    axi_rom_slave #(
+    axi_memory_slave #(
         .ADDR_WIDTH         (ADDR_WIDTH),
         .DATA_WIDTH         (DATA_WIDTH),
         .ID_WIDTH           (ID_WIDTH),
@@ -818,7 +865,32 @@ module dual_master_system_ip #(
     ) u_inst_mem (
         .ACLK               (ACLK),
         .ARESETN            (ARESETN),
-        .S_AXI_arid         (4'h0),  // Not used for read-only
+        // Write Address Channel (dummy ties)
+        .S_AXI_awid         (M00_AXI_awid_dummy),
+        .S_AXI_awaddr       (M00_AXI_awaddr_dummy),
+        .S_AXI_awlen        (M00_AXI_awlen_dummy),
+        .S_AXI_awsize       (M00_AXI_awsize_dummy),
+        .S_AXI_awburst      (M00_AXI_awburst_dummy),
+        .S_AXI_awlock       (M00_AXI_awlock_dummy),
+        .S_AXI_awcache      (M00_AXI_awcache_dummy),
+        .S_AXI_awprot       (M00_AXI_awprot_dummy),
+        .S_AXI_awqos        (M00_AXI_awqos_dummy),
+        .S_AXI_awregion     (M00_AXI_awregion_dummy),
+        .S_AXI_awvalid      (M00_AXI_awvalid_dummy),
+        .S_AXI_awready      (M00_AXI_awready_dummy),
+        // Write Data Channel (dummy ties)
+        .S_AXI_wdata        (M00_AXI_wdata_dummy),
+        .S_AXI_wstrb        (M00_AXI_wstrb_dummy),
+        .S_AXI_wlast        (M00_AXI_wlast_dummy),
+        .S_AXI_wvalid       (M00_AXI_wvalid_dummy),
+        .S_AXI_wready       (M00_AXI_wready_dummy),
+        // Write Response Channel (ignored)
+        .S_AXI_bid          (M00_AXI_bid_dummy),
+        .S_AXI_bresp        (M00_AXI_bresp_dummy),
+        .S_AXI_bvalid       (M00_AXI_bvalid_dummy),
+        .S_AXI_bready       (M00_AXI_bready_dummy),
+        // Read Address Channel
+        .S_AXI_arid         (4'h0),
         .S_AXI_araddr       (M00_AXI_araddr),
         .S_AXI_arlen        (M00_AXI_arlen),
         .S_AXI_arsize       (M00_AXI_arsize),
@@ -830,6 +902,7 @@ module dual_master_system_ip #(
         .S_AXI_arregion     (M00_AXI_arregion),
         .S_AXI_arvalid      (M00_AXI_arvalid),
         .S_AXI_arready      (M00_AXI_arready),
+        // Read Data Channel
         .S_AXI_rid          (),
         .S_AXI_rdata        (M00_AXI_rdata),
         .S_AXI_rresp        (M00_AXI_rresp),
@@ -945,9 +1018,9 @@ module dual_master_system_ip #(
     );
     
     // ========================================================================
-    // Reserved Memory (ROM) Slave Instance
+    // Reserved Memory (RAM) Slave Instance
     // ========================================================================
-    axi_rom_slave #(
+    axi_memory_slave #(
         .ADDR_WIDTH         (ADDR_WIDTH),
         .DATA_WIDTH         (DATA_WIDTH),
         .ID_WIDTH           (ID_WIDTH),
@@ -956,6 +1029,31 @@ module dual_master_system_ip #(
     ) u_reserved_mem (
         .ACLK               (ACLK),
         .ARESETN            (ARESETN),
+        // Write Address Channel (dummy ties)
+        .S_AXI_awid         (M03_AXI_awid_dummy),
+        .S_AXI_awaddr       (M03_AXI_awaddr_dummy),
+        .S_AXI_awlen        (M03_AXI_awlen_dummy),
+        .S_AXI_awsize       (M03_AXI_awsize_dummy),
+        .S_AXI_awburst      (M03_AXI_awburst_dummy),
+        .S_AXI_awlock       (M03_AXI_awlock_dummy),
+        .S_AXI_awcache      (M03_AXI_awcache_dummy),
+        .S_AXI_awprot       (M03_AXI_awprot_dummy),
+        .S_AXI_awqos        (M03_AXI_awqos_dummy),
+        .S_AXI_awregion     (M03_AXI_awregion_dummy),
+        .S_AXI_awvalid      (M03_AXI_awvalid_dummy),
+        .S_AXI_awready      (M03_AXI_awready_dummy),
+        // Write Data Channel (dummy ties)
+        .S_AXI_wdata        (M03_AXI_wdata_dummy),
+        .S_AXI_wstrb        (M03_AXI_wstrb_dummy),
+        .S_AXI_wlast        (M03_AXI_wlast_dummy),
+        .S_AXI_wvalid       (M03_AXI_wvalid_dummy),
+        .S_AXI_wready       (M03_AXI_wready_dummy),
+        // Write Response Channel (ignored)
+        .S_AXI_bid          (M03_AXI_bid_dummy),
+        .S_AXI_bresp        (M03_AXI_bresp_dummy),
+        .S_AXI_bvalid       (M03_AXI_bvalid_dummy),
+        .S_AXI_bready       (M03_AXI_bready_dummy),
+        // Read Address Channel
         .S_AXI_arid         (M03_AXI_arid),
         .S_AXI_araddr       (M03_AXI_araddr),
         .S_AXI_arlen        (M03_AXI_arlen),

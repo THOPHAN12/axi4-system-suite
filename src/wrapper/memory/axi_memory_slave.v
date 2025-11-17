@@ -77,8 +77,8 @@ localparam WR_RESP      = 2'b11;
 
 reg [1:0] wr_state;
 reg [ID_WIDTH-1:0] wr_id;
-reg [ADDR_WIDTH-1:0] wr_addr;
-reg [7:0] wr_len;
+reg [ADDR_WIDTH-1:0] wr_addr;  // Intentional: stored but not read (may be used for debug/future)
+reg [7:0] wr_len;               // Intentional: stored but not read (may be used for debug/future)
 reg [7:0] wr_count;
 reg [ADDR_WIDTH-1:0] wr_addr_current;
 
@@ -89,8 +89,8 @@ localparam RD_DATA      = 2'b10;
 
 reg [1:0] rd_state;
 reg [ID_WIDTH-1:0] rd_id;
-reg [ADDR_WIDTH-1:0] rd_addr;
-reg [7:0] rd_len;
+reg [ADDR_WIDTH-1:0] rd_addr;  // Intentional: stored but not read (may be used for debug/future)
+reg [7:0] rd_len;               // Intentional: stored but not read (may be used for debug/future)
 reg [7:0] rd_count;
 reg [ADDR_WIDTH-1:0] rd_addr_current;
 
@@ -159,6 +159,11 @@ always @(posedge ACLK or negedge ARESETN) begin
                                     S_AXI_wdata[j*8 +: 8];
                             end
                         end
+                        $display("[%0t] MEM_SLAVE[%m] WRITE: addr=%0d data=0x%08h (to memory[%0d])",
+                                 $time,
+                                 wr_addr_current[ADDR_BITS+1:2],
+                                 S_AXI_wdata,
+                                 wr_addr_current[ADDR_BITS+1:2]);
                     end
                     
                     if (S_AXI_wlast) begin
@@ -168,7 +173,7 @@ always @(posedge ACLK or negedge ARESETN) begin
                         S_AXI_bid <= wr_id;
                         S_AXI_bresp <= 2'b00;  // OKAY
                     end else begin
-                        wr_count <= wr_count + 1;
+                        wr_count <= wr_count + 8'd1;  // Explicit 8-bit addition to avoid truncation warning
                         // Increment address based on burst type
                         if (S_AXI_awburst == 2'b01) begin  // INCR
                             wr_addr_current <= wr_addr_current + (DATA_WIDTH/8);
@@ -254,7 +259,7 @@ always @(posedge ACLK or negedge ARESETN) begin
                         S_AXI_rlast <= 1'b0;
                         mem_rd_en <= 1'b0;
                     end else begin
-                        rd_count <= rd_count + 1;
+                        rd_count <= rd_count + 8'd1;  // Explicit 8-bit addition to avoid truncation warning
                         // Increment address based on burst type
                         if (S_AXI_arburst == 2'b01) begin  // INCR
                             rd_addr_current <= rd_addr_current + (DATA_WIDTH/8);
@@ -267,7 +272,7 @@ always @(posedge ACLK or negedge ARESETN) begin
                             mem_rd_addr <= {ADDR_BITS{1'b0}};
                             mem_rd_en <= 1'b0;
                         end
-                        S_AXI_rlast <= (rd_count + 1 == rd_len);
+                        S_AXI_rlast <= ((rd_count + 8'd1) == rd_len);  // Explicit 8-bit addition
                     end
                 end
             end
@@ -287,8 +292,10 @@ always @(posedge ACLK) begin
     end else begin
         if (mem_rd_en && mem_rd_addr < MEM_SIZE) begin
             S_AXI_rdata <= memory[mem_rd_addr];
+            $display("[%0t] MEM_SLAVE[%m] READ: addr=%0d data=0x%08h (from memory[%0d])", $time, mem_rd_addr, memory[mem_rd_addr], mem_rd_addr);
         end else begin
             S_AXI_rdata <= {DATA_WIDTH{1'b0}};
+            $display("[%0t] MEM_SLAVE[%m] READ: FAILED (mem_rd_en=%0b addr=%0d MEM_SIZE=%0d)", $time, mem_rd_en, mem_rd_addr, MEM_SIZE);
         end
     end
 end

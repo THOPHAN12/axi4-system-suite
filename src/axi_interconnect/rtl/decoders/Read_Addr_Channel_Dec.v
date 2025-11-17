@@ -113,17 +113,72 @@ module Read_Addr_Channel_Dec #(
     // Extract base address from MSBs of ARADDR
     wire [Base_Addr_Width - 1 : 0] Base_Addr_Master;
     assign Base_Addr_Master = Master_AXI_araddr[Address_width-1:Address_width-Base_Addr_Width];
+    
+    // Debug: print address decoding
+    always @(*) begin
+        if (Master_AXI_arvalid) begin
+            $display("[%0t] READ_DEC: addr=0x%08h base_addr=%02b -> Slave%0d", $time, Master_AXI_araddr, Base_Addr_Master, Base_Addr_Master);
+        end
+    end
 
     //==========================================================================
     // Address Decoding Logic
     // Routes AR channel signals to the correct Slave based on Base-Addr
     //==========================================================================
     always @(*) begin
-        // Default values - all slaves inactive
+        // Default values - all slaves inactive and all signals set to default
+        // Slave 0 (M00) defaults
         M00_AXI_arvalid = 1'b0;
+        M00_AXI_araddr_ID = {Masters_ID_Size{1'b0}};
+        M00_AXI_araddr = {Address_width{1'b0}};
+        M00_AXI_arlen = {AXI4_AR_len{1'b0}};
+        M00_AXI_arsize = 3'h0;
+        M00_AXI_arburst = 2'h0;
+        M00_AXI_arlock = 2'h0;
+        M00_AXI_arcache = 4'h0;
+        M00_AXI_arprot = 3'h0;
+        M00_AXI_arregion = 4'h0;
+        M00_AXI_arqos = 4'h0;
+        
+        // Slave 1 (M01) defaults
         M01_AXI_arvalid = 1'b0;
+        M01_AXI_araddr_ID = {Masters_ID_Size{1'b0}};
+        M01_AXI_araddr = {Address_width{1'b0}};
+        M01_AXI_arlen = {AXI4_AR_len{1'b0}};
+        M01_AXI_arsize = 3'h0;
+        M01_AXI_arburst = 2'h0;
+        M01_AXI_arlock = 2'h0;
+        M01_AXI_arcache = 4'h0;
+        M01_AXI_arprot = 3'h0;
+        M01_AXI_arregion = 4'h0;
+        M01_AXI_arqos = 4'h0;
+        
+        // Slave 2 (M02) defaults
         M02_AXI_arvalid = 1'b0;
+        M02_AXI_araddr_ID = {Masters_ID_Size{1'b0}};
+        M02_AXI_araddr = {Address_width{1'b0}};
+        M02_AXI_arlen = {AXI4_AR_len{1'b0}};
+        M02_AXI_arsize = 3'h0;
+        M02_AXI_arburst = 2'h0;
+        M02_AXI_arlock = 2'h0;
+        M02_AXI_arcache = 4'h0;
+        M02_AXI_arprot = 3'h0;
+        M02_AXI_arregion = 4'h0;
+        M02_AXI_arqos = 4'h0;
+        
+        // Slave 3 (M03) defaults
         M03_AXI_arvalid = 1'b0;
+        M03_AXI_araddr_ID = {Masters_ID_Size{1'b0}};
+        M03_AXI_araddr = {Address_width{1'b0}};
+        M03_AXI_arlen = {AXI4_AR_len{1'b0}};
+        M03_AXI_arsize = 3'h0;
+        M03_AXI_arburst = 2'h0;
+        M03_AXI_arlock = 2'h0;
+        M03_AXI_arcache = 4'h0;
+        M03_AXI_arprot = 3'h0;
+        M03_AXI_arregion = 4'h0;
+        M03_AXI_arqos = 4'h0;
+        
         Q_Enables = 4'b0000;
 
         case (Base_Addr_Master)

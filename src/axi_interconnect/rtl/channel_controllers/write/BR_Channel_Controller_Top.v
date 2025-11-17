@@ -10,33 +10,28 @@ module BR_Channel_Controller_Top #(
     input wire [(AXI4_Aw_len/'d2)-1:0] Num_Of_Compl_Bursts, // Number of Complete Bursts
     input wire                         Is_Master_Part_Of_Split,
     input wire                         Load_The_Original_Signals,
-/*                /***** Interconnect Ports *****/
-                /******************************/
+    // Interconnect Ports
     input  wire                          ACLK,
     input  wire                          ARESETN,
 
-/*                /****** Slave S01 Ports *******/
-                    /******************************/
-    //*Write Response Channel
+    // Slave S01 Ports
+    // Write Response Channel
     output wire  [1:0]                   S01_AXI_bresp,//Write response
     output wire                          S01_AXI_bvalid, //Write response valid signal
     input  wire                          S01_AXI_bready, //Write response ready signal
-/*                /****** Slave S00 Ports *******/
-                    /******************************/
- //*Write Response Channel
+    // Slave S00 Ports
+    // Write Response Channel
     output wire  [1:0]                   S00_AXI_bresp,//Write response
     output wire                          S00_AXI_bvalid, //Write response valid signal
     input  wire                          S00_AXI_bready, //Write response ready signal
-/*                /****** Master M00 Ports *****/   
-                  /*****************************/
- //*Write Response Channel
+    // Master M00 Ports
+    // Write Response Channel
     input  wire [Master_ID_Width-1:0]     M00_AXI_BID  ,
     input  wire [1:0]                    M00_AXI_bresp,//Write response
     input  wire                          M00_AXI_bvalid, //Write response valid signal
     output wire                          M00_AXI_bready, //Write response ready signal
-    /*                /****** Master M01 Ports *****/  // added by mahmoud 
-                  /*****************************/
- //*Write Response Channel
+    // Master M01 Ports (added by mahmoud)
+    // Write Response Channel
     input  wire [Master_ID_Width-1:0]     M01_AXI_BID  ,
     input  wire [1:0]                    M01_AXI_bresp,//Write response
     input  wire                          M01_AXI_bvalid, //Write response valid signal
