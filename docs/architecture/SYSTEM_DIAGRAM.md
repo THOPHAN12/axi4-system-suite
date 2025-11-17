@@ -226,6 +226,8 @@ AXI/
 
 ### 3. ALU Master Operation
 
+**⚠️ Lưu ý**: ALU Master **bypass interconnect**, kết nối trực tiếp với M02
+
 ```
 ┌─────────────────┐
 │ CPU_ALU_Master  │
@@ -236,19 +238,19 @@ AXI/
          │ - AW, W, B (Write)
          │ - AR, R (Read)
          │
+         │ (Direct connection via assign)
+         │
          ▼
-┌──────────────────────────┐
-│ AXI Interconnect         │
-│ - Address Decode         │
-│ - Route to M02 (ALU Mem) │
-└──────┬───────────────────┘
-       │
-       ▼
 ┌─────────────────┐
 │ axi_memory_     │
 │ slave           │
 │ (ALU Memory)    │
+│ M02             │
 └─────────────────┘
+
+Note: ALU Master không đi qua AXI Interconnect
+      vì interconnect chỉ hỗ trợ 2 masters (S00, S01)
+      Xem: SYSTEM_ARCHITECTURE.md - Section 1.3.4
 ```
 
 ---
@@ -395,6 +397,7 @@ dual_master_system_ip (TOP)
 ├── CPU_ALU_Master
 │   ├── ALU_Core
 │   └── CPU_Controller
+│   └── (Note: ALU Master bypasses interconnect, connects directly to M02)
 │
 ├── AXI_Interconnect_Full
 │   ├── Write_Addr_Channel_Dec
