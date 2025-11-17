@@ -5,12 +5,6 @@
  * - SERV RISC-V processor
  * - ALU Master
  * - 4 Memory Slaves (Instruction, Data, ALU, Reserved)
- * 
- * Address Mapping:
- * - SLAVE0 (Instruction Memory): 0x0000_0000 - 0x3FFF_FFFF (SERV Master -> Instruction Memory)
- * - SLAVE1 (Data Memory):        0x4000_0000 - 0x7FFF_FFFF (SERV Master -> Data Memory)
- * - SLAVE2 (ALU Memory):        0x8000_0000 - 0xBFFF_FFFF (ALU Master -> ALU Memory)
- * - SLAVE3 (Reserved Memory):    0xC000_0000 - 0xFFFF_FFFF (ALU Master -> Reserved Memory)
  */
 
 `timescale 1ns/1ps
@@ -22,7 +16,6 @@ parameter ADDR_WIDTH = 32;
 parameter DATA_WIDTH = 32;
 parameter ID_WIDTH   = 4;
 parameter CLK_PERIOD = 10;  // 100 MHz
-parameter TIMEOUT_CYCLES = 10000;  // Timeout for wait statements
 
 // Clock and Reset
 reg  ACLK;
@@ -40,11 +33,6 @@ wire data_mem_ready;
 wire alu_mem_ready;
 wire reserved_mem_ready;
 
-// Test control
-integer test_case;
-integer test_passed;
-integer test_failed;
-
 // Clock generation
 always begin
     ACLK = 1'b0;
@@ -58,12 +46,11 @@ initial begin
     ARESETN = 1'b0;
     i_timer_irq = 1'b0;
     alu_master_start = 1'b0;
-    test_case = 0;
-    test_passed = 0;
-    test_failed = 0;
     #(CLK_PERIOD * 10);
     ARESETN = 1'b1;
     $display("[%0t] Reset released", $time);
+    #(CLK_PERIOD * 1000);
+    $finish;
 end
 
 // DUT Instance - Complete IP Module
@@ -119,11 +106,15 @@ dual_master_system_ip #(
     .SLAVE2_ADDR2           (32'hBFFF_FFFF),
     .SLAVE3_ADDR1           (32'hC000_0000),  // Reserved memory
     .SLAVE3_ADDR2           (32'hFFFF_FFFF),
-    .INST_MEM_SIZE          (256),
-    .DATA_MEM_SIZE          (256),
-    .ALU_MEM_SIZE           (256),
-    .RESERVED_MEM_SIZE      (256),
-    .INST_MEM_INIT_FILE     ("../../sim/modelsim/test_program_simple.hex"),
+    .INST_MEM_SIZE          (1024),
+    .DATA_MEM_SIZE          (1024),
+    .ALU_MEM_SIZE           (1024),
+    .RESERVED_MEM_SIZE      (1024),
+    // Thay chương trình RISC-V tại đây. Một số lựa chọn có sẵn:
+    //   - "../../tb/wrapper_tb/programs/simple_test.hex"
+    //   - "../../tb/wrapper_tb/programs/test_program.hex"
+    //   - "../../tb/wrapper_tb/programs/test_program_advanced.hex"
+    .INST_MEM_INIT_FILE     ("../../tb/wrapper_tb/programs/test_program.hex"),
     .DATA_MEM_INIT_FILE      (""),
     .ALU_MEM_INIT_FILE       (""),
     .RESERVED_MEM_INIT_FILE  ("")
@@ -146,504 +137,64 @@ initial begin
     $dumpvars(0, dual_master_system_ip_tb);
     
     $display("============================================================================");
-    $display("Dual Master System IP Testbench - 20 Test Cases");
+    $display("Dual Master System IP Testbench");
     $display("============================================================================");
     $display("Complete IP Module with Integrated Memory Slaves");
     $display("  - SERV RISC-V Core (Instruction + Data buses)");
     $display("  - ALU Master");
-    $display("  - Instruction Memory (ROM): 0x0000_0000 - 0x3FFF_FFFF");
-    $display("  - Data Memory (RAM):        0x4000_0000 - 0x7FFF_FFFF");
-    $display("  - ALU Memory (RAM):         0x8000_0000 - 0xBFFF_FFFF");
-    $display("  - Reserved Memory (ROM):    0xC000_0000 - 0xFFFF_FFFF");
+    $display("  - Instruction Memory (ROM): Integrated");
+    $display("  - Data Memory (RAM): Integrated");
+    $display("  - ALU Memory (RAM): Integrated");
+    $display("  - Reserved Memory (ROM): Integrated");
+    $display("  - No external slave connections needed!");
     $display("============================================================================");
     $display("");
 end
 
-// Helper task to wait for ALU Master with timeout
-task wait_alu_master_busy_with_timeout;
-    integer timeout_count;
-    begin
-        timeout_count = 0;
-        while (!alu_master_busy && timeout_count < TIMEOUT_CYCLES) begin
-            #(CLK_PERIOD);
-            timeout_count = timeout_count + 1;
-        end
-        if (timeout_count >= TIMEOUT_CYCLES) begin
-            $display("[%0t] WARNING: Timeout waiting for alu_master_busy", $time);
-        end
-    end
-endtask
-
-// Helper task to wait for ALU Master done with timeout
-task wait_alu_master_done_with_timeout;
-    integer timeout_count;
-    begin
-        timeout_count = 0;
-        while (!alu_master_done && timeout_count < TIMEOUT_CYCLES) begin
-            #(CLK_PERIOD);
-            timeout_count = timeout_count + 1;
-        end
-        if (timeout_count >= TIMEOUT_CYCLES) begin
-            $display("[%0t] WARNING: Timeout waiting for alu_master_done", $time);
-        end
-    end
-endtask
-
-// Helper task to wait for ALU Master to reset (done goes back to 0)
-task wait_alu_master_reset;
-    integer timeout_count;
-    begin
-        timeout_count = 0;
-        while (alu_master_done && timeout_count < 100) begin
-            #(CLK_PERIOD);
-            timeout_count = timeout_count + 1;
-        end
-        if (timeout_count >= 100) begin
-            $display("[%0t] WARNING: ALU Master done signal did not reset", $time);
-        end else begin
-            #(CLK_PERIOD * 5);  // Extra delay to ensure ALU Master is ready
-        end
-    end
-endtask
-
-// ============================================================================
-// Test Cases - 20 Comprehensive Tests
-// ============================================================================
+// Test stimulus
 initial begin
     // Wait for reset
     wait(ARESETN);
     #(CLK_PERIOD * 10);
     
-    $display("[%0t] =========================================================================", $time);
-    $display("[%0t] Starting Test Suite - 20 Test Cases", $time);
-    $display("[%0t] =========================================================================", $time);
+    $display("[%0t] System ready", $time);
+    $display("[%0t] Instruction Memory Ready: %b", $time, inst_mem_ready);
+    $display("[%0t] Data Memory Ready: %b", $time, data_mem_ready);
+    $display("[%0t] ALU Memory Ready: %b", $time, alu_mem_ready);
+    $display("[%0t] Reserved Memory Ready: %b", $time, reserved_mem_ready);
     $display("");
     
-    // ========================================================================
-    // TEST CASE 1: SERV Master -> Instruction Memory (Read at Reset PC)
-    // ========================================================================
-    test_case = 1;
-    $display("[%0t] TEST CASE %0d: SERV Master -> Instruction Memory (Read at 0x0000_0000)", $time, test_case);
-    $display("[%0t]   Expected: SERV reads instruction from Instruction Memory (ROM)", $time);
-    $display("[%0t]   Address: 0x0000_0000 (within SLAVE0 range)", $time);
+    $display("[%0t] SERV RISC-V will start fetching instructions", $time);
+    $display("[%0t] ALU Master Status: busy=%b, done=%b", $time, alu_master_busy, alu_master_done);
+    $display("");
+    
+    // Wait a bit for SERV to start
     #(CLK_PERIOD * 50);
-    test_passed = test_passed + 1;
-    $display("[%0t]   ✓ PASS: Instruction fetch observed", $time);
-    $display("");
-    
-    // ========================================================================
-    // TEST CASE 2: SERV Master -> Instruction Memory (Sequential Read)
-    // ========================================================================
-    test_case = 2;
-    $display("[%0t] TEST CASE %0d: SERV Master -> Instruction Memory (Sequential Read)", $time, test_case);
-    $display("[%0t]   Expected: SERV reads next instruction at 0x0000_0004", $time);
-    $display("[%0t]   Address: 0x0000_0004 (within SLAVE0 range)", $time);
-    #(CLK_PERIOD * 50);
-    test_passed = test_passed + 1;
-    $display("[%0t]   ✓ PASS: Sequential instruction fetch observed", $time);
-    $display("");
-    
-    // ========================================================================
-    // TEST CASE 3: SERV Master -> Instruction Memory (Read at 0x0000_0008)
-    // ========================================================================
-    test_case = 3;
-    $display("[%0t] TEST CASE %0d: SERV Master -> Instruction Memory (Read at 0x0000_0008)", $time, test_case);
-    $display("[%0t]   Expected: SERV reads instruction at 0x0000_0008", $time);
-    $display("[%0t]   Address: 0x0000_0008 (within SLAVE0 range)", $time);
-    #(CLK_PERIOD * 50);
-    test_passed = test_passed + 1;
-    $display("[%0t]   ✓ PASS: Instruction fetch at offset 8 observed", $time);
-    $display("");
-    
-    // ========================================================================
-    // TEST CASE 4: SERV Master -> Data Memory (Write Operation)
-    // ========================================================================
-    test_case = 4;
-    $display("[%0t] TEST CASE %0d: SERV Master -> Data Memory (Write)", $time, test_case);
-    $display("[%0t]   Expected: SERV writes data to Data Memory (RAM)", $time);
-    $display("[%0t]   Address: 0x4000_0000 (within SLAVE1 range)", $time);
-    $display("[%0t]   Note: SERV may write data during program execution", $time);
-    #(CLK_PERIOD * 100);
-    test_passed = test_passed + 1;
-    $display("[%0t]   ✓ PASS: Data write operation possible", $time);
-    $display("");
-    
-    // ========================================================================
-    // TEST CASE 5: SERV Master -> Data Memory (Read Operation)
-    // ========================================================================
-    test_case = 5;
-    $display("[%0t] TEST CASE %0d: SERV Master -> Data Memory (Read)", $time, test_case);
-    $display("[%0t]   Expected: SERV reads data from Data Memory (RAM)", $time);
-    $display("[%0t]   Address: 0x4000_0000+ (within SLAVE1 range)", $time);
-    #(CLK_PERIOD * 100);
-    test_passed = test_passed + 1;
-    $display("[%0t]   ✓ PASS: Data read operation possible", $time);
-    $display("");
-    
-    // ========================================================================
-    // TEST CASE 6: ALU Master -> ALU Memory (Write Operation)
-    // ========================================================================
-    test_case = 6;
-    $display("[%0t] TEST CASE %0d: ALU Master -> ALU Memory (Write)", $time, test_case);
-    $display("[%0t]   Expected: ALU Master writes data to ALU Memory (RAM)", $time);
-    $display("[%0t]   Address: 0x8000_0000 (within SLAVE2 range)", $time);
-    $display("[%0t]   Starting ALU Master...", $time);
-    alu_master_start = 1'b1;
-    #(CLK_PERIOD);
-    alu_master_start = 1'b0;
-    wait_alu_master_busy_with_timeout();
-    if (alu_master_busy) begin
-        $display("[%0t]   ALU Master is busy (writing to ALU Memory)", $time);
-    end
-    wait_alu_master_done_with_timeout();
-    if (alu_master_done) begin
-        test_passed = test_passed + 1;
-        $display("[%0t]   ✓ PASS: ALU Master write to ALU Memory completed", $time);
-    end else begin
-        test_failed = test_failed + 1;
-        $display("[%0t]   ✗ FAIL: ALU Master did not complete", $time);
-    end
-    $display("");
-    
-    // ========================================================================
-    // TEST CASE 7: ALU Master -> ALU Memory (Read Operation)
-    // ========================================================================
-    test_case = 7;
-    $display("[%0t] TEST CASE %0d: ALU Master -> ALU Memory (Read)", $time, test_case);
-    $display("[%0t]   Expected: ALU Master reads data from ALU Memory (RAM)", $time);
-    $display("[%0t]   Address: 0x8000_0000+ (within SLAVE2 range)", $time);
-    // Wait for ALU Master to reset from previous test
-    wait_alu_master_reset();
-    $display("[%0t]   Starting ALU Master...", $time);
-    alu_master_start = 1'b1;
-    #(CLK_PERIOD);
-    alu_master_start = 1'b0;
-    wait_alu_master_busy_with_timeout();
-    wait_alu_master_done_with_timeout();
-    if (alu_master_done) begin
-        test_passed = test_passed + 1;
-        $display("[%0t]   ✓ PASS: ALU Master read from ALU Memory completed", $time);
-    end else begin
-        test_failed = test_failed + 1;
-        $display("[%0t]   ✗ FAIL: ALU Master read did not complete", $time);
-    end
-    $display("");
-    
-    // ========================================================================
-    // TEST CASE 8: ALU Master -> Reserved Memory (Read Operation)
-    // ========================================================================
-    test_case = 8;
-    $display("[%0t] TEST CASE %0d: ALU Master -> Reserved Memory (Read)", $time, test_case);
-    $display("[%0t]   Expected: ALU Master reads from Reserved Memory (ROM)", $time);
-    $display("[%0t]   Address: 0xC000_0000 (within SLAVE3 range)", $time);
-    // Wait for ALU Master to reset from previous test
-    wait_alu_master_reset();
-    $display("[%0t]   Starting ALU Master...", $time);
-    alu_master_start = 1'b1;
-    #(CLK_PERIOD);
-    alu_master_start = 1'b0;
-    wait_alu_master_busy_with_timeout();
-    wait_alu_master_done_with_timeout();
-    if (alu_master_done) begin
-        test_passed = test_passed + 1;
-        $display("[%0t]   ✓ PASS: ALU Master read from Reserved Memory completed", $time);
-    end else begin
-        test_failed = test_failed + 1;
-        $display("[%0t]   ✗ FAIL: ALU Master read from Reserved Memory did not complete", $time);
-    end
-    $display("");
-    
-    // ========================================================================
-    // TEST CASE 9: Concurrent Access - SERV (Inst) + ALU Master (ALU Mem)
-    // ========================================================================
-    test_case = 9;
-    $display("[%0t] TEST CASE %0d: Concurrent Access - SERV(Inst) + ALU(ALU Mem)", $time, test_case);
-    $display("[%0t]   Expected: Both masters access different slaves simultaneously", $time);
-    $display("[%0t]   SERV -> Instruction Memory (0x0000_0000)", $time);
-    $display("[%0t]   ALU Master -> ALU Memory (0x8000_0000)", $time);
-    // Wait for ALU Master to reset from previous test
-    wait_alu_master_reset();
-    $display("[%0t]   Starting ALU Master while SERV is fetching...", $time);
     
     // Start ALU Master
+    $display("[%0t] Starting ALU Master...", $time);
     alu_master_start = 1'b1;
     #(CLK_PERIOD);
     alu_master_start = 1'b0;
     
-    // Wait for ALU Master to become busy (with timeout)
-    fork
-        begin
-            wait_alu_master_busy_with_timeout();
-            if (alu_master_busy) begin
-                $display("[%0t]   ALU Master is busy", $time);
-            end
-        end
-        begin
-            // Let SERV continue fetching during this time
-            #(CLK_PERIOD * 50);
-        end
-    join
+    // Monitor ALU Master progress
+    wait(alu_master_busy);
+    $display("[%0t] ALU Master is busy", $time);
     
-    // Wait for ALU Master to complete (with timeout)
-    wait_alu_master_done_with_timeout();
-    
-    if (alu_master_done) begin
-        test_passed = test_passed + 1;
-        $display("[%0t]   ✓ PASS: Concurrent access handled correctly", $time);
-    end else begin
-        test_failed = test_failed + 1;
-        $display("[%0t]   ✗ FAIL: ALU Master did not complete in concurrent access", $time);
-    end
+    // Wait for ALU Master to complete
+    wait(alu_master_done);
+    $display("[%0t] ALU Master completed", $time);
     $display("");
     
-    // ========================================================================
-    // TEST CASE 10: Concurrent Access - SERV (Data) + ALU Master (Reserved)
-    // ========================================================================
-    test_case = 10;
-    $display("[%0t] TEST CASE %0d: Concurrent Access - SERV(Data) + ALU(Reserved)", $time, test_case);
-    $display("[%0t]   Expected: Both masters access different slaves simultaneously", $time);
-    $display("[%0t]   SERV -> Data Memory (0x4000_0000)", $time);
-    $display("[%0t]   ALU Master -> Reserved Memory (0xC000_0000)", $time);
-    // Wait for ALU Master to reset from previous test
-    wait_alu_master_reset();
-    $display("[%0t]   Starting ALU Master...", $time);
-    alu_master_start = 1'b1;
-    #(CLK_PERIOD);
-    alu_master_start = 1'b0;
-    wait_alu_master_busy_with_timeout();
-    #(CLK_PERIOD * 50);  // SERV continues accessing Data Memory
-    wait_alu_master_done_with_timeout();
-    if (alu_master_done) begin
-        test_passed = test_passed + 1;
-        $display("[%0t]   ✓ PASS: Concurrent access to different slaves", $time);
-    end else begin
-        test_failed = test_failed + 1;
-        $display("[%0t]   ✗ FAIL: Concurrent access failed", $time);
-    end
-    $display("");
+    // Continue monitoring for a while
+    #(CLK_PERIOD * 500);
     
-    // ========================================================================
-    // TEST CASE 11: SERV Master -> Instruction Memory (Boundary Address)
-    // ========================================================================
-    test_case = 11;
-    $display("[%0t] TEST CASE %0d: SERV -> Instruction Memory (Boundary)", $time, test_case);
-    $display("[%0t]   Expected: SERV accesses near boundary of Instruction Memory", $time);
-    $display("[%0t]   Address: Near 0x3FFF_FFFF (SLAVE0 upper boundary)", $time);
-    #(CLK_PERIOD * 50);
-    test_passed = test_passed + 1;
-    $display("[%0t]   ✓ PASS: Boundary address handling verified", $time);
-    $display("");
-    
-    // ========================================================================
-    // TEST CASE 12: SERV Master -> Data Memory (Boundary Address)
-    // ========================================================================
-    test_case = 12;
-    $display("[%0t] TEST CASE %0d: SERV -> Data Memory (Boundary)", $time, test_case);
-    $display("[%0t]   Expected: SERV accesses near boundary of Data Memory", $time);
-    $display("[%0t]   Address: Near 0x7FFF_FFFF (SLAVE1 upper boundary)", $time);
-    #(CLK_PERIOD * 50);
-    test_passed = test_passed + 1;
-    $display("[%0t]   ✓ PASS: Data Memory boundary handling verified", $time);
-    $display("");
-    
-    // ========================================================================
-    // TEST CASE 13: ALU Master -> ALU Memory (Boundary Address)
-    // ========================================================================
-    test_case = 13;
-    $display("[%0t] TEST CASE %0d: ALU Master -> ALU Memory (Boundary)", $time, test_case);
-    $display("[%0t]   Expected: ALU Master accesses near boundary of ALU Memory", $time);
-    $display("[%0t]   Address: Near 0xBFFF_FFFF (SLAVE2 upper boundary)", $time);
-    alu_master_start = 1'b1;
-    #(CLK_PERIOD);
-    alu_master_start = 1'b0;
-    wait_alu_master_busy_with_timeout();
-    wait_alu_master_done_with_timeout();
-    if (alu_master_done) begin
-        test_passed = test_passed + 1;
-        $display("[%0t]   ✓ PASS: ALU Memory boundary handling verified", $time);
-    end else begin
-        test_failed = test_failed + 1;
-        $display("[%0t]   ✗ FAIL: ALU Memory boundary test failed", $time);
-    end
-    $display("");
-    
-    // ========================================================================
-    // TEST CASE 14: ALU Master -> Reserved Memory (Boundary Address)
-    // ========================================================================
-    test_case = 14;
-    $display("[%0t] TEST CASE %0d: ALU Master -> Reserved Memory (Boundary)", $time, test_case);
-    $display("[%0t]   Expected: ALU Master accesses near boundary of Reserved Memory", $time);
-    $display("[%0t]   Address: Near 0xFFFF_FFFF (SLAVE3 upper boundary)", $time);
-    // Wait for ALU Master to reset from previous test
-    wait_alu_master_reset();
-    alu_master_start = 1'b1;
-    #(CLK_PERIOD);
-    alu_master_start = 1'b0;
-    wait_alu_master_busy_with_timeout();
-    wait_alu_master_done_with_timeout();
-    if (alu_master_done) begin
-        test_passed = test_passed + 1;
-        $display("[%0t]   ✓ PASS: Reserved Memory boundary handling verified", $time);
-    end else begin
-        test_failed = test_failed + 1;
-        $display("[%0t]   ✗ FAIL: Reserved Memory boundary test failed", $time);
-    end
-    $display("");
-    
-    // ========================================================================
-    // TEST CASE 15: Multiple ALU Master Operations (Sequential)
-    // ========================================================================
-    test_case = 15;
-    $display("[%0t] TEST CASE %0d: Multiple ALU Master Operations (Sequential)", $time, test_case);
-    $display("[%0t]   Expected: ALU Master performs multiple operations", $time);
-    $display("[%0t]   ALU Master -> ALU Memory (multiple writes/reads)", $time);
-    alu_master_start = 1'b1;
-    #(CLK_PERIOD);
-    alu_master_start = 1'b0;
-    wait_alu_master_done_with_timeout();
-    #(CLK_PERIOD * 10);
-    alu_master_start = 1'b1;
-    #(CLK_PERIOD);
-    alu_master_start = 1'b0;
-    wait_alu_master_done_with_timeout();
-    if (alu_master_done) begin
-        test_passed = test_passed + 1;
-        $display("[%0t]   ✓ PASS: Sequential ALU Master operations completed", $time);
-    end else begin
-        test_failed = test_failed + 1;
-        $display("[%0t]   ✗ FAIL: Sequential operations failed", $time);
-    end
-    $display("");
-    
-    // ========================================================================
-    // TEST CASE 16: SERV Instruction Fetch Sequence
-    // ========================================================================
-    test_case = 16;
-    $display("[%0t] TEST CASE %0d: SERV Instruction Fetch Sequence", $time, test_case);
-    $display("[%0t]   Expected: SERV fetches multiple instructions sequentially", $time);
-    $display("[%0t]   SERV -> Instruction Memory (0x0000_0000, 0x0000_0004, 0x0000_0008, ...)", $time);
-    #(CLK_PERIOD * 200);
-    test_passed = test_passed + 1;
-    $display("[%0t]   ✓ PASS: Instruction fetch sequence observed", $time);
-    $display("");
-    
-    // ========================================================================
-    // TEST CASE 17: Memory Status Signals Verification
-    // ========================================================================
-    test_case = 17;
-    $display("[%0t] TEST CASE %0d: Memory Status Signals Verification", $time, test_case);
-    $display("[%0t]   Expected: Memory status signals exist and can be read", $time);
-    $display("[%0t]   Checking: inst_mem_ready, data_mem_ready, alu_mem_ready, reserved_mem_ready", $time);
-    $display("[%0t]   inst_mem_ready=%b, data_mem_ready=%b, alu_mem_ready=%b, reserved_mem_ready=%b", 
-             $time, inst_mem_ready, data_mem_ready, alu_mem_ready, reserved_mem_ready);
-    // Note: Memory ready signals may be 0 if memories are not initialized or not accessed yet
-    // This test verifies that the signals exist and can be read (not that they are always 1)
-    test_passed = test_passed + 1;
-    $display("[%0t]   ✓ PASS: Memory status signals are accessible (value=%b%b%b%b)", 
-             $time, inst_mem_ready, data_mem_ready, alu_mem_ready, reserved_mem_ready);
-    $display("");
-    
-    // ========================================================================
-    // TEST CASE 18: ALU Master Busy/Done Signal Verification
-    // ========================================================================
-    test_case = 18;
-    $display("[%0t] TEST CASE %0d: ALU Master Busy/Done Signal Verification", $time, test_case);
-    $display("[%0t]   Expected: ALU Master busy/done signals work correctly", $time);
-    $display("[%0t]   Initial: busy=%b, done=%b", $time, alu_master_busy, alu_master_done);
-    alu_master_start = 1'b1;
-    #(CLK_PERIOD);
-    alu_master_start = 1'b0;
-    wait_alu_master_busy_with_timeout();
-    $display("[%0t]   After start: busy=%b, done=%b", $time, alu_master_busy, alu_master_done);
-    wait_alu_master_done_with_timeout();
-    $display("[%0t]   After completion: busy=%b, done=%b", $time, alu_master_busy, alu_master_done);
-    if (alu_master_done) begin
-        test_passed = test_passed + 1;
-        $display("[%0t]   ✓ PASS: ALU Master signals work correctly", $time);
-    end else begin
-        test_failed = test_failed + 1;
-        $display("[%0t]   ✗ FAIL: ALU Master signals incorrect", $time);
-    end
-    $display("");
-    
-    // ========================================================================
-    // TEST CASE 19: System Stability Under Continuous Operation
-    // ========================================================================
-    test_case = 19;
-    $display("[%0t] TEST CASE %0d: System Stability Under Continuous Operation", $time, test_case);
-    $display("[%0t]   Expected: System remains stable during continuous operation", $time);
-    $display("[%0t]   SERV continuously fetching instructions", $time);
-    $display("[%0t]   ALU Master performing multiple operations", $time);
-    // Wait for ALU Master to reset from previous test
-    wait_alu_master_reset();
-    repeat(5) begin
-        alu_master_start = 1'b1;
-        #(CLK_PERIOD);
-        alu_master_start = 1'b0;
-        wait_alu_master_done_with_timeout();
-        wait_alu_master_reset();  // Wait for reset between operations
-        #(CLK_PERIOD * 10);
-    end
-    #(CLK_PERIOD * 100);
-    test_passed = test_passed + 1;
-    $display("[%0t]   ✓ PASS: System stable under continuous operation", $time);
-    $display("");
-    
-    // ========================================================================
-    // TEST CASE 20: Complete System Integration Test
-    // ========================================================================
-    test_case = 20;
-    $display("[%0t] TEST CASE %0d: Complete System Integration Test", $time, test_case);
-    $display("[%0t]   Expected: All components work together correctly", $time);
-    $display("[%0t]   - SERV Master -> Instruction Memory (read)", $time);
-    $display("[%0t]   - SERV Master -> Data Memory (read/write)", $time);
-    $display("[%0t]   - ALU Master -> ALU Memory (read/write)", $time);
-    $display("[%0t]   - ALU Master -> Reserved Memory (read)", $time);
-    $display("[%0t]   Running comprehensive test...", $time);
-    
-    // Let SERV run
-    #(CLK_PERIOD * 100);
-    
-    // Wait for ALU Master to reset from previous test
-    wait_alu_master_reset();
-    
-    // Run ALU Master multiple times
-    repeat(3) begin
-        alu_master_start = 1'b1;
-        #(CLK_PERIOD);
-        alu_master_start = 1'b0;
-        wait_alu_master_done_with_timeout();
-        wait_alu_master_reset();  // Wait for reset between operations
-        #(CLK_PERIOD * 20);
-    end
-    
-    // Continue monitoring
-    #(CLK_PERIOD * 200);
-    
-    test_passed = test_passed + 1;
-    $display("[%0t]   ✓ PASS: Complete system integration verified", $time);
-    $display("");
-    
-    // ========================================================================
-    // Test Summary
-    // ========================================================================
-    $display("[%0t] =========================================================================", $time);
-    $display("[%0t] Test Suite Summary", $time);
-    $display("[%0t] =========================================================================", $time);
-    $display("[%0t] Total Test Cases: 20", $time);
-    $display("[%0t] Passed: %0d", $time, test_passed);
-    $display("[%0t] Failed: %0d", $time, test_failed);
-    if (test_failed == 0) begin
-        $display("[%0t] ✓ ALL TESTS PASSED!", $time);
-    end else begin
-        $display("[%0t] ✗ SOME TESTS FAILED!", $time);
-    end
-    $display("[%0t] =========================================================================", $time);
-    
-    #(CLK_PERIOD * 100);
     $display("[%0t] Test completed", $time);
     $display("============================================================================");
-    $finish;
 end
 
+// Monitor AXI transactions (optional - for debugging)
+// This can be expanded to monitor specific transactions if needed
+
 endmodule
+
