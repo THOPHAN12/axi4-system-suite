@@ -273,14 +273,19 @@ module CPU_ALU_Master #(
             M_AXI_wstrb <= 4'hF;  // All bytes valid
             M_AXI_wlast <= 1'b0;
         end else begin
-            if (write_pending && write_addr_sent && !M_AXI_wvalid) begin
-                M_AXI_wvalid <= 1'b1;
+            // Always update data when write is pending (before or with valid)
+            if (write_pending && write_addr_sent) begin
+                // Update data immediately to ensure it's ready
                 M_AXI_wdata <= latched_write_data;
                 M_AXI_wstrb <= 4'hF;  // All bytes valid
                 M_AXI_wlast <= 1'b1;
-                $display("[%0t] AXI WDATA: addr=0x%08h data=0x%08h", $time, latched_write_addr, latched_write_data);
+                if (!M_AXI_wvalid) begin
+                    M_AXI_wvalid <= 1'b1;
+                    $display("[%0t] AXI WDATA: addr=0x%08h data=0x%08h", $time, latched_write_addr, latched_write_data);
+                end
             end else if (M_AXI_wvalid && M_AXI_wready) begin
                 M_AXI_wvalid <= 1'b0;
+                M_AXI_wdata <= 32'h0;  // Clear data after write
                 M_AXI_wlast <= 1'b0;
             end
         end

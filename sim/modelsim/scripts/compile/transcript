@@ -564,12 +564,12 @@
 # [435000] READ_DEC: addr=0x00000000 base_addr=00 -> Slave0
 # [445000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_inst_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [445000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_data_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
+# [445000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] WRITE_DEBUG: wr_addr_current=0x80000048 word_addr=18 S_AXI_wdata=0x0000002a
 # [445000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] WRITE: addr=18 data=0x0000002a (to memory[18])
 # [445000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] READ: FAILED (mem_rd_en=0 addr=17 MEM_SIZE=1024)
 # [445000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_reserved_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [445000] CTRL STORE_RESULT: wrote addr=0x80000048 data=0x0000002a (done)
 # [455000] CTRL STATE: 6 -> 0
-# [455000] AXI WDATA: addr=0x80000048 data=0x0000002a
 # [455000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_inst_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [455000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_data_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [455000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] READ: FAILED (mem_rd_en=0 addr=17 MEM_SIZE=1024)
@@ -732,12 +732,12 @@
 # [775000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_reserved_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [785000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_inst_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [785000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_data_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
+# [785000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] WRITE_DEBUG: wr_addr_current=0x80000054 word_addr=21 S_AXI_wdata=0x0000002a
 # [785000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] WRITE: addr=21 data=0x0000002a (to memory[21])
 # [785000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] READ: FAILED (mem_rd_en=0 addr=20 MEM_SIZE=1024)
 # [785000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_reserved_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [785000] CTRL STORE_RESULT: wrote addr=0x80000054 data=0x0000002a (done)
 # [795000] CTRL STATE: 6 -> 0
-# [795000] AXI WDATA: addr=0x80000054 data=0x0000002a
 # [795000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_inst_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [795000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_data_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [795000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] READ: FAILED (mem_rd_en=0 addr=20 MEM_SIZE=1024)
@@ -901,12 +901,12 @@
 # [1115000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_reserved_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1125000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_inst_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1125000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_data_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
-# [1125000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] WRITE: addr=24 data=0x0000002a (to memory[24])
+# [1125000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] WRITE_DEBUG: wr_addr_current=0x80000060 word_addr=24 S_AXI_wdata=0x0f000f00
+# [1125000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] WRITE: addr=24 data=0x0f000f00 (to memory[24])
 # [1125000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] READ: FAILED (mem_rd_en=0 addr=23 MEM_SIZE=1024)
 # [1125000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_reserved_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1125000] CTRL STORE_RESULT: wrote addr=0x80000060 data=0x0f000f00 (done)
 # [1135000] CTRL STATE: 6 -> 0
-# [1135000] AXI WDATA: addr=0x80000060 data=0x0f000f00
 # [1135000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_inst_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1135000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_data_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1135000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] READ: FAILED (mem_rd_en=0 addr=23 MEM_SIZE=1024)
@@ -944,7 +944,7 @@
 # [1215000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_data_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1215000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] READ: FAILED (mem_rd_en=0 addr=23 MEM_SIZE=1024)
 # [1215000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_reserved_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
-# [1215000]   FAIL: expected=251662080 actual=42
+# [1215000]   PASS: expected=251662080 actual=251662080
 # [1215000]   Flags: zero=0 carry=0
 # 
 # [1225000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_inst_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
@@ -1070,12 +1070,12 @@
 # [1455000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_reserved_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1465000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_inst_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1465000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_data_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
-# [1465000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] WRITE: addr=27 data=0x0f000f00 (to memory[27])
+# [1465000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] WRITE_DEBUG: wr_addr_current=0x8000006c word_addr=27 S_AXI_wdata=0x12ff56ff
+# [1465000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] WRITE: addr=27 data=0x12ff56ff (to memory[27])
 # [1465000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] READ: FAILED (mem_rd_en=0 addr=26 MEM_SIZE=1024)
 # [1465000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_reserved_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1465000] CTRL STORE_RESULT: wrote addr=0x8000006c data=0x12ff56ff (done)
 # [1475000] CTRL STATE: 6 -> 0
-# [1475000] AXI WDATA: addr=0x8000006c data=0x12ff56ff
 # [1475000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_inst_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1475000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_data_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1475000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] READ: FAILED (mem_rd_en=0 addr=26 MEM_SIZE=1024)
@@ -1113,7 +1113,7 @@
 # [1555000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_data_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1555000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] READ: FAILED (mem_rd_en=0 addr=26 MEM_SIZE=1024)
 # [1555000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_reserved_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
-# [1555000]   FAIL: expected=318723839 actual=251662080
+# [1555000]   PASS: expected=318723839 actual=318723839
 # [1555000]   Flags: zero=0 carry=0
 # 
 # [1565000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_inst_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
@@ -1238,12 +1238,12 @@
 # [1795000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_reserved_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1805000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_inst_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1805000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_data_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
-# [1805000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] WRITE: addr=30 data=0x12ff56ff (to memory[30])
+# [1805000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] WRITE_DEBUG: wr_addr_current=0x80000078 word_addr=30 S_AXI_wdata=0x55555555
+# [1805000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] WRITE: addr=30 data=0x55555555 (to memory[30])
 # [1805000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] READ: FAILED (mem_rd_en=0 addr=29 MEM_SIZE=1024)
 # [1805000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_reserved_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1805000] CTRL STORE_RESULT: wrote addr=0x80000078 data=0x55555555 (done)
 # [1815000] CTRL STATE: 6 -> 0
-# [1815000] AXI WDATA: addr=0x80000078 data=0x55555555
 # [1815000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_inst_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1815000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_data_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1815000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] READ: FAILED (mem_rd_en=0 addr=29 MEM_SIZE=1024)
@@ -1281,7 +1281,7 @@
 # [1895000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_data_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
 # [1895000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_alu_mem] READ: FAILED (mem_rd_en=0 addr=29 MEM_SIZE=1024)
 # [1895000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_reserved_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)
-# [1895000]   FAIL: expected=1431655765 actual=318723839
+# [1895000]   PASS: expected=1431655765 actual=1431655765
 # [1895000]   Flags: zero=0 carry=0
 # 
 # [1905000] MEM_SLAVE[dual_master_system_ip_tb.u_dut.u_inst_mem] READ: FAILED (mem_rd_en=0 addr=0 MEM_SIZE=1024)

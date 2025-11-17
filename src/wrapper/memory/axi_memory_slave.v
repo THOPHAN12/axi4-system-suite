@@ -153,6 +153,8 @@ always @(posedge ACLK or negedge ARESETN) begin
                 if (S_AXI_wvalid && S_AXI_wready) begin
                     // Write to memory with byte enables
                     if (wr_addr_current[ADDR_BITS+1:2] < MEM_SIZE) begin
+                        $display("[%0t] MEM_SLAVE[%m] WRITE_DEBUG: wr_addr_current=0x%08h word_addr=%0d S_AXI_wdata=0x%08h",
+                                 $time, wr_addr_current, wr_addr_current[ADDR_BITS+1:2], S_AXI_wdata);
                         for (j = 0; j < (DATA_WIDTH/8); j = j + 1) begin
                             if (S_AXI_wstrb[j]) begin
                                 memory[wr_addr_current[ADDR_BITS+1:2]][j*8 +: 8] <= 
