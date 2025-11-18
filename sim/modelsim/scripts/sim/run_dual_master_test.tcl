@@ -8,8 +8,8 @@
 # ============================================================================
 set project_root "../.."
 set src_path "$project_root/src"
-set master_path "$project_root/Master_ALU"
-set slave_path "$project_root/Slave_Memory"
+set master_path "$src_path/cores/alu"
+set slave_path "$src_path/wrapper/memory"
 set tb_path "$project_root/tb"
 set intercon_path "$src_path/axi_interconnect/rtl"
 set serv_path "$src_path/cores/serv/rtl"
@@ -125,9 +125,9 @@ vlog +acc -work work "$wrapper_path/converters/serv_axi_wrapper.v"
 
 # 13. Master ALU Components
 puts "\n13. Compiling Master ALU Components..."
-vlog +acc -work work "$master_path/ALU/ALU_Core.v"
-vlog +acc -work work "$master_path/ALU/CPU_Controller.v"
-vlog +acc -work work "$master_path/ALU/CPU_ALU_Master.v"
+vlog +acc -work work "$master_path/ALU_Core.v"
+vlog +acc -work work "$master_path/CPU_Controller.v"
+vlog +acc -work work "$master_path/CPU_ALU_Master.v"
 
 # 14. Memory Slaves
 puts "\n14. Compiling Memory Slaves..."
