@@ -74,6 +74,23 @@ integer pass_count;
 integer fail_count;
 integer test_idx;
 
+// Waveform monitoring signals - Address and Data for each testcase
+reg [31:0] waveform_test_addr [0:NUM_ALU_TESTS-1];  // Address of result for each test
+reg [31:0] waveform_test_data [0:NUM_ALU_TESTS-1];  // Result data for each test
+reg [31:0] waveform_test_op1  [0:NUM_ALU_TESTS-1];  // Operand A for each test
+reg [31:0] waveform_test_op2  [0:NUM_ALU_TESTS-1];  // Operand B for each test
+reg [31:0] waveform_test_inst [0:NUM_ALU_TESTS-1];  // Instruction for each test
+reg [3:0]  waveform_test_opcode[0:NUM_ALU_TESTS-1]; // Opcode for each test
+
+// Real-time monitoring signals from ALU Master AXI bus
+wire [31:0] alu_master_read_addr;
+wire [31:0] alu_master_read_data;
+wire [31:0] alu_master_write_addr;
+wire [31:0] alu_master_write_data;
+wire        alu_master_read_valid;
+wire        alu_master_write_valid;
+wire        alu_master_write_done;
+
 // Initialize ALU test vectors
 initial begin
     instruction_byte_ptr = 0;  // Offset from ALU_MEM_BASE_ADDR
@@ -233,10 +250,114 @@ dual_master_system_ip #(
     .reserved_mem_ready     (reserved_mem_ready)
 );
 
+// ========================================================================
+// Waveform Monitoring - Connect to ALU Master AXI signals
+// ========================================================================
+// Monitor ALU Master AXI Read Address Channel
+assign alu_master_read_addr = u_dut.u_alu_master.M_AXI_araddr;
+assign alu_master_read_valid = u_dut.u_alu_master.M_AXI_arvalid && u_dut.u_alu_master.M_AXI_arready;
+
+// Monitor ALU Master AXI Read Data Channel
+assign alu_master_read_data = u_dut.u_alu_master.M_AXI_rdata;
+wire alu_master_read_data_valid = u_dut.u_alu_master.M_AXI_rvalid && u_dut.u_alu_master.M_AXI_rready;
+
+// Monitor ALU Master AXI Write Address Channel
+assign alu_master_write_addr = u_dut.u_alu_master.M_AXI_awaddr;
+assign alu_master_write_valid = u_dut.u_alu_master.M_AXI_awvalid && u_dut.u_alu_master.M_AXI_awready;
+
+// Monitor ALU Master AXI Write Data Channel
+assign alu_master_write_data = u_dut.u_alu_master.M_AXI_wdata;
+wire alu_master_write_data_valid = u_dut.u_alu_master.M_AXI_wvalid && u_dut.u_alu_master.M_AXI_wready;
+
+// Monitor ALU Master AXI Write Response Channel
+assign alu_master_write_done = u_dut.u_alu_master.M_AXI_bvalid && u_dut.u_alu_master.M_AXI_bready;
+
+// ========================================================================
+// Capture waveform data when ALU Master writes results
+// ========================================================================
+integer captured_test_idx;
+reg [31:0] last_write_addr;
+reg [31:0] last_write_data;
+
+always @(posedge ACLK) begin
+    if (ARESETN) begin
+        // Capture write transactions to result addresses
+        if (alu_master_write_done) begin
+            last_write_addr <= alu_master_write_addr;
+            last_write_data <= alu_master_write_data;
+            
+            // Check if this is a result write (address in data region, offset +8 from base)
+            if (alu_master_write_addr >= (ALU_MEM_BASE_ADDR + ALU_DATA_BASE_ADDR)) begin
+                // Calculate which testcase this belongs to
+                captured_test_idx = (alu_master_write_addr - ALU_MEM_BASE_ADDR - ALU_DATA_BASE_ADDR) / ALU_DATA_STRIDE_BYTES;
+                
+                // Check if this is the result address (offset +8 from test base)
+                if (((alu_master_write_addr - ALU_MEM_BASE_ADDR - ALU_DATA_BASE_ADDR) % ALU_DATA_STRIDE_BYTES) == 8) begin
+                    if (captured_test_idx < NUM_ALU_TESTS) begin
+                        waveform_test_addr[captured_test_idx] <= alu_master_write_addr;
+                        waveform_test_data[captured_test_idx] <= alu_master_write_data;
+                        $display("[%0t] WAVEFORM CAPTURE: Test %0d - Result @ 0x%08h = 0x%08h", 
+                                 $time, captured_test_idx, alu_master_write_addr, alu_master_write_data);
+                    end
+                end
+            end
+        end
+    end
+end
+
+// ========================================================================
+// Task to display waveform summary
+// ========================================================================
+task automatic display_waveform_summary;
+    integer i;
+    begin
+        $display("============================================================================");
+        $display("[%0t] Waveform Summary - All Testcase Addresses and Results", $time);
+        $display("============================================================================");
+        $display("Format: Test[ID] | Opcode | Instruction Addr | Op1 Addr | Op2 Addr | Result Addr | Result Data");
+        $display("----------------------------------------------------------------------------");
+        for (i = 0; i < NUM_ALU_TESTS; i = i + 1) begin
+            $display("Test[%0d] | 0x%01h | 0x%08h | 0x%08h | 0x%08h | 0x%08h | 0x%08h",
+                     i,
+                     waveform_test_opcode[i],
+                     ALU_MEM_BASE_ADDR + (i * 4),  // Instruction address
+                     ALU_MEM_BASE_ADDR + ALU_DATA_BASE_ADDR + (i * ALU_DATA_STRIDE_BYTES),  // Op1 address
+                     ALU_MEM_BASE_ADDR + ALU_DATA_BASE_ADDR + (i * ALU_DATA_STRIDE_BYTES) + 4,  // Op2 address
+                     waveform_test_addr[i],  // Result address
+                     waveform_test_data[i]); // Result data
+        end
+        $display("============================================================================");
+        $display("");
+        $display("Waveform signals available in VCD file:");
+        $display("  - waveform_test_addr[0:%0d]  : Result addresses for each test", NUM_ALU_TESTS-1);
+        $display("  - waveform_test_data[0:%0d]  : Result data for each test", NUM_ALU_TESTS-1);
+        $display("  - waveform_test_op1[0:%0d]   : Operand A for each test", NUM_ALU_TESTS-1);
+        $display("  - waveform_test_op2[0:%0d]   : Operand B for each test", NUM_ALU_TESTS-1);
+        $display("  - waveform_test_inst[0:%0d]  : Instruction for each test", NUM_ALU_TESTS-1);
+        $display("  - waveform_test_opcode[0:%0d] : Opcode for each test", NUM_ALU_TESTS-1);
+        $display("  - alu_master_read_addr       : Real-time ALU Master read address");
+        $display("  - alu_master_read_data       : Real-time ALU Master read data");
+        $display("  - alu_master_write_addr      : Real-time ALU Master write address");
+        $display("  - alu_master_write_data      : Real-time ALU Master write data");
+        $display("");
+    end
+endtask
+
 // Monitoring
 initial begin
     $dumpfile("dual_master_system_ip_tb_ALU.vcd");
     $dumpvars(0, dual_master_system_ip_tb_ALU);
+    // Explicitly dump waveform monitoring signals
+    $dumpvars(1, waveform_test_addr);
+    $dumpvars(1, waveform_test_data);
+    $dumpvars(1, waveform_test_op1);
+    $dumpvars(1, waveform_test_op2);
+    $dumpvars(1, waveform_test_inst);
+    $dumpvars(1, waveform_test_opcode);
+    $dumpvars(1, alu_master_read_addr);
+    $dumpvars(1, alu_master_read_data);
+    $dumpvars(1, alu_master_write_addr);
+    $dumpvars(1, alu_master_write_data);
     
     $display("============================================================================");
     $display("Dual Master System IP Testbench");
@@ -467,6 +588,74 @@ task automatic display_memory_map;
     end
 endtask
 
+task automatic display_all_test_data;
+    integer i;
+    reg [31:0] instruction_addr;
+    reg [31:0] instruction_data;
+    reg [31:0] src1_addr;
+    reg [31:0] src2_addr;
+    reg [31:0] dst_addr;
+    reg [31:0] src1_data;
+    reg [31:0] src2_data;
+    reg [31:0] dst_data;
+    begin
+        $display("============================================================================");
+        $display("[%0t] Reading all test data from ALU Memory after completion", $time);
+        $display("============================================================================");
+        
+        for (i = 0; i < NUM_ALU_TESTS; i = i + 1) begin
+            // Calculate addresses for this test
+            src1_addr = ALU_MEM_BASE_ADDR | {24'h0, calc_data_addr(i, 0)};
+            src2_addr = ALU_MEM_BASE_ADDR | {24'h0, calc_data_addr(i, 1)};
+            dst_addr  = ALU_MEM_BASE_ADDR | {24'h0, calc_data_addr(i, 2)};
+            instruction_addr = ALU_MEM_BASE_ADDR + (i * 4);
+            
+            // Read instruction
+            read_alu_memory_word(instruction_addr, instruction_data);
+            
+            // Read operands and result
+            read_alu_memory_word(src1_addr, src1_data);
+            if (test_opcode[i] != OP_NOT) begin
+                read_alu_memory_word(src2_addr, src2_data);
+            end else begin
+                src2_data = 32'h0;  // Not used for NOT operation
+            end
+            read_alu_memory_word(dst_addr, dst_data);
+            
+            // Update waveform signals for this testcase
+            waveform_test_addr[i]  = dst_addr;
+            waveform_test_data[i]  = dst_data;
+            waveform_test_op1[i]   = src1_data;
+            waveform_test_op2[i]   = src2_data;
+            waveform_test_inst[i]  = instruction_data;
+            waveform_test_opcode[i] = test_opcode[i];
+            
+            // Display test data
+            $display("------------------------------------------------------------");
+            $display("Test %0d: %0s (Opcode: 0x%01h)", i, test_name[i], test_opcode[i]);
+            $display("  Instruction @ 0x%08h = 0x%08h", instruction_addr, instruction_data);
+            $display("  Operand A  @ 0x%08h = 0x%08h (%0d)", src1_addr, src1_data, src1_data);
+            if (test_opcode[i] != OP_NOT) begin
+                $display("  Operand B  @ 0x%08h = 0x%08h (%0d)", src2_addr, src2_data, src2_data);
+            end else begin
+                $display("  Operand B  @ 0x%08h = N/A (NOT operation)", src2_addr);
+            end
+            $display("  Result     @ 0x%08h = 0x%08h (%0d)", dst_addr, dst_data, dst_data);
+            $display("  Expected              = 0x%08h (%0d)", test_expected[i], test_expected[i]);
+            if (dst_data === test_expected[i]) begin
+                $display("  Status: PASS");
+            end else begin
+                $display("  Status: FAIL");
+            end
+            $display("  [Waveform] waveform_test_addr[%0d] = 0x%08h", i, waveform_test_addr[i]);
+            $display("  [Waveform] waveform_test_data[%0d] = 0x%08h", i, waveform_test_data[i]);
+        end
+        
+        $display("============================================================================");
+        $display("");
+    end
+endtask
+
 // Test stimulus
 initial begin
     // Wait for reset
@@ -493,6 +682,15 @@ initial begin
     for (test_idx = 0; test_idx < NUM_ALU_TESTS; test_idx = test_idx + 1) begin
         run_alu_test(test_idx);
     end
+    
+    // Wait a few cycles for all writes to complete
+    repeat (10) @(posedge ACLK);
+    
+    // Display all test data with addresses
+    display_all_test_data();
+    
+    // Display waveform summary
+    display_waveform_summary();
     
     $display("============================================================================");
     $display("[%0t] ALU Test Summary: PASS=%0d | FAIL=%0d", $time, pass_count, fail_count);

@@ -44,17 +44,27 @@ module CPU_Controller #(
 );
 
     // State machine states
-    localparam IDLE          = 3'b000;
-    localparam FETCH_INSTR   = 3'b001;
-    localparam DECODE        = 3'b010;
-    localparam FETCH_OP1     = 3'b011;
-    localparam FETCH_OP2     = 3'b100;
-    localparam EXECUTE       = 3'b101;
-    localparam STORE_RESULT  = 3'b110;
-    localparam LATCH_RESULT  = 3'b111;
+    localparam IDLE              = 4'b0000;
+    localparam FETCH_INSTR       = 4'b0001;
+    localparam DECODE            = 4'b0010;
+    localparam FETCH_OP1         = 4'b0011;
+    localparam FETCH_OP2         = 4'b0100;
+    localparam EXECUTE           = 4'b0101;
+    localparam STORE_RESULT      = 4'b0110;
+    localparam LATCH_RESULT      = 4'b0111;
+    localparam READ_RESULT_INSTR = 4'b1000;
+    localparam READ_RESULT_OP1   = 4'b1001;
+    localparam READ_RESULT_OP2   = 4'b1010;
+    localparam READ_RESULT_DST   = 4'b1011;
+    localparam DISPLAY_RESULT    = 4'b1100;
     
-    reg [2:0] current_state;
-    reg [2:0] next_state;
+    // Test configuration constants (matching testbench)
+    localparam integer NUM_TESTS = 10;
+    localparam [7:0] ALU_DATA_BASE_ADDR = 8'h40;
+    localparam integer ALU_DATA_STRIDE_BYTES = 12;
+    
+    reg [3:0] current_state;
+    reg [3:0] next_state;
     
     // Instruction register
     reg [DATA_WIDTH-1:0] instruction;
@@ -72,6 +82,16 @@ module CPU_Controller #(
     // Instruction address (PC - Program Counter)
     reg [ADDR_WIDTH-1:0] pc;
     
+    // Result reading state variables
+    reg [3:0]            result_test_idx;      // Current test index being read
+    reg [DATA_WIDTH-1:0] result_instruction;  // Instruction read from memory
+    reg [DATA_WIDTH-1:0] result_op1;          // Operand A read from memory
+    reg [DATA_WIDTH-1:0] result_op2;          // Operand B read from memory
+    reg [DATA_WIDTH-1:0] result_dst;          // Result read from memory
+    reg [3:0]            result_opcode;        // Decoded opcode from instruction
+    reg                  result_reading_started; // Flag to track if result reading has started
+    reg                  display_done;          // Flag to track if current test result has been displayed
+    
     // ========================================================================
     // State Machine
     // ========================================================================
@@ -87,6 +107,14 @@ module CPU_Controller #(
             src_addr2 <= 8'h0;
             dst_addr <= 8'h0;
             store_dst_addr <= 8'h0;
+            result_test_idx <= 4'h0;
+            result_instruction <= 32'h0;
+            result_op1 <= 32'h0;
+            result_op2 <= 32'h0;
+            result_dst <= 32'h0;
+            result_opcode <= 4'h0;
+            result_reading_started <= 1'b0;
+            display_done <= 1'b0;
         end else begin
             current_state <= next_state;
             
@@ -112,6 +140,37 @@ module CPU_Controller #(
             end
             if (current_state == STORE_RESULT && write_done) begin
                 pc <= pc + 4;  // Increment PC (next instruction)
+            end
+            
+            // Initialize result_test_idx when first entering result reading mode
+            if (current_state == READ_RESULT_INSTR && !result_reading_started) begin
+                result_test_idx <= 4'h0;
+                result_reading_started <= 1'b1;
+            end
+            
+            // Result reading state updates
+            if (current_state == READ_RESULT_INSTR && read_done) begin
+                result_instruction <= read_data;
+                result_opcode <= read_data[31:28];
+            end
+            if (current_state == READ_RESULT_OP1 && read_done) begin
+                result_op1 <= read_data;
+            end
+            if (current_state == READ_RESULT_OP2 && read_done) begin
+                result_op2 <= read_data;
+            end
+            if (current_state == READ_RESULT_DST && read_done) begin
+                result_dst <= read_data;
+                display_done <= 1'b0;  // Reset flag when new data is ready
+            end
+            
+            // Set display_done flag and increment result_test_idx when in DISPLAY_RESULT state
+            if (current_state == DISPLAY_RESULT && !display_done) begin
+                display_done <= 1'b1;
+                // Increment for next iteration (if not the last test)
+                if (result_test_idx < (NUM_TESTS - 1)) begin
+                    result_test_idx <= result_test_idx + 1;
+                end
             end
         end
     end
@@ -194,8 +253,90 @@ module CPU_Controller #(
                     // Debug: write completion info
                     $display("[%0t] CTRL STORE_RESULT: wrote addr=0x%08h data=0x%08h (done)",
                              $time, write_addr, write_data);
+                    // Check if all testcases completed (PC >= NUM_TESTS * 4)
+                    if (pc >= (NUM_TESTS * 4)) begin
+                        // All testcases done, start reading results
+                        $display("[%0t] CTRL: All testcases completed. Starting result read...", $time);
+                        next_state = READ_RESULT_INSTR;
+                    end else begin
+                        next_state = IDLE;
+                        done = 1'b1;
+                    end
+                end
+            end
+            
+            READ_RESULT_INSTR: begin
+                read_req = 1'b1;
+                // Read instruction from address: MEM_BASE_ADDR + (result_test_idx * 4)
+                read_addr = MEM_BASE_ADDR + (result_test_idx * 4);
+                if (read_done) begin
+                    next_state = READ_RESULT_OP1;
+                end
+            end
+            
+            READ_RESULT_OP1: begin
+                read_req = 1'b1;
+                // Read operand A: MEM_BASE_ADDR + ALU_DATA_BASE_ADDR + (result_test_idx * ALU_DATA_STRIDE_BYTES) + 0
+                read_addr = MEM_BASE_ADDR + ALU_DATA_BASE_ADDR + (result_test_idx * ALU_DATA_STRIDE_BYTES);
+                if (read_done) begin
+                    if (result_opcode == 4'b0101) begin  // NOT operation - skip operand B
+                        next_state = READ_RESULT_DST;
+                    end else begin
+                        next_state = READ_RESULT_OP2;
+                    end
+                end
+            end
+            
+            READ_RESULT_OP2: begin
+                read_req = 1'b1;
+                // Read operand B: MEM_BASE_ADDR + ALU_DATA_BASE_ADDR + (result_test_idx * ALU_DATA_STRIDE_BYTES) + 4
+                read_addr = MEM_BASE_ADDR + ALU_DATA_BASE_ADDR + (result_test_idx * ALU_DATA_STRIDE_BYTES) + 4;
+                if (read_done) begin
+                    next_state = READ_RESULT_DST;
+                end
+            end
+            
+            READ_RESULT_DST: begin
+                read_req = 1'b1;
+                // Read result: MEM_BASE_ADDR + ALU_DATA_BASE_ADDR + (result_test_idx * ALU_DATA_STRIDE_BYTES) + 8
+                read_addr = MEM_BASE_ADDR + ALU_DATA_BASE_ADDR + (result_test_idx * ALU_DATA_STRIDE_BYTES) + 8;
+                if (read_done) begin
+                    next_state = DISPLAY_RESULT;
+                end
+            end
+            
+            DISPLAY_RESULT: begin
+                // Display all information for this testcase
+                $display("============================================================================");
+                $display("[%0t] ALU Master - Test %0d Results:", $time, result_test_idx);
+                $display("  Instruction @ 0x%08h = 0x%08h (Opcode: 0x%01h)", 
+                         MEM_BASE_ADDR + (result_test_idx * 4), result_instruction, result_opcode);
+                $display("  Operand A  @ 0x%08h = 0x%08h (%0d)", 
+                         MEM_BASE_ADDR + ALU_DATA_BASE_ADDR + (result_test_idx * ALU_DATA_STRIDE_BYTES),
+                         result_op1, result_op1);
+                if (result_opcode != 4'b0101) begin
+                    $display("  Operand B  @ 0x%08h = 0x%08h (%0d)", 
+                             MEM_BASE_ADDR + ALU_DATA_BASE_ADDR + (result_test_idx * ALU_DATA_STRIDE_BYTES) + 4,
+                             result_op2, result_op2);
+                end else begin
+                    $display("  Operand B  @ 0x%08h = N/A (NOT operation)", 
+                             MEM_BASE_ADDR + ALU_DATA_BASE_ADDR + (result_test_idx * ALU_DATA_STRIDE_BYTES) + 4);
+                end
+                $display("  Result     @ 0x%08h = 0x%08h (%0d)", 
+                         MEM_BASE_ADDR + ALU_DATA_BASE_ADDR + (result_test_idx * ALU_DATA_STRIDE_BYTES) + 8,
+                         result_dst, result_dst);
+                $display("============================================================================");
+                
+                // Automatically move to next state after display
+                // Check if all results displayed
+                if (result_test_idx >= (NUM_TESTS - 1)) begin
+                    $display("[%0t] ALU Master: All testcase results displayed. Returning to IDLE.", $time);
                     next_state = IDLE;
                     done = 1'b1;
+                    busy = 1'b0;
+                end else begin
+                    // Move to next test - result_test_idx will be incremented in sequential logic
+                    next_state = READ_RESULT_INSTR;
                 end
             end
             
