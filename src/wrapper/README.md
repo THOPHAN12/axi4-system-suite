@@ -71,6 +71,39 @@ src/wrapper/
   - Multiple memory slaves
   - Data integrity verification
 
+#### `axi_interconnect_wrapper.v`
+- **Mục đích**: Wrapper module cho AXI_Interconnect với interface đơn giản hóa
+- **Chức năng**:
+  - Bọc AXI_Interconnect với interface chuẩn AXI4 naming convention
+  - Tự động xử lý reset signal conversion (ARESETN active low)
+  - Hỗ trợ cấu hình address range qua parameters
+  - Hỗ trợ override address range runtime (optional)
+  - Tích hợp dễ dàng vào các hệ thống lớn hơn
+- **Interface**:
+  - 2 Master ports (M0, M1) - Read-only
+  - 2 Slave ports (S0, S1) - Read-only
+  - Standard AXI4 naming: ARADDR, ARLEN, ARSIZE, ARBURST, ARVALID, ARREADY, RDATA, RRESP, RLAST, RVALID, RREADY
+
+#### `axi_interconnect_2m4s_wrapper.v`
+- **Mục đích**: Wrapper module cho AXI_Interconnect_Full với 2 Master và 4 Slave
+- **Chức năng**:
+  - Bọc AXI_Interconnect_Full với interface đầy đủ AXI4
+  - Bao gồm TẤT CẢ các tín hiệu Read và Write channels
+  - Hỗ trợ 2 Master ports (S00, S01) - Full AXI4 (Read + Write)
+  - Hỗ trợ 4 Slave ports:
+    - M00, M01: Full AXI4 (Read + Write)
+    - M02, M03: Read-only
+  - Cấu hình address range cho 4 slaves qua parameters
+  - Hỗ trợ override address range runtime (optional)
+  - Tất cả các tín hiệu AXI4 chuẩn: AW, W, B, AR, R channels
+- **Interface**:
+  - Master 0 (S00): Full AXI4 - AW, W, B, AR, R channels
+  - Master 1 (S01): Full AXI4 - AW, W, B, AR, R channels
+  - Slave 0 (M00): Full AXI4 - AW, W, B, AR, R channels
+  - Slave 1 (M01): Full AXI4 - AW, W, B, AR, R channels
+  - Slave 2 (M02): Read-only - AR, R channels
+  - Slave 3 (M03): Read-only - AR, R channels
+
 ### IP Modules (`ip/`)
 
 #### `serv_axi_system_ip.v`

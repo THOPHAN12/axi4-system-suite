@@ -7,7 +7,7 @@
  *   - SERV RISC-V processor (2 buses: Instruction + Data)
  *   - ALU Master
  *   - 4 Memory Slaves
- *   - Address routing và arbitration
+ *   - Address routing va arbitration
  */
 
 module dual_master_system_tb;
@@ -518,6 +518,25 @@ module dual_master_system_tb;
     // ========================================================================
     // Helper Tasks
     // ========================================================================
+    // Task to write data to ALU Memory
+    task automatic write_alu_memory;
+        input [31:0] addr;  // Full address (including base 0x80000000)
+        input [31:0] data;
+        integer word_idx;
+        begin
+            // Convert byte address to word index (matching axi_memory_slave: addr[ADDR_BITS+1:2])
+            // For MEM_SIZE=256, ADDR_BITS=8, so index = addr[9:2] = (addr >> 2) & 0xFF
+            word_idx = (addr >> 2) & 255;  // Take lower 8 bits of (addr >> 2)
+            if (word_idx < 256) begin
+                u_alu_mem.memory[word_idx] = data;
+                $display("[%0t] ALU Memory Init: addr=0x%08h (word_idx=%0d) = 0x%08h", 
+                         $time, addr, word_idx, data);
+            end else begin
+                $display("[%0t] ERROR: ALU Memory address out of range: 0x%08h", $time, addr);
+            end
+        end
+    endtask
+    
     task automatic wait_alu_master_reset;
         integer timeout;
         begin
@@ -700,27 +719,27 @@ module dual_master_system_tb;
         $display("\n============================================================================");
         $display("[TEST %0d] SERV Master -> Instruction Memory (Read at Reset PC)", test_count);
         $display("============================================================================");
-        $display("MỤC ĐÍCH:");
-        $display("  - Kiểm tra SERV RISC-V Core có thể fetch instruction từ Instruction Memory");
+        $display("MUC DICH:");
+        $display("  - Kiem tra SERV RISC-V Core co the fetch instruction tu Instruction Memory");
         $display("  - Verify address routing: 0x0000_0000 -> Slave0 (Instruction Memory)");
         $display("");
-        $display("KỲ VỌNG:");
-        $display("  - SERV phải fetch ít nhất 1 instruction từ địa chỉ 0x0000_0000");
-        $display("  - Transaction phải route đúng đến Slave0");
+        $display("KY VONG:");
+        $display("  - SERV phai fetch it nhat 1 instruction tu dia chi 0x0000_0000");
+        $display("  - Transaction phai route dung den Slave0");
         $display("  - serv_inst_read_count >= 1");
         $display("");
         #(CLK_PERIOD * 50);  // Wait for SERV to start fetching
-        $display("KẾT QUẢ THỰC TẾ:");
+        $display("KET QUA THUC TE:");
         $display("  - serv_inst_read_count = %0d", serv_inst_read_count);
         if (serv_inst_read_count > 0) begin
             $display("");
-            $display("  >>> ✓✓✓ PASS: SERV đã fetch %0d instruction(s) <<<", serv_inst_read_count);
-            $display("  >>> Kết quả đúng: SERV hoạt động bình thường, fetch được instruction <<<");
+            $display("  >>> ✓✓✓ PASS: SERV da fetch %0d instruction(s) <<<", serv_inst_read_count);
+            $display("  >>> Ket qua dung: SERV hoat dong binh thuong, fetch duoc instruction <<<");
             pass_count = pass_count + 1;
         end else begin
             $display("");
-            $display("  ✗✗✗ FAIL: Không có instruction fetch nào được quan sát");
-            $display("  >>> Kết quả sai: SERV không fetch instruction, cần kiểm tra lại <<<");
+            $display("  ✗✗✗ FAIL: Khong co instruction fetch nao duoc quan sat");
+            $display("  >>> Ket qua sai: SERV khong fetch instruction, can kiem tra lai <<<");
             fail_count = fail_count + 1;
         end
         $display("============================================================================");
@@ -732,33 +751,52 @@ module dual_master_system_tb;
         $display("\n============================================================================");
         $display("[TEST %0d] ALU Master -> ALU Memory (Write Operation)", test_count);
         $display("============================================================================");
-        $display("MỤC ĐÍCH:");
-        $display("  - Kiểm tra ALU Master có thể ghi kết quả tính toán vào ALU Memory");
-        $display("  - Verify write channel hoạt động đúng");
+        $display("MUC DICH:");
+        $display("  - Kiem tra ALU Master co the ghi ket qua tinh toan vao ALU Memory");
+        $display("  - Verify write channel hoat dong dung");
         $display("  - Verify address routing: 0x8000_0000+ -> Slave2 (ALU Memory)");
         $display("");
-        $display("KỲ VỌNG:");
-        $display("  - ALU Master phải hoàn thành 1 operation và ghi kết quả");
+        $display("KY VONG:");
+        $display("  - ALU Master phai hoan thanh 1 operation va ghi ket qua");
         $display("  - alu_write_count >= 1 sau khi ALU Master done");
-        $display("  - Transaction phải route đúng đến Slave2");
+        $display("  - Transaction phai route dung den Slave2");
+        $display("  - Thuc hien phep cong: a=3, b=4 -> ket qua=7");
         $display("");
+        // Initialize ALU Memory with test data: ADD operation (a=3, b=4)
+        // Instruction format: [31:28]=opcode, [23:16]=src_addr1, [15:8]=src_addr2, [7:0]=dst_addr
+        // ADD opcode = 0x0, src_addr1=0x40, src_addr2=0x44, dst_addr=0x48
+        // Instruction = {4'h0, 8'h00, 8'h40, 8'h44, 8'h48} = 32'h00404448
+        $display("[%0t] Initializing ALU Memory for testcase 2: ADD(3, 4)", $time);
+        write_alu_memory(32'h80000000, 32'h00404448);  // Instruction: ADD with src1=0x40, src2=0x44, dst=0x48
+        write_alu_memory(32'h80000040, 32'h00000003);  // Operand a = 3
+        write_alu_memory(32'h80000044, 32'h00000004);  // Operand b = 4
+        #(CLK_PERIOD * 2);  // Wait for memory writes to complete
         wait_alu_master_reset();
         alu_master_start = 1;
         #(CLK_PERIOD);
         alu_master_start = 0;
         wait_alu_master_done_with_timeout(10000);
-        $display("KẾT QUẢ THỰC TẾ:");
+        // Read result from ALU Memory
+        #(CLK_PERIOD * 2);
+        $display("KET QUA THUC TE:");
         $display("  - alu_write_count = %0d", alu_write_count);
         $display("  - alu_master_done = %0b", alu_master_done);
+        $display("  - Ket qua doc tu ALU Memory @ 0x80000048 = 0x%08h", u_alu_mem.memory[(32'h80000048 >> 2) & 255]);
         if (alu_write_count > 0) begin
             $display("");
-            $display("  >>> ✓✓✓ PASS: ALU Master đã ghi %0d lần <<<", alu_write_count);
-            $display("  >>> Kết quả đúng: Write channel hoạt động, routing đúng Slave2 <<<");
+            $display("  >>> ✓✓✓ PASS: ALU Master da ghi %0d lan <<<", alu_write_count);
+            if (u_alu_mem.memory[(32'h80000048 >> 2) & 255] == 32'h00000007) begin
+                $display("  >>> ✓✓✓ PASS: Ket qua dung: 3 + 4 = 7 <<<");
+            end else begin
+                $display("  >>> ⚠ WARNING: Ket qua khac ky vong (ky vong: 7, thuc te: %0d) <<<", 
+                         u_alu_mem.memory[(32'h80000048 >> 2) & 255]);
+            end
+            $display("  >>> Ket qua dung: Write channel hoat dong, routing dung Slave2 <<<");
             pass_count = pass_count + 1;
         end else begin
             $display("");
-            $display("  ✗✗✗ FAIL: Không có write transaction nào được quan sát");
-            $display("  >>> Kết quả sai: ALU Master không ghi được, cần kiểm tra write channel <<<");
+            $display("  ✗✗✗ FAIL: Khong co write transaction nao duoc quan sat");
+            $display("  >>> Ket qua sai: ALU Master khong ghi duoc, can kiem tra write channel <<<");
             fail_count = fail_count + 1;
         end
         $display("============================================================================");
@@ -770,27 +808,27 @@ module dual_master_system_tb;
         $display("\n============================================================================");
         $display("[TEST %0d] ALU Master -> ALU Memory (Read Operation)", test_count);
         $display("============================================================================");
-        $display("MỤC ĐÍCH:");
-        $display("  - Kiểm tra ALU Master có thể đọc instruction/operands từ ALU Memory");
-        $display("  - Verify read channel hoạt động đúng");
-        $display("  - Verify ALU Master đọc được dữ liệu để thực hiện tính toán");
+        $display("MUC DICH:");
+        $display("  - Kiem tra ALU Master co the doc instruction/operands tu ALU Memory");
+        $display("  - Verify read channel hoat dong dung");
+        $display("  - Verify ALU Master doc duoc du lieu de thuc hien tinh toan");
         $display("");
-        $display("KỲ VỌNG:");
-        $display("  - ALU Master phải đọc ít nhất 1 lần (instruction hoặc operands)");
+        $display("KY VONG:");
+        $display("  - ALU Master phai doc it nhat 1 lan (instruction hoac operands)");
         $display("  - alu_read_count >= 1");
-        $display("  - Read transactions phải route đúng đến Slave2");
+        $display("  - Read transactions phai route dung den Slave2");
         $display("");
-        $display("KẾT QUẢ THỰC TẾ:");
+        $display("KET QUA THUC TE:");
         $display("  - alu_read_count = %0d", alu_read_count);
         if (alu_read_count > 0) begin
             $display("");
-            $display("  >>> ✓✓✓ PASS: ALU Master đã đọc %0d lần <<<", alu_read_count);
-            $display("  >>> Kết quả đúng: Read channel hoạt động, ALU đọc được dữ liệu <<<");
+            $display("  >>> ✓✓✓ PASS: ALU Master da doc %0d lan <<<", alu_read_count);
+            $display("  >>> Ket qua dung: Read channel hoat dong, ALU doc duoc du lieu <<<");
             pass_count = pass_count + 1;
         end else begin
             $display("");
-            $display("  ✗✗✗ FAIL: Không có read transaction nào được quan sát");
-            $display("  >>> Kết quả sai: ALU Master không đọc được, cần kiểm tra read channel <<<");
+            $display("  ✗✗✗ FAIL: Khong co read transaction nao duoc quan sat");
+            $display("  >>> Ket qua sai: ALU Master khong doc duoc, can kiem tra read channel <<<");
             fail_count = fail_count + 1;
         end
         $display("============================================================================");
@@ -802,22 +840,22 @@ module dual_master_system_tb;
         $display("\n============================================================================");
         $display("[TEST %0d] Address Routing Verification", test_count);
         $display("============================================================================");
-        $display("MỤC ĐÍCH:");
-        $display("  - Kiểm tra AXI Interconnect route đúng address đến đúng slave");
-        $display("  - Verify address decoder hoạt động đúng");
+        $display("MUC DICH:");
+        $display("  - Kiem tra AXI Interconnect route dung address den dung slave");
+        $display("  - Verify address decoder hoat dong dung");
         $display("");
-        $display("KỲ VỌNG:");
+        $display("KY VONG:");
         $display("  - 0x0000_0000 - 0x3FFF_FFFF -> Slave0 (Instruction Memory)");
         $display("  - 0x4000_0000 - 0x7FFF_FFFF -> Slave1 (Data Memory)");
         $display("  - 0x8000_0000 - 0xBFFF_FFFF -> Slave2 (ALU Memory)");
         $display("  - 0xC000_0000 - 0xFFFF_FFFF -> Slave3 (Reserved)");
         $display("");
-        $display("KẾT QUẢ THỰC TẾ:");
-        $display("  - Address routing được verify tự động trong monitoring task");
-        $display("  - Tất cả transactions đã được check trong quá trình simulation");
+        $display("KET QUA THUC TE:");
+        $display("  - Address routing duoc verify tu dong trong monitoring task");
+        $display("  - Tat ca transactions da duoc check trong qua trinh simulation");
         $display("");
-        $display("  >>> ✓✓✓ PASS: Address routing đã được verify trong các transactions <<<");
-        $display("  >>> Kết quả đúng: Decoder route đúng address đến đúng slave <<<");
+        $display("  >>> ✓✓✓ PASS: Address routing da duoc verify trong cac transactions <<<");
+        $display("  >>> Ket qua dung: Decoder route dung address den dung slave <<<");
         pass_count = pass_count + 1;
         $display("============================================================================");
         
@@ -828,16 +866,16 @@ module dual_master_system_tb;
         $display("\n============================================================================");
         $display("[TEST %0d] Concurrent Access: SERV(Inst) + ALU(ALU Mem)", test_count);
         $display("============================================================================");
-        $display("MỤC ĐÍCH:");
-        $display("  - Kiểm tra 2 masters có thể truy cập đồng thời các slaves khác nhau");
-        $display("  - Verify arbitration hoạt động đúng khi có concurrent requests");
-        $display("  - Verify không có xung đột giữa các masters");
+        $display("MUC DICH:");
+        $display("  - Kiem tra 2 masters co the truy cap dong thoi cac slaves khac nhau");
+        $display("  - Verify arbitration hoat dong dung khi co concurrent requests");
+        $display("  - Verify khong co xung dot giua cac masters");
         $display("");
-        $display("KỲ VỌNG:");
-        $display("  - SERV (Master 0) tiếp tục fetch instruction từ Slave0");
-        $display("  - ALU (Master 1) truy cập ALU Memory từ Slave2");
-        $display("  - Cả 2 masters hoạt động đồng thời mà không xung đột");
-        $display("  - serv_inst_read_count tăng và alu_read_count tăng trong cùng thời gian");
+        $display("KY VONG:");
+        $display("  - SERV (Master 0) tiep tuc fetch instruction tu Slave0");
+        $display("  - ALU (Master 1) truy cap ALU Memory tu Slave2");
+        $display("  - Ca 2 masters hoat dong dong thoi ma khong xung dot");
+        $display("  - serv_inst_read_count tang va alu_read_count tang trong cung thoi gian");
         $display("");
         serv_count_before = serv_inst_read_count;
         alu_count_before = alu_read_count;
@@ -848,20 +886,20 @@ module dual_master_system_tb;
         #(CLK_PERIOD * 100);  // Allow concurrent operations
         serv_count_after = serv_inst_read_count;
         alu_count_after = alu_read_count;
-        $display("KẾT QUẢ THỰC TẾ:");
-        $display("  - SERV instruction reads: %0d -> %0d (tăng %0d)", 
+        $display("KET QUA THUC TE:");
+        $display("  - SERV instruction reads: %0d -> %0d (tang %0d)", 
                  serv_count_before, serv_count_after, serv_count_after - serv_count_before);
-        $display("  - ALU reads: %0d -> %0d (tăng %0d)", 
+        $display("  - ALU reads: %0d -> %0d (tang %0d)", 
                  alu_count_before, alu_count_after, alu_count_after - alu_count_before);
         if (serv_count_after > serv_count_before && alu_count_after > alu_count_before) begin
             $display("");
             $display("  >>> ✓✓✓ PASS: Concurrent access verified <<<");
-            $display("  >>> Kết quả đúng: Cả 2 masters hoạt động đồng thời, arbitration OK <<<");
+            $display("  >>> Ket qua dung: Ca 2 masters hoat dong dong thoi, arbitration OK <<<");
             pass_count = pass_count + 1;
         end else begin
             $display("");
-            $display("  ✗✗✗ FAIL: Concurrent access không được verify");
-            $display("  >>> Kết quả sai: Có thể có xung đột hoặc arbitration không hoạt động <<<");
+            $display("  ✗✗✗ FAIL: Concurrent access khong duoc verify");
+            $display("  >>> Ket qua sai: Co the co xung dot hoac arbitration khong hoat dong <<<");
             fail_count = fail_count + 1;
         end
         $display("============================================================================");
@@ -873,16 +911,16 @@ module dual_master_system_tb;
         $display("\n============================================================================");
         $display("[TEST %0d] System Stability Under Continuous Operation", test_count);
         $display("============================================================================");
-        $display("MỤC ĐÍCH:");
-        $display("  - Kiểm tra hệ thống ổn định khi ALU Master chạy liên tiếp nhiều lần");
-        $display("  - Verify không có deadlock, timeout, hoặc lỗi sau nhiều operations");
-        $display("  - Verify ALU Master có thể reset và start lại nhiều lần");
+        $display("MUC DICH:");
+        $display("  - Kiem tra he thong on dinh khi ALU Master chay lien tiep nhieu lan");
+        $display("  - Verify khong co deadlock, timeout, hoac loi sau nhieu operations");
+        $display("  - Verify ALU Master co the reset va start lai nhieu lan");
         $display("");
-        $display("KỲ VỌNG:");
-        $display("  - ALU Master chạy 3 operations liên tiếp");
-        $display("  - Mỗi operation hoàn thành thành công (done = 1)");
-        $display("  - ALU Master reset về IDLE sau mỗi operation");
-        $display("  - Không có timeout hoặc error");
+        $display("KY VONG:");
+        $display("  - ALU Master chay 3 operations lien tiep");
+        $display("  - Moi operation hoan thanh thanh cong (done = 1)");
+        $display("  - ALU Master reset ve IDLE sau moi operation");
+        $display("  - Khong co timeout hoac error");
         $display("");
         stability_ops = 0;
         wait_alu_master_reset();
@@ -895,12 +933,12 @@ module dual_master_system_tb;
             wait_alu_master_done_with_timeout(10000);
             wait_alu_master_reset();
         end
-        $display("KẾT QUẢ THỰC TẾ:");
-        $display("  - Đã chạy %0d operations liên tiếp", stability_ops);
-        $display("  - Tất cả operations hoàn thành thành công");
+        $display("KET QUA THUC TE:");
+        $display("  - Da chay %0d operations lien tiep", stability_ops);
+        $display("  - Tat ca operations hoan thanh thanh cong");
         $display("");
         $display("  >>> ✓✓✓ PASS: System stable sau %0d operations <<<", stability_ops);
-        $display("  >>> Kết quả đúng: Hệ thống ổn định, không có deadlock/timeout <<<");
+        $display("  >>> Ket qua dung: He thong on dinh, khong co deadlock/timeout <<<");
         pass_count = pass_count + 1;
         $display("============================================================================");
         
@@ -911,33 +949,33 @@ module dual_master_system_tb;
         $display("\n============================================================================");
         $display("[TEST %0d] Transaction Statistics", test_count);
         $display("============================================================================");
-        $display("MỤC ĐÍCH:");
-        $display("  - Tổng hợp và hiển thị tất cả transactions đã xảy ra");
-        $display("  - Verify hệ thống đã hoạt động đúng với đủ transactions");
+        $display("MUC DICH:");
+        $display("  - Tong hop va hien thi tat ca transactions da xay ra");
+        $display("  - Verify he thong da hoat dong dung voi du transactions");
         $display("");
-        $display("KỲ VỌNG:");
-        $display("  - SERV phải có ít nhất 1 instruction read");
-        $display("  - ALU phải có ít nhất 1 read và 1 write");
-        $display("  - Tổng số transactions > 0");
+        $display("KY VONG:");
+        $display("  - SERV phai co it nhat 1 instruction read");
+        $display("  - ALU phai co it nhat 1 read va 1 write");
+        $display("  - Tong so transactions > 0");
         $display("");
         total_transactions = serv_inst_read_count + serv_data_read_count + serv_data_write_count +
                             alu_read_count + alu_write_count + reserved_read_count;
-        $display("KẾT QUẢ THỰC TẾ:");
+        $display("KET QUA THUC TE:");
         $display("  - SERV Instruction Reads: %0d", serv_inst_read_count);
         $display("  - SERV Data Reads:       %0d", serv_data_read_count);
         $display("  - SERV Data Writes:      %0d", serv_data_write_count);
         $display("  - ALU Reads:             %0d", alu_read_count);
         $display("  - ALU Writes:             %0d", alu_write_count);
         $display("  - Reserved Reads:        %0d", reserved_read_count);
-        $display("  - TỔNG CỘNG:             %0d transactions", total_transactions);
+        $display("  - TONG CONG:             %0d transactions", total_transactions);
         $display("");
         if (serv_inst_read_count > 0 || alu_read_count > 0 || alu_write_count > 0) begin
-            $display("  >>> ✓✓✓ PASS: Đã quan sát được transactions <<<");
-            $display("  >>> Kết quả đúng: Hệ thống hoạt động, có %0d transactions <<<", total_transactions);
+            $display("  >>> ✓✓✓ PASS: Da quan sat duoc transactions <<<");
+            $display("  >>> Ket qua dung: He thong hoat dong, co %0d transactions <<<", total_transactions);
             pass_count = pass_count + 1;
         end else begin
-            $display("  ✗✗✗ FAIL: Không có transaction nào được quan sát");
-            $display("  >>> Kết quả sai: Hệ thống không hoạt động, cần kiểm tra lại <<<");
+            $display("  ✗✗✗ FAIL: Khong co transaction nao duoc quan sat");
+            $display("  >>> Ket qua sai: He thong khong hoat dong, can kiem tra lai <<<");
             fail_count = fail_count + 1;
         end
         $display("============================================================================");

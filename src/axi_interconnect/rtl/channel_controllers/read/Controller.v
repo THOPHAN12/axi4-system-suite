@@ -516,11 +516,22 @@ end
 
 // Combine enable signals from both masters (Master 1 has priority if both active)
 always @(*) begin
-    // If Master 1 is using a slave, use M1's value; otherwise use M0's value
-    en_S0 = en_S0_M1 ? en_S0_M1 : en_S0_M0;
-    en_S1 = en_S1_M1 ? en_S1_M1 : en_S1_M0;
-    en_S2 = en_S2_M1 ? en_S2_M1 : en_S2_M0;
-    en_S3 = en_S3_M1 ? en_S3_M1 : en_S3_M0;
+    // Check if Master 1 is actively using a slave (not in idle state)
+    // If Master 1 is active, use M1's value; otherwise use M0's value
+    // This ensures proper priority: M1 has priority when both are active
+    if (curr_state_slave2 != Idle_slave_2) begin
+        // Master 1 is active - use M1's enable signals
+        en_S0 = en_S0_M1;
+        en_S1 = en_S1_M1;
+        en_S2 = en_S2_M1;
+        en_S3 = en_S3_M1;
+    end else begin
+        // Master 1 is idle - use M0's enable signals
+        en_S0 = en_S0_M0;
+        en_S1 = en_S1_M0;
+        en_S2 = en_S2_M0;
+        en_S3 = en_S3_M0;
+    end
 end
 
 endmodule

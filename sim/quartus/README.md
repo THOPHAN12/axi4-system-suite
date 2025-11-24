@@ -1,253 +1,109 @@
-# Quartus Project Guide
+# Quartus Project Organization
 
-## Tổng Quan
+## Cấu Trúc Thư Mục
 
-Thư mục này chứa Quartus project và các script để quản lý project.
+Dự án Quartus đã được tổ chức thành 2 folder riêng biệt:
 
-## Cấu Trúc Files
-
-### Project Files (QUAN TRỌNG - KHÔNG XÓA)
-- `AXI_PROJECT.qpf` - Quartus project file
-- `AXI_PROJECT.qsf` - Quartus settings file
-- `AXI_PROJECT.qws` - Quartus workspace file
-
-### Build Directories (QUAN TRỌNG - KHÔNG XÓA)
-- `db/` - Quartus database (chứa compilation results)
-- `incremental_db/` - Incremental compilation database
-- `output_files/` - Output files (bitstream, reports, etc.)
-
-### Scripts
-
-#### File Chính - Dùng Hàng Ngày
-- `add_files.tcl` ⭐ **DÙNG FILE NÀY**
-  - Tự động thêm file mới vào project
-  - Chỉ thêm file chưa có trong project
-  - Có thể chạy nhiều lần mà không bị duplicate
-  - Tự động bỏ qua testbench và backup files
-  - Bao gồm tất cả modules: SERV, AXI Interconnect, Wrappers, IP modules, ALU Master, Memory Slaves
-
-#### File Backup
-- `add_all_source_files.tcl`
-  - Thêm tất cả file theo danh sách cụ thể
-  - Dùng khi muốn reset lại project
-  - Set top-level entity
-  - Thêm file theo thứ tự compile đúng
-
-## Quick Start
-
-### 1. Mở Project
-
-```bash
-# Mở Quartus
-quartus AXI_PROJECT.qpf
+```
+sim/quartus/
+├── quartus_verilog/          # Project Verilog (gốc)
+│   ├── AXI_PROJECT.qpf
+│   ├── AXI_PROJECT.qsf
+│   ├── add_all_source_files.tcl
+│   ├── add_files.tcl
+│   ├── db/
+│   ├── incremental_db/
+│   └── output_files/
+│
+└── quartus_systemverilog/     # Project SystemVerilog (mới)
+    ├── AXI_PROJECT_SV.qpf
+    ├── AXI_PROJECT_SV.qsf
+    ├── add_all_source_files_sv.tcl
+    ├── db/
+    ├── incremental_db/
+    └── output_files/
 ```
 
-### 2. Thêm File Mới
+## Mô Tả
 
-```tcl
-# Trong Quartus TCL Console
-cd D:/AXI/sim/quartus
-source add_files.tcl
-```
+### `quartus_verilog/`
+- **Mục đích**: Project Quartus sử dụng các file Verilog gốc (`.v`)
+- **Top-level entity**: `AXI_Interconnect_Full` (Verilog)
+- **Source files**: Tất cả file từ `src/axi_interconnect/rtl/` (Verilog)
+- **Project file**: `AXI_PROJECT.qpf`
+- **Settings file**: `AXI_PROJECT.qsf`
 
-### 3. Compile Project
+### `quartus_systemverilog/`
+- **Mục đích**: Project Quartus sử dụng các file SystemVerilog mới (`.sv`)
+- **Top-level entity**: `AXI_Interconnect_Full` (SystemVerilog)
+- **Source files**: Tất cả file từ `src/axi_interconnect/sv/` (SystemVerilog)
+- **Project file**: `AXI_PROJECT_SV.qpf`
+- **Settings file**: `AXI_PROJECT_SV.qsf`
 
-- Trong Quartus GUI: Processing → Start Compilation
-- Hoặc dùng TCL: `execute_module -tool map`
+## Cách Sử Dụng
 
-## Workflow Đề Xuất
+### Mở Project Verilog
 
-### Lần Đầu Setup
+1. Mở Quartus II
+2. File → Open Project
+3. Chọn `sim/quartus/quartus_verilog/AXI_PROJECT.qpf`
+4. Hoặc chạy TCL script: `source add_all_source_files.tcl`
 
-1. Mở Quartus project
-2. Chạy `add_all_source_files.tcl` để thêm tất cả file
-3. Set top-level entity nếu cần (mặc định: `dual_master_system_ip`)
-4. Compile project
+### Mở Project SystemVerilog
 
-### Hàng Ngày
+1. Mở Quartus II
+2. File → Open Project
+3. Chọn `sim/quartus/quartus_systemverilog/AXI_PROJECT_SV.qpf`
+4. Hoặc chạy TCL script: `source add_all_source_files_sv.tcl`
 
-1. Mở Quartus project
-2. Nếu có file mới: Chạy `add_files.tcl`
-3. Compile và test
+## Khác Biệt Chính
 
-### Khi Có File Mới
+### Verilog Project (`quartus_verilog`)
+- Sử dụng `VERILOG_FILE` assignment cho tất cả file AXI Interconnect
+- Đường dẫn: `src/axi_interconnect/rtl/`
+- File extension: `.v`
 
-1. Mở project
-2. Chạy `add_files.tcl` để add file mới
-3. Hoặc dùng GUI: Project → Add/Remove Files in Project
+### SystemVerilog Project (`quartus_systemverilog`)
+- Sử dụng `SYSTEMVERILOG_FILE` assignment cho file AXI Interconnect
+- Sử dụng `VERILOG_FILE` assignment cho các file khác (SERV, wrapper, etc.)
+- Đường dẫn: `src/axi_interconnect/sv/`
+- File extension: `.sv` cho AXI Interconnect, `.v` cho các module khác
 
-## Top-Level Entity Options
+## Search Paths
 
-Các top-level modules có sẵn:
+### Verilog Project
+- `D:/AXI/src/cores/serv/rtl`
+- `D:/AXI/src/axi_interconnect/rtl/includes`
 
-1. **dual_master_system_ip** ⭐ **KHUYẾN NGHỊ** (Mặc định)
-   - Complete IP module với SERV + ALU Master
-   - Integrated memory slaves
-   - No external connections needed
-
-2. **serv_axi_system_ip**
-   - SERV RISC-V IP module
-   - Integrated instruction và data memory
-
-3. **dual_master_system**
-   - SERV + ALU Master với external memory slaves
-
-4. **serv_axi_system**
-   - SERV RISC-V với external memory slaves
-
-5. **serv_axi_wrapper**
-   - Standalone SERV wrapper
-
-6. **alu_master_system**
-   - ALU Master system
-
-7. **AXI_Interconnect_Full**
-   - Chỉ AXI Interconnect
-
-Để thay đổi top-level entity, sửa trong `add_all_source_files.tcl` hoặc trong Quartus GUI:
-- Project → Set as Top-Level Entity
-
-## File Quan Trọng (KHÔNG XÓA)
-
-- `*.qpf`, `*.qsf`, `*.qws` - Project files
-- `db/` - Database (chứa compilation results)
-- `incremental_db/` - Incremental compilation
-- `output_files/` - Output files (bitstream, reports)
-- `add_files.tcl` - Script chính
-- `add_all_source_files.tcl` - Backup script
-
-## File Có Thể Xóa (Tự Động Tạo Lại)
-
-- `db/` - Có thể xóa và compile lại (nhưng mất thời gian)
-- `incremental_db/` - Có thể xóa
-- `output_files/` - Có thể regenerate bằng cách compile lại
-
-## Scripts Chi Tiết
-
-### `add_files.tcl`
-
-**Mục đích**: Tự động thêm file mới vào project
-
-**Tính năng**:
-- Tự động quét tất cả file .v trong project
-- Chỉ thêm file mới (chưa có trong project)
-- Có thể chạy nhiều lần mà không bị duplicate
-- Tự động bỏ qua testbench và backup files
-- Quét các thư mục:
-  - SERV Core files
-  - AXI Interconnect files
-  - Wrapper files (bao gồm IP modules)
-  - Master ALU files
-  - Slave Memory files
-
-**Cách dùng**:
-```tcl
-source add_files.tcl
-```
-
-**Khi nào dùng**: Mỗi khi có file mới hoặc muốn đảm bảo tất cả file đã được thêm
-
-### `add_all_source_files.tcl`
-
-**Mục đích**: Thêm tất cả file theo danh sách cụ thể
-
-**Tính năng**:
-- Thêm file theo thứ tự compile đúng
-- Kiểm soát chính xác file nào được thêm
-- Set top-level entity (mặc định: `dual_master_system_ip`)
-- Thêm file theo thứ tự:
-  1. SERV RISC-V Core files
-  2. Wishbone to AXI Converters
-  3. SERV AXI Wrapper
-  4. AXI Interconnect (utils → handshake → buffers → arbitration → datapath → decoders → controllers → core)
-  5. System Integration Modules (bao gồm IP modules)
-  6. Memory Slaves
-  7. Master ALU files
-  8. Slave Memory files
-
-**Cách dùng**:
-```tcl
-source add_all_source_files.tcl
-```
-
-**Khi nào dùng**: 
-- Khi muốn reset lại project
-- Khi muốn đảm bảo thứ tự compile đúng
-- Khi `add_files.tcl` không hoạt động
-
-## Modules Được Thêm
-
-### SERV RISC-V Core
-- serv_state.v, serv_immdec.v, serv_decode.v, serv_alu.v, serv_ctrl.v, serv_csr.v
-- serv_bufreg.v, serv_bufreg2.v, serv_aligner.v
-- serv_mem_if.v, serv_rf_if.v, serv_rf_ram_if.v, serv_rf_ram.v
-- serv_rf_top.v, serv_top.v
-
-### AXI Interconnect
-- Utilities, Handshake, Buffers, Arbitration
-- Datapath (MUX/DEMUX), Decoders
-- Channel Controllers (Write/Read)
-- Core modules (AXI_Interconnect_Full, etc.)
-
-### Wrapper & IP Modules
-- wb2axi_read.v, wb2axi_write.v
-- serv_axi_wrapper.v
-- serv_axi_system.v
-- serv_axi_system_ip.v ⭐ **MỚI**
-- dual_master_system.v
-- dual_master_system_ip.v ⭐ **MỚI**
-- alu_master_system.v
-- axi_rom_slave.v, axi_memory_slave.v
-
-### Master ALU
-- ALU_Core.v
-- CPU_Controller.v
-- CPU_ALU_Master.v
-- Simple_AXI_Master_Test.v
-
-### Slave Memory
-- Simple_Memory_Slave.v
+### SystemVerilog Project
+- `D:/AXI/src/cores/serv/rtl`
+- `D:/AXI/src/axi_interconnect/sv/packages`
+- `D:/AXI/src/axi_interconnect/sv/interfaces`
+- `D:/AXI/src/axi_interconnect/rtl/includes`
 
 ## Lưu Ý
 
-- Tất cả scripts tự động bỏ qua:
-  - Testbench files (`*_tb.v`, `*_test.v`)
-  - Backup files (`*.bak`)
-  - Thư mục không cần thiết (bench, test, tb, work, build, etc.)
+1. **Cả 2 project đều sử dụng cùng FPGA device**: `EP2C70F672C6`
+2. **Cả 2 project đều có cùng top-level entity**: `AXI_Interconnect_Full`
+3. **Các file không phải AXI Interconnect** (SERV, wrapper, memory, ALU) vẫn là Verilog trong cả 2 project
+4. **Chỉ có AXI Interconnect modules** được chuyển đổi sang SystemVerilog
 
-- Scripts tự động set:
-  - Include directories (SEARCH_PATH)
-  - Top-level entity (trong `add_all_source_files.tcl`)
+## TCL Scripts
 
-## Troubleshooting
+### `add_all_source_files.tcl` (Verilog)
+- Thêm tất cả file Verilog vào project
+- Sử dụng `VERILOG_FILE` assignment
+- Đường dẫn tương đối từ `quartus_verilog/`
 
-### Lỗi: "Project not found"
-- Kiểm tra file `AXI_PROJECT.qpf` có tồn tại
-- Mở project từ Quartus GUI
+### `add_all_source_files_sv.tcl` (SystemVerilog)
+- Thêm file SystemVerilog cho AXI Interconnect
+- Thêm file Verilog cho các module khác
+- Sử dụng `SYSTEMVERILOG_FILE` và `VERILOG_FILE` assignments
+- Đường dẫn tương đối từ `quartus_systemverilog/`
 
-### Lỗi: "File not found"
-- Kiểm tra file có tồn tại trong project
-- Chạy `add_files.tcl` để add file
+## Next Steps
 
-### Lỗi: "Top-level entity not found"
-- Set top-level entity trong Project Settings
-- Hoặc chạy `add_all_source_files.tcl` (tự động set)
-
-### Lỗi: "Design unit not found"
-- Kiểm tra file đã được thêm vào project chưa
-- Kiểm tra thứ tự compile (dependencies phải compile trước)
-- Chạy `add_all_source_files.tcl` để đảm bảo thứ tự đúng
-
-### Lỗi: "Cannot convert all sets of registers into RAM megafunctions"
-- **Nguyên nhân**: Memory arrays được implement bằng registers thay vì RAM blocks
-- **Giải pháp**: 
-  - Memory modules đã được cập nhật với synthesis attributes `(* ramstyle = "M9K" *)`
-  - Nếu vẫn gặp lỗi, giảm memory size trong `dual_master_system_ip.v`
-  - Xem chi tiết trong `MEMORY_OPTIMIZATION.md`
-
-### Lỗi: "Fitter requires X LABs but device contains only Y LABs"
-- **Nguyên nhân**: Design quá lớn cho device hiện tại
-- **Giải pháp**: 
-  - Memory size mặc định đã được giảm từ 1024 xuống 256 words
-  - Nếu vẫn gặp lỗi, giảm thêm memory size hoặc disable unused features
-  - Xem chi tiết trong `RESOURCE_OPTIMIZATION.md`
+1. Mở và compile cả 2 project để so sánh kết quả
+2. Kiểm tra warnings và errors
+3. So sánh resource utilization giữa 2 versions
+4. Test functionality của cả 2 versions

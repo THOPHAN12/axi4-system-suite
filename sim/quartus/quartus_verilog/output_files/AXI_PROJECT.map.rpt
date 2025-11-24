@@ -1,0 +1,1486 @@
+Analysis & Synthesis report for AXI_PROJECT
+Mon Nov 24 10:16:07 2025
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |AXI_Interconnect_Full|Controller:Read_controller|curr_state_address
+  9. State Machine - |AXI_Interconnect_Full|Controller:Read_controller|curr_state_slave2
+ 10. State Machine - |AXI_Interconnect_Full|Controller:Read_controller|curr_state_slave
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: Top-level Entity: |AXI_Interconnect_Full
+ 17. Parameter Settings for User Entity Instance: AW_Channel_Controller_Top:u_AW_Channel_Controller_Top
+ 18. Parameter Settings for User Entity Instance: AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter
+ 19. Parameter Settings for User Entity Instance: AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Demux_1_2:u_Demux_Address_Write_Ready
+ 20. Parameter Settings for User Entity Instance: AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_MUX_2_1:u_AW_MUX_2_1
+ 21. Parameter Settings for User Entity Instance: AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec
+ 22. Parameter Settings for User Entity Instance: WD_Channel_Controller_Top:u_WD_Channel_Controller_Top
+ 23. Parameter Settings for User Entity Instance: WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue
+ 24. Parameter Settings for User Entity Instance: WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue2
+ 25. Parameter Settings for User Entity Instance: WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Demux_1_2:u_Demux_Write_Data_Ready
+ 26. Parameter Settings for User Entity Instance: WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Demux_1_2:u_Demux_Write_Data_Ready2
+ 27. Parameter Settings for User Entity Instance: WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_MUX_2_1:u_WD_MUX_2_1
+ 28. Parameter Settings for User Entity Instance: WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_MUX_2_1:u_WD_MUX_2_1_2
+ 29. Parameter Settings for User Entity Instance: BR_Channel_Controller_Top:u_BR_Channel_Controller_Top
+ 30. Parameter Settings for User Entity Instance: BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb
+ 31. Parameter Settings for User Entity Instance: BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Demux_1_2:u_Demux_1_2
+ 32. Parameter Settings for User Entity Instance: BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec
+ 33. Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top
+ 34. Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter
+ 35. Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:araddr_mux
+ 36. Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arlen_mux
+ 37. Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arsize_mux
+ 38. Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arburst_mux
+ 39. Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arlock_mux
+ 40. Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arcache_mux
+ 41. Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arprot_mux
+ 42. Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arqos_mux
+ 43. Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arregion_mux
+ 44. Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arvalid_mux
+ 45. Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec
+ 46. Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Demux_1_2:u_Demux_Address_Read_Ready
+ 47. Parameter Settings for User Entity Instance: Mux_2x1:mux_m_addr
+ 48. Parameter Settings for User Entity Instance: Demux_1x4:rready_demux_M0
+ 49. Parameter Settings for User Entity Instance: Demux_1x4:rready_demux_M1
+ 50. Parameter Settings for User Entity Instance: Mux_2x1:rready_mux_M00
+ 51. Parameter Settings for User Entity Instance: Mux_2x1:rready_mux_M01
+ 52. Parameter Settings for User Entity Instance: Mux_2x1:rready_mux_M02
+ 53. Parameter Settings for User Entity Instance: Mux_2x1:rready_mux_M03
+ 54. Parameter Settings for User Entity Instance: Mux_4x1:rvalid_mux_M0
+ 55. Parameter Settings for User Entity Instance: Mux_4x1:rvalid_mux_M1
+ 56. Parameter Settings for User Entity Instance: Mux_4x1:rdata_mux_M0
+ 57. Parameter Settings for User Entity Instance: Mux_4x1:rdata_mux_M1
+ 58. Parameter Settings for User Entity Instance: Mux_4x1:rlast_mux_M0
+ 59. Parameter Settings for User Entity Instance: Mux_4x1:rlast_mux_M1
+ 60. Parameter Settings for User Entity Instance: Mux_4x1:rresp_mux_M0
+ 61. Parameter Settings for User Entity Instance: Mux_4x1:rresp_mux_M1
+ 62. Port Connectivity Checks: "Controller:Read_controller"
+ 63. Port Connectivity Checks: "AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Raising_Edge_Det:u_Raising_Edge_Det"
+ 64. Port Connectivity Checks: "AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec"
+ 65. Port Connectivity Checks: "AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter"
+ 66. Port Connectivity Checks: "AR_Channel_Controller_Top:u_AR_Channel_Controller_Top"
+ 67. Port Connectivity Checks: "BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec"
+ 68. Port Connectivity Checks: "BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb"
+ 69. Port Connectivity Checks: "WD_Channel_Controller_Top:u_WD_Channel_Controller_Top"
+ 70. Port Connectivity Checks: "AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec"
+ 71. Port Connectivity Checks: "AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_HandShake_Checker:u_Address_Write_HandShake_Checker"
+ 72. Port Connectivity Checks: "AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Raising_Edge_Det:u_Raising_Edge_Det"
+ 73. Port Connectivity Checks: "AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter"
+ 74. Elapsed Time Per Partition
+ 75. Analysis & Synthesis Messages
+ 76. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Nov 24 10:16:07 2025           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; AXI_PROJECT                                     ;
+; Top-level Entity Name              ; AXI_Interconnect_Full                           ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 894                                             ;
+;     Total combinational functions  ; 892                                             ;
+;     Dedicated logic registers      ; 34                                              ;
+; Total registers                    ; 34                                              ;
+; Total pins                         ; 1,292                                           ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                           ;
++----------------------------------------------------------------------------+-----------------------+--------------------+
+; Option                                                                     ; Setting               ; Default Value      ;
++----------------------------------------------------------------------------+-----------------------+--------------------+
+; Device                                                                     ; EP2C70F672C6          ;                    ;
+; Top-level entity name                                                      ; AXI_Interconnect_Full ; AXI_PROJECT        ;
+; Family name                                                                ; Cyclone II            ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                   ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                    ; On                 ;
+; Enable compact report table                                                ; Off                   ; Off                ;
+; Restructure Multiplexers                                                   ; Auto                  ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                   ; Off                ;
+; Preserve fewer node names                                                  ; On                    ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                   ; Off                ;
+; Verilog Version                                                            ; Verilog_2001          ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993             ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto                  ; Auto               ;
+; Safe State Machine                                                         ; Off                   ; Off                ;
+; Extract Verilog State Machines                                             ; On                    ; On                 ;
+; Extract VHDL State Machines                                                ; On                    ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                   ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000                  ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                   ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                    ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                    ; On                 ;
+; Parallel Synthesis                                                         ; On                    ; On                 ;
+; DSP Block Balancing                                                        ; Auto                  ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                    ; On                 ;
+; Power-Up Don't Care                                                        ; On                    ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                   ; Off                ;
+; Remove Duplicate Registers                                                 ; On                    ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                   ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                   ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                   ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                   ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                   ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                    ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                   ; Off                ;
+; Optimization Technique                                                     ; Balanced              ; Balanced           ;
+; Carry Chain Length                                                         ; 70                    ; 70                 ;
+; Auto Carry Chains                                                          ; On                    ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                    ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                   ; Off                ;
+; Auto ROM Replacement                                                       ; On                    ; On                 ;
+; Auto RAM Replacement                                                       ; On                    ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto                  ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto                  ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                    ; On                 ;
+; Strict RAM Replacement                                                     ; Off                   ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                    ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                   ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                   ; Off                ;
+; Auto Resource Sharing                                                      ; Off                   ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                   ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                   ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                   ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                    ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                   ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                   ; Off                ;
+; Report Parameter Settings                                                  ; On                    ; On                 ;
+; Report Source Assignments                                                  ; On                    ; On                 ;
+; Report Connectivity Checks                                                 ; On                    ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                   ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                     ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation    ; Normal compilation ;
+; HDL message level                                                          ; Level2                ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                   ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000                  ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000                  ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                   ; 100                ;
+; Clock MUX Protection                                                       ; On                    ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                   ; Off                ;
+; Block Design Naming                                                        ; Auto                  ; Auto               ;
+; SDC constraint protection                                                  ; Off                   ; Off                ;
+; Synthesis Effort                                                           ; Auto                  ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                    ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                   ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium                ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto                  ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                    ; On                 ;
+; Synthesis Seed                                                             ; 1                     ; 1                  ;
++----------------------------------------------------------------------------+-----------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                            ;
++--------------------------------------------------------------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                                                     ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                          ; Library ;
++--------------------------------------------------------------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------------+---------+
+; ../../src/axi_interconnect/rtl/utils/Faling_Edge_Detc.v                              ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/utils/Faling_Edge_Detc.v                              ;         ;
+; ../../src/axi_interconnect/rtl/utils/Raising_Edge_Det.v                              ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/utils/Raising_Edge_Det.v                              ;         ;
+; ../../src/axi_interconnect/rtl/handshake/AW_HandShake_Checker.v                      ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/handshake/AW_HandShake_Checker.v                      ;         ;
+; ../../src/axi_interconnect/rtl/handshake/WD_HandShake.v                              ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/handshake/WD_HandShake.v                              ;         ;
+; ../../src/axi_interconnect/rtl/handshake/WR_HandShake.v                              ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/handshake/WR_HandShake.v                              ;         ;
+; ../../src/axi_interconnect/rtl/datapath/mux/AW_MUX_2_1.v                             ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/datapath/mux/AW_MUX_2_1.v                             ;         ;
+; ../../src/axi_interconnect/rtl/datapath/mux/BReady_MUX_2_1.v                         ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/datapath/mux/BReady_MUX_2_1.v                         ;         ;
+; ../../src/axi_interconnect/rtl/datapath/mux/Mux_2x1.v                                ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/datapath/mux/Mux_2x1.v                                ;         ;
+; ../../src/axi_interconnect/rtl/datapath/mux/Mux_4x1.v                                ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/datapath/mux/Mux_4x1.v                                ;         ;
+; ../../src/axi_interconnect/rtl/datapath/mux/WD_MUX_2_1.v                             ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/datapath/mux/WD_MUX_2_1.v                             ;         ;
+; ../../src/axi_interconnect/rtl/datapath/demux/Demux_1x4.v                            ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/datapath/demux/Demux_1x4.v                            ;         ;
+; ../../src/axi_interconnect/rtl/datapath/demux/Demux_1_2.v                            ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/datapath/demux/Demux_1_2.v                            ;         ;
+; ../../src/axi_interconnect/rtl/buffers/Queue.v                                       ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/buffers/Queue.v                                       ;         ;
+; ../../src/axi_interconnect/rtl/arbitration/Qos_Arbiter.v                             ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/arbitration/Qos_Arbiter.v                             ;         ;
+; ../../src/axi_interconnect/rtl/arbitration/Read_Arbiter.v                            ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/arbitration/Read_Arbiter.v                            ;         ;
+; ../../src/axi_interconnect/rtl/decoders/Read_Addr_Channel_Dec.v                      ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/decoders/Read_Addr_Channel_Dec.v                      ;         ;
+; ../../src/axi_interconnect/rtl/decoders/Write_Addr_Channel_Dec.v                     ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/decoders/Write_Addr_Channel_Dec.v                     ;         ;
+; ../../src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Arb.v                     ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Arb.v                     ;         ;
+; ../../src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Dec.v                     ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Dec.v                     ;         ;
+; ../../src/axi_interconnect/rtl/channel_controllers/write/AW_Channel_Controller_Top.v ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/channel_controllers/write/AW_Channel_Controller_Top.v ;         ;
+; ../../src/axi_interconnect/rtl/channel_controllers/write/BR_Channel_Controller_Top.v ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/channel_controllers/write/BR_Channel_Controller_Top.v ;         ;
+; ../../src/axi_interconnect/rtl/channel_controllers/write/WD_Channel_Controller_Top.v ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/channel_controllers/write/WD_Channel_Controller_Top.v ;         ;
+; ../../src/axi_interconnect/rtl/channel_controllers/read/AR_Channel_Controller_Top.v  ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/channel_controllers/read/AR_Channel_Controller_Top.v  ;         ;
+; ../../src/axi_interconnect/rtl/channel_controllers/read/Controller.v                 ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/channel_controllers/read/Controller.v                 ;         ;
+; ../../src/axi_interconnect/rtl/core/AXI_Interconnect_Full.v                          ; yes             ; User Verilog HDL File  ; D:/AXI/src/axi_interconnect/rtl/core/AXI_Interconnect_Full.v                          ;         ;
++--------------------------------------------------------------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                                                                        ;
++---------------------------------------------+------------------------------------------------------------------------------------------------------+
+; Resource                                    ; Usage                                                                                                ;
++---------------------------------------------+------------------------------------------------------------------------------------------------------+
+; Estimated Total logic elements              ; 894                                                                                                  ;
+;                                             ;                                                                                                      ;
+; Total combinational functions               ; 892                                                                                                  ;
+; Logic element usage by number of LUT inputs ;                                                                                                      ;
+;     -- 4 input functions                    ; 327                                                                                                  ;
+;     -- 3 input functions                    ; 529                                                                                                  ;
+;     -- <=2 input functions                  ; 36                                                                                                   ;
+;                                             ;                                                                                                      ;
+; Logic elements by mode                      ;                                                                                                      ;
+;     -- normal mode                          ; 644                                                                                                  ;
+;     -- arithmetic mode                      ; 248                                                                                                  ;
+;                                             ;                                                                                                      ;
+; Total registers                             ; 34                                                                                                   ;
+;     -- Dedicated logic registers            ; 34                                                                                                   ;
+;     -- I/O registers                        ; 0                                                                                                    ;
+;                                             ;                                                                                                      ;
+; I/O pins                                    ; 1292                                                                                                 ;
+; Embedded Multiplier 9-bit elements          ; 0                                                                                                    ;
+; Maximum fan-out node                        ; AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter|Selected_Master[0] ;
+; Maximum fan-out                             ; 160                                                                                                  ;
+; Total fan-out                               ; 3599                                                                                                 ;
+; Average fan-out                             ; 1.62                                                                                                 ;
++---------------------------------------------+------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                             ;
++----------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                                     ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                 ; Library Name ;
++----------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |AXI_Interconnect_Full                                         ; 892 (0)           ; 34 (0)       ; 0           ; 0            ; 0       ; 0         ; 1292 ; 0            ; |AXI_Interconnect_Full                                                                                                              ; work         ;
+;    |AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|     ; 291 (0)           ; 2 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top                                                        ; work         ;
+;       |AW_HandShake_Checker:u_AR_HandShake_Checker|            ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|AW_HandShake_Checker:u_AR_HandShake_Checker            ; work         ;
+;       |Demux_1_2:u_Demux_Address_Read_Ready|                   ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Demux_1_2:u_Demux_Address_Read_Ready                   ; work         ;
+;       |Mux_2x1:araddr_mux|                                     ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:araddr_mux                                     ; work         ;
+;       |Mux_2x1:arvalid_mux|                                    ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arvalid_mux                                    ; work         ;
+;       |Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec|          ; 250 (250)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec          ; work         ;
+;       |Read_Arbiter:u_Read_Arbiter|                            ; 4 (4)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter                            ; work         ;
+;    |AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|     ; 118 (0)           ; 3 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top                                                        ; work         ;
+;       |AW_HandShake_Checker:u_Address_Write_HandShake_Checker| ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_HandShake_Checker:u_Address_Write_HandShake_Checker ; work         ;
+;       |Faling_Edge_Detc:u_Faling_Edge_Detc|                    ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Faling_Edge_Detc:u_Faling_Edge_Detc                    ; work         ;
+;       |Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec|        ; 116 (116)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec        ; work         ;
+;    |BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|     ; 11 (0)            ; 7 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top                                                        ; work         ;
+;       |Demux_1_2:u_Demux_1_2|                                  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Demux_1_2:u_Demux_1_2                                  ; work         ;
+;       |WR_HandShake:u_WR_HandShake|                            ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|WR_HandShake:u_WR_HandShake                            ; work         ;
+;       |Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb|        ; 5 (5)             ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb        ; work         ;
+;       |Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec|        ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec        ; work         ;
+;    |Controller:Read_controller|                                ; 303 (303)         ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|Controller:Read_controller                                                                                   ; work         ;
+;    |Mux_2x1:rready_mux_M00|                                    ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|Mux_2x1:rready_mux_M00                                                                                       ; work         ;
+;    |Mux_2x1:rready_mux_M01|                                    ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|Mux_2x1:rready_mux_M01                                                                                       ; work         ;
+;    |Mux_2x1:rready_mux_M02|                                    ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|Mux_2x1:rready_mux_M02                                                                                       ; work         ;
+;    |Mux_2x1:rready_mux_M03|                                    ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|Mux_2x1:rready_mux_M03                                                                                       ; work         ;
+;    |Mux_4x1:rdata_mux_M0|                                      ; 64 (64)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|Mux_4x1:rdata_mux_M0                                                                                         ; work         ;
+;    |Mux_4x1:rdata_mux_M1|                                      ; 64 (64)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|Mux_4x1:rdata_mux_M1                                                                                         ; work         ;
+;    |Mux_4x1:rlast_mux_M0|                                      ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|Mux_4x1:rlast_mux_M0                                                                                         ; work         ;
+;    |Mux_4x1:rlast_mux_M1|                                      ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|Mux_4x1:rlast_mux_M1                                                                                         ; work         ;
+;    |Mux_4x1:rresp_mux_M0|                                      ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|Mux_4x1:rresp_mux_M0                                                                                         ; work         ;
+;    |Mux_4x1:rresp_mux_M1|                                      ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|Mux_4x1:rresp_mux_M1                                                                                         ; work         ;
+;    |Mux_4x1:rvalid_mux_M0|                                     ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|Mux_4x1:rvalid_mux_M0                                                                                        ; work         ;
+;    |Mux_4x1:rvalid_mux_M1|                                     ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|Mux_4x1:rvalid_mux_M1                                                                                        ; work         ;
+;    |WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|     ; 18 (3)            ; 12 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top                                                        ; work         ;
+;       |Queue:u_Queue2|                                         ; 5 (5)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue2                                         ; work         ;
+;       |Queue:u_Queue|                                          ; 6 (6)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue                                          ; work         ;
+;       |WD_HandShake:u_WD_HandShake2|                           ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_HandShake:u_WD_HandShake2                           ; work         ;
+;       |WD_HandShake:u_WD_HandShake|                            ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AXI_Interconnect_Full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_HandShake:u_WD_HandShake                            ; work         ;
++----------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |AXI_Interconnect_Full|Controller:Read_controller|curr_state_address                                              ;
++---------------------------------+---------------------------------+-------------------------------+-------------------------------+
+; Name                            ; curr_state_address.Idle_address ; curr_state_address.M1_Address ; curr_state_address.M0_Address ;
++---------------------------------+---------------------------------+-------------------------------+-------------------------------+
+; curr_state_address.Idle_address ; 0                               ; 0                             ; 0                             ;
+; curr_state_address.M0_Address   ; 1                               ; 0                             ; 1                             ;
+; curr_state_address.M1_Address   ; 1                               ; 1                             ; 0                             ;
++---------------------------------+---------------------------------+-------------------------------+-------------------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |AXI_Interconnect_Full|Controller:Read_controller|curr_state_slave2                                                                                                 ;
++--------------------------------+----------------------------+----------------------------+----------------------------+--------------------------------+----------------------------+
+; Name                           ; curr_state_slave2.Slave2_2 ; curr_state_slave2.Slave1_2 ; curr_state_slave2.Slave0_2 ; curr_state_slave2.Idle_slave_2 ; curr_state_slave2.Slave3_2 ;
++--------------------------------+----------------------------+----------------------------+----------------------------+--------------------------------+----------------------------+
+; curr_state_slave2.Idle_slave_2 ; 0                          ; 0                          ; 0                          ; 0                              ; 0                          ;
+; curr_state_slave2.Slave0_2     ; 0                          ; 0                          ; 1                          ; 1                              ; 0                          ;
+; curr_state_slave2.Slave1_2     ; 0                          ; 1                          ; 0                          ; 1                              ; 0                          ;
+; curr_state_slave2.Slave2_2     ; 1                          ; 0                          ; 0                          ; 1                              ; 0                          ;
+; curr_state_slave2.Slave3_2     ; 0                          ; 0                          ; 0                          ; 1                              ; 1                          ;
++--------------------------------+----------------------------+----------------------------+----------------------------+--------------------------------+----------------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |AXI_Interconnect_Full|Controller:Read_controller|curr_state_slave                                                                                ;
++-----------------------------+-------------------------+-------------------------+-------------------------+-----------------------------+-------------------------+
+; Name                        ; curr_state_slave.Slave2 ; curr_state_slave.Slave1 ; curr_state_slave.Slave0 ; curr_state_slave.Idle_slave ; curr_state_slave.Slave3 ;
++-----------------------------+-------------------------+-------------------------+-------------------------+-----------------------------+-------------------------+
+; curr_state_slave.Idle_slave ; 0                       ; 0                       ; 0                       ; 0                           ; 0                       ;
+; curr_state_slave.Slave0     ; 0                       ; 0                       ; 1                       ; 1                           ; 0                       ;
+; curr_state_slave.Slave1     ; 0                       ; 1                       ; 0                       ; 1                           ; 0                       ;
+; curr_state_slave.Slave2     ; 1                       ; 0                       ; 0                       ; 1                           ; 0                       ;
+; curr_state_slave.Slave3     ; 0                       ; 0                       ; 0                       ; 1                           ; 1                       ;
++-----------------------------+-------------------------+-------------------------+-------------------------+-----------------------------+-------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                              ;
++---------------------------------------------------------------------------------------------------+---------------------------------------------+
+; Register name                                                                                     ; Reason for Removal                          ;
++---------------------------------------------------------------------------------------------------+---------------------------------------------+
+; AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter|Selected_Slave[0] ; Stuck at GND due to stuck port clock_enable ;
+; WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue2|Queue[1][0]                  ; Stuck at GND due to stuck port data_in      ;
+; WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue2|Queue[0][0]                  ; Stuck at GND due to stuck port data_in      ;
+; WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue|Queue[1][0]                   ; Stuck at GND due to stuck port data_in      ;
+; WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue|Queue[0][0]                   ; Stuck at GND due to stuck port data_in      ;
+; Controller:Read_controller|curr_state_slave2~4                                                    ; Lost fanout                                 ;
+; Controller:Read_controller|curr_state_slave2~5                                                    ; Lost fanout                                 ;
+; Controller:Read_controller|curr_state_slave~4                                                     ; Lost fanout                                 ;
+; Controller:Read_controller|curr_state_slave~5                                                     ; Lost fanout                                 ;
+; Controller:Read_controller|curr_state_address.M0_Address                                          ; Lost fanout                                 ;
+; Controller:Read_controller|curr_state_address.M1_Address                                          ; Lost fanout                                 ;
+; Controller:Read_controller|curr_state_address.Idle_address                                        ; Lost fanout                                 ;
+; Total Number of Removed Registers = 12                                                            ;                                             ;
++---------------------------------------------------------------------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                            ;
++---------------------------------------------------------------------------------------------------+--------------------------------+-----------------------------------------------------------------------------------+
+; Register name                                                                                     ; Reason for Removal             ; Registers Removed due to This Register                                            ;
++---------------------------------------------------------------------------------------------------+--------------------------------+-----------------------------------------------------------------------------------+
+; AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter|Selected_Slave[0] ; Stuck at GND                   ; WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue2|Queue[1][0], ;
+;                                                                                                   ; due to stuck port clock_enable ; WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue2|Queue[0][0], ;
+;                                                                                                   ;                                ; WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue|Queue[1][0],  ;
+;                                                                                                   ;                                ; WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue|Queue[0][0]   ;
++---------------------------------------------------------------------------------------------------+--------------------------------+-----------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 34    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 34    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 5     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                                                                          ;
++-----------------------------------------------------------------------------------------------------------------------------+---------+
+; Inverted Register                                                                                                           ; Fan out ;
++-----------------------------------------------------------------------------------------------------------------------------+---------+
+; BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|WR_HandShake:u_WR_HandShake|HandShake_Done                            ; 6       ;
+; AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|AW_HandShake_Checker:u_AR_HandShake_Checker|HandShake_Done            ; 3       ;
+; AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_HandShake_Checker:u_Address_Write_HandShake_Checker|HandShake_Done ; 2       ;
+; Total number of inverted registers = 3                                                                                      ;         ;
++-----------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |AXI_Interconnect_Full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb|Sel_Write_Resp[1] ;
+; 4:1                ; 36 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |AXI_Interconnect_Full|Mux_4x1:rdata_mux_M1|Mux20                                                                                              ;
+; 4:1                ; 36 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |AXI_Interconnect_Full|Mux_4x1:rdata_mux_M0|Mux3                                                                                               ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |AXI_Interconnect_Full|Controller:Read_controller|next_state_address                                                                           ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |AXI_Interconnect_Full|Controller:Read_controller|next_state_slave                                                                             ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |AXI_Interconnect_Full|Controller:Read_controller|next_state_slave2                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |AXI_Interconnect_Full ;
++--------------------------+----------------------------------+-------------------------+
+; Parameter Name           ; Value                            ; Type                    ;
++--------------------------+----------------------------------+-------------------------+
+; Masters_Num              ; 00000000000000000000000000000010 ; Unsigned Binary         ;
+; Slaves_ID_Size           ; 1                                ; Signed Integer          ;
+; Address_width            ; 00000000000000000000000000100000 ; Unsigned Binary         ;
+; S00_Aw_len               ; 00000000000000000000000000001000 ; Unsigned Binary         ;
+; S00_Write_data_bus_width ; 00000000000000000000000000100000 ; Unsigned Binary         ;
+; S00_Write_data_bytes_num ; 00000000000000000000000000000100 ; Unsigned Binary         ;
+; S00_AR_len               ; 00000000000000000000000000001000 ; Unsigned Binary         ;
+; S00_Read_data_bus_width  ; 00000000000000000000000000100000 ; Unsigned Binary         ;
+; S01_Aw_len               ; 00000000000000000000000000001000 ; Unsigned Binary         ;
+; S01_AR_len               ; 00000000000000000000000000001000 ; Unsigned Binary         ;
+; S01_Write_data_bus_width ; 00000000000000000000000000100000 ; Unsigned Binary         ;
+; AXI4_Aw_len              ; 00000000000000000000000000001000 ; Unsigned Binary         ;
+; M00_Aw_len               ; 00000000000000000000000000001000 ; Unsigned Binary         ;
+; M00_Write_data_bus_width ; 00000000000000000000000000100000 ; Unsigned Binary         ;
+; M00_Write_data_bytes_num ; 00000000000000000000000000000100 ; Unsigned Binary         ;
+; M00_AR_len               ; 00000000000000000000000000001000 ; Unsigned Binary         ;
+; M00_Read_data_bus_width  ; 00000000000000000000000000100000 ; Unsigned Binary         ;
+; M01_Aw_len               ; 00000000000000000000000000001000 ; Unsigned Binary         ;
+; M01_AR_len               ; 00000000000000000000000000001000 ; Unsigned Binary         ;
+; M02_Aw_len               ; 00000000000000000000000000001000 ; Unsigned Binary         ;
+; M02_AR_len               ; 00000000000000000000000000001000 ; Unsigned Binary         ;
+; M02_Read_data_bus_width  ; 00000000000000000000000000100000 ; Unsigned Binary         ;
+; M03_Aw_len               ; 00000000000000000000000000001000 ; Unsigned Binary         ;
+; M03_AR_len               ; 00000000000000000000000000001000 ; Unsigned Binary         ;
+; M03_Read_data_bus_width  ; 00000000000000000000000000100000 ; Unsigned Binary         ;
+; Is_Master_AXI_4          ; 00000000000000000000000000000001 ; Unsigned Binary         ;
+; M1_ID                    ; 00000000000000000000000000000000 ; Unsigned Binary         ;
+; M2_ID                    ; 00000000000000000000000000000001 ; Unsigned Binary         ;
+; Resp_ID_width            ; 00000000000000000000000000000010 ; Unsigned Binary         ;
+; Num_Of_Masters           ; 00000000000000000000000000000010 ; Unsigned Binary         ;
+; Num_Of_Slaves            ; 00000000000000000000000000000100 ; Unsigned Binary         ;
+; Master_ID_Width          ; 1                                ; Signed Integer          ;
+; AXI4_AR_len              ; 00000000000000000000000000001000 ; Unsigned Binary         ;
++--------------------------+----------------------------------+-------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AW_Channel_Controller_Top:u_AW_Channel_Controller_Top ;
++-----------------+----------------------------------+-----------------------------------------------+
+; Parameter Name  ; Value                            ; Type                                          ;
++-----------------+----------------------------------+-----------------------------------------------+
+; Masters_Num     ; 00000000000000000000000000000010 ; Unsigned Binary                               ;
+; Slaves_ID_Size  ; 1                                ; Signed Integer                                ;
+; Address_width   ; 00000000000000000000000000100000 ; Unsigned Binary                               ;
+; S00_Aw_len      ; 00000000000000000000000000001000 ; Unsigned Binary                               ;
+; S01_Aw_len      ; 00000000000000000000000000001000 ; Unsigned Binary                               ;
+; Is_Master_AXI_4 ; 00000000000000000000000000000001 ; Unsigned Binary                               ;
+; AXI4_Aw_len     ; 00000000000000000000000000001000 ; Unsigned Binary                               ;
+; M00_Aw_len      ; 00000000000000000000000000001000 ; Unsigned Binary                               ;
+; M01_Aw_len      ; 00000000000000000000000000001000 ; Unsigned Binary                               ;
+; Num_Of_Slaves   ; 00000000000000000000000000000100 ; Unsigned Binary                               ;
++-----------------+----------------------------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter ;
++----------------+----------------------------------+--------------------------------------------------------------------------+
+; Parameter Name ; Value                            ; Type                                                                     ;
++----------------+----------------------------------+--------------------------------------------------------------------------+
+; Slaves_Num     ; 00000000000000000000000000000010 ; Unsigned Binary                                                          ;
+; Slaves_ID_Size ; 1                                ; Signed Integer                                                           ;
++----------------+----------------------------------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Demux_1_2:u_Demux_Address_Write_Ready ;
++----------------+----------------------------------+--------------------------------------------------------------------------------------+
+; Parameter Name ; Value                            ; Type                                                                                 ;
++----------------+----------------------------------+--------------------------------------------------------------------------------------+
+; Data_Width     ; 00000000000000000000000000000001 ; Unsigned Binary                                                                      ;
++----------------+----------------------------------+--------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_MUX_2_1:u_AW_MUX_2_1 ;
++----------------+----------------------------------+------------------------------------------------------------------------+
+; Parameter Name ; Value                            ; Type                                                                   ;
++----------------+----------------------------------+------------------------------------------------------------------------+
+; Address_width  ; 00000000000000000000000000100000 ; Unsigned Binary                                                        ;
+; S_Aw_len       ; 00000000000000000000000000001000 ; Unsigned Binary                                                        ;
++----------------+----------------------------------+------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec ;
++-----------------+----------------------------------+-----------------------------------------------------------------------------------------------+
+; Parameter Name  ; Value                            ; Type                                                                                          ;
++-----------------+----------------------------------+-----------------------------------------------------------------------------------------------+
+; Num_OF_Masters  ; 00000000000000000000000000000010 ; Unsigned Binary                                                                               ;
+; Masters_ID_Size ; 1                                ; Signed Integer                                                                                ;
+; Address_width   ; 00000000000000000000000000100000 ; Unsigned Binary                                                                               ;
+; AXI4_Aw_len     ; 00000000000000000000000000001000 ; Unsigned Binary                                                                               ;
+; Num_Of_Slaves   ; 00000000000000000000000000000100 ; Unsigned Binary                                                                               ;
+; Base_Addr_Width ; 2                                ; Signed Integer                                                                                ;
++-----------------+----------------------------------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: WD_Channel_Controller_Top:u_WD_Channel_Controller_Top ;
++--------------------------+----------------------------------+--------------------------------------+
+; Parameter Name           ; Value                            ; Type                                 ;
++--------------------------+----------------------------------+--------------------------------------+
+; Slaves_Num               ; 00000000000000000000000000000010 ; Unsigned Binary                      ;
+; Slaves_ID_Size           ; 1                                ; Signed Integer                       ;
+; Address_width            ; 00000000000000000000000000100000 ; Unsigned Binary                      ;
+; S00_Write_data_bus_width ; 00000000000000000000000000100000 ; Unsigned Binary                      ;
+; S00_Write_data_bytes_num ; 00000000000000000000000000000100 ; Unsigned Binary                      ;
+; S01_Write_data_bus_width ; 00000000000000000000000000100000 ; Unsigned Binary                      ;
+; S01_Write_data_bytes_num ; 00000000000000000000000000000100 ; Unsigned Binary                      ;
+; M00_Write_data_bus_width ; 00000000000000000000000000100000 ; Unsigned Binary                      ;
+; M00_Write_data_bytes_num ; 00000000000000000000000000000100 ; Unsigned Binary                      ;
+; Num_Of_Slaves            ; 00000000000000000000000000000100 ; Unsigned Binary                      ;
++--------------------------+----------------------------------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue ;
++----------------+----------------------------------+--------------------------------------------------------------+
+; Parameter Name ; Value                            ; Type                                                         ;
++----------------+----------------------------------+--------------------------------------------------------------+
+; Slaves_Num     ; 00000000000000000000000000000010 ; Unsigned Binary                                              ;
+; ID_Size        ; 1                                ; Signed Integer                                               ;
++----------------+----------------------------------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue2 ;
++----------------+----------------------------------+---------------------------------------------------------------+
+; Parameter Name ; Value                            ; Type                                                          ;
++----------------+----------------------------------+---------------------------------------------------------------+
+; Slaves_Num     ; 00000000000000000000000000000010 ; Unsigned Binary                                               ;
+; ID_Size        ; 1                                ; Signed Integer                                                ;
++----------------+----------------------------------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Demux_1_2:u_Demux_Write_Data_Ready ;
++----------------+----------------------------------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value                            ; Type                                                                              ;
++----------------+----------------------------------+-----------------------------------------------------------------------------------+
+; Data_Width     ; 00000000000000000000000000000001 ; Unsigned Binary                                                                   ;
++----------------+----------------------------------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Demux_1_2:u_Demux_Write_Data_Ready2 ;
++----------------+----------------------------------+------------------------------------------------------------------------------------+
+; Parameter Name ; Value                            ; Type                                                                               ;
++----------------+----------------------------------+------------------------------------------------------------------------------------+
+; Data_Width     ; 00000000000000000000000000000001 ; Unsigned Binary                                                                    ;
++----------------+----------------------------------+------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_MUX_2_1:u_WD_MUX_2_1 ;
++------------------------+----------------------------------+----------------------------------------------------------------+
+; Parameter Name         ; Value                            ; Type                                                           ;
++------------------------+----------------------------------+----------------------------------------------------------------+
+; S_Write_data_bus_width ; 00000000000000000000000000100000 ; Unsigned Binary                                                ;
+; S_Write_data_bytes_num ; 00000000000000000000000000000100 ; Unsigned Binary                                                ;
++------------------------+----------------------------------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_MUX_2_1:u_WD_MUX_2_1_2 ;
++------------------------+----------------------------------+------------------------------------------------------------------+
+; Parameter Name         ; Value                            ; Type                                                             ;
++------------------------+----------------------------------+------------------------------------------------------------------+
+; S_Write_data_bus_width ; 00000000000000000000000000100000 ; Unsigned Binary                                                  ;
+; S_Write_data_bytes_num ; 00000000000000000000000000000100 ; Unsigned Binary                                                  ;
++------------------------+----------------------------------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BR_Channel_Controller_Top:u_BR_Channel_Controller_Top ;
++-----------------+----------------------------------+-----------------------------------------------+
+; Parameter Name  ; Value                            ; Type                                          ;
++-----------------+----------------------------------+-----------------------------------------------+
+; Slaves_Num      ; 00000000000000000000000000000010 ; Unsigned Binary                               ;
+; Slaves_ID_Size  ; 1                                ; Signed Integer                                ;
+; AXI4_Aw_len     ; 00000000000000000000000000001000 ; Unsigned Binary                               ;
+; Resp_ID_width   ; 2                                ; Signed Integer                                ;
+; Num_Of_Masters  ; 00000000000000000000000000000010 ; Unsigned Binary                               ;
+; Num_Of_Slaves   ; 00000000000000000000000000000100 ; Unsigned Binary                               ;
+; Master_ID_Width ; 1                                ; Signed Integer                                ;
+; M1_ID           ; 00000000000000000000000000000000 ; Unsigned Binary                               ;
+; M2_ID           ; 00000000000000000000000000000001 ; Unsigned Binary                               ;
++-----------------+----------------------------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb ;
++-----------------+----------------------------------+-----------------------------------------------------------------------------------------------+
+; Parameter Name  ; Value                            ; Type                                                                                          ;
++-----------------+----------------------------------+-----------------------------------------------------------------------------------------------+
+; Num_Of_Masters  ; 00000000000000000000000000000010 ; Unsigned Binary                                                                               ;
+; Masters_Id_Size ; 1                                ; Signed Integer                                                                                ;
+; Num_Of_Slaves   ; 00000000000000000000000000000100 ; Unsigned Binary                                                                               ;
+; Slaves_Id_Size  ; 2                                ; Signed Integer                                                                                ;
++-----------------+----------------------------------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Demux_1_2:u_Demux_1_2 ;
++----------------+-------+-------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                            ;
++----------------+-------+-------------------------------------------------------------------------------------------------+
+; Data_Width     ; 1     ; Unsigned Binary                                                                                 ;
++----------------+-------+-------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec ;
++-----------------+----------------------------------+-----------------------------------------------------------------------------------------------+
+; Parameter Name  ; Value                            ; Type                                                                                          ;
++-----------------+----------------------------------+-----------------------------------------------------------------------------------------------+
+; Num_Of_Masters  ; 00000000000000000000000000000010 ; Unsigned Binary                                                                               ;
+; Master_ID_Width ; 1                                ; Signed Integer                                                                                ;
+; M1_ID           ; 00000000000000000000000000000000 ; Unsigned Binary                                                                               ;
+; M2_ID           ; 00000000000000000000000000000001 ; Unsigned Binary                                                                               ;
+; M3_ID           ; 00000000000000000000000000000010 ; Unsigned Binary                                                                               ;
+; M4_ID           ; 00000000000000000000000000000011 ; Unsigned Binary                                                                               ;
++-----------------+----------------------------------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top ;
++----------------+----------------------------------+------------------------------------------------+
+; Parameter Name ; Value                            ; Type                                           ;
++----------------+----------------------------------+------------------------------------------------+
+; Masters_Num    ; 00000000000000000000000000000010 ; Unsigned Binary                                ;
+; Slaves_ID_Size ; 1                                ; Signed Integer                                 ;
+; Address_width  ; 00000000000000000000000000100000 ; Unsigned Binary                                ;
+; S00_AR_len     ; 00000000000000000000000000001000 ; Unsigned Binary                                ;
+; S01_AR_len     ; 00000000000000000000000000001000 ; Unsigned Binary                                ;
+; M00_AR_len     ; 00000000000000000000000000001000 ; Unsigned Binary                                ;
+; M01_AR_len     ; 00000000000000000000000000001000 ; Unsigned Binary                                ;
+; M02_AR_len     ; 00000000000000000000000000001000 ; Unsigned Binary                                ;
+; M03_AR_len     ; 00000000000000000000000000001000 ; Unsigned Binary                                ;
+; AXI4_AR_len    ; 00000000000000000000000000001000 ; Unsigned Binary                                ;
+; Num_Of_Slaves  ; 00000000000000000000000000000100 ; Unsigned Binary                                ;
++----------------+----------------------------------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter ;
++-----------------+----------------------------------+---------------------------------------------------------------------------+
+; Parameter Name  ; Value                            ; Type                                                                      ;
++-----------------+----------------------------------+---------------------------------------------------------------------------+
+; Masters_Num     ; 00000000000000000000000000000010 ; Unsigned Binary                                                           ;
+; Masters_ID_Size ; 1                                ; Signed Integer                                                            ;
++-----------------+----------------------------------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:araddr_mux ;
++----------------+----------------------------------+-------------------------------------------------------------------+
+; Parameter Name ; Value                            ; Type                                                              ;
++----------------+----------------------------------+-------------------------------------------------------------------+
+; width          ; 00000000000000000000000000011111 ; Unsigned Binary                                                   ;
++----------------+----------------------------------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arlen_mux ;
++----------------+----------------------------------+------------------------------------------------------------------+
+; Parameter Name ; Value                            ; Type                                                             ;
++----------------+----------------------------------+------------------------------------------------------------------+
+; width          ; 00000000000000000000000000000111 ; Unsigned Binary                                                  ;
++----------------+----------------------------------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arsize_mux ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; width          ; 2     ; Signed Integer                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arburst_mux ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; width          ; 1     ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arlock_mux ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; width          ; 1     ; Signed Integer                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arcache_mux ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; width          ; 3     ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arprot_mux ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; width          ; 2     ; Signed Integer                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arqos_mux ;
++----------------+-------+---------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------------+
+; width          ; 3     ; Signed Integer                                                                              ;
++----------------+-------+---------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arregion_mux ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                           ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+; width          ; 3     ; Signed Integer                                                                                 ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arvalid_mux ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; width          ; 0     ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec ;
++-----------------+----------------------------------+---------------------------------------------------------------------------------------------+
+; Parameter Name  ; Value                            ; Type                                                                                        ;
++-----------------+----------------------------------+---------------------------------------------------------------------------------------------+
+; Num_OF_Masters  ; 00000000000000000000000000000010 ; Unsigned Binary                                                                             ;
+; Masters_ID_Size ; 1                                ; Signed Integer                                                                              ;
+; Address_width   ; 00000000000000000000000000100000 ; Unsigned Binary                                                                             ;
+; AXI4_AR_len     ; 00000000000000000000000000001000 ; Unsigned Binary                                                                             ;
+; Num_Of_Slaves   ; 00000000000000000000000000000100 ; Unsigned Binary                                                                             ;
+; Base_Addr_Width ; 2                                ; Signed Integer                                                                              ;
++-----------------+----------------------------------+---------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Demux_1_2:u_Demux_Address_Read_Ready ;
++----------------+----------------------------------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value                            ; Type                                                                                ;
++----------------+----------------------------------+-------------------------------------------------------------------------------------+
+; Data_Width     ; 00000000000000000000000000000001 ; Unsigned Binary                                                                     ;
++----------------+----------------------------------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux_2x1:mux_m_addr     ;
++----------------+----------------------------------+-----------------+
+; Parameter Name ; Value                            ; Type            ;
++----------------+----------------------------------+-----------------+
+; width          ; 00000000000000000000000000011111 ; Unsigned Binary ;
++----------------+----------------------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Demux_1x4:rready_demux_M0 ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; width          ; 0     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Demux_1x4:rready_demux_M1 ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; width          ; 0     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux_2x1:rready_mux_M00 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; width          ; 0     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux_2x1:rready_mux_M01 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; width          ; 0     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux_2x1:rready_mux_M02 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; width          ; 0     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux_2x1:rready_mux_M03 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; width          ; 0     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux_4x1:rvalid_mux_M0 ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; width          ; 0     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux_4x1:rvalid_mux_M1 ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; width          ; 0     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux_4x1:rdata_mux_M0 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; width          ; 31    ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux_4x1:rdata_mux_M1 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; width          ; 31    ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux_4x1:rlast_mux_M0 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; width          ; 0     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux_4x1:rlast_mux_M1 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; width          ; 0     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux_4x1:rresp_mux_M0 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; width          ; 1     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux_4x1:rresp_mux_M1 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; width          ; 1     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Controller:Read_controller"                                                                          ;
++-----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                  ; Type   ; Severity ; Details                                                                             ;
++-----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; select_slave_address  ; Output ; Info     ; Explicitly unconnected                                                              ;
+; select_master_address ; Output ; Info     ; Explicitly unconnected                                                              ;
+; en_S0[1]              ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; en_S1[1]              ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; en_S2[1]              ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; en_S3[1]              ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Raising_Edge_Det:u_Raising_Edge_Det" ;
++---------+--------+----------+-----------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                 ;
++---------+--------+----------+-----------------------------------------------------------------------------------------+
+; Raisung ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.     ;
++---------+--------+----------+-----------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec" ;
++-----------+--------+----------+-------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                         ;
++-----------+--------+----------+-------------------------------------------------------------------------------------------------+
+; Q_Enables ; Output ; Info     ; Explicitly unconnected                                                                          ;
++-----------+--------+----------+-------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter" ;
++-------+-------+----------+------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------+
+; Token ; Input ; Info     ; Stuck at GND                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AR_Channel_Controller_Top:u_AR_Channel_Controller_Top"                                            ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port               ; Type   ; Severity ; Details                                                                             ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; AR_Access_Grant    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; AR_Channel_Request ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; M00_AXI_araddr_ID  ; Output ; Info     ; Explicitly unconnected                                                              ;
+; M01_AXI_araddr_ID  ; Output ; Info     ; Explicitly unconnected                                                              ;
+; M02_AXI_araddr_ID  ; Output ; Info     ; Explicitly unconnected                                                              ;
+; M03_AXI_araddr_ID  ; Output ; Info     ; Explicitly unconnected                                                              ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec" ;
++----------------+--------+----------+----------------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                                      ;
++----------------+--------+----------+----------------------------------------------------------------------------------------------+
+; S02_AXI_bresp  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.          ;
+; S02_AXI_bvalid ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.          ;
+; S03_AXI_bresp  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.          ;
+; S03_AXI_bvalid ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.          ;
++----------------+--------+----------+----------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb" ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                                   ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------------+
+; Selected_Slave[1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "WD_Channel_Controller_Top:u_WD_Channel_Controller_Top"                                                  ;
++--------------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                     ; Type   ; Severity ; Details                                                                             ;
++--------------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Write_Data_Master2       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Write_Data_Finsh2        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Is_Master_Part_Of_Split2 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec" ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                                   ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------------+
+; M02_AXI_awaddr_ID ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M02_AXI_awaddr    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M02_AXI_awlen     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M02_AXI_awsize    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M02_AXI_awburst   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M02_AXI_awlock    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M02_AXI_awcache   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M02_AXI_awprot    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M02_AXI_awqos     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M02_AXI_awvalid   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M02_AXI_awready   ; Input  ; Info     ; Stuck at GND                                                                              ;
+; M03_AXI_awaddr_ID ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M03_AXI_awaddr    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M03_AXI_awlen     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M03_AXI_awsize    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M03_AXI_awburst   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M03_AXI_awlock    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M03_AXI_awcache   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M03_AXI_awprot    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M03_AXI_awqos     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M03_AXI_awvalid   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.       ;
+; M03_AXI_awready   ; Input  ; Info     ; Stuck at GND                                                                              ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_HandShake_Checker:u_Address_Write_HandShake_Checker" ;
++-----------------+-------+----------+-----------------------------------------------------------------------------------------------------+
+; Port            ; Type  ; Severity ; Details                                                                                             ;
++-----------------+-------+----------+-----------------------------------------------------------------------------------------------------+
+; Channel_Request ; Input ; Info     ; Stuck at VCC                                                                                        ;
++-----------------+-------+----------+-----------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Raising_Edge_Det:u_Raising_Edge_Det" ;
++---------+--------+----------+-----------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                 ;
++---------+--------+----------+-----------------------------------------------------------------------------------------+
+; Raisung ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.     ;
++---------+--------+----------+-----------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter"               ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Token           ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; Channel_Request ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon Nov 24 10:16:06 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AXI_PROJECT -c AXI_PROJECT
+Info (11104): Parallel Compilation has detected 16 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 8 of the 8 physical processors detected instead.
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_state.v
+    Info (12023): Found entity 1: serv_state
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_immdec.v
+    Info (12023): Found entity 1: serv_immdec
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_compdec.v
+    Info (12023): Found entity 1: serv_compdec
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_decode.v
+    Info (12023): Found entity 1: serv_decode
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_alu.v
+    Info (12023): Found entity 1: serv_alu
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_ctrl.v
+    Info (12023): Found entity 1: serv_ctrl
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_csr.v
+    Info (12023): Found entity 1: serv_csr
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_bufreg.v
+    Info (12023): Found entity 1: serv_bufreg
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_bufreg2.v
+    Info (12023): Found entity 1: serv_bufreg2
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_aligner.v
+    Info (12023): Found entity 1: serv_aligner
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_mem_if.v
+    Info (12023): Found entity 1: serv_mem_if
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_rf_if.v
+    Info (12023): Found entity 1: serv_rf_if
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_rf_ram_if.v
+    Info (12023): Found entity 1: serv_rf_ram_if
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_rf_ram.v
+    Info (12023): Found entity 1: serv_rf_ram
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_rf_top.v
+    Info (12023): Found entity 1: serv_rf_top
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_top.v
+    Info (12023): Found entity 1: serv_top
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/utils/faling_edge_detc.v
+    Info (12023): Found entity 1: Faling_Edge_Detc
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/utils/raising_edge_det.v
+    Info (12023): Found entity 1: Raising_Edge_Det
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/handshake/aw_handshake_checker.v
+    Info (12023): Found entity 1: AW_HandShake_Checker
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/handshake/wd_handshake.v
+    Info (12023): Found entity 1: WD_HandShake
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/handshake/wr_handshake.v
+    Info (12023): Found entity 1: WR_HandShake
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/datapath/mux/aw_mux_2_1.v
+    Info (12023): Found entity 1: AW_MUX_2_1
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/datapath/mux/bready_mux_2_1.v
+    Info (12023): Found entity 1: BReady_MUX_2_1
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/datapath/mux/mux_2x1.v
+    Info (12023): Found entity 1: Mux_2x1
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/datapath/mux/mux_2x1_en.v
+    Info (12023): Found entity 1: Mux_2x1_en
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/datapath/mux/mux_4x1.v
+    Info (12023): Found entity 1: Mux_4x1
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/datapath/mux/wd_mux_2_1.v
+    Info (12023): Found entity 1: WD_MUX_2_1
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/datapath/demux/demux_1x2.v
+    Info (12023): Found entity 1: Demux_1x2
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/datapath/demux/demux_1x2_en.v
+    Info (12023): Found entity 1: Demux_1x2_en
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/datapath/demux/demux_1x4.v
+    Info (12023): Found entity 1: Demux_1x4
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/datapath/demux/demux_1_2.v
+    Info (12023): Found entity 1: Demux_1_2
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/buffers/queue.v
+    Info (12023): Found entity 1: Queue
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/buffers/resp_queue.v
+    Info (12023): Found entity 1: Resp_Queue
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/arbitration/qos_arbiter.v
+    Info (12023): Found entity 1: Qos_Arbiter
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/arbitration/read_arbiter.v
+    Info (12023): Found entity 1: Read_Arbiter
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/arbitration/write_arbiter.v
+    Info (12023): Found entity 1: Write_Arbiter
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/arbitration/write_arbiter_rr.v
+    Info (12023): Found entity 1: Write_Arbiter_RR
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/decoders/read_addr_channel_dec.v
+    Info (12023): Found entity 1: Read_Addr_Channel_Dec
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/decoders/write_addr_channel_dec.v
+    Info (12023): Found entity 1: Write_Addr_Channel_Dec
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/decoders/write_resp_channel_arb.v
+    Info (12023): Found entity 1: Write_Resp_Channel_Arb
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/decoders/write_resp_channel_dec.v
+    Info (12023): Found entity 1: Write_Resp_Channel_Dec
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/channel_controllers/write/aw_channel_controller_top.v
+    Info (12023): Found entity 1: AW_Channel_Controller_Top
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/channel_controllers/write/br_channel_controller_top.v
+    Info (12023): Found entity 1: BR_Channel_Controller_Top
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/channel_controllers/write/wd_channel_controller_top.v
+    Info (12023): Found entity 1: WD_Channel_Controller_Top
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/channel_controllers/read/ar_channel_controller_top.v
+    Info (12023): Found entity 1: AR_Channel_Controller_Top
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/channel_controllers/read/controller.v
+    Info (12023): Found entity 1: Controller
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/core/axi_interconnect.v
+    Info (12023): Found entity 1: AXI_Interconnect
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/core/axi_interconnect_2s_rdonly.v
+    Info (12023): Found entity 1: AXI_Interconnect_2S_RDONLY
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/axi_interconnect/rtl/core/axi_interconnect_full.v
+    Info (12023): Found entity 1: AXI_Interconnect_Full
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/alu/alu_core.v
+    Info (12023): Found entity 1: ALU_Core
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/alu/cpu_alu_master.v
+    Info (12023): Found entity 1: CPU_ALU_Master
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/alu/cpu_controller.v
+    Info (12023): Found entity 1: CPU_Controller
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/alu/simple_axi_master_test.v
+    Info (12023): Found entity 1: Simple_AXI_Master_Test
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/wrapper/memory/simple_memory_slave.v
+    Info (12023): Found entity 1: Simple_Memory_Slave
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/wrapper/converters/wb2axi_read.v
+    Info (12023): Found entity 1: wb2axi_read
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/wrapper/converters/wb2axi_write.v
+    Info (12023): Found entity 1: wb2axi_write
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/wrapper/converters/serv_axi_wrapper.v
+    Info (12023): Found entity 1: serv_axi_wrapper
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/wrapper/systems/serv_axi_system.v
+    Info (12023): Found entity 1: serv_axi_system
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/wrapper/systems/dual_master_system.v
+    Info (12023): Found entity 1: dual_master_system
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/wrapper/systems/alu_master_system.v
+    Info (12023): Found entity 1: alu_master_system
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/wrapper/ip/serv_axi_system_ip.v
+    Info (12023): Found entity 1: serv_axi_system_ip
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/wrapper/ip/dual_master_system_ip.v
+    Info (12023): Found entity 1: dual_master_system_ip
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/wrapper/memory/axi_rom_slave.v
+    Info (12023): Found entity 1: axi_rom_slave
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/wrapper/memory/axi_memory_slave.v
+    Info (12023): Found entity 1: axi_memory_slave
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_debug.v
+    Info (12023): Found entity 1: serv_debug
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_synth_wrapper.v
+    Info (12023): Found entity 1: serv_synth_wrapper
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/wrapper/systems/axi_interconnect_wrapper.v
+    Info (12023): Found entity 1: axi_interconnect_wrapper
+Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/wrapper/systems/axi_interconnect_2m4s_wrapper.v
+    Info (12023): Found entity 1: axi_interconnect_2m4s_wrapper
+Info (12127): Elaborating entity "AXI_Interconnect_Full" for the top level hierarchy
+Info (12128): Elaborating entity "AW_Channel_Controller_Top" for hierarchy "AW_Channel_Controller_Top:u_AW_Channel_Controller_Top"
+Info (12128): Elaborating entity "Qos_Arbiter" for hierarchy "AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter"
+Info (12128): Elaborating entity "Faling_Edge_Detc" for hierarchy "AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Faling_Edge_Detc:u_Faling_Edge_Detc"
+Info (12128): Elaborating entity "Raising_Edge_Det" for hierarchy "AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Raising_Edge_Det:u_Raising_Edge_Det"
+Info (12128): Elaborating entity "AW_HandShake_Checker" for hierarchy "AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_HandShake_Checker:u_Address_Write_HandShake_Checker"
+Info (12128): Elaborating entity "Demux_1_2" for hierarchy "AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Demux_1_2:u_Demux_Address_Write_Ready"
+Info (12128): Elaborating entity "AW_MUX_2_1" for hierarchy "AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_MUX_2_1:u_AW_MUX_2_1"
+Info (12128): Elaborating entity "Write_Addr_Channel_Dec" for hierarchy "AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec"
+Info (12128): Elaborating entity "WD_Channel_Controller_Top" for hierarchy "WD_Channel_Controller_Top:u_WD_Channel_Controller_Top"
+Info (12128): Elaborating entity "Queue" for hierarchy "WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue"
+Warning (10240): Verilog HDL Always Construct warning at Queue.v(26): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct
+Info (12128): Elaborating entity "WD_HandShake" for hierarchy "WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_HandShake:u_WD_HandShake"
+Info (12128): Elaborating entity "WD_MUX_2_1" for hierarchy "WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_MUX_2_1:u_WD_MUX_2_1"
+Info (12128): Elaborating entity "BR_Channel_Controller_Top" for hierarchy "BR_Channel_Controller_Top:u_BR_Channel_Controller_Top"
+Info (12128): Elaborating entity "WR_HandShake" for hierarchy "BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|WR_HandShake:u_WR_HandShake"
+Info (12128): Elaborating entity "Write_Resp_Channel_Arb" for hierarchy "BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb"
+Info (12128): Elaborating entity "BReady_MUX_2_1" for hierarchy "BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|BReady_MUX_2_1:u_BReady_MUX_2_1"
+Info (12128): Elaborating entity "Demux_1_2" for hierarchy "BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Demux_1_2:u_Demux_1_2"
+Info (12128): Elaborating entity "Write_Resp_Channel_Dec" for hierarchy "BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec"
+Warning (10199): Verilog HDL Case Statement warning at Write_Resp_Channel_Dec.v(55): case item expression never matches the case expression
+Warning (10199): Verilog HDL Case Statement warning at Write_Resp_Channel_Dec.v(61): case item expression never matches the case expression
+Info (12128): Elaborating entity "AR_Channel_Controller_Top" for hierarchy "AR_Channel_Controller_Top:u_AR_Channel_Controller_Top"
+Info (12128): Elaborating entity "Read_Arbiter" for hierarchy "AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter"
+Info (12128): Elaborating entity "Mux_2x1" for hierarchy "AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:araddr_mux"
+Info (12128): Elaborating entity "Mux_2x1" for hierarchy "AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arlen_mux"
+Info (12128): Elaborating entity "Mux_2x1" for hierarchy "AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arsize_mux"
+Info (12128): Elaborating entity "Mux_2x1" for hierarchy "AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arburst_mux"
+Info (12128): Elaborating entity "Mux_2x1" for hierarchy "AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arcache_mux"
+Info (12128): Elaborating entity "Mux_2x1" for hierarchy "AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arvalid_mux"
+Info (12128): Elaborating entity "Read_Addr_Channel_Dec" for hierarchy "AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec"
+Info (12128): Elaborating entity "Controller" for hierarchy "Controller:Read_controller"
+Warning (10036): Verilog HDL or VHDL warning at Controller.v(71): object "S0_busy" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Controller.v(71): object "S1_busy" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Controller.v(71): object "S2_busy" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Controller.v(71): object "S3_busy" assigned a value but never read
+Info (12128): Elaborating entity "Demux_1x4" for hierarchy "Demux_1x4:rready_demux_M0"
+Info (12128): Elaborating entity "Mux_4x1" for hierarchy "Mux_4x1:rvalid_mux_M0"
+Info (12128): Elaborating entity "Mux_4x1" for hierarchy "Mux_4x1:rdata_mux_M0"
+Info (12128): Elaborating entity "Mux_4x1" for hierarchy "Mux_4x1:rresp_mux_M0"
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "S01_AXI_awready" is stuck at GND
+    Warning (13410): Pin "S01_AXI_wready" is stuck at GND
+    Warning (13410): Pin "M00_AXI_awaddr_ID[0]" is stuck at GND
+    Warning (13410): Pin "M00_AXI_awaddr[30]" is stuck at GND
+    Warning (13410): Pin "M00_AXI_awaddr[31]" is stuck at GND
+    Warning (13410): Pin "M00_AXI_araddr[30]" is stuck at GND
+    Warning (13410): Pin "M00_AXI_araddr[31]" is stuck at GND
+    Warning (13410): Pin "M01_AXI_awaddr_ID[0]" is stuck at GND
+    Warning (13410): Pin "M01_AXI_awaddr[31]" is stuck at GND
+    Warning (13410): Pin "M01_AXI_araddr[31]" is stuck at GND
+    Warning (13410): Pin "M02_AXI_araddr[30]" is stuck at GND
+Info (17049): 7 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file D:/AXI/sim/quartus/output_files/AXI_PROJECT.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 109 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "S01_ACLK"
+    Warning (15610): No output dependent on input pin "S01_ARESETN"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[0]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[1]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[2]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[3]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[4]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[5]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[6]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[7]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[8]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[9]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[10]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[11]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[12]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[13]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[14]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[15]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[16]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[17]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[18]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[19]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[20]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[21]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[22]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[23]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[24]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[25]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[26]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[27]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[28]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[29]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[30]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[31]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awlen[0]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awlen[1]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awlen[2]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awlen[3]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awlen[4]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awlen[5]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awlen[6]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awlen[7]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awsize[0]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awsize[1]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awsize[2]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awburst[0]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awburst[1]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awlock[0]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awlock[1]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awcache[0]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awcache[1]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awcache[2]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awcache[3]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awprot[0]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awprot[1]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awprot[2]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awqos[0]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awqos[1]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awqos[2]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awqos[3]"
+    Warning (15610): No output dependent on input pin "S01_AXI_awvalid"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[0]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[1]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[2]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[3]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[4]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[5]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[6]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[7]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[8]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[9]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[10]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[11]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[12]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[13]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[14]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[15]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[16]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[17]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[18]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[19]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[20]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[21]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[22]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[23]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[24]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[25]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[26]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[27]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[28]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[29]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[30]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wdata[31]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wstrb[0]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wstrb[1]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wstrb[2]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wstrb[3]"
+    Warning (15610): No output dependent on input pin "S01_AXI_wlast"
+    Warning (15610): No output dependent on input pin "S01_AXI_wvalid"
+    Warning (15610): No output dependent on input pin "S00_ACLK"
+    Warning (15610): No output dependent on input pin "S00_ARESETN"
+    Warning (15610): No output dependent on input pin "M00_ACLK"
+    Warning (15610): No output dependent on input pin "M00_ARESETN"
+    Warning (15610): No output dependent on input pin "M01_ACLK"
+    Warning (15610): No output dependent on input pin "M01_ARESETN"
+    Warning (15610): No output dependent on input pin "M02_ACLK"
+    Warning (15610): No output dependent on input pin "M02_ARESETN"
+    Warning (15610): No output dependent on input pin "M03_ACLK"
+    Warning (15610): No output dependent on input pin "M03_ARESETN"
+Info (21057): Implemented 2189 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 754 input pins
+    Info (21059): Implemented 538 output pins
+    Info (21061): Implemented 897 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 129 warnings
+    Info: Peak virtual memory: 4632 megabytes
+    Info: Processing ended: Mon Nov 24 10:16:07 2025
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/AXI/sim/quartus/output_files/AXI_PROJECT.map.smsg.
+
+

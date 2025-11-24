@@ -160,5 +160,18 @@ Khi thêm tài liệu mới:
 
 ---
 
-*Tài liệu này được cập nhật lần cuối: 2024*
+---
+
+## 📚 Tài Liệu Tổng Hợp
+
+**⭐ Xem tài liệu tổng hợp đầy đủ**: [README_COMPREHENSIVE.md](README_COMPREHENSIVE.md)
+
+Tài liệu tổng hợp này bao gồm:
+- Tất cả thông tin từ các README.md trong dự án
+- Được tổ chức một cách logic và dễ tìm kiếm
+- Quick reference cho tất cả modules, testbenches, và tools
+
+---
+
+*Tài liệu này được cập nhật lần cuối: 2025-11-24*
 

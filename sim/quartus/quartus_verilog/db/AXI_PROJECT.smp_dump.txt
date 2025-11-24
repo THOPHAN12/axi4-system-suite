@@ -1,0 +1,22 @@
+
+State Machine - |AXI_Interconnect_Full|Controller:Read_controller|curr_state_address
+Name curr_state_address.Idle_address curr_state_address.M1_Address curr_state_address.M0_Address 
+curr_state_address.Idle_address 0 0 0 
+curr_state_address.M0_Address 1 0 1 
+curr_state_address.M1_Address 1 1 0 
+
+State Machine - |AXI_Interconnect_Full|Controller:Read_controller|curr_state_slave2
+Name curr_state_slave2.Slave2_2 curr_state_slave2.Slave1_2 curr_state_slave2.Slave0_2 curr_state_slave2.Idle_slave_2 curr_state_slave2.Slave3_2 
+curr_state_slave2.Idle_slave_2 0 0 0 0 0 
+curr_state_slave2.Slave0_2 0 0 1 1 0 
+curr_state_slave2.Slave1_2 0 1 0 1 0 
+curr_state_slave2.Slave2_2 1 0 0 1 0 
+curr_state_slave2.Slave3_2 0 0 0 1 1 
+
+State Machine - |AXI_Interconnect_Full|Controller:Read_controller|curr_state_slave
+Name curr_state_slave.Slave2 curr_state_slave.Slave1 curr_state_slave.Slave0 curr_state_slave.Idle_slave curr_state_slave.Slave3 
+curr_state_slave.Idle_slave 0 0 0 0 0 
+curr_state_slave.Slave0 0 0 1 1 0 
+curr_state_slave.Slave1 0 1 0 1 0 
+curr_state_slave.Slave2 1 0 0 1 0 
+curr_state_slave.Slave3 0 0 0 1 1 
