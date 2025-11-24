@@ -51,7 +51,9 @@ INCDIRS = \
 	+incdir+scoreboard \
 	+incdir+sequences \
 	+incdir+test \
-	+incdir+tb
+	+incdir+tb \
+	+incdir+../../src/axi_interconnect/sv/packages \
+	+incdir+../../src/axi_interconnect/sv/interfaces
 
 # Source files (top-level tb includes the rest via `include`)
 TB_TOP ?= tb/axi_interconnect_simple_tb.sv

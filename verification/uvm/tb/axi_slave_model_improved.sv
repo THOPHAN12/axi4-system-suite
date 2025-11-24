@@ -10,7 +10,7 @@
 module axi_slave_model_improved (
     axi_slave_simple_if.slave s_if,
     input int unsigned slave_id,
-    input int unsigned delay_cycles = 0  // Configurable delay
+    input int unsigned delay_cycles  // Configurable delay
 );
     // Memory array
     logic [31:0] memory [0:4095];  // 16KB memory
