@@ -1,11 +1,11 @@
-# vsim -do {run -all; quit} -c work.axi_interconnect_simple_tb 
+# vsim +UVM_VERBOSITY=UVM_MEDIUM +UVM_TESTNAME=axi_interconnect_simple_test -do {run -all; quit} -c -sv_seed random work.axi_interconnect_simple_tb 
 # Loading sv_std.std
 # Loading work.axi_interconnect_simple_tb
 # Loading work.axi_pkg
 # Loading work.axi_master_simple_if
 # Loading work.axi_slave_simple_if
-# Loading work.axi_master_driver
-# Loading work.axi_slave_model
+# Loading work.axi_master_driver_improved
+# Loading work.axi_slave_model_improved
 # Loading work.AXI_Interconnect_Full
 # Loading work.AW_Channel_Controller_Top
 # Loading work.Qos_Arbiter
@@ -31,11 +31,31 @@
 # Loading work.Controller
 # Loading work.Demux_1x4
 # Loading work.Mux_4x1
+# Sv_Seed = 806019118
 # run -all 
+# [0] Slave 0: Initialized with delay=0 cycles
+# [0] Slave 0: Initialized with delay=0 cycles
+# [0] Slave 0: Initialized with delay=0 cycles
+# [0] Slave 0: Initialized with delay=0 cycles
 # Reset released at time 100000
-# === Starting AXI Master Test ===
-# === Starting AXI Master Test ===
-# [205000] WRITE_DEC: addr=0x00001000 base_addr=00 -> Slave0
-# Simulation timeout!
-# ** Note: $finish    : tb/axi_interconnect_simple_tb.sv(595)
-#    Time: 10 us  Iteration: 0  Instance: /axi_interconnect_simple_tb
+# [300000] ========== Master 1 Test Suite Started ==========
+# 
+# [300000] Test 1: Single Write to Slave 0
+# [300000] ========== Master 0 Test Suite Started ==========
+# 
+# [300000] Test 1: Single Write to Slave 0
+# [305000] WRITE_DEC: addr=0x00001000 base_addr=00 -> Slave0
+# [375000] Master 0: Write completed - Addr=0x00001000, Data=0xdeadbeef, Resp=0
+# 
+# [475000] Test 2: Single Read from Slave 0
+# [475000] READ_DEC: addr=0x00001000 base_addr=00 -> Slave0
+# [525000] Master 0: Read completed - Addr=0x00001000, Data=0xdeadbeef, Resp=0
+# 
+# [625000] Test 3: Write-Read-Verify
+# [625000] Master 0: Starting Write-Read-Verify test at 0x00002000
+# [625000] WRITE_DEC: addr=0x00002000 base_addr=00 -> Slave0
+# 
+# [45100000] ========== All Tests Completed ==========
+# [45100000] Simulation finished successfully!
+# ** Note: $finish    : tb/axi_interconnect_simple_tb.sv(606)
+#    Time: 45100 ns  Iteration: 0  Instance: /axi_interconnect_simple_tb
