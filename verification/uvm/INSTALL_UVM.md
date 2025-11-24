@@ -10,32 +10,40 @@ UVM (Universal Verification Methodology) là một framework chuẩn cho verific
 
 1. Truy cập: http://www.accellera.org/downloads/standards/uvm
 2. Download UVM 1.1d (tương thích với ModelSim 13.0)
-3. Extract vào thư mục, ví dụ: `C:\uvm-1.1d`
+3. Extract vào thư mục, ví dụ:
+   - Windows: `C:\uvm-1.1d`
+   - Linux: `/opt/uvm-1.1d` hoặc `$HOME/uvm-1.1d`
 
 ### Bước 2: Compile UVM Library
 
-Mở ModelSim và chạy các lệnh sau:
+Mở ModelSim/Questa và chạy các lệnh sau (tương tự cho Windows/Linux, chỉ cần đổi đường dẫn):
 
 ```tcl
 # Tạo thư viện UVM
 vlib uvm_lib
 
 # Compile UVM source files
-vlog -work uvm_lib +incdir+C:/uvm-1.1d/src C:/uvm-1.1d/src/uvm_pkg.sv
+vlog -work uvm_lib +incdir+$UVM_HOME/src $UVM_HOME/src/uvm_pkg.sv
 
 # Hoặc compile tất cả files
-vlog -work uvm_lib +incdir+C:/uvm-1.1d/src C:/uvm-1.1d/src/*.sv
+vlog -work uvm_lib +incdir+$UVM_HOME/src $UVM_HOME/src/*.sv
 ```
 
 ### Bước 3: Set Environment Variable
 
-Trong Windows PowerShell hoặc Command Prompt:
+Trong Windows PowerShell/CMD:
 
 ```cmd
 set UVM_HOME=C:\uvm-1.1d
 ```
 
-Hoặc set permanently trong System Environment Variables.
+Trong Linux/macOS shell:
+
+```bash
+export UVM_HOME=/opt/uvm-1.1d
+```
+
+Có thể thêm vào `.bashrc` hoặc `.zshrc` để tự động load.
 
 ### Bước 4: Update Makefile
 
@@ -53,15 +61,22 @@ set UVM_HOME=C:\questasim\verilog_src\uvm-1.1d
 
 Một số version có UVM trong:
 
-```cmd
-C:\altera\13.0sp1\modelsim_ase\verilog_src\uvm-1.1d
-```
+- Windows: `C:\altera\13.0sp1\modelsim_ase\verilog_src\uvm-1.1d`
+- Linux: `/opt/intelFPGA_lite/13.0/modelsim_ase/verilog_src/uvm-1.1d`
 
 Chạy script để kiểm tra:
-```cmd
-cd verification\uvm
-setup_uvm.bat
-```
+
+- **Windows**
+  ```cmd
+  cd verification\uvm
+  setup_uvm.bat
+  ```
+- **Linux/macOS**
+  ```bash
+  cd verification/uvm
+  chmod +x setup_uvm.sh
+  ./setup_uvm.sh
+  ```
 
 ## Verify Installation
 
@@ -98,7 +113,7 @@ vlog -work uvm_lib +incdir+$env(UVM_HOME)/src $env(UVM_HOME)/src/dpi/uvm_dpi.cc
 Nếu không thể cài UVM, có thể sử dụng testbench đơn giản:
 
 ```bash
-cd verification\uvm
+cd verification/uvm
 make run  # Sử dụng axi_interconnect_simple_tb.sv
 ```
 

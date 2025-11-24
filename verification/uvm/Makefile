@@ -1,3 +1,4 @@
+
 ###############################################################################
 # Makefile - UVM Simulation Flow for AXI Interconnect SystemVerilog
 #
@@ -16,9 +17,29 @@ SIM            ?= questa
 VLOG           ?= vlog
 VSIM           ?= vsim
 LIB            ?= work
+SIM_TOP        ?= axi_interconnect_simple_tb
 
-# Try to find UVM in common locations
-UVM_HOME       ?= $(shell if exist "C:\altera\13.0sp1\modelsim_ase\verilog_src\uvm-1.1d" (echo C:\altera\13.0sp1\modelsim_ase\verilog_src\uvm-1.1d) else (if exist "C:\modeltech_*\verilog_src\uvm-1.1d" (echo C:\modeltech_*\verilog_src\uvm-1.1d) else ()))
+OS_NAME        := $(OS)
+ifeq ($(OS_NAME),)
+OS_NAME        := $(shell uname -s 2>/dev/null)
+endif
+IS_WINDOWS     := $(findstring Windows,$(OS_NAME))
+
+# Try to find UVM in common locations for each OS
+ifeq ($(IS_WINDOWS),Windows)
+DEFAULT_UVM    := $(shell if exist "C:\altera\13.0sp1\modelsim_ase\verilog_src\uvm-1.1d" (echo C:\altera\13.0sp1\modelsim_ase\verilog_src\uvm-1.1d))
+else
+DEFAULT_UVM    := $(shell \
+	if [ -d "/opt/intelFPGA_lite/13.0/modelsim_ase/verilog_src/uvm-1.1d" ]; then \
+		echo /opt/intelFPGA_lite/13.0/modelsim_ase/verilog_src/uvm-1.1d; \
+	elif [ -d "$$HOME/intelFPGA_lite/13.0/modelsim_ase/verilog_src/uvm-1.1d" ]; then \
+		echo $$HOME/intelFPGA_lite/13.0/modelsim_ase/verilog_src/uvm-1.1d; \
+	elif [ -n "$$QUESTA_HOME" ] && [ -d "$$QUESTA_HOME/verilog_src/uvm-1.1d" ]; then \
+		echo $$QUESTA_HOME/verilog_src/uvm-1.1d; \
+	fi)
+endif
+
+UVM_HOME       ?= $(DEFAULT_UVM)
 UVM_DPI        ?=
 
 # Include directories (relative to verification/uvm)
@@ -33,7 +54,7 @@ INCDIRS = \
 	+incdir+tb
 
 # Source files (top-level tb includes the rest via `include`)
-TB_TOP = tb/axi_interconnect_tb.sv
+TB_TOP ?= tb/axi_interconnect_simple_tb.sv
 
 # Design source directories
 DESIGN_SV = \
@@ -81,11 +102,9 @@ VLOG_FLAGS = -sv -timescale 1ns/1ps $(INCDIRS) $(UVM_DEFINES)
 VSIM_FLAGS = -c -sv_seed random +UVM_VERBOSITY=UVM_MEDIUM $(UVM_FLAGS) \
 	-do "run -all; quit"
 
-ifeq ($(SIM),questa)
-	ifneq ($(UVM_HOME),)
-		VLOG_FLAGS += +incdir+$(UVM_HOME)/src
-		VSIM_FLAGS += -L $(UVM_HOME)/lib/uvm_dpi
-	endif
+ifneq ($(UVM_HOME),)
+	VLOG_FLAGS += +incdir+$(UVM_HOME)/src
+	VSIM_FLAGS += -L $(UVM_HOME)/lib/uvm_dpi
 endif
 
 TEST ?= axi_interconnect_simple_test
@@ -101,15 +120,18 @@ compile: $(LIB)
 	$(VLOG) $(VLOG_FLAGS) $(DESIGN_SV) $(TB_TOP)
 
 run: compile
-	$(VSIM) $(VSIM_FLAGS) $(LIB).axi_interconnect_simple_tb
+	$(VSIM) $(VSIM_FLAGS) $(LIB).$(SIM_TOP)
 
 test:
 	$(MAKE) run TEST=$(TEST)
 
 clean:
+ifeq ($(IS_WINDOWS),Windows)
 	@if exist $(LIB) rmdir /S /Q $(LIB)
 	@if exist transcript del /Q transcript
 	@if exist vsim.wlf del /Q vsim.wlf
 	@if exist vlog.log del /Q vlog.log
 	@if exist vsim.log del /Q vsim.log
-
+else
+	@rm -rf $(LIB) transcript vsim.wlf vlog.log vsim.log
+endif
