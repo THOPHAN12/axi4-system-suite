@@ -444,6 +444,12 @@ set count3 [add_directory_files [file join $tb_path "wrapper_tb" "testbenches" "
 set count [expr $count + $count2 + $count3]
 set total_added [expr $total_added + $count]
 
+# 18. SERV Core standalone benches
+puts "\n18. Adding SERV Core standalone benches..."
+set serv_bench_path [file join $project_root "src" "cores" "serv" "bench"]
+set count [add_directory_files $serv_bench_path "*.v" ""]
+set total_added [expr $total_added + $count]
+
 # ============================================================================
 # Summary
 # ============================================================================

@@ -1,5 +1,5 @@
 Flow report for AXI_PROJECT_SV
-Mon Nov 24 13:58:58 2025
+Tue Nov 25 21:54:00 2025
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,15 +40,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Mon Nov 24 13:58:58 2025           ;
+; Flow Status                        ; Successful - Tue Nov 25 21:54:00 2025           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; AXI_PROJECT_SV                                  ;
 ; Top-level Entity Name              ; axi_interconnect_2m4s_wrapper                   ;
 ; Family                             ; Cyclone IV GX                                   ;
-; Total logic elements               ; 1,147                                           ;
-;     Total combinational functions  ; 1,145                                           ;
-;     Dedicated logic registers      ; 34                                              ;
-; Total registers                    ; 34                                              ;
+; Total logic elements               ; 1,251                                           ;
+;     Total combinational functions  ; 1,248                                           ;
+;     Dedicated logic registers      ; 40                                              ;
+; Total registers                    ; 40                                              ;
 ; Total pins                         ; 1,293                                           ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -66,7 +66,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/24/2025 13:58:55 ;
+; Start date & time ; 11/25/2025 21:53:58 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; AXI_PROJECT_SV      ;
 +-------------------+---------------------+
@@ -77,7 +77,7 @@ applicable agreement for further details.
 +-------------------------------------+-------------------------------------------+----------------+-------------------------------+------------+
 ; Assignment Name                     ; Value                                     ; Default Value  ; Entity Name                   ; Section Id ;
 +-------------------------------------+-------------------------------------------+----------------+-------------------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 255757338281413.176396753520816           ; --             ; --                            ; --         ;
+; COMPILER_SIGNATURE_ID               ; 255757338281413.176408243810680           ; --             ; --                            ; --         ;
 ; PARTITION_COLOR                     ; 16764057                                  ; --             ; axi_interconnect_2m4s_wrapper ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                     ; --             ; axi_interconnect_2m4s_wrapper ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; SOURCE                                    ; --             ; axi_interconnect_2m4s_wrapper ; Top        ;
@@ -94,7 +94,7 @@ applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:02     ; 1.0                     ; 4707 MB             ; 00:00:02                           ;
+; Analysis & Synthesis ; 00:00:02     ; 1.0                     ; 4706 MB             ; 00:00:02                           ;
 ; Total                ; 00:00:02     ; --                      ; --                  ; 00:00:02                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for AXI_PROJECT_SV
-Mon Nov 24 13:58:58 2025
+Tue Nov 25 21:54:00 2025
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -17,72 +17,69 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   9. State Machine - |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|curr_state_slave2
  10. State Machine - |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|curr_state_slave
  11. Registers Removed During Synthesis
- 12. Removed Registers Triggering Further Register Optimizations
- 13. General Register Statistics
- 14. Inverted Register Statistics
- 15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Parameter Settings for User Entity Instance: Top-level Entity: |axi_interconnect_2m4s_wrapper
- 17. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full
- 18. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top
- 19. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter
- 20. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Demux_1_2:u_Demux_Address_Write_Ready
- 21. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_MUX_2_1:u_AW_MUX_2_1
- 22. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec
- 23. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top
- 24. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue
- 25. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue2
- 26. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Demux_1_2:u_Demux_Write_Data_Ready
- 27. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Demux_1_2:u_Demux_Write_Data_Ready2
- 28. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_MUX_2_1:u_WD_MUX_2_1
- 29. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_MUX_2_1:u_WD_MUX_2_1_2
- 30. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top
- 31. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb
- 32. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Demux_1_2:u_Demux_1_2
- 33. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec
- 34. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top
- 35. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter
- 36. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:araddr_mux
- 37. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arlen_mux
- 38. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arsize_mux
- 39. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arburst_mux
- 40. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arlock_mux
- 41. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arcache_mux
- 42. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arprot_mux
- 43. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arqos_mux
- 44. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arregion_mux
- 45. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arvalid_mux
- 46. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec
- 47. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Demux_1_2:u_Demux_Address_Read_Ready
- 48. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_2x1:mux_m_addr
- 49. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Demux_1x4:rready_demux_M0
- 50. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Demux_1x4:rready_demux_M1
- 51. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_2x1:rready_mux_M00
- 52. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_2x1:rready_mux_M01
- 53. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_2x1:rready_mux_M02
- 54. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_2x1:rready_mux_M03
- 55. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rvalid_mux_M0
- 56. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rvalid_mux_M1
- 57. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rdata_mux_M0
- 58. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rdata_mux_M1
- 59. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rlast_mux_M0
- 60. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rlast_mux_M1
- 61. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rresp_mux_M0
- 62. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rresp_mux_M1
- 63. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller"
- 64. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Raising_Edge_Det:u_Raising_Edge_Det"
- 65. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec"
- 66. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter"
- 67. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top"
- 68. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec"
- 69. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb"
- 70. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top"
- 71. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec"
- 72. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_HandShake_Checker:u_Address_Write_HandShake_Checker"
- 73. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Raising_Edge_Det:u_Raising_Edge_Det"
- 74. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter"
- 75. Elapsed Time Per Partition
- 76. Analysis & Synthesis Messages
- 77. Analysis & Synthesis Suppressed Messages
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: Top-level Entity: |axi_interconnect_2m4s_wrapper
+ 16. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full
+ 17. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top
+ 18. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter
+ 19. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Demux_1_2:u_Demux_Address_Write_Ready
+ 20. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_MUX_2_1:u_AW_MUX_2_1
+ 21. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec
+ 22. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top
+ 23. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue
+ 24. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue2
+ 25. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Demux_1_2:u_Demux_Write_Data_Ready
+ 26. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Demux_1_2:u_Demux_Write_Data_Ready2
+ 27. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_MUX_2_1:u_WD_MUX_2_1
+ 28. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_MUX_2_1:u_WD_MUX_2_1_2
+ 29. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top
+ 30. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb
+ 31. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Demux_1_2:u_Demux_1_2
+ 32. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec
+ 33. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top
+ 34. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter
+ 35. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:araddr_mux
+ 36. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arlen_mux
+ 37. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arsize_mux
+ 38. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arburst_mux
+ 39. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arlock_mux
+ 40. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arcache_mux
+ 41. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arprot_mux
+ 42. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arqos_mux
+ 43. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arregion_mux
+ 44. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arvalid_mux
+ 45. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec
+ 46. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Demux_1_2:u_Demux_Address_Read_Ready
+ 47. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_2x1:mux_m_addr
+ 48. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Demux_1x4:rready_demux_M0
+ 49. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Demux_1x4:rready_demux_M1
+ 50. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_2x1:rready_mux_M00
+ 51. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_2x1:rready_mux_M01
+ 52. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_2x1:rready_mux_M02
+ 53. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_2x1:rready_mux_M03
+ 54. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rvalid_mux_M0
+ 55. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rvalid_mux_M1
+ 56. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rdata_mux_M0
+ 57. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rdata_mux_M1
+ 58. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rlast_mux_M0
+ 59. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rlast_mux_M1
+ 60. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rresp_mux_M0
+ 61. Parameter Settings for User Entity Instance: AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rresp_mux_M1
+ 62. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller"
+ 63. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Raising_Edge_Det:u_Raising_Edge_Det"
+ 64. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec"
+ 65. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter"
+ 66. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top"
+ 67. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec"
+ 68. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb"
+ 69. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top"
+ 70. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec"
+ 71. Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Raising_Edge_Det:u_Raising_Edge_Det"
+ 72. Elapsed Time Per Partition
+ 73. Analysis & Synthesis Messages
+ 74. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -108,15 +105,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Nov 24 13:58:58 2025           ;
+; Analysis & Synthesis Status        ; Successful - Tue Nov 25 21:54:00 2025           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; AXI_PROJECT_SV                                  ;
 ; Top-level Entity Name              ; axi_interconnect_2m4s_wrapper                   ;
 ; Family                             ; Cyclone IV GX                                   ;
-; Total logic elements               ; 1,147                                           ;
-;     Total combinational functions  ; 1,145                                           ;
-;     Dedicated logic registers      ; 34                                              ;
-; Total registers                    ; 34                                              ;
+; Total logic elements               ; 1,251                                           ;
+;     Total combinational functions  ; 1,248                                           ;
+;     Dedicated logic registers      ; 40                                              ;
+; Total registers                    ; 40                                              ;
 ; Total pins                         ; 1,293                                           ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -275,8 +272,8 @@ applicable agreement for further details.
 ; DSP block 9-bit elements ; 0                          ;
 ; Maximum fan-out node     ; use_address_override~input ;
 ; Maximum fan-out          ; 256                        ;
-; Total fan-out            ; 5390                       ;
-; Average fan-out          ; 1.43                       ;
+; Total fan-out            ; 5860                       ;
+; Average fan-out          ; 1.51                       ;
 +--------------------------+----------------------------+
 
 
@@ -285,8 +282,8 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                                        ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                       ; Library Name ;
 +-------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |axi_interconnect_2m4s_wrapper                                    ; 1145 (256)        ; 34 (0)       ; 0           ; 0            ; 0       ; 0         ; 0         ; 1293 ; 0            ; |axi_interconnect_2m4s_wrapper                                                                                                                                                            ; work         ;
-;    |AXI_Interconnect_Full:u_axi_interconnect_full|                ; 889 (0)           ; 34 (0)       ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full                                                                                                              ; work         ;
+; |axi_interconnect_2m4s_wrapper                                    ; 1248 (256)        ; 40 (0)       ; 0           ; 0            ; 0       ; 0         ; 0         ; 1293 ; 0            ; |axi_interconnect_2m4s_wrapper                                                                                                                                                            ; work         ;
+;    |AXI_Interconnect_Full:u_axi_interconnect_full|                ; 992 (0)           ; 40 (0)       ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full                                                                                                              ; work         ;
 ;       |AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|     ; 291 (0)           ; 2 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top                                                        ; work         ;
 ;          |AW_HandShake_Checker:u_AR_HandShake_Checker|            ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|AW_HandShake_Checker:u_AR_HandShake_Checker            ; work         ;
 ;          |Demux_1_2:u_Demux_Address_Read_Ready|                   ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Demux_1_2:u_Demux_Address_Read_Ready                   ; work         ;
@@ -294,16 +291,19 @@ applicable agreement for further details.
 ;          |Mux_2x1:arvalid_mux|                                    ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Mux_2x1:arvalid_mux                                    ; work         ;
 ;          |Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec|          ; 250 (250)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Addr_Channel_Dec:u_Read_Addr_Channel_Dec          ; work         ;
 ;          |Read_Arbiter:u_Read_Arbiter|                            ; 4 (4)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|Read_Arbiter:u_Read_Arbiter                            ; work         ;
-;       |AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|     ; 118 (0)           ; 3 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top                                                        ; work         ;
-;          |AW_HandShake_Checker:u_Address_Write_HandShake_Checker| ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_HandShake_Checker:u_Address_Write_HandShake_Checker ; work         ;
+;       |AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|     ; 134 (3)           ; 5 (1)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top                                                        ; work         ;
+;          |AW_HandShake_Checker:u_Address_Write_HandShake_Checker| ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_HandShake_Checker:u_Address_Write_HandShake_Checker ; work         ;
+;          |AW_MUX_2_1:u_AW_MUX_2_1|                                ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_MUX_2_1:u_AW_MUX_2_1                                ; work         ;
+;          |Demux_1_2:u_Demux_Address_Write_Ready|                  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Demux_1_2:u_Demux_Address_Write_Ready                  ; work         ;
 ;          |Faling_Edge_Detc:u_Faling_Edge_Detc|                    ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Faling_Edge_Detc:u_Faling_Edge_Detc                    ; work         ;
-;          |Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec|        ; 116 (116)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec        ; work         ;
+;          |Qos_Arbiter:u_Qos_Arbiter|                              ; 4 (4)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter                              ; work         ;
+;          |Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec|        ; 119 (119)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Write_Addr_Channel_Dec:u_Write_Addr_Channel_Dec        ; work         ;
 ;       |BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|     ; 11 (0)            ; 7 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top                                                        ; work         ;
 ;          |Demux_1_2:u_Demux_1_2|                                  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Demux_1_2:u_Demux_1_2                                  ; work         ;
 ;          |WR_HandShake:u_WR_HandShake|                            ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|WR_HandShake:u_WR_HandShake                            ; work         ;
 ;          |Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb|        ; 5 (5)             ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb        ; work         ;
 ;          |Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec|        ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Dec:u_Write_Resp_Channel_Dec        ; work         ;
-;       |Controller:Read_controller|                                ; 300 (300)         ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller                                                                                   ; work         ;
+;       |Controller:Read_controller|                                ; 301 (301)         ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller                                                                                   ; work         ;
 ;       |Mux_2x1:rready_mux_M00|                                    ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Mux_2x1:rready_mux_M00                                                                                       ; work         ;
 ;       |Mux_2x1:rready_mux_M01|                                    ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Mux_2x1:rready_mux_M01                                                                                       ; work         ;
 ;       |Mux_2x1:rready_mux_M02|                                    ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Mux_2x1:rready_mux_M02                                                                                       ; work         ;
@@ -316,11 +316,13 @@ applicable agreement for further details.
 ;       |Mux_4x1:rresp_mux_M1|                                      ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rresp_mux_M1                                                                                         ; work         ;
 ;       |Mux_4x1:rvalid_mux_M0|                                     ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rvalid_mux_M0                                                                                        ; work         ;
 ;       |Mux_4x1:rvalid_mux_M1|                                     ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rvalid_mux_M1                                                                                        ; work         ;
-;       |WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|     ; 18 (3)            ; 12 (0)       ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top                                                        ; work         ;
-;          |Queue:u_Queue2|                                         ; 5 (5)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue2                                         ; work         ;
-;          |Queue:u_Queue|                                          ; 6 (6)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue                                          ; work         ;
+;       |WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|     ; 104 (6)           ; 16 (0)       ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top                                                        ; work         ;
+;          |Queue:u_Queue2|                                         ; 9 (9)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue2                                         ; work         ;
+;          |Queue:u_Queue|                                          ; 9 (9)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue                                          ; work         ;
 ;          |WD_HandShake:u_WD_HandShake2|                           ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_HandShake:u_WD_HandShake2                           ; work         ;
 ;          |WD_HandShake:u_WD_HandShake|                            ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_HandShake:u_WD_HandShake                            ; work         ;
+;          |WD_MUX_2_1:u_WD_MUX_2_1_2|                              ; 38 (38)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_MUX_2_1:u_WD_MUX_2_1_2                              ; work         ;
+;          |WD_MUX_2_1:u_WD_MUX_2_1|                                ; 38 (38)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|WD_MUX_2_1:u_WD_MUX_2_1                                ; work         ;
 +-------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -365,37 +367,20 @@ Encoding Type:  One-Hot
 +-----------------------------+-------------------------+-------------------------+-------------------------+-----------------------------+-------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                                                            ;
-+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
-; Register name                                                                                                                                   ; Reason for Removal                          ;
-+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
-; AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter|Selected_Slave[0] ; Stuck at GND due to stuck port clock_enable ;
-; AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue2|Queue[1][0]                  ; Stuck at GND due to stuck port data_in      ;
-; AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue2|Queue[0][0]                  ; Stuck at GND due to stuck port data_in      ;
-; AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue|Queue[1][0]                   ; Stuck at GND due to stuck port data_in      ;
-; AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue|Queue[0][0]                   ; Stuck at GND due to stuck port data_in      ;
-; AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|curr_state_slave2~4                                                    ; Lost fanout                                 ;
-; AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|curr_state_slave2~5                                                    ; Lost fanout                                 ;
-; AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|curr_state_slave~4                                                     ; Lost fanout                                 ;
-; AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|curr_state_slave~5                                                     ; Lost fanout                                 ;
-; AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|curr_state_address.M0_Address                                          ; Lost fanout                                 ;
-; AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|curr_state_address.M1_Address                                          ; Lost fanout                                 ;
-; AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|curr_state_address.Idle_address                                        ; Lost fanout                                 ;
-; Total Number of Removed Registers = 12                                                                                                          ;                                             ;
-+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                                                                                                                                                                        ;
-+-------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-; Register name                                                                                                                                   ; Reason for Removal             ; Registers Removed due to This Register                                                                                          ;
-+-------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-; AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter|Selected_Slave[0] ; Stuck at GND                   ; AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue2|Queue[1][0], ;
-;                                                                                                                                                 ; due to stuck port clock_enable ; AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue2|Queue[0][0], ;
-;                                                                                                                                                 ;                                ; AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue|Queue[1][0],  ;
-;                                                                                                                                                 ;                                ; AXI_Interconnect_Full:u_axi_interconnect_full|WD_Channel_Controller_Top:u_WD_Channel_Controller_Top|Queue:u_Queue|Queue[0][0]   ;
-+-------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                            ;
++----------------------------------------------------------------------------------------------------------+--------------------+
+; Register name                                                                                            ; Reason for Removal ;
++----------------------------------------------------------------------------------------------------------+--------------------+
+; AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|curr_state_slave2~4             ; Lost fanout        ;
+; AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|curr_state_slave2~5             ; Lost fanout        ;
+; AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|curr_state_slave~4              ; Lost fanout        ;
+; AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|curr_state_slave~5              ; Lost fanout        ;
+; AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|curr_state_address.M0_Address   ; Lost fanout        ;
+; AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|curr_state_address.M1_Address   ; Lost fanout        ;
+; AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|curr_state_address.Idle_address ; Lost fanout        ;
+; Total Number of Removed Registers = 7                                                                    ;                    ;
++----------------------------------------------------------------------------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -403,12 +388,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 34    ;
+; Total registers                              ; 40    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 34    ;
+; Number of registers using Asynchronous Clear ; 40    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 5     ;
+; Number of registers using Clock Enable       ; 9     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -418,25 +403,25 @@ Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 ; Inverted Register                                                                                                                                                         ; Fan out ;
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_HandShake_Checker:u_Address_Write_HandShake_Checker|HandShake_Done ; 5       ;
 ; AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|WR_HandShake:u_WR_HandShake|HandShake_Done                            ; 6       ;
 ; AXI_Interconnect_Full:u_axi_interconnect_full|AR_Channel_Controller_Top:u_AR_Channel_Controller_Top|AW_HandShake_Checker:u_AR_HandShake_Checker|HandShake_Done            ; 3       ;
-; AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_HandShake_Checker:u_Address_Write_HandShake_Checker|HandShake_Done ; 2       ;
 ; Total number of inverted registers = 3                                                                                                                                    ;         ;
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                                                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb|Sel_Write_Resp[0] ;
-; 4:1                ; 36 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rvalid_mux_M0|Mux0                                                                                              ;
-; 4:1                ; 36 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rvalid_mux_M1|Mux0                                                                                              ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|next_state_address                                                                           ;
-; 9:1                ; 4 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|next_state_slave                                                                             ;
-; 9:1                ; 4 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|next_state_slave2                                                                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|BR_Channel_Controller_Top:u_BR_Channel_Controller_Top|Write_Resp_Channel_Arb:u_Write_Resp_Channel_Arb|Sel_Resp_ID[0] ;
+; 4:1                ; 36 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rdata_mux_M0|Mux7                                                                                            ;
+; 4:1                ; 36 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Mux_4x1:rdata_mux_M1|Mux2                                                                                            ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|next_state_address                                                                        ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|next_state_slave                                                                          ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |axi_interconnect_2m4s_wrapper|AXI_Interconnect_Full:u_axi_interconnect_full|Controller:Read_controller|next_state_slave2                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------+
@@ -1154,15 +1139,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|AW_HandShake_Checker:u_Address_Write_HandShake_Checker" ;
-+-----------------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port            ; Type  ; Severity ; Details                                                                                                                                           ;
-+-----------------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; Channel_Request ; Input ; Info     ; Stuck at VCC                                                                                                                                      ;
-+-----------------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Raising_Edge_Det:u_Raising_Edge_Det" ;
 +---------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------+
@@ -1172,22 +1148,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter" ;
-+-----------------+--------+----------+---------------------------------------------------------------------------------------------------------------------+
-; Port            ; Type   ; Severity ; Details                                                                                                             ;
-+-----------------+--------+----------+---------------------------------------------------------------------------------------------------------------------+
-; Token           ; Input  ; Info     ; Stuck at VCC                                                                                                        ;
-; Channel_Request ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                 ;
-+-----------------+--------+----------+---------------------------------------------------------------------------------------------------------------------+
-
-
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -1197,7 +1163,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Nov 24 13:58:55 2025
+    Info: Processing started: Tue Nov 25 21:53:58 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AXI_PROJECT_SV -c AXI_PROJECT_SV
 Info (11104): Parallel Compilation has detected 16 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 8 of the 8 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file /axi/src/cores/serv/rtl/serv_state.v
@@ -1348,6 +1314,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file /axi/sr
 Info (12127): Elaborating entity "axi_interconnect_2m4s_wrapper" for the top level hierarchy
 Info (12128): Elaborating entity "AXI_Interconnect_Full" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect_full"
 Info (12128): Elaborating entity "AW_Channel_Controller_Top" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top"
+Warning (10230): Verilog HDL assignment warning at AW_Channel_Controller_Top.sv(328): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at AW_Channel_Controller_Top.sv(329): truncated value with size 32 to match size of target (8)
 Info (12128): Elaborating entity "Qos_Arbiter" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Qos_Arbiter:u_Qos_Arbiter"
 Info (12128): Elaborating entity "Faling_Edge_Detc" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Faling_Edge_Detc:u_Faling_Edge_Detc"
 Info (12128): Elaborating entity "Raising_Edge_Det" for hierarchy "AXI_Interconnect_Full:u_axi_interconnect_full|AW_Channel_Controller_Top:u_AW_Channel_Controller_Top|Raising_Edge_Det:u_Raising_Edge_Det"
@@ -1388,14 +1356,10 @@ Info (12128): Elaborating entity "Mux_4x1" for hierarchy "AXI_Interconnect_Full:
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "S01_AXI_awready" is stuck at GND
-    Warning (13410): Pin "S01_AXI_wready" is stuck at GND
-    Warning (13410): Pin "M00_AXI_awaddr_ID[0]" is stuck at GND
     Warning (13410): Pin "M00_AXI_awaddr[30]" is stuck at GND
     Warning (13410): Pin "M00_AXI_awaddr[31]" is stuck at GND
     Warning (13410): Pin "M00_AXI_araddr[30]" is stuck at GND
     Warning (13410): Pin "M00_AXI_araddr[31]" is stuck at GND
-    Warning (13410): Pin "M01_AXI_awaddr_ID[0]" is stuck at GND
     Warning (13410): Pin "M01_AXI_awaddr[31]" is stuck at GND
     Warning (13410): Pin "M01_AXI_araddr[31]" is stuck at GND
     Warning (13410): Pin "M02_AXI_araddr[30]" is stuck at GND
@@ -1404,108 +1368,11 @@ Info (17049): 7 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file D:/AXI/sim/quartus/quartus_systemverilog/AXI_PROJECT_SV.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 109 input pin(s) that do not drive logic
+Warning (21074): Design contains 12 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "S00_ACLK"
     Warning (15610): No output dependent on input pin "S00_ARESETN"
     Warning (15610): No output dependent on input pin "S01_ACLK"
     Warning (15610): No output dependent on input pin "S01_ARESETN"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[0]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[1]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[2]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[3]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[4]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[5]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[6]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[7]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[8]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[9]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[10]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[11]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[12]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[13]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[14]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[15]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[16]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[17]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[18]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[19]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[20]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[21]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[22]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[23]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[24]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[25]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[26]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[27]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[28]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[29]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[30]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awaddr[31]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awlen[0]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awlen[1]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awlen[2]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awlen[3]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awlen[4]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awlen[5]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awlen[6]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awlen[7]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awsize[0]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awsize[1]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awsize[2]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awburst[0]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awburst[1]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awlock[0]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awlock[1]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awcache[0]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awcache[1]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awcache[2]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awcache[3]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awprot[0]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awprot[1]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awprot[2]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awqos[0]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awqos[1]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awqos[2]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awqos[3]"
-    Warning (15610): No output dependent on input pin "S01_AXI_awvalid"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[0]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[1]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[2]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[3]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[4]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[5]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[6]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[7]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[8]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[9]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[10]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[11]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[12]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[13]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[14]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[15]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[16]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[17]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[18]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[19]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[20]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[21]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[22]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[23]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[24]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[25]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[26]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[27]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[28]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[29]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[30]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wdata[31]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wstrb[0]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wstrb[1]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wstrb[2]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wstrb[3]"
-    Warning (15610): No output dependent on input pin "S01_AXI_wlast"
-    Warning (15610): No output dependent on input pin "S01_AXI_wvalid"
     Warning (15610): No output dependent on input pin "M00_ACLK"
     Warning (15610): No output dependent on input pin "M00_ARESETN"
     Warning (15610): No output dependent on input pin "M01_ACLK"
@@ -1514,15 +1381,15 @@ Warning (21074): Design contains 109 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "M02_ARESETN"
     Warning (15610): No output dependent on input pin "M03_ACLK"
     Warning (15610): No output dependent on input pin "M03_ARESETN"
-Info (21057): Implemented 2443 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2547 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 755 input pins
     Info (21059): Implemented 538 output pins
-    Info (21061): Implemented 1150 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 128 warnings
-    Info: Peak virtual memory: 4707 megabytes
-    Info: Processing ended: Mon Nov 24 13:58:58 2025
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:02
+    Info (21061): Implemented 1254 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 29 warnings
+    Info: Peak virtual memory: 4706 megabytes
+    Info: Processing ended: Tue Nov 25 21:54:00 2025
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:03
 
 
 +------------------------------------------+

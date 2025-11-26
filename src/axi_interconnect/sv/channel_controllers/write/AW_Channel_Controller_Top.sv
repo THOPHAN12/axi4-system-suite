@@ -103,11 +103,14 @@ module AW_Channel_Controller_Top #(
     output logic [Num_Of_Slaves - 1 : 0]  Q_Enable_W_Data
 );
 
+    localparam int unsigned SAFE_NUM_SLAVES = (Num_Of_Slaves == 0) ? 1 : Num_Of_Slaves;
+
     logic AW_HandShake_Done;
     logic AW_Channel_Request;
     logic Sel_S_AXI_awvalid;  // Address write valid signal
     logic req;
     logic Channel_Req_burst;
+    logic token_busy;
 
     logic [Address_width-1:0]      AXI4_Sel_S_AXI_awaddr;
     logic [AXI4_Aw_len-1:0]        AXI4_Sel_S_AXI_awlen;
@@ -132,6 +135,10 @@ module AW_Channel_Controller_Top #(
     logic                      Sel_Slave_Ready_Signal;
     logic                      Master_Valid_Flag;
     logic                      AW_IS_Done;
+    logic [(AXI4_Aw_len/2)-1:0] rem_calc;
+    logic [(AXI4_Aw_len/2)-1:0] complete_bursts_calc;
+    logic [AXI4_Aw_len-1:0]     complete_vec;
+    logic [AXI4_Aw_len-1:0]     remainder_vec;
     
     // Unused wires for M02 and M03 (read-only masters, no write channels)
     logic [$clog2(Masters_Num)-1:0] M02_AXI_awaddr_ID_unused;
@@ -312,13 +319,40 @@ module AW_Channel_Controller_Top #(
     assign M00_AXI_awprot_Signal  = AXI4_Sel_S_AXI_awprot;
     assign Sel_S_AXI_awvalid_Signal = AXI4_Sel_S_AXI_awvalid;
 
-    // AXI4 signals that don't need conversion
-    assign Rem = '0;  // Explicit width to avoid truncation warning
-    assign Num_Of_Compl_Bursts = '0;  // Explicit width to avoid truncation warning
-    assign Disconnect_Master = 1'b0;
-    assign Load_The_Original_Signals = 1'b1;
-    assign Token = 1'b1;
-    assign Channel_Req_burst = 1'b1;
+    // Compute number of completed bursts and reminder beats based on the selected slave
+    always_comb begin
+        automatic int unsigned beats = AXI4_Sel_S_AXI_awlen;
+        automatic int unsigned complete = beats / SAFE_NUM_SLAVES;
+        automatic int unsigned remainder = beats % SAFE_NUM_SLAVES;
+
+        complete_vec = complete;
+        remainder_vec = remainder;
+
+        complete_bursts_calc = complete_vec[(AXI4_Aw_len/2)-1:0];
+        rem_calc = remainder_vec[(AXI4_Aw_len/2)-1:0];
+    end
+
+    assign Num_Of_Compl_Bursts = complete_bursts_calc;
+    assign Rem = rem_calc;
+
+    // Token indicates the write path is busy (e.g., queue full or outstanding transfer)
+    always_ff @(posedge ACLK or negedge ARESETN) begin
+        if (!ARESETN) begin
+            token_busy <= 1'b0;
+        end else if (AW_HandShake_Done && !Queue_Is_Full) begin
+            token_busy <= 1'b0;
+        end else if (Queue_Is_Full) begin
+            token_busy <= 1'b1;
+        end else if (Sel_S_AXI_awvalid_Signal && !Sel_Slave_Ready_Signal) begin
+            token_busy <= 1'b1;
+        end
+    end
+
+    assign Token = token_busy;
+    assign Channel_Req_burst = Sel_S_AXI_awvalid_Signal | token_busy;
+
+    assign Disconnect_Master = token_busy & Queue_Is_Full;
+    assign Load_The_Original_Signals = (Is_Master_AXI_4 != 0) && (~Disconnect_Master);
 
 endmodule
 
