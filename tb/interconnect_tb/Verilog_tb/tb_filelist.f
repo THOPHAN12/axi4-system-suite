@@ -4,7 +4,7 @@
 # ============================================
 # Includes
 # ============================================
-+incdir+../../src/axi_interconnect/rtl/includes
++incdir+../../src/axi_interconnect/Verilog/rtl/includes
 +incdir+../../src/common/rtl/utils
 
 # ============================================
@@ -12,49 +12,49 @@
 # ============================================
 
 # Utils (compile first - no dependencies)
-../../src/axi_interconnect/rtl/utils/Raising_Edge_Det.v
-../../src/axi_interconnect/rtl/utils/Faling_Edge_Detc.v
+../../src/axi_interconnect/Verilog/rtl/utils/Raising_Edge_Det.v
+../../src/axi_interconnect/Verilog/rtl/utils/Faling_Edge_Detc.v
 
 # Handshake (depends on utils)
-../../src/axi_interconnect/rtl/handshake/AW_HandShake_Checker.v
-../../src/axi_interconnect/rtl/handshake/WD_HandShake.v
-../../src/axi_interconnect/rtl/handshake/WR_HandShake.v
+../../src/axi_interconnect/Verilog/rtl/handshake/AW_HandShake_Checker.v
+../../src/axi_interconnect/Verilog/rtl/handshake/WD_HandShake.v
+../../src/axi_interconnect/Verilog/rtl/handshake/WR_HandShake.v
 
 # Datapath - MUX
-../../src/axi_interconnect/rtl/datapath/mux/AW_MUX_2_1.v
-../../src/axi_interconnect/rtl/datapath/mux/WD_MUX_2_1.v
-../../src/axi_interconnect/rtl/datapath/mux/Mux_2x1.v
-../../src/axi_interconnect/rtl/datapath/mux/Mux_2x1_en.v
-../../src/axi_interconnect/rtl/datapath/mux/BReady_MUX_2_1.v
+../../src/axi_interconnect/Verilog/rtl/datapath/mux/AW_MUX_2_1.v
+../../src/axi_interconnect/Verilog/rtl/datapath/mux/WD_MUX_2_1.v
+../../src/axi_interconnect/Verilog/rtl/datapath/mux/Mux_2x1.v
+../../src/axi_interconnect/Verilog/rtl/datapath/mux/Mux_2x1_en.v
+../../src/axi_interconnect/Verilog/rtl/datapath/mux/BReady_MUX_2_1.v
 
 # Datapath - DEMUX
-../../src/axi_interconnect/rtl/datapath/demux/Demux_1_2.v
-../../src/axi_interconnect/rtl/datapath/demux/Demux_1x2.v
-../../src/axi_interconnect/rtl/datapath/demux/Demux_1x2_en.v
+../../src/axi_interconnect/Verilog/rtl/datapath/demux/Demux_1_2.v
+../../src/axi_interconnect/Verilog/rtl/datapath/demux/Demux_1x2.v
+../../src/axi_interconnect/Verilog/rtl/datapath/demux/Demux_1x2_en.v
 
 # Buffers
-../../src/axi_interconnect/rtl/buffers/Queue.v
-../../src/axi_interconnect/rtl/buffers/Resp_Queue.v
+../../src/axi_interconnect/Verilog/rtl/buffers/Queue.v
+../../src/axi_interconnect/Verilog/rtl/buffers/Resp_Queue.v
 
 # Arbitration
-../../src/axi_interconnect/rtl/arbitration/Qos_Arbiter.v
-../../src/axi_interconnect/rtl/arbitration/Write_Arbiter.v
-../../src/axi_interconnect/rtl/arbitration/Write_Arbiter_RR.v
+../../src/axi_interconnect/Verilog/rtl/arbitration/Qos_Arbiter.v
+../../src/axi_interconnect/Verilog/rtl/arbitration/Write_Arbiter.v
+../../src/axi_interconnect/Verilog/rtl/arbitration/Write_Arbiter_RR.v
 
 # Decoders
-../../src/axi_interconnect/rtl/decoders/Write_Addr_Channel_Dec.v
-../../src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Dec.v
-../../src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Arb.v
+../../src/axi_interconnect/Verilog/rtl/decoders/Write_Addr_Channel_Dec.v
+../../src/axi_interconnect/Verilog/rtl/decoders/Write_Resp_Channel_Dec.v
+../../src/axi_interconnect/Verilog/rtl/decoders/Write_Resp_Channel_Arb.v
 
 # Channel Controllers
-../../src/axi_interconnect/rtl/channel_controllers/write/AW_Channel_Controller_Top.v
-../../src/axi_interconnect/rtl/channel_controllers/write/WD_Channel_Controller_Top.v
-../../src/axi_interconnect/rtl/channel_controllers/write/BR_Channel_Controller_Top.v
-../../src/axi_interconnect/rtl/channel_controllers/read/Controller.v
+../../src/axi_interconnect/Verilog/rtl/channel_controllers/write/AW_Channel_Controller_Top.v
+../../src/axi_interconnect/Verilog/rtl/channel_controllers/write/WD_Channel_Controller_Top.v
+../../src/axi_interconnect/Verilog/rtl/channel_controllers/write/BR_Channel_Controller_Top.v
+../../src/axi_interconnect/Verilog/rtl/channel_controllers/read/Controller.v
 
 # Core
-../../src/axi_interconnect/rtl/core/AXI_Interconnect.v
-../../src/axi_interconnect/rtl/core/AXI_Interconnect_Full.v
+../../src/axi_interconnect/Verilog/rtl/core/AXI_Interconnect.v
+../../src/axi_interconnect/Verilog/rtl/core/AXI_Interconnect_Full.v
 
 # ============================================
 # Testbenches - Utils (compile first)
