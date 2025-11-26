@@ -444,10 +444,22 @@ set count3 [add_directory_files [file join $tb_path "wrapper_tb" "testbenches" "
 set count [expr $count + $count2 + $count3]
 set total_added [expr $total_added + $count]
 
+# Add SystemVerilog benches
+set count_sv [add_directory_files [file join $tb_path "wrapper_tb" "testbenches" "dual_master"] "*.sv" ""]
+set total_added [expr $total_added + $count_sv]
+
 # 18. SERV Core standalone benches
 puts "\n18. Adding SERV Core standalone benches..."
 set serv_bench_path [file join $project_root "src" "cores" "serv" "bench"]
 set count [add_directory_files $serv_bench_path "*.v" ""]
+set total_added [expr $total_added + $count]
+
+# 19. AXI-Lite Peripherals
+set count [add_directory_files [file join $project_root "src" "peripherals" "axi_lite"] "*.v" "19. Adding AXI-Lite peripherals..."]
+set total_added [expr $total_added + $count]
+
+# 20. Custom AXI SV blocks
+set count [add_directory_files [file join $intercon_path "custom"] "*.sv" "20. Adding custom AXI SV blocks..."]
 set total_added [expr $total_added + $count]
 
 # ============================================================================
