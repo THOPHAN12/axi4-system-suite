@@ -63,7 +63,7 @@ AXI/
 
 ### Hệ Thống Chính: Dual Master System IP
 
-**Top-Level Module**: `dual_master_system_ip`
+**Top-Level Module**: `serv_axi_system_ip`
 
 ```
 [SERV RISC-V]    [ALU Master]
@@ -126,7 +126,7 @@ AXI/
 
 ### Wrapper Modules (`src/wrapper/`)
 
-Wrapper modules tích hợp SERV RISC-V và ALU Master với AXI4 Interconnect.
+Wrapper modules tích hợp SERV RISC-V và các cấu hình AXI4 khác nhau.
 
 #### Cấu Trúc
 
@@ -139,14 +139,12 @@ src/wrapper/
 │
 ├── systems/             # System integration modules
 │   ├── serv_axi_system.v           # SERV system
-│   ├── dual_master_system.v       # SERV + ALU Master
-│   ├── alu_master_system.v        # ALU Master system
+│   ├── dual_riscv_axi_system.v    # Dual SERV masters with AXI-Lite peripherals
 │   ├── axi_interconnect_wrapper.v  # AXI Interconnect wrapper (read-only)
 │   └── axi_interconnect_2m4s_wrapper.v  # AXI Interconnect wrapper (2M, 4S, full AXI4)
 │
 ├── ip/                  # Self-contained IP modules
-│   ├── serv_axi_system_ip.v       # SERV IP module
-│   └── dual_master_system_ip.v    # Dual Master IP module ⭐
+│   └── serv_axi_system_ip.v       # SERV IP module
 │
 └── memory/              # AXI memory slave modules
     ├── axi_rom_slave.v            # Read-only memory
@@ -165,14 +163,12 @@ src/wrapper/
 
 ##### Systems
 - **serv_axi_system.v**: Complete SERV RISC-V system với AXI Interconnect
-- **dual_master_system.v**: Dual master system (SERV + ALU Master) với external memory
-- **alu_master_system.v**: ALU Master system với multiple masters
+- **dual_riscv_axi_system.v**: Dual SERV masters with AXI-Lite RAM/GPIO/UART/SPI
 - **axi_interconnect_wrapper.v**: Wrapper cho AXI_Interconnect (read-only interface)
 - **axi_interconnect_2m4s_wrapper.v**: Wrapper cho AXI_Interconnect_Full (2M, 4S, full AXI4)
 
 ##### IP Modules (Khuyến Nghị)
 - **serv_axi_system_ip.v**: Self-contained SERV RISC-V IP module
-- **dual_master_system_ip.v**: ⭐ **Self-contained Dual Master System IP** (Khuyến nghị sử dụng)
 
 ##### Memory Slaves
 - **axi_rom_slave.v**: AXI4 Read-Only Memory (instruction memory)
@@ -229,7 +225,6 @@ src/axi_interconnect/rtl/
 ### CPU Cores (`src/cores/`)
 
 - **serv/**: SERV RISC-V processor (bit-serial, world's smallest RISC-V CPU)
-- **alu/**: ALU Master (custom AXI master)
 
 ---
 
@@ -304,19 +299,14 @@ source add_files.tcl
 
 #### Top-Level Entity Options
 
-1. **dual_master_system_ip** ⭐ **KHUYẾN NGHỊ**
-   - Complete IP module với SERV + ALU Master
-   - Integrated memory slaves
-   - No external connections needed
+1. **serv_axi_system_ip** ⭐ **KHUYẾN NGHỊ**
+   - SERV RISC-V IP module với bộ nhớ tích hợp
+   - Dễ tích hợp vào SoC
 
-2. **serv_axi_system_ip**
-   - SERV RISC-V IP module
-   - Integrated instruction và data memory
+2. **AXI_Interconnect_Full**
+   - Chỉ sử dụng khối interconnect
 
-3. **AXI_Interconnect_Full**
-   - Chỉ AXI Interconnect
-
-4. Các options khác: `dual_master_system`, `serv_axi_system`, `serv_axi_wrapper`, `alu_master_system`
+3. Các options khác: `serv_axi_system`, `serv_axi_wrapper`
 
 #### Scripts
 
@@ -339,8 +329,8 @@ source add_files.tcl
 cd sim/modelsim
 run_riscv.bat
 
-# Dual Master System IP
-run_dual_master_ip_test.bat
+# Dual RISC-V AXI system (2 masters, 4 slaves)
+vsim -c -do "source scripts/sim/run_dual_riscv_axi_system.tcl"
 ```
 
 #### TCL Scripts
@@ -363,8 +353,7 @@ run_dual_master_ip_test.bat
 tb/wrapper_tb/
 ├── testbenches/
 │   ├── serv/              # SERV RISC-V testbenches
-│   ├── dual_master/       # Dual Master System testbenches
-│   └── alu_master/        # ALU Master System testbenches
+│   └── dual_riscv/        # Dual SERV master testbenches
 └── programs/              # Test programs (hex files)
 ```
 
@@ -377,11 +366,8 @@ cd D:/AXI/sim/modelsim
 # SERV RISC-V
 source scripts/sim/run_riscv_test.tcl
 
-# Dual Master IP
-source scripts/sim/run_dual_master_ip_test.tcl
-
-# ALU Master
-source scripts/sim/run_wrapper_test.tcl
+# Dual RISC-V AXI system
+source scripts/sim/run_dual_riscv_axi_system.tcl
 ```
 
 ### Utils Testbenches (`tb/utils_tb/`)
@@ -405,9 +391,9 @@ source scripts/sim/run_wrapper_test.tcl
 
 ### Cho Người Mới
 
-1. **Đọc**: [architecture/SYSTEM_DIAGRAM.md](architecture/SYSTEM_DIAGRAM.md) - Tổng quan hệ thống
-2. **Xem**: [architecture/SYSTEM_DIAGRAM_MERMAID.md](architecture/SYSTEM_DIAGRAM_MERMAID.md) - Sơ đồ trực quan
-3. **Hiểu**: [architecture/SYSTEM_ARCHITECTURE.md](architecture/SYSTEM_ARCHITECTURE.md) - Chi tiết kiến trúc
+1. **Đọc**: [README.md](README.md) và [README_COMPREHENSIVE.md](README_COMPREHENSIVE.md) để nắm tổng quan
+2. **Tìm hiểu interconnect**: [architecture/AXI_INTERCONNECT_CONFLICTS.md](architecture/AXI_INTERCONNECT_CONFLICTS.md)
+3. **Xem testbench mẫu**: `tb/wrapper_tb/testbenches/serv/` hoặc `dual_riscv/`
 
 ### Cho Developer
 
@@ -418,29 +404,29 @@ source scripts/sim/run_wrapper_test.tcl
 
 ### Cho Integrator
 
-1. **Tổng quan**: [architecture/SYSTEM_DIAGRAM.md](architecture/SYSTEM_DIAGRAM.md)
-2. **Ports**: [architecture/SYSTEM_ARCHITECTURE.md](architecture/SYSTEM_ARCHITECTURE.md) - Section 1.5
-3. **Wiring**: [architecture/CONNECTION_DIAGRAM.md](architecture/CONNECTION_DIAGRAM.md)
-4. **Wrapper**: [src/wrapper/README.md](../../src/wrapper/README.md)
+1. **Tổng quan**: [README_COMPREHENSIVE.md](README_COMPREHENSIVE.md)
+2. **Ports/Wiring**: [architecture/CONNECTION_DIAGRAM.md](architecture/CONNECTION_DIAGRAM.md)
+3. **Wrapper**: [src/wrapper/README.md](../../src/wrapper/README.md)
 
 ### Sử Dụng IP Modules (Khuyến Nghị)
 
 ```verilog
-// Dual Master System IP
-dual_master_system_ip #(
-    .INST_MEM_SIZE(8192),
-    .DATA_MEM_SIZE(8192),
-    .ALU_MEM_SIZE(4096)
-) u_dual_master_ip (
+// Dual RISC-V AXI system
+dual_riscv_axi_system #(
+    .RAM_WORDS(2048)
+) u_dual_riscv (
     .ACLK(aclk),
     .ARESETN(aresetn),
-    .i_timer_irq(timer_irq),
-    .alu_master_start(start),
-    .alu_master_busy(busy),
-    .alu_master_done(done),
-    .inst_mem_ready(inst_ready),
-    .data_mem_ready(data_ready),
-    .alu_mem_ready(alu_ready)
+    .serv0_timer_irq(timer_irq0),
+    .serv1_timer_irq(timer_irq1),
+    .gpio_in(gpio_inputs),
+    .gpio_out(gpio_outputs),
+    .uart_tx_valid(uart_valid),
+    .uart_tx_byte(uart_data),
+    .spi_cs_n(spi_cs_n),
+    .spi_sclk(spi_sclk),
+    .spi_mosi(spi_mosi),
+    .spi_miso(spi_miso)
 );
 ```
 

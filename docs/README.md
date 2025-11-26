@@ -117,29 +117,6 @@ docs/
 
 ---
 
-## ⚠️ Lưu Ý Quan Trọng
-
-### Thông Tin Cần Cập Nhật
-
-1. **ALU Master Connection**: 
-   - Trong `dual_master_system_ip`, ALU Master **bypass interconnect** (kết nối trực tiếp với M02)
-   - Xem: [architecture/SYSTEM_ARCHITECTURE.md](architecture/SYSTEM_ARCHITECTURE.md) - Section 1.3.4
-
-2. **Module Hierarchy**:
-   - Top-level IP: `dual_master_system_ip`
-   - System module: `dual_master_system` (external memory)
-   - Xem: [src/wrapper/README.md](../src/wrapper/README.md)
-
-### Trùng Lặp Nội Dung
-
-- Các file trong `architecture/` có một số nội dung trùng lặp nhưng phục vụ mục đích khác nhau
-- **SYSTEM_DIAGRAM.md**: Tập trung vào sơ đồ và tổng quan
-- **SYSTEM_ARCHITECTURE.md**: Tập trung vào chi tiết implementation
-- **AXI_INTERCONNECT_CONFLICTS.md**: Tập trung vào xung đột và arbitration
-- **Khuyến nghị**: Đọc cả các file để có cái nhìn đầy đủ
-
----
-
 ## 🔗 Liên Kết Ngoài
 
 - **Source Code**: [src/wrapper/README.md](../src/wrapper/README.md)

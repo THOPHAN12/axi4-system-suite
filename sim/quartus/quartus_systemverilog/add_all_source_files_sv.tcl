@@ -363,13 +363,10 @@ if {[file exists $wrapper_file]} {
 puts "6. Adding System Integration Modules (Verilog)..."
 set system_files {
     "systems/serv_axi_system.v"
-    "systems/dual_master_system.v"
-    "systems/alu_master_system.v"
 }
 
 set ip_files {
     "ip/serv_axi_system_ip.v"
-    "ip/dual_master_system_ip.v"
 }
 
 set system_count 0
@@ -427,38 +424,9 @@ if {$memory_count > 0} {
 }
 
 # ============================================================================
-# 8. Master ALU Files (Verilog)
+# 8. Wrapper Systems (Verilog)
 # ============================================================================
-puts "8. Adding Master ALU Files (Verilog)..."
-set alu_dir [file join $src_base_dir "cores" "alu"]
-
-set alu_files {
-    "ALU_Core.v"
-    "CPU_ALU_Master.v"
-    "CPU_Controller.v"
-    "Simple_AXI_Master_Test.v"
-}
-
-set alu_count 0
-foreach file $alu_files {
-    set file_path [file join $alu_dir $file]
-    if {[file exists $file_path]} {
-        if {[add_verilog_file $file_path]} {
-            incr alu_count
-        }
-    }
-}
-if {$alu_count > 0} {
-    set total_files [expr $total_files + $alu_count]
-    puts "   Added $alu_count ALU master files\n"
-} else {
-    puts "   ⚠ Master ALU files not found\n"
-}
-
-# ============================================================================
-# 9. Wrapper Systems (Verilog)
-# ============================================================================
-puts "9. Adding Wrapper Systems (Verilog)..."
+puts "8. Adding Wrapper Systems (Verilog)..."
 set wrapper_systems {
     "systems/axi_interconnect_wrapper.v"
 }
@@ -483,7 +451,7 @@ if {$wrapper_count > 0} {
 # Set Top-Level Entity
 # ============================================================================
 
-puts "10. Setting Top-Level Entity..."
+puts "9. Setting Top-Level Entity..."
 # Giu nguyen top-level hien tai (KHUYEN NGHI - Khong override)
 puts "   ℹ Keeping existing top-level entity (not overriding)\n"
 puts "   ℹ Current top-level is set in AXI_PROJECT_SV.qsf\n"
@@ -493,15 +461,11 @@ puts "   ℹ Uncomment one of the options below if you want to change it\n"
 # set_global_assignment -name TOP_LEVEL_ENTITY "AXI_Interconnect_Full"
 # puts "    Top-Level: AXI_Interconnect_Full (SystemVerilog)\n"
 
-# Lua chon 2: Dung dual_master_system_ip (Verilog wrapper)
-# set_global_assignment -name TOP_LEVEL_ENTITY "dual_master_system_ip"
-# puts "    Top-Level: dual_master_system_ip\n"
-
 # ============================================================================
 # Set Include Directories
 # ============================================================================
 
-puts "11. Setting Include Directories..."
+puts "10. Setting Include Directories..."
 set interconnect_sv_includes [file join $src_base_dir "axi_interconnect" "sv" "packages"]
 set interconnect_sv_if_includes [file join $src_base_dir "axi_interconnect" "sv" "interfaces"]
 
@@ -546,7 +510,6 @@ if {$wrapper_sv_count > 0} {
 puts "  - WB2AXI Converters (Verilog): $wb2axi_count"
 puts "  - System Integration files (Verilog): $total_system_count"
 puts "  - Memory Slave files (Verilog): $memory_count"
-puts "  - ALU Master files (Verilog): $alu_count"
 if {$wrapper_count > 0} {
     puts "  - Wrapper Systems (Verilog): $wrapper_count"
 }

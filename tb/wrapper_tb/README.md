@@ -10,13 +10,8 @@ tb/wrapper_tb/
 │   ├── serv/              # SERV RISC-V testbenches
 │   │   ├── serv_axi_system_tb.v
 │   │   └── serv_axi_system_ip_tb.v
-│   ├── dual_master/       # Dual Master System testbenches
-│   │   ├── dual_master_system_tb.v
-│   │   └── dual_master_system_ip_tb.v
-│   └── alu_master/        # ALU Master System testbenches
-│       ├── alu_master_system_tb.v
-│       ├── alu_master_system_tb_enhanced.v
-│       └── alu_master_system_tb_simple.v
+│   └── dual_riscv/        # Dual SERV master testbench
+│       └── dual_riscv_axi_system_tb.sv
 └── programs/              # Test programs (hex files)
     ├── test_program.hex
     ├── test_program_advanced.hex
@@ -43,51 +38,14 @@ tb/wrapper_tb/
   - No external connections needed
 - **Chạy**: `source scripts/sim/run_ip_test.tcl`
 
-### Dual Master System Testbenches (`testbenches/dual_master/`)
+### Dual RISC-V Testbench (`testbenches/dual_riscv/`)
 
-#### `dual_master_system_tb.v`
-- **Mục đích**: Test dual master system (SERV + ALU Master) với external memory slaves
+#### `dual_riscv_axi_system_tb.sv`
+- **Mục đích**: Test hệ thống 2 SERV masters dùng AXI-Lite RAM/GPIO/UART/SPI
 - **Chức năng**:
-  - Test SERV và ALU Master cùng lúc
-  - Test 4 memory slaves
-  - Test address routing và arbitration
-- **Chạy**: `source scripts/sim/run_dual_master_test.tcl`
-
-#### `dual_master_system_ip_tb.v`
-- **Mục đích**: Test complete dual master system IP module
-- **Chức năng**:
-  - Test self-contained IP module
-  - Integrated memory slaves (Instruction, Data, ALU, Reserved)
-  - ALU Master control signals
-  - Memory status outputs
-- **Chạy**: `batch\run_dual_master_ip_test.bat` hoặc `source scripts/sim/run_dual_master_ip_test.tcl`
-
-### ALU Master System Testbenches (`testbenches/alu_master/`)
-
-#### `alu_master_system_tb.v`
-- **Mục đích**: Basic testbench cho ALU Master System
-- **Chức năng**:
-  - Test 2 ALU masters
-  - Test 4 memory slaves
-  - Basic routing verification
-- **Chạy**: `source scripts/sim/run_wrapper_test.tcl` (set `use_enhanced_tb 0`)
-
-#### `alu_master_system_tb_enhanced.v`
-- **Mục đích**: Enhanced testbench với detailed monitoring
-- **Chức năng**:
-  - Detailed transaction monitoring
-  - Self-checking assertions
-  - Data integrity verification
-  - Address routing verification
-- **Chạy**: `batch\run_wrapper_test.bat` hoặc `source scripts/sim/run_wrapper_test.tcl` (default)
-
-#### `alu_master_system_tb_simple.v`
-- **Mục đích**: Simple routing test
-- **Chức năng**:
-  - Simple AXI master test
-  - Basic routing verification
-  - Minimal test stimulus
-- **Chạy**: `source scripts/sim/run_simple_test.tcl`
+  - Dual SERV cores truy cập chung interconnect
+  - Kiểm tra round-robin arbitration và ngoại vi AXI-Lite
+- **Chạy**: `source scripts/sim/run_dual_riscv_axi_system.tcl`
 
 ## Test Programs (`programs/`)
 
@@ -120,17 +78,8 @@ source scripts/sim/run_riscv_test.tcl
 # SERV IP
 source scripts/sim/run_ip_test.tcl
 
-# Dual Master System
-source scripts/sim/run_dual_master_test.tcl
-
-# Dual Master IP
-source scripts/sim/run_dual_master_ip_test.tcl
-
-# ALU Master (Enhanced)
-source scripts/sim/run_wrapper_test.tcl
-
-# ALU Master (Simple)
-source scripts/sim/run_simple_test.tcl
+# Dual RISC-V AXI system
+source scripts/sim/run_dual_riscv_axi_system.tcl
 ```
 
 #### Từ Windows Batch Files:
@@ -139,12 +88,6 @@ cd D:\AXI\sim\modelsim
 
 # SERV RISC-V
 batch\run_riscv.bat
-
-# Dual Master IP
-batch\run_dual_master_ip_test.bat
-
-# ALU Master
-batch\run_wrapper_test.bat
 ```
 
 ## Path References

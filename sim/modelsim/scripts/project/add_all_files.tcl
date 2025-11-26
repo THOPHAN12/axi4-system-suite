@@ -439,13 +439,12 @@ set total_added [expr $total_added + $count]
 puts "\n17. Adding Testbench Files (optional)..."
 # Scan testbenches subdirectories
 set count [add_directory_files [file join $tb_path "wrapper_tb" "testbenches" "serv"] "*.v" ""]
-set count2 [add_directory_files [file join $tb_path "wrapper_tb" "testbenches" "dual_master"] "*.v" ""]
-set count3 [add_directory_files [file join $tb_path "wrapper_tb" "testbenches" "alu_master"] "*.v" ""]
-set count [expr $count + $count2 + $count3]
+set count2 [add_directory_files [file join $tb_path "wrapper_tb" "testbenches" "dual_riscv"] "*.v" ""]
+set count [expr $count + $count2]
 set total_added [expr $total_added + $count]
 
 # Add SystemVerilog benches
-set count_sv [add_directory_files [file join $tb_path "wrapper_tb" "testbenches" "dual_master"] "*.sv" ""]
+set count_sv [add_directory_files [file join $tb_path "wrapper_tb" "testbenches" "dual_riscv"] "*.sv" ""] 
 set total_added [expr $total_added + $count_sv]
 
 # 18. SERV Core standalone benches

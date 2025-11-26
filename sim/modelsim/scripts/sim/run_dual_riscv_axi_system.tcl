@@ -45,7 +45,7 @@ set compile_list {
     src/peripherals/axi_lite/axi_lite_spi.v
     src/axi_interconnect/rtl/arbitration/axi_rr_interconnect_2x4.v
     src/wrapper/systems/dual_riscv_axi_system.v
-    tb/wrapper_tb/testbenches/dual_master/dual_riscv_axi_system_tb.sv
+    tb/wrapper_tb/testbenches/dual_riscv/dual_riscv_axi_system_tb.sv
 }
 
 foreach relpath $compile_list {
