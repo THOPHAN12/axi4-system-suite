@@ -65,13 +65,17 @@ module Raising_Edge_Det_tb;
         // Test 2: Rising edge (0 -> 1)
         $display("Test 2: Rising edge 0 -> 1");
         Test_Singal = 1;
-        #(CLK_PERIOD * 2);
+        // Wait for 1 clock cycle - Raisung is only active for 1 cycle
+        @(posedge ACLK);
+        #1; // Small delay to let outputs settle
         if (Raisung == 1) begin
             $display("PASS: Rising edge detected correctly");
         end else begin
             $display("FAIL: Rising edge not detected");
         end
-        #(CLK_PERIOD * 2);
+        // Wait another cycle - Raisung should be cleared
+        @(posedge ACLK);
+        #1;
         if (Raisung == 0) begin
             $display("PASS: Raisung cleared after edge");
         end else begin

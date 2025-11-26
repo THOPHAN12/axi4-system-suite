@@ -14,7 +14,11 @@ module AXI_Interconnect_tb #(
           M01_AR_len='d8, //!AXI4 - 8 bits for burst length
           Num_Of_Masters='d2,Master_ID_Width=$clog2(Num_Of_Masters)
 ) ();
-/*                   /****** Slave 01_ARESETN;
+    //====== Slave 01 Ports ======//
+    //* Slave General Port
+    reg                            S01_ACLK;
+    reg                            S01_ARESETN;
+    
     //* Address Write Channel
     reg    [Address_width-1:0]     S01_AXI_awaddr;// the write address
     reg    [S01_Aw_len-1:0]        S01_AXI_awlen; // number of transfer per burst //! For AXI4 limit is 256 for inc bursts only 
@@ -28,14 +32,9 @@ module AXI_Interconnect_tb #(
     wire                           S01_AXI_awready; // Address write ready signal 
 
     //* Write Data Channel
-    
     reg    [S00_Write_data_bus_width-1:0]   S01_AXI_wdata;//Write data bus
     reg    [S00_Write_data_bytes_num-1:0]   S01_AXI_wstrb; // strops identifes the active data lines
-    reg                         S01 Ports *******/
-                    /******************************/
-    //* Slave General Port;
-    reg                            S01_ACLK;
-    reg                            S            S01_AXI_wlast; // last signal to identify the last transfer in a burst
+    reg                                     S01_AXI_wlast; // last signal to identify the last transfer in a burst
     reg                                     S01_AXI_wvalid; // write valid signal
     wire                                    S01_AXI_wready; // write ready signal
 
@@ -63,13 +62,11 @@ module AXI_Interconnect_tb #(
     wire                                  S01_AXI_rlast; // Read Last Signal
     wire                                  S01_AXI_rvalid; // Read Valid Signal 
     reg                                   S01_AXI_rready; // Read Ready Signal
-/*                /***** Interconnect Ports *****/
-                    /******************************/
+    //====== Interconnect Ports ======//
     reg                            ACLK;
     reg                            ARESETN;
                 
-/*                /****** Slave S00 Ports *******/
-                    /******************************/
+    //====== Slave S00 Ports ======//
     //* Slave General Ports
     reg                            S00_ACLK;
     reg                            S00_ARESETN;
@@ -118,8 +115,7 @@ module AXI_Interconnect_tb #(
     wire                                  S00_AXI_rvalid; // Read Valid Signal 
     reg                                   S00_AXI_rready; // Read Ready Signal 
 
-/*                /****** Master M00 Ports *****/   
-                  /*****************************/
+    //====== Master M00 Ports ======//
     //* Slave General Ports
     reg                            M00_ACLK;
     reg                            M00_ARESETN;
@@ -171,8 +167,7 @@ module AXI_Interconnect_tb #(
     wire                                  M00_AXI_rready; // Read Ready Signal
 
 
-/*                /****** Master M0 Ports *****/   
-                  /*****************************/
+    //====== Master M01 Ports ======//
     //* Slave General Ports
     reg                            M01_ACLK;
     reg                            M01_ARESETN;
@@ -223,8 +218,7 @@ module AXI_Interconnect_tb #(
     reg                                   M01_AXI_rvalid; // Read Valid Signal 
     wire                                  M01_AXI_rready; // Read Ready Signal
 
-/*                /****** Master M02 Ports *****/   
-                  /*****************************/
+    //====== Master M02 Ports ======//
     //* Slave General Ports
     reg                            M02_ACLK;
     reg                            M02_ARESETN;
@@ -249,8 +243,7 @@ module AXI_Interconnect_tb #(
     reg                                   M02_AXI_rvalid; // Read Valid Signal 
     wire                                  M02_AXI_rready; // Read Ready Signal
 
-/*                /****** Master M03 Ports *****/   
-                  /*****************************/
+    //====== Master M03 Ports ======//
     //* Slave General Ports
     reg                            M03_ACLK;
     reg                            M03_ARESETN;
@@ -276,7 +269,7 @@ module AXI_Interconnect_tb #(
     wire                                  M03_AXI_rready; // Read Ready Signal
 
 
-/* Clock Def*/
+// Clock Def
 parameter Interconnect_Clock_Period = 10;
 always #(Interconnect_Clock_Period/2) ACLK =~ ACLK;
 
