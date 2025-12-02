@@ -596,12 +596,14 @@ module dual_riscv_axi_system #(
 
     axi_rr_interconnect_2x4 #(
         .ADDR_WIDTH(ADDR_WIDTH),
-        .DATA_WIDTH(DATA_WIDTH)
+        .DATA_WIDTH(DATA_WIDTH),
+        .ARBITRATION_MODE("ROUND_ROBIN")  // Options: "FIXED", "ROUND_ROBIN", "QOS"
     ) u_rr_xbar (
         .ACLK(ACLK),
         .ARESETN(ARESETN),
         .M0_AWADDR (serv0_axi_awaddr),
         .M0_AWPROT (serv0_axi_awprot),
+        .M0_AWQOS  (4'b0000),              // Default QoS = 0 for SERV0
         .M0_AWVALID(serv0_axi_awvalid),
         .M0_AWREADY(serv0_axi_awready),
         .M0_WDATA  (serv0_axi_wdata),
@@ -613,6 +615,7 @@ module dual_riscv_axi_system #(
         .M0_BREADY (serv0_axi_bready),
         .M0_ARADDR (serv0_axi_araddr),
         .M0_ARPROT (serv0_axi_arprot),
+        .M0_ARQOS  (4'b0000),              // Default QoS = 0 for SERV0
         .M0_ARVALID(serv0_axi_arvalid),
         .M0_ARREADY(serv0_axi_arready),
         .M0_RDATA  (serv0_axi_rdata),
@@ -622,6 +625,7 @@ module dual_riscv_axi_system #(
         .M0_RREADY (serv0_axi_rready),
         .M1_AWADDR (serv1_axi_awaddr),
         .M1_AWPROT (serv1_axi_awprot),
+        .M1_AWQOS  (4'b0000),              // Default QoS = 0 for SERV1
         .M1_AWVALID(serv1_axi_awvalid),
         .M1_AWREADY(serv1_axi_awready),
         .M1_WDATA  (serv1_axi_wdata),
@@ -633,6 +637,7 @@ module dual_riscv_axi_system #(
         .M1_BREADY (serv1_axi_bready),
         .M1_ARADDR (serv1_axi_araddr),
         .M1_ARPROT (serv1_axi_arprot),
+        .M1_ARQOS  (4'b0000),              // Default QoS = 0 for SERV1
         .M1_ARVALID(serv1_axi_arvalid),
         .M1_ARREADY(serv1_axi_arready),
         .M1_RDATA  (serv1_axi_rdata),

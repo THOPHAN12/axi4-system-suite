@@ -1,20 +1,23 @@
 //------------------------------------------------------------------------------
 // axi_rr_interconnect_2x4.sv
 //
-// Lightweight 2-master, 4-slave AXI4-Lite crossbar with round-robin arbitration.
+// Lightweight 2-master, 4-slave AXI4-Lite crossbar with configurable arbitration.
 // - Designed for simulation/bring-up use cases where only a single outstanding
 //   read and write transaction are required.
 // - Address decoding uses the upper two address bits [31:30] to select one of
 //   four slaves (00, 01, 10, 11).
-// - Arbitration between the two masters is fair thanks to a toggle-based
-//   round-robin pointer.
+// - Arbitration modes:
+//   * "FIXED"      : Master 0 has higher priority than Master 1
+//   * "ROUND_ROBIN": Fair alternating arbitration (default)
+//   * "QOS"        : Priority based on awqos/arqos signals
 //------------------------------------------------------------------------------
 
 `timescale 1ns/1ps
 
 module axi_rr_interconnect_2x4 #(
     parameter int unsigned ADDR_WIDTH = 32,
-    parameter int unsigned DATA_WIDTH = 32
+    parameter int unsigned DATA_WIDTH = 32,
+    parameter string       ARBITRATION_MODE = "ROUND_ROBIN"  // "FIXED", "ROUND_ROBIN", "QOS"
 ) (
     input  logic                       ACLK,
     input  logic                       ARESETN,
@@ -24,6 +27,7 @@ module axi_rr_interconnect_2x4 #(
     // -------------------------------------------------------------------------
     input  logic [ADDR_WIDTH-1:0]      M0_AWADDR,
     input  logic [2:0]                 M0_AWPROT,
+    input  logic [3:0]                 M0_AWQOS,      // QoS for arbitration (used in "QOS" mode)
     input  logic                       M0_AWVALID,
     output logic                       M0_AWREADY,
 
@@ -38,6 +42,7 @@ module axi_rr_interconnect_2x4 #(
 
     input  logic [ADDR_WIDTH-1:0]      M0_ARADDR,
     input  logic [2:0]                 M0_ARPROT,
+    input  logic [3:0]                 M0_ARQOS,      // QoS for arbitration (used in "QOS" mode)
     input  logic                       M0_ARVALID,
     output logic                       M0_ARREADY,
 
@@ -52,6 +57,7 @@ module axi_rr_interconnect_2x4 #(
     // -------------------------------------------------------------------------
     input  logic [ADDR_WIDTH-1:0]      M1_AWADDR,
     input  logic [2:0]                 M1_AWPROT,
+    input  logic [3:0]                 M1_AWQOS,      // QoS for arbitration (used in "QOS" mode)
     input  logic                       M1_AWVALID,
     output logic                       M1_AWREADY,
 
@@ -66,6 +72,7 @@ module axi_rr_interconnect_2x4 #(
 
     input  logic [ADDR_WIDTH-1:0]      M1_ARADDR,
     input  logic [2:0]                 M1_ARPROT,
+    input  logic [3:0]                 M1_ARQOS,      // QoS for arbitration (used in "QOS" mode)
     input  logic                       M1_ARVALID,
     output logic                       M1_ARREADY,
 
@@ -287,8 +294,30 @@ module axi_rr_interconnect_2x4 #(
 
     wire         m0_aw_req = !write_active && M0_AWVALID;
     wire         m1_aw_req = !write_active && M1_AWVALID;
-    wire         grant_m0  = m0_aw_req && (!m1_aw_req || (m1_aw_req && wr_turn == MAST0));
-    wire         grant_m1  = m1_aw_req && (!m0_aw_req || (m0_aw_req && wr_turn == MAST1));
+    
+    // -------------------------------------------------------------------------
+    // Write Arbitration Logic - Configurable
+    // -------------------------------------------------------------------------
+    wire         grant_m0, grant_m1;
+    
+    generate
+        if (ARBITRATION_MODE == "FIXED") begin : gen_fixed_write_arb
+            // Fixed Priority: M0 > M1
+            assign grant_m0 = m0_aw_req;
+            assign grant_m1 = m1_aw_req && !m0_aw_req;
+            
+        end else if (ARBITRATION_MODE == "QOS") begin : gen_qos_write_arb
+            // QoS-based: Higher QoS wins, M0 wins on tie
+            wire m0_higher_qos = (M0_AWQOS >= M1_AWQOS);
+            assign grant_m0 = m0_aw_req && (!m1_aw_req || m0_higher_qos);
+            assign grant_m1 = m1_aw_req && (!m0_aw_req || !m0_higher_qos);
+            
+        end else begin : gen_rr_write_arb  // Default: ROUND_ROBIN
+            // Round-Robin: Fair alternating based on wr_turn
+            assign grant_m0 = m0_aw_req && (!m1_aw_req || (m1_aw_req && wr_turn == MAST0));
+            assign grant_m1 = m1_aw_req && (!m0_aw_req || (m0_aw_req && wr_turn == MAST1));
+        end
+    endgenerate
 
     slave_sel_t  m0_aw_sel = decode_slave(M0_AWADDR);
     slave_sel_t  m1_aw_sel = decode_slave(M1_AWADDR);
@@ -308,12 +337,18 @@ module axi_rr_interconnect_2x4 #(
                     write_active <= 1'b1;
                     write_master <= MAST0;
                     write_slave  <= m0_aw_sel;
-                    wr_turn      <= MAST1;
+                    // Update turn pointer only for Round-Robin mode
+                    if (ARBITRATION_MODE == "ROUND_ROBIN") begin
+                        wr_turn <= MAST1;
+                    end
                 end else if (m1_awhandshake) begin
                     write_active <= 1'b1;
                     write_master <= MAST1;
                     write_slave  <= m1_aw_sel;
-                    wr_turn      <= MAST0;
+                    // Update turn pointer only for Round-Robin mode
+                    if (ARBITRATION_MODE == "ROUND_ROBIN") begin
+                        wr_turn <= MAST0;
+                    end
                 end
             end else if (slave_bvalid(write_slave) &&
                          ((write_master == MAST0 && M0_BREADY) ||
@@ -418,8 +453,30 @@ module axi_rr_interconnect_2x4 #(
 
     wire         m0_ar_req = !read_active && M0_ARVALID;
     wire         m1_ar_req = !read_active && M1_ARVALID;
-    wire         grant_r_m0 = m0_ar_req && (!m1_ar_req || (m1_ar_req && rd_turn == MAST0));
-    wire         grant_r_m1 = m1_ar_req && (!m0_ar_req || (m0_ar_req && rd_turn == MAST1));
+    
+    // -------------------------------------------------------------------------
+    // Read Arbitration Logic - Configurable
+    // -------------------------------------------------------------------------
+    wire         grant_r_m0, grant_r_m1;
+    
+    generate
+        if (ARBITRATION_MODE == "FIXED") begin : gen_fixed_read_arb
+            // Fixed Priority: M0 > M1
+            assign grant_r_m0 = m0_ar_req;
+            assign grant_r_m1 = m1_ar_req && !m0_ar_req;
+            
+        end else if (ARBITRATION_MODE == "QOS") begin : gen_qos_read_arb
+            // QoS-based: Higher QoS wins, M0 wins on tie
+            wire m0_higher_qos_r = (M0_ARQOS >= M1_ARQOS);
+            assign grant_r_m0 = m0_ar_req && (!m1_ar_req || m0_higher_qos_r);
+            assign grant_r_m1 = m1_ar_req && (!m0_ar_req || !m0_higher_qos_r);
+            
+        end else begin : gen_rr_read_arb  // Default: ROUND_ROBIN
+            // Round-Robin: Fair alternating based on rd_turn
+            assign grant_r_m0 = m0_ar_req && (!m1_ar_req || (m1_ar_req && rd_turn == MAST0));
+            assign grant_r_m1 = m1_ar_req && (!m0_ar_req || (m0_ar_req && rd_turn == MAST1));
+        end
+    endgenerate
 
     slave_sel_t  m0_ar_sel = decode_slave(M0_ARADDR);
     slave_sel_t  m1_ar_sel = decode_slave(M1_ARADDR);
@@ -439,12 +496,18 @@ module axi_rr_interconnect_2x4 #(
                     read_active <= 1'b1;
                     read_master <= MAST0;
                     read_slave  <= m0_ar_sel;
-                    rd_turn     <= MAST1;
+                    // Update turn pointer only for Round-Robin mode
+                    if (ARBITRATION_MODE == "ROUND_ROBIN") begin
+                        rd_turn <= MAST1;
+                    end
                 end else if (m1_ar_handshake) begin
                     read_active <= 1'b1;
                     read_master <= MAST1;
                     read_slave  <= m1_ar_sel;
-                    rd_turn     <= MAST0;
+                    // Update turn pointer only for Round-Robin mode
+                    if (ARBITRATION_MODE == "ROUND_ROBIN") begin
+                        rd_turn <= MAST0;
+                    end
                 end
             end else if (slave_rvalid(read_slave) && slave_rlast(read_slave) &&
                          ((read_master == MAST0 && M0_RREADY) ||

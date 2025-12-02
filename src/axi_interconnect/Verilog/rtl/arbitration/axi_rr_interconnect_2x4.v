@@ -1,16 +1,22 @@
 //------------------------------------------------------------------------------
 // axi_rr_interconnect_2x4.v (Verilog-2001)
 //
-// 2-master / 4-slave AXI4-Lite round-robin interconnect. Provides fairness
-// using a simple toggle pointer and assumes at most one outstanding read and
+// 2-master / 4-slave AXI4-Lite interconnect with configurable arbitration.
+// Provides 3 arbitration modes and assumes at most one outstanding read and
 // one outstanding write transaction at a time.
+//
+// ARBITRATION_MODE:
+//   0 = FIXED Priority (Master 0 > Master 1)
+//   1 = ROUND_ROBIN Fair arbitration (default)
+//   2 = QOS-based (priority from AWQOS/ARQOS signals)
 //------------------------------------------------------------------------------
 
 `timescale 1ns/1ps
 
 module axi_rr_interconnect_2x4 #(
     parameter integer ADDR_WIDTH = 32,
-    parameter integer DATA_WIDTH = 32
+    parameter integer DATA_WIDTH = 32,
+    parameter integer ARBITRATION_MODE = 1  // 0=FIXED, 1=ROUND_ROBIN, 2=QOS
 ) (
     input  wire                       ACLK,
     input  wire                       ARESETN,
@@ -18,6 +24,7 @@ module axi_rr_interconnect_2x4 #(
     // Master 0
     input  wire [ADDR_WIDTH-1:0]      M0_AWADDR,
     input  wire [2:0]                 M0_AWPROT,
+    input  wire [3:0]                 M0_AWQOS,      // QoS for arbitration (mode 2)
     input  wire                       M0_AWVALID,
     output wire                       M0_AWREADY,
     input  wire [DATA_WIDTH-1:0]      M0_WDATA,
@@ -29,6 +36,7 @@ module axi_rr_interconnect_2x4 #(
     input  wire                       M0_BREADY,
     input  wire [ADDR_WIDTH-1:0]      M0_ARADDR,
     input  wire [2:0]                 M0_ARPROT,
+    input  wire [3:0]                 M0_ARQOS,      // QoS for arbitration (mode 2)
     input  wire                       M0_ARVALID,
     output wire                       M0_ARREADY,
     output wire [DATA_WIDTH-1:0]      M0_RDATA,
@@ -40,6 +48,7 @@ module axi_rr_interconnect_2x4 #(
     // Master 1
     input  wire [ADDR_WIDTH-1:0]      M1_AWADDR,
     input  wire [2:0]                 M1_AWPROT,
+    input  wire [3:0]                 M1_AWQOS,      // QoS for arbitration (mode 2)
     input  wire                       M1_AWVALID,
     output wire                       M1_AWREADY,
     input  wire [DATA_WIDTH-1:0]      M1_WDATA,
@@ -51,6 +60,7 @@ module axi_rr_interconnect_2x4 #(
     input  wire                       M1_BREADY,
     input  wire [ADDR_WIDTH-1:0]      M1_ARADDR,
     input  wire [2:0]                 M1_ARPROT,
+    input  wire [3:0]                 M1_ARQOS,      // QoS for arbitration (mode 2)
     input  wire                       M1_ARVALID,
     output wire                       M1_ARREADY,
     output wire [DATA_WIDTH-1:0]      M1_RDATA,
@@ -284,8 +294,27 @@ module axi_rr_interconnect_2x4 #(
 
     wire       m0_aw_req = !write_active && M0_AWVALID;
     wire       m1_aw_req = !write_active && M1_AWVALID;
-    wire       grant_m0  = m0_aw_req && (!m1_aw_req || (m1_aw_req && wr_turn == MAST0));
-    wire       grant_m1  = m1_aw_req && (!m0_aw_req || (m0_aw_req && wr_turn == MAST1));
+    
+    // Write arbitration - configurable based on ARBITRATION_MODE
+    wire       grant_m0;
+    wire       grant_m1;
+    
+    generate
+        if (ARBITRATION_MODE == 0) begin : gen_fixed_write
+            // FIXED: Master 0 always wins
+            assign grant_m0 = m0_aw_req;
+            assign grant_m1 = m1_aw_req && !m0_aw_req;
+        end else if (ARBITRATION_MODE == 2) begin : gen_qos_write
+            // QOS: Higher QoS wins, M0 wins on tie
+            wire m0_higher_qos = (M0_AWQOS >= M1_AWQOS);
+            assign grant_m0 = m0_aw_req && (!m1_aw_req || m0_higher_qos);
+            assign grant_m1 = m1_aw_req && (!m0_aw_req || !m0_higher_qos);
+        end else begin : gen_rr_write
+            // ROUND_ROBIN: Fair alternating (default)
+            assign grant_m0 = m0_aw_req && (!m1_aw_req || (m1_aw_req && wr_turn == MAST0));
+            assign grant_m1 = m1_aw_req && (!m0_aw_req || (m0_aw_req && wr_turn == MAST1));
+        end
+    endgenerate
 
     wire [1:0] m0_aw_sel = decode_slave(M0_AWADDR);
     wire [1:0] m1_aw_sel = decode_slave(M1_AWADDR);
@@ -305,12 +334,14 @@ module axi_rr_interconnect_2x4 #(
                     write_active <= 1'b1;
                     write_master <= MAST0;
                     write_slave  <= m0_aw_sel;
-                    wr_turn      <= MAST1;
+                    // Update turn only for ROUND_ROBIN mode
+                    if (ARBITRATION_MODE == 1) wr_turn <= MAST1;
                 end else if (m1_awhandshake) begin
                     write_active <= 1'b1;
                     write_master <= MAST1;
                     write_slave  <= m1_aw_sel;
-                    wr_turn      <= MAST0;
+                    // Update turn only for ROUND_ROBIN mode
+                    if (ARBITRATION_MODE == 1) wr_turn <= MAST0;
                 end
             end else if (slave_bvalid(write_slave) &&
                          ((write_master == MAST0 && M0_BREADY) ||
@@ -411,8 +442,27 @@ module axi_rr_interconnect_2x4 #(
 
     wire       m0_ar_req = !read_active && M0_ARVALID;
     wire       m1_ar_req = !read_active && M1_ARVALID;
-    wire       grant_r_m0 = m0_ar_req && (!m1_ar_req || (m1_ar_req && rd_turn == MAST0));
-    wire       grant_r_m1 = m1_ar_req && (!m0_ar_req || (m0_ar_req && rd_turn == MAST1));
+    
+    // Read arbitration - configurable based on ARBITRATION_MODE
+    wire       grant_r_m0;
+    wire       grant_r_m1;
+    
+    generate
+        if (ARBITRATION_MODE == 0) begin : gen_fixed_read
+            // FIXED: Master 0 always wins
+            assign grant_r_m0 = m0_ar_req;
+            assign grant_r_m1 = m1_ar_req && !m0_ar_req;
+        end else if (ARBITRATION_MODE == 2) begin : gen_qos_read
+            // QOS: Higher QoS wins, M0 wins on tie
+            wire m0_higher_qos_r = (M0_ARQOS >= M1_ARQOS);
+            assign grant_r_m0 = m0_ar_req && (!m1_ar_req || m0_higher_qos_r);
+            assign grant_r_m1 = m1_ar_req && (!m0_ar_req || !m0_higher_qos_r);
+        end else begin : gen_rr_read
+            // ROUND_ROBIN: Fair alternating (default)
+            assign grant_r_m0 = m0_ar_req && (!m1_ar_req || (m1_ar_req && rd_turn == MAST0));
+            assign grant_r_m1 = m1_ar_req && (!m0_ar_req || (m0_ar_req && rd_turn == MAST1));
+        end
+    endgenerate
 
     wire [1:0] m0_ar_sel = decode_slave(M0_ARADDR);
     wire [1:0] m1_ar_sel = decode_slave(M1_ARADDR);
@@ -432,12 +482,14 @@ module axi_rr_interconnect_2x4 #(
                     read_active <= 1'b1;
                     read_master <= MAST0;
                     read_slave  <= m0_ar_sel;
-                    rd_turn     <= MAST1;
+                    // Update turn only for ROUND_ROBIN mode
+                    if (ARBITRATION_MODE == 1) rd_turn <= MAST1;
                 end else if (m1_ar_handshake) begin
                     read_active <= 1'b1;
                     read_master <= MAST1;
                     read_slave  <= m1_ar_sel;
-                    rd_turn     <= MAST0;
+                    // Update turn only for ROUND_ROBIN mode
+                    if (ARBITRATION_MODE == 1) rd_turn <= MAST0;
                 end
             end else if (slave_rvalid(read_slave) && slave_rlast(read_slave) &&
                          ((read_master == MAST0 && M0_RREADY) ||
