@@ -21,7 +21,7 @@ vlog -work work ../../src/axi_interconnect/Verilog/rtl/arbitration/axi_rr_interc
 
 # Compile testbench
 puts "Compiling testbench..."
-vlog -work work ../../tb/interconnect_tb/Verilog/arb_test_verilog.v
+vlog -work work ../../verification/testbenches/interconnect_tb/Verilog_tb/arbitration/Write_Arbiter_RR_tb.v
 
 puts "\n=========================================="
 puts "Running Tests"
