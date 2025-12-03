@@ -1,5 +1,6 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="AXI_PROJECT">
+		<CBX_INST_ENTRY INSTANCE_NAME="|alu_master_system|Simple_Memory_Slave:u_slave0|altsyncram:memory_rtl_0" CBX_FILE_NAME="altsyncram_uqp1.tdf"/>
 	</PROJECT>
 </LOG_ROOT>
