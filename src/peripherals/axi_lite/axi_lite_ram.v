@@ -86,33 +86,30 @@ module axi_lite_ram #(
         end
     end
 
-    // Read channel
-    reg read_busy;
-    reg [ADDR_WIDTH-1:0] araddr_q;
-
-    assign S_AXI_rlast = S_AXI_rvalid;
+    // Read channel - Simplified, always ready for fast response
+    // This eliminates the read_busy bottleneck
+    
+    assign S_AXI_rlast = 1'b1;  // Always last beat (single-beat transfers)
 
     always @(posedge ACLK or negedge ARESETN) begin
         if (!ARESETN) begin
-            read_busy    <= 1'b0;
-            S_AXI_arready <= 1'b0;
-            S_AXI_rvalid <= 1'b0;
-            S_AXI_rresp  <= 2'b00;
-            S_AXI_rdata  <= {DATA_WIDTH{1'b0}};
+            S_AXI_arready <= 1'b1;  // Always ready after reset
+            S_AXI_rvalid  <= 1'b0;
+            S_AXI_rresp   <= 2'b00;
+            S_AXI_rdata   <= {DATA_WIDTH{1'b0}};
         end else begin
-            S_AXI_arready <= 1'b0;
-
-            if (!read_busy && S_AXI_arvalid) begin
-                read_busy     <= 1'b1;
-                araddr_q      <= S_AXI_araddr;
-                S_AXI_arready <= 1'b1;
-
+            // Always ready to accept new read requests
+            S_AXI_arready <= 1'b1;
+            
+            // When AR handshake occurs, capture address and respond
+            if (S_AXI_arvalid && S_AXI_arready) begin
                 S_AXI_rdata  <= mem[S_AXI_araddr[ADDR_LSB +: MEM_ADDR_WIDTH]];
-                S_AXI_rresp  <= 2'b00;
+                S_AXI_rresp  <= 2'b00;  // OKAY response
                 S_AXI_rvalid <= 1'b1;
-            end else if (S_AXI_rvalid && S_AXI_rready) begin
+            end 
+            // When R handshake completes, clear RVALID
+            else if (S_AXI_rvalid && S_AXI_rready) begin
                 S_AXI_rvalid <= 1'b0;
-                read_busy    <= 1'b0;
             end
         end
     end

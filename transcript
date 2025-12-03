@@ -1,0 +1,22 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# ** Error: (vish-42) Unsupported ModelSim library format for "D:/AXI/work". (Format: 4)
+# vsim -do {add wave -divider {Clock and Reset}; add wave /dual_riscv_axi_system_tb/ACLK; add wave /dual_riscv_axi_system_tb/ARESETN; add wave -divider {SERV 0 Internal}; add wave /dual_riscv_axi_system_tb/dut/u_serv0/cpu/o_ibus_cyc; add wave /dual_riscv_axi_system_tb/dut/u_serv0/cpu/o_dbus_cyc; add wave /dual_riscv_axi_system_tb/dut/u_serv0/cpu/i_rf_ready; add wave -hex /dual_riscv_axi_system_tb/dut/u_serv0/cpu/i_ibus_rdt; add wave -divider {Master 0 AXI}; add wave /dual_riscv_axi_system_tb/dut/u_serv0/M0_AXI_arvalid; add wave /dual_riscv_axi_system_tb/dut/u_serv0/M0_AXI_arready; add wave -hex /dual_riscv_axi_system_tb/dut/u_serv0/M0_AXI_araddr; add wave /dual_riscv_axi_system_tb/dut/u_serv0/M0_AXI_rvalid; add wave /dual_riscv_axi_system_tb/dut/u_serv0/M0_AXI_rready; add wave -hex /dual_riscv_axi_system_tb/dut/u_serv0/M0_AXI_rdata; run 2us} -gui work.dual_riscv_axi_system_tb 
+# ** Error: (vsim-42) Unsupported ModelSim library format for "D:/AXI/work". (Format: 4)
+# 
+# ** Error: (vsim-42) Unsupported ModelSim library format for "D:/AXI/work". (Format: 4)
+# 
+# ** Error: (vsim-42) Unsupported ModelSim library format for "D:/AXI/work". (Format: 4)
+# 
+# ** Error: (vsim-42) Unsupported ModelSim library format for "D:/AXI/work". (Format: 4)
+# 
+# ** Error: (vsim-42) Unsupported ModelSim library format for "D:/AXI/work". (Format: 4)
+# 
+# ** Error: (vsim-42) Unsupported ModelSim library format for "D:/AXI/work". (Format: 4)
+# 
+# ** Error: (vsim-42) Unsupported ModelSim library format for "D:/AXI/work". (Format: 4)
+# 
+# ** Error: (vsim-42) Unsupported ModelSim library format for "D:/AXI/work". (Format: 4)
+# 
+# ** Error: (vsim-3170) Could not find 'work.dual_riscv_axi_system_tb'.
+# 
+# Error loading design
