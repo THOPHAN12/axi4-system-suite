@@ -1,6 +1,0 @@
-Info (10281): Verilog HDL Declaration information at axi_rom_slave.v(51): object "RD_ADDR" differs only in case from object "rd_addr" in the same scope
-Info (10281): Verilog HDL Declaration information at axi_memory_slave.v(74): object "WR_ADDR" differs only in case from object "wr_addr" in the same scope
-Info (10281): Verilog HDL Declaration information at axi_memory_slave.v(87): object "RD_ADDR" differs only in case from object "rd_addr" in the same scope
-Info (10281): Verilog HDL Declaration information at CPU_Controller.v(53): object "STORE_RESULT" differs only in case from object "store_result" in the same scope
-Info (10281): Verilog HDL Declaration information at Simple_AXI_Master_Test.v(87): object "WRITE_DATA" differs only in case from object "write_data" in the same scope
-Info (10281): Verilog HDL Declaration information at Simple_AXI_Master_Test.v(90): object "READ_DATA" differs only in case from object "read_data" in the same scope

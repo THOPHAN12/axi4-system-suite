@@ -3,522 +3,123 @@ K3
 13
 cModel Technology
 Z0 dD:\AXI\sim\modelsim
-vaxi_lite_gpio
-I0k^mZecgKGL=@bbV`Bk0J1
-V`jA3QFDSIW<m<W8GS>@1<0
-Z1 dD:\AXI\sim\modelsim
-w1764147624
-8D:/AXI/src/peripherals/axi_lite/axi_lite_gpio.v
-FD:/AXI/src/peripherals/axi_lite/axi_lite_gpio.v
-L0 3
-Z2 OV;L;10.1d;51
+vController
+Z1 IFPjhH@@RL`FiVeQDV_<TJ3
+Z2 ViYUCOa=7l3:Si]P7^f3a11
+Z3 dD:\AXI\sim\modelsim
+Z4 w1763952846
+Z5 8../../src/axi_interconnect/Verilog/rtl/channel_controllers/read/Controller.v
+Z6 F../../src/axi_interconnect/Verilog/rtl/channel_controllers/read/Controller.v
+L0 1
+Z7 OV;L;10.1d;51
 r1
 31
-Z3 o+acc -O0
+o-O0
+Z8 n@controller
+Z9 !s100 5=elc3gR_UlQ0BALY7b9_1
+Z10 !s108 1764764059.033000
+Z11 !s107 ../../src/axi_interconnect/Verilog/rtl/channel_controllers/read/Controller.v|
+Z12 !s90 ../../src/axi_interconnect/Verilog/rtl/channel_controllers/read/Controller.v|
 !i10b 1
-!s100 :_z2>leS@=9cK;35I1Qg62
 !s85 0
-!s108 1764147634.591000
-!s107 D:/AXI/src/peripherals/axi_lite/axi_lite_gpio.v|
-!s90 +acc|D:/AXI/src/peripherals/axi_lite/axi_lite_gpio.v|
 !s101 -O0
-vaxi_lite_ram
-I:1_YkVA4N`VG8:?kh;YIg0
-V1ofd?9:fjN6K_F1ESmP0_1
-R1
-w1764146983
-8D:/AXI/src/peripherals/axi_lite/axi_lite_ram.v
-FD:/AXI/src/peripherals/axi_lite/axi_lite_ram.v
-L0 3
-R2
-r1
-31
+vController_tb
+Z13 Ie7N?<RT7FNEgeEcg^Y2>E1
+Z14 VU?nYJPnga@[N6>B=14=DO1
 R3
-!i10b 1
-!s100 i@4K=8dDZIT1e]R6=nKge1
-!s85 0
-!s108 1764147634.544000
-!s107 D:/AXI/src/peripherals/axi_lite/axi_lite_ram.v|
-!s90 +acc|D:/AXI/src/peripherals/axi_lite/axi_lite_ram.v|
-!s101 -O0
-vaxi_lite_spi
-Iee:iCS0a=8BJIiGeZ;PaI1
-VogTUmLJn^A5`_G9m3ilAP2
-R1
-w1764147079
-8D:/AXI/src/peripherals/axi_lite/axi_lite_spi.v
-FD:/AXI/src/peripherals/axi_lite/axi_lite_spi.v
-L0 3
-R2
+Z15 w1764752020
+Z16 8../../verification/testbenches/interconnect_tb/Verilog_tb/channel_controllers/read/Controller_tb.v
+Z17 F../../verification/testbenches/interconnect_tb/Verilog_tb/channel_controllers/read/Controller_tb.v
+L0 16
+R7
 r1
 31
-R3
+o-O0
+Z18 n@controller_tb
+Z19 !s100 JBjbK5`7X39TU[lK5>zMi3
+Z20 !s108 1764764059.082000
+Z21 !s107 ../../verification/testbenches/interconnect_tb/Verilog_tb/channel_controllers/read/Controller_tb.v|
+Z22 !s90 ../../verification/testbenches/interconnect_tb/Verilog_tb/channel_controllers/read/Controller_tb.v|
 !i10b 1
-!s100 Z_Hl:=Ed<:z9ezl:KYmo82
 !s85 0
-!s108 1764147634.682000
-!s107 D:/AXI/src/peripherals/axi_lite/axi_lite_spi.v|
-!s90 +acc|D:/AXI/src/peripherals/axi_lite/axi_lite_spi.v|
 !s101 -O0
-vaxi_lite_uart
-I4[`ahnSLX5RhfzZLj?Z;d3
-Vn0X<PWZikJM^8jjD;Fibg3
-R1
-w1764147044
-8D:/AXI/src/peripherals/axi_lite/axi_lite_uart.v
-FD:/AXI/src/peripherals/axi_lite/axi_lite_uart.v
-L0 3
-R2
+vDemux_1_2
+Z23 IMS4N_d=z``g_jV1mhIVD>3
+Z24 V6Gb]LgAkF;@U<GW2N0R`[0
+R3
+Z25 w1761618753
+Z26 8../../src/axi_interconnect/Verilog/rtl/datapath/demux/Demux_1_2.v
+Z27 F../../src/axi_interconnect/Verilog/rtl/datapath/demux/Demux_1_2.v
+L0 1
+R7
 r1
 31
-R3
+o-O0
+Z28 n@demux_1_2
+Z29 !s100 [U6ko=@6:GoOda6>jd]7R3
+Z30 !s108 1764764092.930000
+Z31 !s107 ../../src/axi_interconnect/Verilog/rtl/datapath/demux/Demux_1_2.v|
+Z32 !s90 ../../src/axi_interconnect/Verilog/rtl/datapath/demux/Demux_1_2.v|
 !i10b 1
-!s100 RJ:@_HgMG>hY7UzLX?BQk2
 !s85 0
-!s108 1764147634.636000
-!s107 D:/AXI/src/peripherals/axi_lite/axi_lite_uart.v|
-!s90 +acc|D:/AXI/src/peripherals/axi_lite/axi_lite_uart.v|
 !s101 -O0
-vaxi_rr_interconnect_2x4
-Z4 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
-INM1PZCDASWH[CFXz^doaV1
-VSX7_@IHRGAi`e2jP]TXnW1
-S1
-R1
-w1764147407
-8D:/AXI/src/axi_interconnect/rtl/custom/axi_rr_interconnect_2x4.sv
-FD:/AXI/src/axi_interconnect/rtl/custom/axi_rr_interconnect_2x4.sv
-L0 15
-R2
+vDemux_1_2_tb
+Z33 IFlo6]`fVjeLPPY<8ZGgO=3
+Z34 Vn@;Km27LNL=3gGH5@nPd<0
+R3
+Z35 w1761881607
+Z36 8../../verification/testbenches/interconnect_tb/Verilog_tb/datapath/demux/Demux_1_2_tb.v
+Z37 F../../verification/testbenches/interconnect_tb/Verilog_tb/datapath/demux/Demux_1_2_tb.v
+L0 22
+R7
 r1
 31
-R3
+o-O0
+Z38 n@demux_1_2_tb
+Z39 !s100 `aF`6nOml7Ri0V<;EEm4J1
+Z40 !s108 1764764092.975000
+Z41 !s107 ../../verification/testbenches/interconnect_tb/Verilog_tb/datapath/demux/Demux_1_2_tb.v|
+Z42 !s90 ../../verification/testbenches/interconnect_tb/Verilog_tb/datapath/demux/Demux_1_2_tb.v|
 !i10b 1
-!s100 _0?G5>Nk>6]VHMfbZ;1f53
-!s105 axi_rr_interconnect_2x4_sv_unit
 !s85 0
-!s108 1764147634.726000
-!s107 D:/AXI/src/axi_interconnect/rtl/custom/axi_rr_interconnect_2x4.sv|
-!s90 +acc|D:/AXI/src/axi_interconnect/rtl/custom/axi_rr_interconnect_2x4.sv|
 !s101 -O0
-vdual_riscv_axi_system
-IlDP=268?UKZnom1dol?Vd2
-V:OfRZfDbR6H[:cWILa8Tj1
-R1
-w1764147201
-8D:/AXI/src/wrapper/systems/dual_riscv_axi_system.v
-FD:/AXI/src/wrapper/systems/dual_riscv_axi_system.v
-L0 3
-R2
-r1
-31
+vWrite_Arbiter_RR
+Z43 IgI8Z4=MIb>=lBaIO]_CG?0
+Z44 VIG[g>T;R7_a3ADZWRfm9^2
 R3
-!i10b 1
-!s100 fo]BOC1Pg5TNRF1;PlkFF1
-!s85 0
-!s108 1764147634.777000
-!s107 D:/AXI/src/wrapper/systems/dual_riscv_axi_system.v|
-!s90 +acc|D:/AXI/src/wrapper/systems/dual_riscv_axi_system.v|
-!s101 -O0
-vdual_riscv_axi_system_tb
-R4
-!i10b 1
-!s100 0IPj=Lz6;Af1@zG>RH2>=2
-IY9cN_[nTRIC5PXRQ>nAnH3
-V:VYQc1e8=FSmeDI:C2=fg2
-!s105 dual_riscv_axi_system_tb_sv_unit
-S1
-R1
-w1764147221
-8D:/AXI/tb/wrapper_tb/testbenches/dual_master/dual_riscv_axi_system_tb.sv
-FD:/AXI/tb/wrapper_tb/testbenches/dual_master/dual_riscv_axi_system_tb.sv
-L0 3
-R2
-r1
-!s85 0
-31
-!s108 1764147634.826000
-!s107 D:/AXI/tb/wrapper_tb/testbenches/dual_master/dual_riscv_axi_system_tb.sv|
-!s90 +acc|D:/AXI/tb/wrapper_tb/testbenches/dual_master/dual_riscv_axi_system_tb.sv|
-!s101 -O0
-R3
-vserv_aligner
-Iak_@i_I6J`R4GOKfgieJ]3
-VBZ8gAnR:2=iLWCg?=WgS@2
-R1
-Z5 w1762320478
-8D:/AXI/src/cores/serv/rtl/serv_aligner.v
-FD:/AXI/src/cores/serv/rtl/serv_aligner.v
-L0 7
-R2
-r1
-31
-R3
-!i10b 1
-!s100 =N4oeU8GK95igUIOZBUog1
-!s85 0
-!s108 1764147634.024000
-!s107 D:/AXI/src/cores/serv/rtl/serv_aligner.v|
-!s90 +acc|D:/AXI/src/cores/serv/rtl/serv_aligner.v|
-!s101 -O0
-vserv_alu
-I[afo`:_eLlIIfeB_<b0:n3
-V:86F?O1eoR_8i[0OCgC2R2
-R1
-R5
-8D:/AXI/src/cores/serv/rtl/serv_alu.v
-FD:/AXI/src/cores/serv/rtl/serv_alu.v
-L0 8
-R2
-r1
-31
-R3
-!i10b 1
-!s100 8L_D6^>kWY29VeQnQA4192
-!s85 0
-!s108 1764147633.794000
-!s107 D:/AXI/src/cores/serv/rtl/serv_alu.v|
-!s90 +acc|D:/AXI/src/cores/serv/rtl/serv_alu.v|
-!s101 -O0
-vserv_axi_dualbus_adapter
-IiGCb4ADNnZ8jUlim4n77P3
-VPnzKj>zgWoWCM>ADa0G<h0
-R1
-w1764146841
-8D:/AXI/src/wrapper/converters/serv_axi_dualbus_adapter.v
-FD:/AXI/src/wrapper/converters/serv_axi_dualbus_adapter.v
-L0 21
-R2
-r1
-31
-R3
-!i10b 1
-!s100 h=5TH_O[KKLLkfLgiaoT?3
-!s85 0
-!s108 1764147634.497000
-!s107 D:/AXI/src/wrapper/converters/serv_axi_dualbus_adapter.v|
-!s90 +acc|D:/AXI/src/wrapper/converters/serv_axi_dualbus_adapter.v|
-!s101 -O0
-vserv_axi_wrapper
-Ijd[nMWMTcd;;GWJ_do]kF3
-VMe3FY^NLCEb2d>0[G@Fho1
-R1
-Z6 w1762525485
-8D:/AXI/src/wrapper/converters/serv_axi_wrapper.v
-FD:/AXI/src/wrapper/converters/serv_axi_wrapper.v
-L0 29
-R2
-r1
-31
-R3
-!i10b 1
-!s100 ONE5lg^l0kSgz>58UlkS@1
-!s85 0
-!s108 1764147634.452000
-!s107 D:/AXI/src/wrapper/converters/serv_axi_wrapper.v|
-!s90 +acc|D:/AXI/src/wrapper/converters/serv_axi_wrapper.v|
-!s101 -O0
-vserv_bufreg
-IJk@Q10n?Co9ChMKL@?>7R2
-VdhE:h@f25]fOkSM[zXHVD0
-R1
-R5
-8D:/AXI/src/cores/serv/rtl/serv_bufreg.v
-FD:/AXI/src/cores/serv/rtl/serv_bufreg.v
-L0 7
-R2
-r1
-31
-R3
-!i10b 1
-!s100 [UZ8Z^YGb8<<?Q`lRY[WL1
-!s85 0
-!s108 1764147633.933000
-!s107 D:/AXI/src/cores/serv/rtl/serv_bufreg.v|
-!s90 +acc|D:/AXI/src/cores/serv/rtl/serv_bufreg.v|
-!s101 -O0
-vserv_bufreg2
-IA_g<ZP>I6?Sb^@H3cdMGG2
-VL3]6P2zlaM32KMEIQeaSk3
-R1
-R5
-8D:/AXI/src/cores/serv/rtl/serv_bufreg2.v
-FD:/AXI/src/cores/serv/rtl/serv_bufreg2.v
-L0 7
-R2
-r1
-31
-R3
-!i10b 1
-!s100 cohQ^P92Qe3K0XOFi<74L1
-!s85 0
-!s108 1764147633.978000
-!s107 D:/AXI/src/cores/serv/rtl/serv_bufreg2.v|
-!s90 +acc|D:/AXI/src/cores/serv/rtl/serv_bufreg2.v|
-!s101 -O0
-vserv_compdec
-IO=]5n7PX=UmGVLfUCU3QI3
-VkNkCGEFKcecPllMiKdU731
-R1
-R5
-8D:/AXI/src/cores/serv/rtl/serv_compdec.v
-FD:/AXI/src/cores/serv/rtl/serv_compdec.v
-L0 10
-R2
-r1
-31
-R3
-!i10b 1
-!s100 7EIVBXT>1lZfXdQ^`eF`]1
-!s85 0
-!s108 1764147633.697000
-!s107 D:/AXI/src/cores/serv/rtl/serv_compdec.v|
-!s90 +acc|D:/AXI/src/cores/serv/rtl/serv_compdec.v|
-!s101 -O0
-vserv_csr
-I`zd89@zVAi>SV_S9?P;b^2
-V4]L74Z^o9D=Vmagl3D^Kf0
-R1
-R5
-8D:/AXI/src/cores/serv/rtl/serv_csr.v
-FD:/AXI/src/cores/serv/rtl/serv_csr.v
-L0 8
-R2
-r1
-31
-R3
-!i10b 1
-!s100 4?_A0VVQe=nYk@XXPT<DE3
-!s85 0
-!s108 1764147633.887000
-!s107 D:/AXI/src/cores/serv/rtl/serv_csr.v|
-!s90 +acc|D:/AXI/src/cores/serv/rtl/serv_csr.v|
-!s101 -O0
-vserv_ctrl
-IGn^6:ef;i@m_4=TmgX3R[0
-V[z6@7Mi?UM^1O]]egB7801
-R1
-R5
-8D:/AXI/src/cores/serv/rtl/serv_ctrl.v
-FD:/AXI/src/cores/serv/rtl/serv_ctrl.v
-L0 8
-R2
-r1
-31
-R3
-!i10b 1
-!s100 WO3RLicLXKF=DAQjJK5[H2
-!s85 0
-!s108 1764147633.841000
-!s107 D:/AXI/src/cores/serv/rtl/serv_ctrl.v|
-!s90 +acc|D:/AXI/src/cores/serv/rtl/serv_ctrl.v|
-!s101 -O0
-vserv_decode
-InaA?Y33aXl=KPN<?IAh503
-V0NS<SIPN^;=>OWRId[9PU3
-R1
-R5
-8D:/AXI/src/cores/serv/rtl/serv_decode.v
-FD:/AXI/src/cores/serv/rtl/serv_decode.v
-L0 8
-R2
-r1
-31
-R3
-!i10b 1
-!s100 OHU^35Y8Fd^5dHAY`iYX62
-!s85 0
-!s108 1764147633.744000
-!s107 D:/AXI/src/cores/serv/rtl/serv_decode.v|
-!s90 +acc|D:/AXI/src/cores/serv/rtl/serv_decode.v|
-!s101 -O0
-vserv_immdec
-I7G9LdCe4^ZRLO]aMcH0fZ2
-V:ic=fYE1G]z<mTAS@:0h60
-R1
-R5
-8D:/AXI/src/cores/serv/rtl/serv_immdec.v
-FD:/AXI/src/cores/serv/rtl/serv_immdec.v
-L0 8
-R2
-r1
-31
-R3
-!i10b 1
-!s100 iUX_c9[X<352X4TY3eRb=1
-!s85 0
-!s108 1764147633.648000
-!s107 D:/AXI/src/cores/serv/rtl/serv_immdec.v|
-!s90 +acc|D:/AXI/src/cores/serv/rtl/serv_immdec.v|
-!s101 -O0
-vserv_mem_if
-IY`=e[P7Ve;JBG9FI]GU;m1
-Vfo@LVGio_^L7X]j43VFE@3
-R1
-R5
-8D:/AXI/src/cores/serv/rtl/serv_mem_if.v
-FD:/AXI/src/cores/serv/rtl/serv_mem_if.v
-L0 8
-R2
-r1
-31
-R3
-!i10b 1
-!s100 ]dE=ElHNTi1iN:QG@YI753
-!s85 0
-!s108 1764147634.075000
-!s107 D:/AXI/src/cores/serv/rtl/serv_mem_if.v|
-!s90 +acc|D:/AXI/src/cores/serv/rtl/serv_mem_if.v|
-!s101 -O0
-vserv_rf_if
-I7Jb`I<G9?W?>7kW^n@@KC2
-VlBh?<b5gi0SeK_3E;YG3n1
-R1
-R5
-8D:/AXI/src/cores/serv/rtl/serv_rf_if.v
-FD:/AXI/src/cores/serv/rtl/serv_rf_if.v
-L0 8
-R2
-r1
-31
-R3
-!i10b 1
-!s100 62afj3j`ohP@8Nz<LTn^81
-!s85 0
-!s108 1764147634.118000
-!s107 D:/AXI/src/cores/serv/rtl/serv_rf_if.v|
-!s90 +acc|D:/AXI/src/cores/serv/rtl/serv_rf_if.v|
-!s101 -O0
-vserv_rf_ram
-Ibzco_S?`WlC637k^N5K5W2
-VB@>jmV9^@U?4Vfh;TDUCl1
-R1
-R5
-8D:/AXI/src/cores/serv/rtl/serv_rf_ram.v
-FD:/AXI/src/cores/serv/rtl/serv_rf_ram.v
-L0 7
-R2
-r1
-31
-R3
-!i10b 1
-!s100 5bQE^W3gEP_kGbG<[QS1F2
-!s85 0
-!s108 1764147634.211000
-!s107 D:/AXI/src/cores/serv/rtl/serv_rf_ram.v|
-!s90 +acc|D:/AXI/src/cores/serv/rtl/serv_rf_ram.v|
-!s101 -O0
-vserv_rf_ram_if
-ITOAaZ7eb0LQgN7l`Wl<1k1
-VAL8a]UQUOah>2I8LijHz90
-R1
-w1763350588
-8D:/AXI/src/cores/serv/rtl/serv_rf_ram_if.v
-FD:/AXI/src/cores/serv/rtl/serv_rf_ram_if.v
-L0 8
-R2
-r1
-31
-R3
-!i10b 1
-!s100 5i@kA3GYLWcg=eOKH7QY;3
-!s85 0
-!s108 1764147634.163000
-!s107 D:/AXI/src/cores/serv/rtl/serv_rf_ram_if.v|
-!s90 +acc|D:/AXI/src/cores/serv/rtl/serv_rf_ram_if.v|
-!s101 -O0
-vserv_rf_top
-I=kD`9[YDPNY5[3EDFlVLJ0
-V>AF0gK5e:65cRS@[k_F;53
-R1
-R6
-8D:/AXI/src/cores/serv/rtl/serv_rf_top.v
-FD:/AXI/src/cores/serv/rtl/serv_rf_top.v
-L0 9
-R2
-r1
-31
-R3
-!i10b 1
-!s100 LDOUO:Az<KjnHSPYO;YN^1
-!s85 0
-!s108 1764147634.259000
-!s107 D:/AXI/src/cores/serv/rtl/serv_rf_top.v|
-!s90 +acc|D:/AXI/src/cores/serv/rtl/serv_rf_top.v|
-!s101 -O0
-vserv_state
-IM1_3DW8R=f6A<RLWe=QPz1
-V>EaWBDYI;@L:`LigATB>D0
-R1
-R5
-8D:/AXI/src/cores/serv/rtl/serv_state.v
-FD:/AXI/src/cores/serv/rtl/serv_state.v
-L0 7
-R2
-r1
-31
-R3
-!i10b 1
-!s100 AK0Sf:Xh`a8D;@4OJL2iA1
-!s85 0
-!s108 1764147633.600000
-!s107 D:/AXI/src/cores/serv/rtl/serv_state.v|
-!s90 +acc|D:/AXI/src/cores/serv/rtl/serv_state.v|
-!s101 -O0
-vserv_top
-IQ;[D[gaFI]Yfc_Cnj6:P<2
-VCijTZW@0BY@mS?8EzhzX72
-R1
-R6
-8D:/AXI/src/cores/serv/rtl/serv_top.v
-FD:/AXI/src/cores/serv/rtl/serv_top.v
-L0 9
-R2
-r1
-31
-R3
-!i10b 1
-!s100 8`fQ;0J?75A>Fo5Zc5BSc1
-!s85 0
-!s108 1764147634.303000
-!s107 D:/AXI/src/cores/serv/rtl/serv_top.v|
-!s90 +acc|D:/AXI/src/cores/serv/rtl/serv_top.v|
-!s101 -O0
-vwb2axi_read
-ILSHAP`fhYb_oO`EGeQ>3E1
-V^01oUlL[0N7>:bmULR=dU2
-R1
-w1762833503
-8D:/AXI/src/wrapper/converters/wb2axi_read.v
-FD:/AXI/src/wrapper/converters/wb2axi_read.v
-L0 18
-R2
-r1
-31
-R3
-!i10b 1
-!s100 =02T`N:HUR;Pc`T9hOXER2
-!s85 0
-!s108 1764147634.353000
-!s107 D:/AXI/src/wrapper/converters/wb2axi_read.v|
-!s90 +acc|D:/AXI/src/wrapper/converters/wb2axi_read.v|
-!s101 -O0
-vwb2axi_write
-I1:Rb]N6hd]?zecGj<zCb72
-VfmUoc<1iicjngd?3>A@mA3
-R1
-w1762517417
-8D:/AXI/src/wrapper/converters/wb2axi_write.v
-FD:/AXI/src/wrapper/converters/wb2axi_write.v
+Z45 w1761641508
+Z46 8../../src/axi_interconnect/Verilog/rtl/arbitration/Write_Arbiter_RR.v
+Z47 F../../src/axi_interconnect/Verilog/rtl/arbitration/Write_Arbiter_RR.v
 L0 24
-R2
+R7
 r1
 31
-R3
+o-O0
+Z48 n@write_@arbiter_@r@r
 !i10b 1
-!s100 FR;NnNb:`N3aiVR7SYAXn1
+Z49 !s100 2o>ofIF73]RB>L4kH3BZL0
 !s85 0
-!s108 1764147634.403000
-!s107 D:/AXI/src/wrapper/converters/wb2axi_write.v|
-!s90 +acc|D:/AXI/src/wrapper/converters/wb2axi_write.v|
+Z50 !s108 1764764107.053000
+Z51 !s107 ../../src/axi_interconnect/Verilog/rtl/arbitration/Write_Arbiter_RR.v|
+Z52 !s90 ../../src/axi_interconnect/Verilog/rtl/arbitration/Write_Arbiter_RR.v|
 !s101 -O0
+vWrite_Arbiter_RR_tb
+!i10b 1
+!s100 zL?0haR_[Y?68n@YFIB_61
+I_W_ODhU95dN?[Tem7V2Mg0
+VKfTI=C?T`gG?EGi;U>0_K0
+R3
+w1761641152
+8../../verification/testbenches/interconnect_tb/Verilog_tb/arbitration/Write_Arbiter_RR_tb.v
+F../../verification/testbenches/interconnect_tb/Verilog_tb/arbitration/Write_Arbiter_RR_tb.v
+L0 20
+R7
+r1
+!s85 0
+31
+!s108 1764764107.094000
+!s107 ../../verification/testbenches/interconnect_tb/Verilog_tb/arbitration/Write_Arbiter_RR_tb.v|
+!s90 ../../verification/testbenches/interconnect_tb/Verilog_tb/arbitration/Write_Arbiter_RR_tb.v|
+!s101 -O0
+o-O0
+n@write_@arbiter_@r@r_tb
