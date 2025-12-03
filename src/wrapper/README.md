@@ -2,7 +2,7 @@
 
 ## Cấu Trúc Thư Mục
 
-Thư mục này chứa các wrapper modules để tích hợp SERV RISC-V processor và ALU Master với AXI4 Interconnect. Các file đã được tổ chức theo chức năng để dễ quản lý:
+Thư mục này chứa các wrapper modules để tích hợp SERV RISC-V processor (bao gồm cấu hình dual SERV) với AXI4 Interconnect. Các file đã được tổ chức theo chức năng để dễ quản lý:
 
 ```
 src/wrapper/
@@ -12,11 +12,11 @@ src/wrapper/
 │   └── serv_axi_wrapper.v
 ├── systems/              # System integration modules
 │   ├── serv_axi_system.v
-│   ├── dual_master_system.v
-│   └── alu_master_system.v
+│   ├── dual_riscv_axi_system.v
+│   ├── axi_interconnect_wrapper.v
+│   └── axi_interconnect_2m4s_wrapper.v
 ├── ip/                   # Self-contained IP modules (SoC-level IP)
-│   ├── serv_axi_system_ip.v
-│   └── dual_master_system_ip.v
+│   └── serv_axi_system_ip.v
 └── memory/               # AXI memory slave modules
     ├── axi_rom_slave.v
     ├── axi_memory_slave.v
@@ -55,21 +55,46 @@ src/wrapper/
   - External memory slaves (instruction và data memory)
   - Timer interrupt support
 
-#### `dual_master_system.v`
-- **Mục đích**: Dual master system (SERV + ALU Master)
+#### `dual_riscv_axi_system.v`
+- **Mục đích**: Dual SERV master system với ngoại vi AXI-Lite
 - **Chức năng**:
-  - SERV RISC-V processor
-  - ALU Master
-  - AXI Interconnect với 2 masters, 4 slaves
-  - Address routing và arbitration
+  - 2 SERV cores được gom qua `serv_axi_dualbus_adapter`
+  - Round-robin interconnect (`axi_rr_interconnect_2x4`)
+  - AXI-Lite RAM + GPIO + UART + SPI tích hợp
+  - Phù hợp cho các kịch bản multi-master
 
-#### `alu_master_system.v`
-- **Mục đích**: ALU Master system
+#### `axi_interconnect_wrapper.v`
+- **Mục đích**: Wrapper module cho AXI_Interconnect với interface đơn giản hóa
 - **Chức năng**:
-  - Multiple ALU Masters
-  - AXI Interconnect
-  - Multiple memory slaves
-  - Data integrity verification
+  - Bọc AXI_Interconnect với interface chuẩn AXI4 naming convention
+  - Tự động xử lý reset signal conversion (ARESETN active low)
+  - Hỗ trợ cấu hình address range qua parameters
+  - Hỗ trợ override address range runtime (optional)
+  - Tích hợp dễ dàng vào các hệ thống lớn hơn
+- **Interface**:
+  - 2 Master ports (M0, M1) - Read-only
+  - 2 Slave ports (S0, S1) - Read-only
+  - Standard AXI4 naming: ARADDR, ARLEN, ARSIZE, ARBURST, ARVALID, ARREADY, RDATA, RRESP, RLAST, RVALID, RREADY
+
+#### `axi_interconnect_2m4s_wrapper.v`
+- **Mục đích**: Wrapper module cho AXI_Interconnect_Full với 2 Master và 4 Slave
+- **Chức năng**:
+  - Bọc AXI_Interconnect_Full với interface đầy đủ AXI4
+  - Bao gồm TẤT CẢ các tín hiệu Read và Write channels
+  - Hỗ trợ 2 Master ports (S00, S01) - Full AXI4 (Read + Write)
+  - Hỗ trợ 4 Slave ports:
+    - M00, M01: Full AXI4 (Read + Write)
+    - M02, M03: Read-only
+  - Cấu hình address range cho 4 slaves qua parameters
+  - Hỗ trợ override address range runtime (optional)
+  - Tất cả các tín hiệu AXI4 chuẩn: AW, W, B, AR, R channels
+- **Interface**:
+  - Master 0 (S00): Full AXI4 - AW, W, B, AR, R channels
+  - Master 1 (S01): Full AXI4 - AW, W, B, AR, R channels
+  - Slave 0 (M00): Full AXI4 - AW, W, B, AR, R channels
+  - Slave 1 (M01): Full AXI4 - AW, W, B, AR, R channels
+  - Slave 2 (M02): Read-only - AR, R channels
+  - Slave 3 (M03): Read-only - AR, R channels
 
 ### IP Modules (`ip/`)
 
@@ -80,15 +105,6 @@ src/wrapper/
   - Integrated instruction và data memory
   - No external connections needed
   - Only exposes: ACLK, ARESETN, timer interrupt
-
-#### `dual_master_system_ip.v`
-- **Mục đích**: Self-contained Dual Master System IP module
-- **Chức năng**:
-  - SERV + ALU Master
-  - Integrated memory slaves (Instruction, Data, ALU, Reserved)
-  - ALU Master control signals
-  - Memory status outputs
-  - No external AXI connections needed
 
 ### Memory Slaves (`memory/`)
 
@@ -102,14 +118,14 @@ src/wrapper/
 #### `axi_memory_slave.v`
 - **Mục đích**: AXI4 Read-Write Memory slave
 - **Chức năng**:
-  - Data memory cho SERV và ALU Master
+  - Data memory cho SERV hoặc các master AXI khác
   - Read-write AXI4 interface
   - Supports memory initialization
 
 #### `Simple_Memory_Slave.v`
 - **Mục đích**: AXI4 Read-Write Memory slave đơn giản (không dùng ID)
 - **Chức năng**:
-  - Bộ nhớ nhỏ cho các IP riêng (ví dụ ALU Master system hoặc AXI Interconnect test)
+  - Bộ nhớ nhỏ cho các IP riêng hoặc AXI Interconnect test
   - Giao diện AXI4 tối giản: không có `ID` và không dùng file init
   - Phù hợp cho các thiết kế nhẹ, dễ đọc, dễ debug
 
@@ -139,20 +155,6 @@ src/wrapper/
 [Inst Mem] [Data Mem]
 ```
 
-### Dual Master System
-
-```
-[SERV]    [ALU Master]
-   |            |
-   +-----+------+
-         |
-[AXI Interconnect (2M, 4S)]
-         |
-   +-----+-----+-----+-----+
-   |     |     |     |     |
-[Inst] [Data] [ALU] [Reserved]
-```
-
 ## Cách Sử Dụng
 
 ### Sử dụng IP Modules (Khuyến nghị)
@@ -160,21 +162,14 @@ src/wrapper/
 IP modules là self-contained và dễ sử dụng nhất:
 
 ```verilog
-// Dual Master System IP
-dual_master_system_ip #(
-    .INST_MEM_SIZE(8192),
-    .DATA_MEM_SIZE(8192),
-    .ALU_MEM_SIZE(4096)
-) u_dual_master_ip (
+// SERV AXI System IP
+serv_axi_system_ip #(
+    .INST_MEM_SIZE(4096),
+    .DATA_MEM_SIZE(4096)
+) u_serv_ip (
     .ACLK(aclk),
     .ARESETN(aresetn),
-    .i_timer_irq(timer_irq),
-    .alu_master_start(start),
-    .alu_master_busy(busy),
-    .alu_master_done(done),
-    .inst_mem_ready(inst_ready),
-    .data_mem_ready(data_ready),
-    .alu_mem_ready(alu_ready)
+    .i_timer_irq(timer_irq)
 );
 ```
 
