@@ -1,0 +1,41 @@
+@00000000
+// Test Case: Peripheral Access
+// Tests GPIO, UART, SPI access
+
+13 00 00 00  // nop
+
+// Setup base addresses
+37 05 00 40  // lui x10, 0x40000  (GPIO base = 0x40000000)
+37 06 00 80  // lui x12, 0x80000  (UART base = 0x80000000)
+37 07 00 C0  // lui x14, 0xC0000  (SPI base = 0xC0000000)
+
+// Write to GPIO
+93 00 F0 00  // li x1, 0xF
+23 20 15 00  // sw x1, 0(x10)  (GPIO write)
+
+// Read from GPIO
+03 24 05 00  // lw x8, 0(x10)  (GPIO read)
+
+// Write to UART
+13 01 410 00  // li x2, 0x41 ('A')
+23 20 26 00  // sw x2, 0(x12)  (UART write)
+
+// Write more to UART
+93 01 42 00  // li x3, 0x42 ('B')
+23 22 36 00  // sw x3, 4(x12)
+
+// Write to SPI
+13 02 AA 00  // li x4, 0xAA
+23 20 47 00  // sw x4, 0(x14)  (SPI write)
+
+// Read from SPI
+83 24 07 00  // lw x9, 0(x14)  (SPI read)
+
+// GPIO toggle pattern
+93 02 55 05  // li x5, 0x555
+23 22 55 00  // sw x5, 4(x10)
+13 03 AA 0A  // li x6, 0xAAA
+23 24 65 00  // sw x6, 8(x10)
+
+6f 00 00 00  // j 0 (loop)
+

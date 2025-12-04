@@ -1,0 +1,61 @@
+@00000000
+// Test Case: Arithmetic WITH Memory Access
+// Demonstrates difference between ALU ops (no transactions) 
+// and Memory ops (AXI transactions)
+
+// ══════════════════════════════════════════════════════════
+// PART 1: Pure Arithmetic (NO AXI transactions)
+// ══════════════════════════════════════════════════════════
+13 00 00 00  // nop
+93 00 10 00  // li x1, 1      ← NO transaction (immediate)
+13 01 20 00  // li x2, 2      ← NO transaction
+93 01 30 00  // li x3, 3      ← NO transaction
+13 02 40 00  // li x4, 4      ← NO transaction
+
+// Arithmetic operations (ALL in CPU registers)
+33 03 23 00  // add x6, x6, x2   ← NO transaction (register op)
+b3 03 33 00  // add x7, x6, x3   ← NO transaction
+33 84 44 00  // add x8, x9, x4   ← NO transaction
+b3 84 54 00  // add x9, x11, x5  ← NO transaction
+
+// ══════════════════════════════════════════════════════════
+// PART 2: Store Results to Memory (WRITE transactions! 📝)
+// ══════════════════════════════════════════════════════════
+13 0A 00 01  // li x20, 0x100 (base address)
+
+23 20 6A 00  // sw x6, 0(x20)    ← AXI WRITE transaction! 📝
+23 22 7A 00  // sw x7, 4(x20)    ← AXI WRITE transaction! 📝
+23 24 8A 00  // sw x8, 8(x20)    ← AXI WRITE transaction! 📝
+23 26 9A 00  // sw x9, 12(x20)   ← AXI WRITE transaction! 📝
+
+// ══════════════════════════════════════════════════════════
+// PART 3: Load Back from Memory (READ transactions! 📖)
+// ══════════════════════════════════════════════════════════
+03 2B 0A 00  // lw x22, 0(x20)   ← AXI READ transaction! 📖
+83 2B 4A 00  // lw x23, 4(x20)   ← AXI READ transaction! 📖
+03 2C 8A 00  // lw x24, 8(x20)   ← AXI READ transaction! 📖
+83 2C CA 00  // lw x25, 12(x20)  ← AXI READ transaction! 📖
+
+// ══════════════════════════════════════════════════════════
+// PART 4: More Arithmetic (NO transactions)
+// ══════════════════════════════════════════════════════════
+33 0D 7B 01  // add x26, x22, x23  ← NO transaction
+b3 0D 8C 01  // add x27, x24, x25  ← NO transaction
+
+// ══════════════════════════════════════════════════════════
+// PART 5: Store Final Results (WRITE transactions! 📝)
+// ══════════════════════════════════════════════════════════
+23 28 AA 01  // sw x26, 16(x20)  ← AXI WRITE transaction! 📝
+23 2A BA 01  // sw x27, 20(x20)  ← AXI WRITE transaction! 📝
+
+6f 00 00 00  // j 0 (loop)
+
+// SUMMARY:
+// ═══════════════════════════════════════════════════════════
+// Total Instructions: ~30
+// Arithmetic ops: ~15 → NO AXI transactions
+// Memory ops (SW/LW): ~10 → 10 AXI transactions expected!
+//   - 5 SW (WRITE) 📝
+//   - 5 LW (READ) 📖
+// ═══════════════════════════════════════════════════════════
+

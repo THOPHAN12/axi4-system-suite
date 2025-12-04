@@ -1,0 +1,25 @@
+@00000000
+// Test Case: Arithmetic Operations
+// Tests ALU and register operations
+
+13 00 00 00  // nop
+93 00 10 00  // li x1, 1
+13 01 20 00  // li x2, 2
+93 01 30 00  // li x3, 3
+13 02 40 00  // li x4, 4
+93 02 50 00  // li x5, 5
+
+// Arithmetic operations
+33 03 23 00  // add x6, x6, x2   (x6 = x6 + x2)
+b3 03 33 00  // add x7, x6, x3   (x7 = x6 + x3)
+33 84 44 00  // add x8, x9, x4
+b3 84 54 00  // add x9, x11, x5
+
+// More operations
+13 05 60 00  // li x10, 6
+93 05 70 00  // li x11, 7
+33 86 66 00  // add x12, x13, x6
+b3 86 76 00  // add x13, x15, x7
+
+6f 00 00 00  // j 0 (loop forever)
+
