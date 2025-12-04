@@ -111,12 +111,12 @@ module tb_arbitration_test;
         if (ARESETN) begin
             // Check grant signals
             if (dut.u_axi_interconnect.u_full_interconnect.grant_m0_write) begin
-                $display("[%0t] 🏆 WRITE GRANT → Master 0", $time);
+                $display("[%0t] WRITE GRANT → Master 0", $time);
                 m0_write_grants = m0_write_grants + 1;
             end
             
             if (dut.u_axi_interconnect.u_full_interconnect.grant_m1_write) begin
-                $display("[%0t] 🏆 WRITE GRANT → Master 1", $time);
+                $display("[%0t] WRITE GRANT → Master 1", $time);
                 m1_write_grants = m1_write_grants + 1;
             end
         end
@@ -126,12 +126,12 @@ module tb_arbitration_test;
     always @(posedge ACLK) begin
         if (ARESETN) begin
             if (dut.u_axi_interconnect.u_full_interconnect.grant_m0_read) begin
-                $display("[%0t] 🏆 READ GRANT → Master 0", $time);
+                $display("[%0t] READ GRANT TO Master 0", $time);
                 m0_read_grants = m0_read_grants + 1;
             end
             
             if (dut.u_axi_interconnect.u_full_interconnect.grant_m1_read) begin
-                $display("[%0t] 🏆 READ GRANT → Master 1", $time);
+                $display("[%0t] READ GRANT TO Master 1", $time);
                 m1_read_grants = m1_read_grants + 1;
             end
         end
@@ -146,12 +146,12 @@ module tb_arbitration_test;
             // Only for Round-Robin mode
             if (dut.u_axi_interconnect.ARBITRATION_MODE == 1) begin
                 if (dut.u_axi_interconnect.u_full_interconnect.wr_turn !== prev_wr_turn) begin
-                    $display("[%0t] 🔄 WR_TURN changed → %0d", $time, 
+                    $display("[%0t] WR_TURN changed TO %0d", $time, 
                             dut.u_axi_interconnect.u_full_interconnect.wr_turn);
                     prev_wr_turn = dut.u_axi_interconnect.u_full_interconnect.wr_turn;
                 end
                 if (dut.u_axi_interconnect.u_full_interconnect.rd_turn !== prev_rd_turn) begin
-                    $display("[%0t] 🔄 RD_TURN changed → %0d", $time,
+                    $display("[%0t] RD_TURN changed TO %0d", $time,
                             dut.u_axi_interconnect.u_full_interconnect.rd_turn);
                     prev_rd_turn = dut.u_axi_interconnect.u_full_interconnect.rd_turn;
                 end
@@ -224,17 +224,17 @@ module tb_arbitration_test;
                 // Fixed Priority: M0 should win all
                 $display("\n  Expected (Fixed Priority): M0 wins all");
                 if (m0_write_grants > m1_write_grants) begin
-                    $display("  ✅ CORRECT: M0 won %0d times (M1: %0d)", m0_write_grants, m1_write_grants);
+                    $display(" CORRECT: M0 won %0d times (M1: %0d)", m0_write_grants, m1_write_grants);
                 end else begin
-                    $display("  ⚠️ Unexpected: M0=%0d M1=%0d", m0_write_grants, m1_write_grants);
+                    $display(" Unexpected: M0=%0d M1=%0d", m0_write_grants, m1_write_grants);
                 end
             end else if (dut.u_axi_interconnect.ARBITRATION_MODE == 1) begin
                 // Round-Robin: Should alternate fairly
                 $display("\n  Expected (Round-Robin): ~50/50 split");
                 if (m0_write_grants >= 4 && m1_write_grants >= 4) begin
-                    $display("  ✅ CORRECT: Fair split (M0=%0d, M1=%0d)", m0_write_grants, m1_write_grants);
+                    $display(" CORRECT: Fair split (M0=%0d, M1=%0d)", m0_write_grants, m1_write_grants);
                 end else begin
-                    $display("  ⚠️ Imbalanced: M0=%0d M1=%0d", m0_write_grants, m1_write_grants);
+                    $display(" Imbalanced: M0=%0d M1=%0d", m0_write_grants, m1_write_grants);
                 end
             end else if (dut.u_axi_interconnect.ARBITRATION_MODE == 2) begin
                 // QoS-based: Higher QoS wins
@@ -294,7 +294,7 @@ module tb_arbitration_test;
             end
             
             // Report results
-            $display("\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+            $display("\n////////////////////////////////////////////////////////////");
             $display("  Results:");
             $display("    Master 0 Read Grants: %0d", m0_read_grants);
             $display("    Master 1 Read Grants: %0d", m1_read_grants);
@@ -303,16 +303,16 @@ module tb_arbitration_test;
             if (dut.u_axi_interconnect.ARBITRATION_MODE == 0) begin
                 $display("\n  Expected (Fixed Priority): M0 wins all");
                 if (m0_read_grants > m1_read_grants) begin
-                    $display("  ✅ CORRECT: M0 won %0d times (M1: %0d)", m0_read_grants, m1_read_grants);
+                    $display(" CORRECT: M0 won %0d times (M1: %0d)", m0_read_grants, m1_read_grants);
                 end else begin
-                    $display("  ⚠️ Unexpected: M0=%0d M1=%0d", m0_read_grants, m1_read_grants);
+                    $display(" Unexpected: M0=%0d M1=%0d", m0_read_grants, m1_read_grants);
                 end
             end else if (dut.u_axi_interconnect.ARBITRATION_MODE == 1) begin
                 $display("\n  Expected (Round-Robin): ~50/50 split");
                 if (m0_read_grants >= 4 && m1_read_grants >= 4) begin
-                    $display("  ✅ CORRECT: Fair split (M0=%0d, M1=%0d)", m0_read_grants, m1_read_grants);
+                    $display(" CORRECT: Fair split (M0=%0d, M1=%0d)", m0_read_grants, m1_read_grants);
                 end else begin
-                    $display("  ⚠️ Imbalanced: M0=%0d M1=%0d", m0_read_grants, m1_read_grants);
+                    $display(" Imbalanced: M0=%0d M1=%0d", m0_read_grants, m1_read_grants);
                 end
             end else if (dut.u_axi_interconnect.ARBITRATION_MODE == 2) begin
                 $display("\n  Expected (QoS-based): Depends on QoS values");
@@ -373,7 +373,7 @@ module tb_arbitration_test;
         endcase
         
         $display("\n Total Grants:");
-        $display("  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+        $display("  ////////////////////////////////////////////////////////////////////");
         $display("  Write Channel:");
         $display("    Master 0: %0d grants", m0_write_grants);
         $display("    Master 1: %0d grants", m1_write_grants);
@@ -389,15 +389,15 @@ module tb_arbitration_test;
         
         // Verify arbitration behavior
         $display("\n Arbitration Behavior Analysis:");
-        $display("  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+        $display("  ////////////////////////////////////////////////////////////////////");
         
         if (dut.u_axi_interconnect.ARBITRATION_MODE == 1) begin
             // Round-Robin expectations - calculate differences
-            $display("  Write difference: %0d (Should be ≤2 for fair RR)", 
+            $display("  Write difference: %0d (Should be is less than or equal to 2 for fair RR)", 
                     (m0_write_grants > m1_write_grants) ? 
                     (m0_write_grants - m1_write_grants) : 
                     (m1_write_grants - m0_write_grants));
-            $display("  Read difference:  %0d (Should be ≤2 for fair RR)", 
+            $display("  Read difference:  %0d (Should be is less than or equal to 2 for fair RR 2 for fair RR)", 
                     (m0_read_grants > m1_read_grants) ? 
                     (m0_read_grants - m1_read_grants) : 
                     (m1_read_grants - m0_read_grants));
@@ -405,10 +405,10 @@ module tb_arbitration_test;
             // Check fairness
             if ((m0_write_grants >= 4) && (m1_write_grants >= 4) &&
                 (m0_read_grants >= 4) && (m1_read_grants >= 4)) begin
-                $display("\n  ✅ ROUND_ROBIN: Working correctly!");
+                $display("\n ROUND_ROBIN: Working correctly!");
                 $display("  Fair arbitration confirmed");
             end else begin
-                $display("\n  ⚠️ Round-Robin may have issues");
+                $display("\n Round-Robin may have issues");
             end
         end
         
@@ -416,9 +416,9 @@ module tb_arbitration_test;
         $display("/                    TEST COMPLETE                               /");
         $display("//////////////////////////////////////////////////////////////////\n");
         
-        $display(" ✅ Arbitration logic verified");
-        $display(" ✅ Contention scenarios tested");
-        $display(" ✅ Both Write and Read channels tested\n");
+        $display(" Arbitration logic verified");
+        $display(" Contention scenarios tested");
+        $display(" Both Write and Read channels tested\n");
         
         $finish;
     end
@@ -428,7 +428,7 @@ module tb_arbitration_test;
     //==========================================================================
     initial begin
         #500000;  // 500us timeout
-        $display("\n⏱️  Test complete (timeout)\n");
+        $display("\n Test complete (timeout)\n");
         $finish;
     end
 
