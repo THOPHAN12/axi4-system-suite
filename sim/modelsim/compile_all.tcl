@@ -74,10 +74,11 @@ vlog -work work ${AXI_V}/handshake/WD_HandShake.v
 vlog -work work ${AXI_V}/handshake/WR_HandShake.v
 
 # Arbitration
-vlog -work work ${AXI_V}/arbitration/Write_Arbiter.v
-vlog -work work ${AXI_V}/arbitration/Write_Arbiter_RR.v
-vlog -work work ${AXI_V}/arbitration/Read_Arbiter.v
-vlog -work work ${AXI_V}/arbitration/Qos_Arbiter.v
+# Arbitration algorithms (optional - not used by AXI_Interconnect_2x4)
+# vlog -work work ${AXI_V}/arbitration/algorithms/arbiter_fixed_priority.v
+# vlog -work work ${AXI_V}/arbitration/algorithms/arbiter_round_robin.v
+# vlog -work work ${AXI_V}/arbitration/algorithms/arbiter_qos_based.v
+# vlog -work work ${AXI_V}/arbitration/algorithms/read_arbiter.v
 
 # Channel Controllers
 vlog -work work ${AXI_V}/channel_controllers/write/AW_Channel_Controller_Top.v
@@ -88,10 +89,11 @@ vlog -work work ${AXI_V}/channel_controllers/read/Controller.v
 # Core (compile last - depends on above)
 vlog -work work ${AXI_V}/core/AXI_Interconnect.v
 vlog -work work ${AXI_V}/core/AXI_Interconnect_Full.v
-vlog -work work ${AXI_V}/core/AXI_Interconnect_2S_RDONLY.v
+# vlog -work work ${AXI_V}/core/AXI_Interconnect_2S_RDONLY.v  # Old file - removed
 
 # Main interconnect with arbitration
-vlog -work work ${AXI_V}/arbitration/axi_rr_interconnect_2x4.v
+# vlog -work work ${AXI_V}/core/axi_lite_interconnect_2x4.v  # Removed - using AXI_Interconnect.v
+vlog -work work ${AXI_V}/core/AXI_Interconnect_Full.v
 
 set compile_count [expr $compile_count + 34]
 
@@ -112,7 +114,7 @@ set compile_count [expr $compile_count + 4]
 # 4. AXI Bridge - RISC-V to AXI Converters
 #==============================================================================
 puts "\[4/7\] AXI Bridge (RISC-V Converters)..."
-set BRIDGE "${SRC}/axi_bridge/rtl/riscv_to_axi"
+set BRIDGE "${SRC}/axi_bridge/rtl/legacy/serv_bridge"
 
 vlog -work work ${BRIDGE}/wb2axi_read.v
 vlog -work work ${BRIDGE}/wb2axi_write.v
@@ -122,10 +124,10 @@ vlog -work work ${BRIDGE}/serv_axi_dualbus_adapter.v
 puts "\[4b/7\] System Integration..."
 set SYSTEMS "${SRC}/systems"
 
-vlog -work work ${SYSTEMS}/serv_axi_system.v
+# vlog -work work ${SYSTEMS}/serv_axi_system.v  # Old file - removed
 vlog -work work ${SYSTEMS}/dual_riscv_axi_system.v
-vlog -work work ${SYSTEMS}/axi_interconnect_wrapper.v
-vlog -work work ${SYSTEMS}/axi_interconnect_2m4s_wrapper.v
+# vlog -work work ${SYSTEMS}/axi_interconnect_wrapper.v  # Old wrappers - not needed
+# vlog -work work ${SYSTEMS}/axi_interconnect_2m4s_wrapper.v
 
 set compile_count [expr $compile_count + 8]
 
@@ -148,7 +150,7 @@ puts "Skipped (use Verilog version)"
 #==============================================================================
 puts "\[6/7\] Verilog Testbenches..."
 
-vlog -work work ${TB}/interconnect_tb/Verilog/arb_test_verilog.v
+# vlog -work work ${TB}/interconnect_tb/Verilog/arb_test_verilog.v  # Old path - not needed
 
 # Add component TBs as needed
 # vlog -work work ${TB}/interconnect_tb/Verilog_tb/arbitration/Write_Arbiter_tb.v
@@ -161,7 +163,7 @@ set compile_count [expr $compile_count + 1]
 #==============================================================================
 puts "\[7/7\] System Testbench..."
 
-vlog -sv -work work ${TB}/wrapper_tb/testbenches/dual_riscv/dual_riscv_axi_system_tb.sv
+vlog -work work ${TB}/wrapper_tb/testbenches/dual_riscv/dual_riscv_axi_system_tb.v
 
 set compile_count [expr $compile_count + 1]
 

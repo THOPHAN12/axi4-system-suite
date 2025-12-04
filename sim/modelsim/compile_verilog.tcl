@@ -74,10 +74,11 @@ vlog -work work ${AXI}/handshake/WD_HandShake.v
 vlog -work work ${AXI}/handshake/WR_HandShake.v
 
 # Arbitration
-vlog -work work ${AXI}/arbitration/Write_Arbiter.v
-vlog -work work ${AXI}/arbitration/Write_Arbiter_RR.v
-vlog -work work ${AXI}/arbitration/Read_Arbiter.v
-vlog -work work ${AXI}/arbitration/Qos_Arbiter.v
+# Arbitration components (optional - not used by AXI_Interconnect_2x4)
+# vlog -work work ${AXI}/arbitration/algorithms/arbiter_fixed_priority.v
+# vlog -work work ${AXI}/arbitration/algorithms/arbiter_round_robin.v
+# vlog -work work ${AXI}/arbitration/algorithms/arbiter_qos_based.v
+# vlog -work work ${AXI}/arbitration/algorithms/read_arbiter.v
 
 # Channel Controllers
 vlog -work work ${AXI}/channel_controllers/write/AW_Channel_Controller_Top.v
@@ -88,10 +89,11 @@ vlog -work work ${AXI}/channel_controllers/read/Controller.v
 # Core
 vlog -work work ${AXI}/core/AXI_Interconnect.v
 vlog -work work ${AXI}/core/AXI_Interconnect_Full.v
-vlog -work work ${AXI}/core/AXI_Interconnect_2S_RDONLY.v
+# vlog -work work ${AXI}/core/AXI_Interconnect_2S_RDONLY.v  # Old 2S version - not used
 
 # Main interconnect
-vlog -work work ${AXI}/arbitration/axi_rr_interconnect_2x4.v
+# vlog -work work ${AXI}/core/axi_lite_interconnect_2x4.v  # Removed - using AXI_Interconnect.v
+vlog -work work ${AXI}/core/AXI_Interconnect_Full.v
 
 set count [expr $count + 34]
 puts "  Compiled: 34 files"
@@ -114,7 +116,7 @@ puts "  Compiled: 4 files"
 # 4. AXI Bridge
 #==============================================================================
 puts "\n\[4/6\] AXI Bridge..."
-set BRIDGE "${SRC}/axi_bridge/rtl/riscv_to_axi"
+set BRIDGE "${SRC}/axi_bridge/rtl/legacy/serv_bridge"
 
 vlog -work work ${BRIDGE}/wb2axi_read.v
 vlog -work work ${BRIDGE}/wb2axi_write.v
@@ -130,10 +132,10 @@ puts "  Compiled: 4 files"
 puts "\n\[5/6\] Systems..."
 set SYSTEMS "${SRC}/systems"
 
-vlog -work work ${SYSTEMS}/serv_axi_system.v
+# vlog -work work ${SYSTEMS}/serv_axi_system.v  # Old file - not used
 vlog -work work ${SYSTEMS}/dual_riscv_axi_system.v
-vlog -work work ${SYSTEMS}/axi_interconnect_wrapper.v
-vlog -work work ${SYSTEMS}/axi_interconnect_2m4s_wrapper.v
+# vlog -work work ${SYSTEMS}/axi_interconnect_wrapper.v  # Old wrappers - not needed
+# vlog -work work ${SYSTEMS}/axi_interconnect_2m4s_wrapper.v
 
 set count [expr $count + 4]
 puts "  Compiled: 4 files"

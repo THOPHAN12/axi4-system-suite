@@ -78,10 +78,11 @@ project addfile ${AXI_V}/handshake/WD_HandShake.v
 project addfile ${AXI_V}/handshake/WR_HandShake.v
 
 # Arbitration
-project addfile ${AXI_V}/arbitration/Write_Arbiter.v
-project addfile ${AXI_V}/arbitration/Write_Arbiter_RR.v
-project addfile ${AXI_V}/arbitration/Read_Arbiter.v
-project addfile ${AXI_V}/arbitration/Qos_Arbiter.v
+# Arbitration algorithms (optional - not used by main system)
+# project addfile ${AXI_V}/arbitration/algorithms/arbiter_fixed_priority.v
+# project addfile ${AXI_V}/arbitration/algorithms/arbiter_round_robin.v
+# project addfile ${AXI_V}/arbitration/algorithms/arbiter_qos_based.v
+# project addfile ${AXI_V}/arbitration/algorithms/read_arbiter.v
 
 # Channel Controllers
 project addfile ${AXI_V}/channel_controllers/write/AW_Channel_Controller_Top.v
@@ -95,7 +96,8 @@ project addfile ${AXI_V}/core/AXI_Interconnect_Full.v
 project addfile ${AXI_V}/core/AXI_Interconnect_2S_RDONLY.v
 
 # Main interconnect with configurable arbitration
-project addfile ${AXI_V}/arbitration/axi_rr_interconnect_2x4.v
+project addfile ${AXI_V}/core/axi_lite_interconnect_2x4.v
+project addfile ${AXI_V}/core/AXI_Interconnect_Full.v
 
 puts "  Added: 34 files"
 
@@ -118,7 +120,7 @@ puts "  Added: 4 files"
 #==============================================================================
 puts "\n\[4/6\] AXI Bridge (RISC-V Converters)..."
 
-set BRIDGE "${SRC_BASE}/axi_bridge/rtl/riscv_to_axi"
+set BRIDGE "${SRC_BASE}/axi_bridge/rtl/legacy/serv_bridge"
 
 project addfile ${BRIDGE}/wb2axi_read.v
 project addfile ${BRIDGE}/wb2axi_write.v

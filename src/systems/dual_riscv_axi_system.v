@@ -5,7 +5,7 @@ module dual_riscv_axi_system #(
     parameter integer DATA_WIDTH     = 32,
     parameter integer ID_WIDTH       = 4,
     parameter integer RAM_WORDS      = 2048,
-    parameter        RAM_INIT_HEX    = "D:/AXI/sim/modelsim/test_program_simple.hex"
+    parameter        RAM_INIT_HEX    = ""  // Empty for synthesis, set for simulation
 ) (
     input  wire                        ACLK,
     input  wire                        ARESETN,
@@ -594,136 +594,166 @@ module dual_riscv_axi_system #(
     wire                  S3_rlast;
     wire                  S3_rready;
 
-    axi_rr_interconnect_2x4 #(
-        .ADDR_WIDTH(ADDR_WIDTH),
-        .DATA_WIDTH(DATA_WIDTH),
-        .ARBITRATION_MODE(1)  // 0=FIXED, 1=ROUND_ROBIN, 2=QOS
-    ) u_rr_xbar (
+    AXI_Interconnect #(
+        .ARBITRATION_MODE(1)  // 0=FIXED_PRIORITY, 1=ROUND_ROBIN, 2=QOS_BASED
+    ) u_axi_interconnect (
         .ACLK(ACLK),
         .ARESETN(ARESETN),
+        // Master 0 (SERV0) - Full AXI4
         .M0_AWADDR (serv0_axi_awaddr),
-        .M0_AWPROT (serv0_axi_awprot),
-        .M0_AWQOS  (4'b0000),              // Default QoS = 0 for SERV0
+        .M0_AWLEN  (8'h00),                // AXI-Lite: single transfer
+        .M0_AWSIZE (3'b010),               // 4 bytes
+        .M0_AWBURST(2'b01),                // INCR
         .M0_AWVALID(serv0_axi_awvalid),
         .M0_AWREADY(serv0_axi_awready),
         .M0_WDATA  (serv0_axi_wdata),
         .M0_WSTRB  (serv0_axi_wstrb),
+        .M0_WLAST  (1'b1),                 // Always last (single transfer)
         .M0_WVALID (serv0_axi_wvalid),
         .M0_WREADY (serv0_axi_wready),
         .M0_BRESP  (serv0_axi_bresp),
         .M0_BVALID (serv0_axi_bvalid),
         .M0_BREADY (serv0_axi_bready),
         .M0_ARADDR (serv0_axi_araddr),
-        .M0_ARPROT (serv0_axi_arprot),
-        .M0_ARQOS  (4'b0000),              // Default QoS = 0 for SERV0
+        .M0_ARLEN  (8'h00),                // AXI-Lite: single transfer
+        .M0_ARSIZE (3'b010),               // 4 bytes
+        .M0_ARBURST(2'b01),                // INCR
         .M0_ARVALID(serv0_axi_arvalid),
         .M0_ARREADY(serv0_axi_arready),
         .M0_RDATA  (serv0_axi_rdata),
         .M0_RRESP  (serv0_axi_rresp),
-        .M0_RVALID (serv0_axi_rvalid),
         .M0_RLAST  (serv0_axi_rlast),
+        .M0_RVALID (serv0_axi_rvalid),
         .M0_RREADY (serv0_axi_rready),
+        // Master 1 (SERV1) - Full AXI4
         .M1_AWADDR (serv1_axi_awaddr),
-        .M1_AWPROT (serv1_axi_awprot),
-        .M1_AWQOS  (4'b0000),              // Default QoS = 0 for SERV1
+        .M1_AWLEN  (8'h00),                // AXI-Lite: single transfer
+        .M1_AWSIZE (3'b010),               // 4 bytes
+        .M1_AWBURST(2'b01),                // INCR
         .M1_AWVALID(serv1_axi_awvalid),
         .M1_AWREADY(serv1_axi_awready),
         .M1_WDATA  (serv1_axi_wdata),
         .M1_WSTRB  (serv1_axi_wstrb),
+        .M1_WLAST  (1'b1),                 // Always last (single transfer)
         .M1_WVALID (serv1_axi_wvalid),
         .M1_WREADY (serv1_axi_wready),
         .M1_BRESP  (serv1_axi_bresp),
         .M1_BVALID (serv1_axi_bvalid),
         .M1_BREADY (serv1_axi_bready),
         .M1_ARADDR (serv1_axi_araddr),
-        .M1_ARPROT (serv1_axi_arprot),
-        .M1_ARQOS  (4'b0000),              // Default QoS = 0 for SERV1
+        .M1_ARLEN  (8'h00),                // AXI-Lite: single transfer
+        .M1_ARSIZE (3'b010),               // 4 bytes
+        .M1_ARBURST(2'b01),                // INCR
         .M1_ARVALID(serv1_axi_arvalid),
         .M1_ARREADY(serv1_axi_arready),
         .M1_RDATA  (serv1_axi_rdata),
         .M1_RRESP  (serv1_axi_rresp),
-        .M1_RVALID (serv1_axi_rvalid),
         .M1_RLAST  (serv1_axi_rlast),
+        .M1_RVALID (serv1_axi_rvalid),
         .M1_RREADY (serv1_axi_rready),
+        // Slave 0 (RAM)
         .S0_AWADDR (S0_awaddr),
-        .S0_AWPROT (S0_awprot),
+        .S0_AWLEN  (),                     // Not used by slaves
+        .S0_AWSIZE (),
+        .S0_AWBURST(),
         .S0_AWVALID(S0_awvalid),
         .S0_AWREADY(S0_awready),
         .S0_WDATA  (S0_wdata),
         .S0_WSTRB  (S0_wstrb),
+        .S0_WLAST  (),
         .S0_WVALID (S0_wvalid),
         .S0_WREADY (S0_wready),
         .S0_BRESP  (S0_bresp),
         .S0_BVALID (S0_bvalid),
         .S0_BREADY (S0_bready),
         .S0_ARADDR (S0_araddr),
-        .S0_ARPROT (S0_arprot),
+        .S0_ARLEN  (),
+        .S0_ARSIZE (),
+        .S0_ARBURST(),
         .S0_ARVALID(S0_arvalid),
         .S0_ARREADY(S0_arready),
         .S0_RDATA  (S0_rdata),
         .S0_RRESP  (S0_rresp),
-        .S0_RVALID (S0_rvalid),
         .S0_RLAST  (S0_rlast),
+        .S0_RVALID (S0_rvalid),
         .S0_RREADY (S0_rready),
+        // Slave 1 (GPIO)
         .S1_AWADDR (S1_awaddr),
-        .S1_AWPROT (S1_awprot),
+        .S1_AWLEN  (),
+        .S1_AWSIZE (),
+        .S1_AWBURST(),
         .S1_AWVALID(S1_awvalid),
         .S1_AWREADY(S1_awready),
         .S1_WDATA  (S1_wdata),
         .S1_WSTRB  (S1_wstrb),
+        .S1_WLAST  (),
         .S1_WVALID (S1_wvalid),
         .S1_WREADY (S1_wready),
         .S1_BRESP  (S1_bresp),
         .S1_BVALID (S1_bvalid),
         .S1_BREADY (S1_bready),
         .S1_ARADDR (S1_araddr),
-        .S1_ARPROT (S1_arprot),
+        .S1_ARLEN  (),
+        .S1_ARSIZE (),
+        .S1_ARBURST(),
         .S1_ARVALID(S1_arvalid),
         .S1_ARREADY(S1_arready),
         .S1_RDATA  (S1_rdata),
         .S1_RRESP  (S1_rresp),
-        .S1_RVALID (S1_rvalid),
         .S1_RLAST  (S1_rlast),
+        .S1_RVALID (S1_rvalid),
         .S1_RREADY (S1_rready),
+        // Slave 2 (UART)
         .S2_AWADDR (S2_awaddr),
-        .S2_AWPROT (S2_awprot),
+        .S2_AWLEN  (),
+        .S2_AWSIZE (),
+        .S2_AWBURST(),
         .S2_AWVALID(S2_awvalid),
         .S2_AWREADY(S2_awready),
         .S2_WDATA  (S2_wdata),
         .S2_WSTRB  (S2_wstrb),
+        .S2_WLAST  (),
         .S2_WVALID (S2_wvalid),
         .S2_WREADY (S2_wready),
         .S2_BRESP  (S2_bresp),
         .S2_BVALID (S2_bvalid),
         .S2_BREADY (S2_bready),
         .S2_ARADDR (S2_araddr),
-        .S2_ARPROT (S2_arprot),
+        .S2_ARLEN  (),
+        .S2_ARSIZE (),
+        .S2_ARBURST(),
         .S2_ARVALID(S2_arvalid),
         .S2_ARREADY(S2_arready),
         .S2_RDATA  (S2_rdata),
         .S2_RRESP  (S2_rresp),
-        .S2_RVALID (S2_rvalid),
         .S2_RLAST  (S2_rlast),
+        .S2_RVALID (S2_rvalid),
         .S2_RREADY (S2_rready),
+        // Slave 3 (SPI)
         .S3_AWADDR (S3_awaddr),
-        .S3_AWPROT (S3_awprot),
+        .S3_AWLEN  (),
+        .S3_AWSIZE (),
+        .S3_AWBURST(),
         .S3_AWVALID(S3_awvalid),
         .S3_AWREADY(S3_awready),
         .S3_WDATA  (S3_wdata),
         .S3_WSTRB  (S3_wstrb),
+        .S3_WLAST  (),
         .S3_WVALID (S3_wvalid),
         .S3_WREADY (S3_wready),
         .S3_BRESP  (S3_bresp),
         .S3_BVALID (S3_bvalid),
         .S3_BREADY (S3_bready),
         .S3_ARADDR (S3_araddr),
-        .S3_ARPROT (S3_arprot),
+        .S3_ARLEN  (),
+        .S3_ARSIZE (),
+        .S3_ARBURST(),
         .S3_ARVALID(S3_arvalid),
         .S3_ARREADY(S3_arready),
         .S3_RDATA  (S3_rdata),
         .S3_RRESP  (S3_rresp),
-        .S3_RVALID (S3_rvalid),
         .S3_RLAST  (S3_rlast),
+        .S3_RVALID (S3_rvalid),
         .S3_RREADY (S3_rready)
     );
 

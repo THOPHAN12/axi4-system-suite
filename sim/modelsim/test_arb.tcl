@@ -17,7 +17,7 @@ vmap work work
 
 # Compile RTL
 puts "\nCompiling RTL..."
-vlog -work work ../../src/axi_interconnect/Verilog/rtl/arbitration/axi_rr_interconnect_2x4.v
+vlog -work work ../../src/axi_interconnect/Verilog/rtl/core/axi_lite_interconnect_2x4.v
 
 # Compile testbench
 puts "Compiling testbench..."

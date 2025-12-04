@@ -22,7 +22,7 @@ vlib work
 vmap work work
 
 puts "Compiling RTL..."
-vlog -work work ../../src/axi_interconnect/Verilog/rtl/arbitration/axi_rr_interconnect_2x4.v
+vlog -work work ../../src/axi_interconnect/Verilog/rtl/core/axi_lite_interconnect_2x4.v
 
 puts "Compiling testbench..."
 vlog -work work ../../tb/interconnect_tb/Verilog/arb_test_verilog.v

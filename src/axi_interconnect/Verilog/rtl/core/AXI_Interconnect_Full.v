@@ -20,9 +20,13 @@ module AXI_Interconnect_Full #(
 
               // Added for M02, M03 support
               M02_Aw_len='d8,//!AXI4 - 8 bits for burst length
+              M02_Write_data_bus_width='d32,
+              M02_Write_data_bytes_num=M02_Write_data_bus_width/8,
               M02_AR_len='d8, //!AXI4 - 8 bits for burst length
               M02_Read_data_bus_width='d32,
               M03_Aw_len='d8,//!AXI4 - 8 bits for burst length
+              M03_Write_data_bus_width='d32,
+              M03_Write_data_bytes_num=M03_Write_data_bus_width/8,
               M03_AR_len='d8, //!AXI4 - 8 bits for burst length
               M03_Read_data_bus_width='d32,
 
@@ -35,7 +39,11 @@ module AXI_Interconnect_Full #(
               Num_Of_Masters  = 'd2,
               Num_Of_Slaves   = 'd4,  // Updated: Support 4 slaves
               Master_ID_Width = $clog2(Num_Of_Masters),
-              AXI4_AR_len='d8
+              AXI4_AR_len='d8,
+
+              // ====== Arbitration Mode Parameter ======
+              // Added: Configurable arbitration for 2 masters
+              ARBITRATION_MODE = 1  // 0=FIXED_PRIORITY, 1=ROUND_ROBIN, 2=QOS_BASED
 
 
 
@@ -275,6 +283,32 @@ module AXI_Interconnect_Full #(
     input  wire                          M02_ACLK,
     input  wire                          M02_ARESETN,
 
+    //* Address Write Channel              
+    output wire [Slaves_ID_Size-1:0]     M02_AXI_awaddr_ID,
+    output wire [Address_width-1:0]      M02_AXI_awaddr,
+    output wire [M02_Aw_len-1:0]         M02_AXI_awlen,
+    output wire [2:0]                    M02_AXI_awsize,
+    output wire [1:0]                    M02_AXI_awburst,
+    output wire [1:0]                    M02_AXI_awlock,
+    output wire [3:0]                    M02_AXI_awcache,
+    output wire [2:0]                    M02_AXI_awprot,
+    output wire [3:0]                    M02_AXI_awqos,
+    output wire                          M02_AXI_awvalid,
+    input  wire                          M02_AXI_awready,
+
+    //* Write Data Channel
+    output wire [M02_Write_data_bus_width-1:0]  M02_AXI_wdata,
+    output wire [M02_Write_data_bytes_num-1:0]  M02_AXI_wstrb,
+    output wire                                  M02_AXI_wlast,
+    output wire                                  M02_AXI_wvalid,
+    input  wire                                  M02_AXI_wready,
+
+    //* Write Response Channel
+    input  wire [Master_ID_Width-1:0]    M02_AXI_BID,
+    input  wire [1:0]                    M02_AXI_bresp,
+    input  wire                          M02_AXI_bvalid,
+    output wire                          M02_AXI_bready,
+
     //*Address Read Channel
     output wire  [Address_width-1:0]     M02_AXI_araddr,
     output wire  [M02_AR_len-1:0]        M02_AXI_arlen,
@@ -300,6 +334,32 @@ module AXI_Interconnect_Full #(
     //* Slave General Ports
     input  wire                          M03_ACLK,
     input  wire                          M03_ARESETN,
+
+    //* Address Write Channel              
+    output wire [Slaves_ID_Size-1:0]     M03_AXI_awaddr_ID,
+    output wire [Address_width-1:0]      M03_AXI_awaddr,
+    output wire [M03_Aw_len-1:0]         M03_AXI_awlen,
+    output wire [2:0]                    M03_AXI_awsize,
+    output wire [1:0]                    M03_AXI_awburst,
+    output wire [1:0]                    M03_AXI_awlock,
+    output wire [3:0]                    M03_AXI_awcache,
+    output wire [2:0]                    M03_AXI_awprot,
+    output wire [3:0]                    M03_AXI_awqos,
+    output wire                          M03_AXI_awvalid,
+    input  wire                          M03_AXI_awready,
+
+    //* Write Data Channel
+    output wire [M03_Write_data_bus_width-1:0]  M03_AXI_wdata,
+    output wire [M03_Write_data_bytes_num-1:0]  M03_AXI_wstrb,
+    output wire                                  M03_AXI_wlast,
+    output wire                                  M03_AXI_wvalid,
+    input  wire                                  M03_AXI_wready,
+
+    //* Write Response Channel
+    input  wire [Master_ID_Width-1:0]    M03_AXI_BID,
+    input  wire [1:0]                    M03_AXI_bresp,
+    input  wire                          M03_AXI_bvalid,
+    output wire                          M03_AXI_bready,
 
     //*Address Read Channel
     output wire  [Address_width-1:0]     M03_AXI_araddr,
@@ -375,6 +435,27 @@ wire             RREADY_S1_wire_2;
 wire             RREADY_S2_wire_2;
 wire             RREADY_S3_wire_2;
 // --------------------------------------------------------
+
+// ============================================================================
+// ARBITRATION WIRES AND REGISTERS
+// Added: Support for 3 arbitration modes (FIXED, ROUND_ROBIN, QOS)
+// ============================================================================
+// Round-robin turn registers
+reg [1:0] wr_turn;  // Write arbitration turn (0=M0, 1=M1)
+reg [1:0] rd_turn;  // Read arbitration turn (0=M0, 1=M1)
+
+// Master request signals
+wire m0_write_req = S00_AXI_awvalid && !AW_Access_Grant;
+wire m1_write_req = S01_AXI_awvalid && !AW_Access_Grant;
+wire m0_read_req = S00_AXI_arvalid;
+wire m1_read_req = S01_AXI_arvalid;
+
+// Grant signals (output of arbitration logic)
+wire grant_m0_write;
+wire grant_m1_write;
+wire grant_m0_read;
+wire grant_m1_read;
+// ============================================================================
 
 
 //******************** Write Channel Comp ********************//
@@ -859,6 +940,81 @@ Mux_4x1 #(.width(1)) rresp_mux_M1 (
     .sel        (M1_data_wire),  // Now 2-bit: direct connection
     .out        (S01_AXI_rresp)
 );
+
+// ============================================================================
+// WRITE CHANNEL ARBITRATION (3 MODES)
+// Added: Configurable arbitration between 2 masters
+// ============================================================================
+generate
+    if (ARBITRATION_MODE == 0) begin : gen_fixed_write
+        // MODE 0: FIXED PRIORITY (Master 0 > Master 1)
+        assign grant_m0_write = m0_write_req;
+        assign grant_m1_write = m1_write_req && !m0_write_req;
+        
+    end else if (ARBITRATION_MODE == 2) begin : gen_qos_write
+        // MODE 2: QOS-BASED (Higher QoS value wins)
+        wire m0_higher_qos = (S00_AXI_awqos >= S01_AXI_awqos);
+        assign grant_m0_write = m0_write_req && (!m1_write_req || m0_higher_qos);
+        assign grant_m1_write = m1_write_req && (!m0_write_req || !m0_higher_qos);
+        
+    end else begin : gen_rr_write
+        // MODE 1: ROUND-ROBIN (Fair alternating - DEFAULT)
+        assign grant_m0_write = m0_write_req && (!m1_write_req || (wr_turn == 2'b00));
+        assign grant_m1_write = m1_write_req && (!m0_write_req || (wr_turn == 2'b01));
+    end
+endgenerate
+
+// ============================================================================
+// READ CHANNEL ARBITRATION (3 MODES)
+// Added: Configurable arbitration between 2 masters
+// ============================================================================
+generate
+    if (ARBITRATION_MODE == 0) begin : gen_fixed_read
+        // MODE 0: FIXED PRIORITY (Master 0 > Master 1)
+        assign grant_m0_read = m0_read_req;
+        assign grant_m1_read = m1_read_req && !m0_read_req;
+        
+    end else if (ARBITRATION_MODE == 2) begin : gen_qos_read
+        // MODE 2: QOS-BASED (Higher QoS value wins)
+        wire m0_higher_qos = (S00_AXI_arqos >= S01_AXI_arqos);
+        assign grant_m0_read = m0_read_req && (!m1_read_req || m0_higher_qos);
+        assign grant_m1_read = m1_read_req && (!m0_read_req || !m0_higher_qos);
+        
+    end else begin : gen_rr_read
+        // MODE 1: ROUND-ROBIN (Fair alternating - DEFAULT)
+        assign grant_m0_read = m0_read_req && (!m1_read_req || (rd_turn == 2'b00));
+        assign grant_m1_read = m1_read_req && (!m0_read_req || (rd_turn == 2'b01));
+    end
+endgenerate
+
+// ============================================================================
+// TURN UPDATE LOGIC (For Round-Robin Mode)
+// Updated on each granted transaction
+// ============================================================================
+always @(posedge ACLK or negedge ARESETN) begin
+    if (!ARESETN) begin
+        wr_turn <= 2'b01;  // Start with M1 having priority
+        rd_turn <= 2'b01;
+    end else begin
+        // Update write turn (only in ROUND_ROBIN mode)
+        if (ARBITRATION_MODE == 1) begin
+            if (grant_m0_write && S00_AXI_awready) begin
+                wr_turn <= 2'b01;  // Next turn: M1
+            end else if (grant_m1_write && S01_AXI_awready) begin
+                wr_turn <= 2'b00;  // Next turn: M0
+            end
+        end
+        
+        // Update read turn (only in ROUND_ROBIN mode)
+        if (ARBITRATION_MODE == 1) begin
+            if (grant_m0_read && S00_AXI_arready) begin
+                rd_turn <= 2'b01;  // Next turn: M1
+            end else if (grant_m1_read && S01_AXI_arready) begin
+                rd_turn <= 2'b00;  // Next turn: M0
+            end
+        end
+    end
+end
 
 
 endmodule
