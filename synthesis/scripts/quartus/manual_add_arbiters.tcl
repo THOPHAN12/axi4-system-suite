@@ -54,3 +54,4 @@ puts "\nNext steps:"
 puts "  1. Processing → Start → Start Analysis & Elaboration"
 puts "  2. Check for errors\n"
 
+
