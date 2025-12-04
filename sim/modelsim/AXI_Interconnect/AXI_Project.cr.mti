@@ -117,6 +117,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	AW_HandShake_Checker
 
+} {} {}} D:/AXI/sim/modelsim/AXI_Interconnect/tb_arithmetic_memory.v {1 {vlog -work work -stats=none D:/AXI/sim/modelsim/AXI_Interconnect/tb_arithmetic_memory.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module tb_arithmetic_memory
+
+Top level modules:
+	tb_arithmetic_memory
+
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/buffers/Queue.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/buffers/Queue.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module Queue
@@ -215,6 +222,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	axi_lite_uart
 
+} {} {}} D:/AXI/sim/modelsim/AXI_Interconnect/tb_arbitration_test.v {1 {vlog -work work -stats=none D:/AXI/sim/modelsim/AXI_Interconnect/tb_arbitration_test.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module tb_arbitration_test
+
+Top level modules:
+	tb_arbitration_test
+
 } {} {}} D:/AXI/sim/modelsim/AXI_Interconnect/tb_multi_testcase.v {1 {vlog -work work -stats=none D:/AXI/sim/modelsim/AXI_Interconnect/tb_multi_testcase.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module tb_multi_testcase
@@ -228,13 +242,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	Mux_2x1_en
-
-} {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/core/AXI_Interconnect_Full.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/core/AXI_Interconnect_Full.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module AXI_Interconnect_Full
-
-Top level modules:
-	AXI_Interconnect_Full
 
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/decoders/Write_Addr_Channel_Dec.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/decoders/Write_Addr_Channel_Dec.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016

@@ -997,19 +997,21 @@ always @(posedge ACLK or negedge ARESETN) begin
         rd_turn <= 2'b01;
     end else begin
         // Update write turn (only in ROUND_ROBIN mode)
+        // FIX: Update turn immediately on grant, not waiting for ready
         if (ARBITRATION_MODE == 1) begin
-            if (grant_m0_write && S00_AXI_awready) begin
+            if (grant_m0_write) begin
                 wr_turn <= 2'b01;  // Next turn: M1
-            end else if (grant_m1_write && S01_AXI_awready) begin
+            end else if (grant_m1_write) begin
                 wr_turn <= 2'b00;  // Next turn: M0
             end
         end
         
         // Update read turn (only in ROUND_ROBIN mode)
+        // FIX: Update turn immediately on grant, not waiting for ready
         if (ARBITRATION_MODE == 1) begin
-            if (grant_m0_read && S00_AXI_arready) begin
+            if (grant_m0_read) begin
                 rd_turn <= 2'b01;  // Next turn: M1
-            end else if (grant_m1_read && S01_AXI_arready) begin
+            end else if (grant_m1_read) begin
                 rd_turn <= 2'b00;  // Next turn: M0
             end
         end

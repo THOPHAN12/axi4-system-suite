@@ -105,6 +105,51 @@ Analysis: PARTIAL EXECUTION
 
 ---
 
+### 4. **Arbitration Contention Test** (`tb_arbitration_test.v`)
+
+**Purpose**: Test arbitration khi cả 2 masters request đồng thời  
+**Runtime**: 3.14 microseconds  
+**Result**: ⚠️ **ARBITRATION IMBALANCE DETECTED**
+
+```
+Test Configuration:
+  • Mode: 1 (ROUND_ROBIN)
+  • Contention: 10× WRITE + 10× READ requests
+  • Both masters forced to request simultaneously
+
+Results - WRITE Channel:
+  • Master 0 Grants: 0/50 (0%)   ← ⚠️ PROBLEM!
+  • Master 1 Grants: 50/50 (100%) ← ⚠️ IMBALANCED!
+  • Expected (RR): ~50/50 split
+  • Actual: 0/100 split
+
+Results - READ Channel:
+  • Master 0 Grants: 2/57 (3.5%)   ← ⚠️ VERY LOW!
+  • Master 1 Grants: 55/57 (96.5%) ← ⚠️ DOMINATES!
+  • Expected (RR): ~50/50 split
+  • Actual: 3.5/96.5 split
+
+Final Status:
+  ⚠️ ROUND-ROBIN MAY HAVE ISSUES
+  Write difference: 50 (Should be ≤2)
+  Read difference:  53 (Should be ≤2)
+```
+
+**Đánh giá**: ⚠️ **Arbitration không công bằng - Cần investigation!**
+
+**Possible Causes**:
+1. Force signal timing may favor M1
+2. M0 requests may be delayed/not registered
+3. Arbitration logic may have bug
+4. Turn update logic may not be working correctly
+
+**Impact**:
+- ⚠️ Fairness violated
+- ⚠️ Master 0 có thể bị starved
+- ⚠️ Cần debug arbitration implementation
+
+---
+
 ## 📈 So Sánh Chi Tiết: Mong Đợi vs Thực Tế
 
 ### **Kết Quả Mong Đợi (Lý Tưởng)**
@@ -620,9 +665,9 @@ Verdict: Hardware is PERFECT, simulation just needs patience!
 | **Test Coverage** | ✅ 9/10 | Critical paths verified |
 | **Documentation** | ✅ 10/10 | Complete |
 
-**Overall**: ✅ **9.4/10 - EXCELLENT**
+**Overall**: ⚠️ **8.0/10 - GOOD** (Revised after arbitration test)
 
-*(0.6 point deduction only due to SERV simulation speed limitation, NOT hardware issues)*
+*(Deductions: 0.6 for SERV speed limitation, 1.4 for arbitration imbalance issue)*
 
 ---
 
