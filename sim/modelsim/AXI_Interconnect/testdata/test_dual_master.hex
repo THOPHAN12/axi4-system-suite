@@ -1,0 +1,33 @@
+@00000000
+// Test Case: Dual Master Arbitration
+// Tests both SERV cores accessing different slaves
+
+13 00 00 00  // nop
+93 00 10 00  // li x1, 1
+13 01 20 00  // li x2, 2
+93 01 30 00  // li x3, 3
+
+// Core 0: Access RAM rapidly
+23 20 11 00  // sw x1, 0(x2)
+03 24 01 00  // lw x8, 0(x2)
+23 22 31 00  // sw x3, 4(x2)
+83 24 41 00  // lw x9, 4(x2)
+23 24 11 00  // sw x1, 8(x2)
+03 25 81 00  // lw x10, 8(x2)
+23 26 31 00  // sw x3, 12(x2)
+83 25 C1 00  // lw x11, 12(x2)
+
+// More RAM accesses
+23 28 11 00  // sw x1, 16(x2)
+23 2A 31 00  // sw x3, 20(x2)
+23 2C 11 00  // sw x1, 24(x2)
+23 2E 31 00  // sw x3, 28(x2)
+
+// Read back
+03 26 01 01  // lw x12, 16(x2)
+83 26 41 01  // lw x13, 20(x2)
+03 27 81 01  // lw x14, 24(x2)
+83 27 C1 01  // lw x15, 28(x2)
+
+6f 00 00 00  // j 0
+

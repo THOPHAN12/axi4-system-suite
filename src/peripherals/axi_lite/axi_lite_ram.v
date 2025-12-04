@@ -72,7 +72,7 @@ module axi_lite_ram #(
 
                 for (byte_idx = 0; byte_idx < DATA_WIDTH/8; byte_idx = byte_idx + 1) begin
                     if (S_AXI_wstrb[byte_idx]) begin
-                        mem[(S_AXI_awaddr[ADDR_LSB +: MEM_ADDR_WIDTH])] [8*byte_idx +: 8] <=
+                        mem[(awaddr_q[ADDR_LSB +: MEM_ADDR_WIDTH])] [8*byte_idx +: 8] <=
                             S_AXI_wdata[8*byte_idx +: 8];
                     end
                 end

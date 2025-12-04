@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="AXI_PROJECT">
+		<CBX_INST_ENTRY INSTANCE_NAME="|dual_riscv_axi_system|serv_axi_wrapper:u_serv0|serv_rf_top:u_serv_core|serv_rf_ram:rf_ram|altsyncram:memory_rtl_0" CBX_FILE_NAME="altsyncram_8rg1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|dual_riscv_axi_system|serv_axi_wrapper:u_serv1|serv_rf_top:u_serv_core|serv_rf_ram:rf_ram|altsyncram:memory_rtl_0" CBX_FILE_NAME="altsyncram_8rg1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
