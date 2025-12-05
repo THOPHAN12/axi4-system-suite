@@ -1,16 +1,16 @@
-D:/AXI/src/cores/serv/rtl/serv_ctrl.v {1 {vlog -work work -stats=none D:/AXI/src/cores/serv/rtl/serv_ctrl.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module serv_ctrl
-
-Top level modules:
-	serv_ctrl
-
-} {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/arbitration/algorithms/read_arbiter.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/arbitration/algorithms/read_arbiter.v
+D:/AXI/src/axi_interconnect/Verilog/rtl/arbitration/algorithms/read_arbiter.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/arbitration/algorithms/read_arbiter.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module Read_Arbiter
 
 Top level modules:
 	Read_Arbiter
+
+} {} {}} D:/AXI/src/cores/serv/rtl/serv_ctrl.v {1 {vlog -work work -stats=none D:/AXI/src/cores/serv/rtl/serv_ctrl.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module serv_ctrl
+
+Top level modules:
+	serv_ctrl
 
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/datapath/mux/WD_MUX_2_1.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/datapath/mux/WD_MUX_2_1.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -19,12 +19,33 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	WD_MUX_2_1
 
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/original_backup/ID_EX.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/original_backup/ID_EX.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ID_EX
+
+Top level modules:
+	ID_EX
+
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/core/AXI_Interconnect.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/core/AXI_Interconnect.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module AXI_Interconnect
 
 Top level modules:
 	AXI_Interconnect
+
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/original_backup/ALU.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/original_backup/ALU.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/rtl/RV32I_PIPELINE_ext.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/rtl/RV32I_PIPELINE_ext.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module RV32I_PIPELINE_ext
+
+Top level modules:
+	RV32I_PIPELINE_ext
 
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/datapath/demux/Demux_1x2_en.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/datapath/demux/Demux_1x2_en.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -40,13 +61,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Write_Resp_Channel_Arb
 
-} {} {}} D:/AXI/src/cores/serv/rtl/serv_compdec.v {1 {vlog -work work -stats=none D:/AXI/src/cores/serv/rtl/serv_compdec.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module serv_compdec
-
-Top level modules:
-	serv_compdec
-
 } {} {}} D:/AXI/src/cores/serv/rtl/serv_bufreg.v {1 {vlog -work work -stats=none D:/AXI/src/cores/serv/rtl/serv_bufreg.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module serv_bufreg
@@ -54,12 +68,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	serv_bufreg
 
-} {} {}} D:/AXI/src/systems/dual_riscv_axi_system.v {1 {vlog -work work -stats=none D:/AXI/src/systems/dual_riscv_axi_system.v
+} {} {}} D:/AXI/src/cores/serv/rtl/serv_compdec.v {1 {vlog -work work -stats=none D:/AXI/src/cores/serv/rtl/serv_compdec.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module dual_riscv_axi_system
+-- Compiling module serv_compdec
 
 Top level modules:
-	dual_riscv_axi_system
+	serv_compdec
 
 } {} {}} D:/AXI/src/cores/serv/rtl/serv_rf_if.v {1 {vlog -work work -stats=none D:/AXI/src/cores/serv/rtl/serv_rf_if.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -67,6 +81,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	serv_rf_if
+
+} {} {}} D:/AXI/src/systems/dual_riscv_axi_system.v {1 {vlog -work work -stats=none D:/AXI/src/systems/dual_riscv_axi_system.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module dual_riscv_axi_system
+
+Top level modules:
+	dual_riscv_axi_system
 
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/datapath/demux/Demux_1x2.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/datapath/demux/Demux_1x2.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -81,6 +102,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	WR_HandShake
+
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/original_backup/registerfile_test.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/original_backup/registerfile_test.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module registerfile_test
+
+Top level modules:
+	registerfile_test
 
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/channel_controllers/read/AR_Channel_Controller_Top.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/channel_controllers/read/AR_Channel_Controller_Top.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -110,6 +138,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Controller
 
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/original_backup/ADD_PC.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/original_backup/ADD_PC.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ADD_PC
+
+Top level modules:
+	ADD_PC
+
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/handshake/AW_HandShake_Checker.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/handshake/AW_HandShake_Checker.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module AW_HandShake_Checker
@@ -131,6 +166,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Queue
 
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/original_backup/MUX41.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/original_backup/MUX41.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module MUX41
+
+Top level modules:
+	MUX41
+
 } {} {}} D:/AXI/src/axi_bridge/rtl/legacy/serv_bridge/serv_axi_wrapper.v {1 {vlog -work work -stats=none D:/AXI/src/axi_bridge/rtl/legacy/serv_bridge/serv_axi_wrapper.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module serv_axi_wrapper
@@ -144,6 +186,20 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	Mux_2x1
+
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/tb/tb_riscv_functional_test.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/tb/tb_riscv_functional_test.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module tb_riscv_functional_test
+
+Top level modules:
+	tb_riscv_functional_test
+
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/original_backup/ADD.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/original_backup/ADD.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ADD
+
+Top level modules:
+	ADD
 
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/datapath/demux/Demux_1_2.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/datapath/demux/Demux_1_2.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -222,6 +278,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	axi_lite_uart
 
+} {} {}} D:/AXI/sim/modelsim/AXI_Interconnect/tb_arbitration_test.v {1 {vlog -work work -stats=none D:/AXI/sim/modelsim/AXI_Interconnect/tb_arbitration_test.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module tb_arbitration_test
+
+Top level modules:
+	tb_arbitration_test
+
 } {} {}} D:/AXI/sim/modelsim/AXI_Interconnect/tb_multi_testcase.v {1 {vlog -work work -stats=none D:/AXI/sim/modelsim/AXI_Interconnect/tb_multi_testcase.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module tb_multi_testcase
@@ -235,6 +298,20 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	Mux_2x1_en
+
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/original_backup/IF_ID.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/original_backup/IF_ID.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module IF_ID
+
+Top level modules:
+	IF_ID
+
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/original_backup/MUX2.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/original_backup/MUX2.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module MUX2
+
+Top level modules:
+	MUX2
 
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/core/AXI_Interconnect_Full.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/core/AXI_Interconnect_Full.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -271,12 +348,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	serv_top
 
-} {} {}} D:/AXI/src/cores/serv/rtl/serv_mem_if.v {1 {vlog -work work -stats=none D:/AXI/src/cores/serv/rtl/serv_mem_if.v
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/original_backup/EXTENDv1.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/original_backup/EXTENDv1.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module serv_mem_if
+-- Compiling module EXTENDv1
 
 Top level modules:
-	serv_mem_if
+	EXTENDv1
 
 } {} {}} D:/AXI/src/cores/serv/rtl/serv_bufreg2.v {1 {vlog -work work -stats=none D:/AXI/src/cores/serv/rtl/serv_bufreg2.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -285,6 +362,20 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	serv_bufreg2
 
+} {} {}} D:/AXI/src/cores/serv/rtl/serv_mem_if.v {1 {vlog -work work -stats=none D:/AXI/src/cores/serv/rtl/serv_mem_if.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module serv_mem_if
+
+Top level modules:
+	serv_mem_if
+
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/original_backup/PCv1.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/original_backup/PCv1.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module PCv1
+
+Top level modules:
+	PCv1
+
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/datapath/demux/Demux_1x4.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/datapath/demux/Demux_1x4.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module Demux_1x4
@@ -292,12 +383,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Demux_1x4
 
-} {} {}} D:/AXI/sim/modelsim/AXI_Interconnect/tb_dual_riscv_axi_system.v {1 {vlog -work work -stats=none D:/AXI/sim/modelsim/AXI_Interconnect/tb_dual_riscv_axi_system.v
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/rtl/riscv_pipeline_axi_wrapper.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/rtl/riscv_pipeline_axi_wrapper.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module tb_dual_riscv_axi_system
+-- Compiling module riscv_pipeline_axi_wrapper
 
 Top level modules:
-	tb_dual_riscv_axi_system
+	riscv_pipeline_axi_wrapper
+
+} {} {}} D:/AXI/src/cores/serv/rtl/serv_rf_top.v {1 {vlog -work work -stats=none D:/AXI/src/cores/serv/rtl/serv_rf_top.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module serv_rf_top
+
+Top level modules:
+	serv_rf_top
 
 } {} {}} D:/AXI/src/cores/serv/rtl/serv_aligner.v {1 {vlog -work work -stats=none D:/AXI/src/cores/serv/rtl/serv_aligner.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -306,12 +404,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	serv_aligner
 
-} {} {}} D:/AXI/src/cores/serv/rtl/serv_rf_top.v {1 {vlog -work work -stats=none D:/AXI/src/cores/serv/rtl/serv_rf_top.v
+} {} {}} D:/AXI/sim/modelsim/AXI_Interconnect/tb_dual_riscv_axi_system.v {1 {vlog -work work -stats=none D:/AXI/sim/modelsim/AXI_Interconnect/tb_dual_riscv_axi_system.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module serv_rf_top
+-- Compiling module tb_dual_riscv_axi_system
 
 Top level modules:
-	serv_rf_top
+	tb_dual_riscv_axi_system
 
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/decoders/Read_Addr_Channel_Dec.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/decoders/Read_Addr_Channel_Dec.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -327,6 +425,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	serv_rf_ram_if
 
+} {} {}} D:/AXI/src/systems/riscv_pipeline_axi_system.v {1 {vlog -work work -stats=none D:/AXI/src/systems/riscv_pipeline_axi_system.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module riscv_pipeline_axi_system
+
+Top level modules:
+	riscv_pipeline_axi_system
+
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/decoders/Write_Resp_Channel_Dec.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/decoders/Write_Resp_Channel_Dec.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module Write_Resp_Channel_Dec
@@ -334,12 +439,26 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Write_Resp_Channel_Dec
 
+} {} {}} D:/AXI/sim/modelsim/AXI_Interconnect/tb_riscv_pipeline_system.v {1 {vlog -work work -stats=none D:/AXI/sim/modelsim/AXI_Interconnect/tb_riscv_pipeline_system.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module tb_riscv_pipeline_system
+
+Top level modules:
+	tb_riscv_pipeline_system
+
 } {} {}} D:/AXI/src/axi_bridge/rtl/legacy/serv_bridge/wb2axi_read.v {1 {vlog -work work -stats=none D:/AXI/src/axi_bridge/rtl/legacy/serv_bridge/wb2axi_read.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module wb2axi_read
 
 Top level modules:
 	wb2axi_read
+
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/original_backup/EX_ME.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/original_backup/EX_ME.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module EX_ME
+
+Top level modules:
+	EX_ME
 
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/buffers/Resp_Queue.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/buffers/Resp_Queue.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -355,6 +474,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Faling_Edge_Detc
 
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/original_backup/HAZARD_UNIT.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/original_backup/HAZARD_UNIT.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module HAZARD_UNIT
+
+Top level modules:
+	HAZARD_UNIT
+
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/utils/Raising_Edge_Det.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/utils/Raising_Edge_Det.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module Raising_Edge_Det
@@ -362,12 +488,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Raising_Edge_Det
 
-} {} {}} D:/AXI/src/peripherals/axi_lite/axi_lite_ram.v {1 {vlog -work work -stats=none D:/AXI/src/peripherals/axi_lite/axi_lite_ram.v
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/original_backup/ME_WB.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/original_backup/ME_WB.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module axi_lite_ram
+-- Compiling module ME_WB
 
 Top level modules:
-	axi_lite_ram
+	ME_WB
 
 } {} {}} D:/AXI/src/cores/serv/rtl/serv_csr.v {1 {vlog -work work -stats=none D:/AXI/src/cores/serv/rtl/serv_csr.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -376,12 +502,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	serv_csr
 
-} {} {}} D:/AXI/src/cores/serv/rtl/serv_state.v {1 {vlog -work work -stats=none D:/AXI/src/cores/serv/rtl/serv_state.v
+} {} {}} D:/AXI/src/peripherals/axi_lite/axi_lite_ram.v {1 {vlog -work work -stats=none D:/AXI/src/peripherals/axi_lite/axi_lite_ram.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module serv_state
+-- Compiling module axi_lite_ram
 
 Top level modules:
-	serv_state
+	axi_lite_ram
+
+} {} {}} D:/AXI/sim/modelsim/AXI_Interconnect/tb_peripheral_coverage.v {1 {vlog -work work -stats=none D:/AXI/sim/modelsim/AXI_Interconnect/tb_peripheral_coverage.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module tb_peripheral_coverage
+
+Top level modules:
+	tb_peripheral_coverage
 
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/handshake/WD_HandShake.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/handshake/WD_HandShake.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -390,12 +523,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	WD_HandShake
 
-} {} {}} D:/AXI/src/cores/serv/rtl/serv_alu.v {1 {vlog -work work -stats=none D:/AXI/src/cores/serv/rtl/serv_alu.v
+} {} {}} D:/AXI/src/cores/serv/rtl/serv_state.v {1 {vlog -work work -stats=none D:/AXI/src/cores/serv/rtl/serv_state.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module serv_alu
+-- Compiling module serv_state
 
 Top level modules:
-	serv_alu
+	serv_state
+
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/original_backup/MUX2v2.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/original_backup/MUX2v2.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module MUX2v2
+
+Top level modules:
+	MUX2v2
 
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/arbitration/algorithms/arbiter_qos_based.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/arbitration/algorithms/arbiter_qos_based.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -404,12 +544,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Qos_Arbiter
 
-} {} {}} D:/AXI/src/axi_bridge/rtl/legacy/serv_bridge/serv_axi_dualbus_adapter.v {1 {vlog -work work -stats=none D:/AXI/src/axi_bridge/rtl/legacy/serv_bridge/serv_axi_dualbus_adapter.v
+} {} {}} D:/AXI/src/cores/serv/rtl/serv_alu.v {1 {vlog -work work -stats=none D:/AXI/src/cores/serv/rtl/serv_alu.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module serv_axi_dualbus_adapter
+-- Compiling module serv_alu
 
 Top level modules:
-	serv_axi_dualbus_adapter
+	serv_alu
 
 } {} {}} D:/AXI/src/axi_interconnect/Verilog/rtl/channel_controllers/write/BR_Channel_Controller_Top.v {1 {vlog -work work -stats=none D:/AXI/src/axi_interconnect/Verilog/rtl/channel_controllers/write/BR_Channel_Controller_Top.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -417,5 +557,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	BR_Channel_Controller_Top
+
+} {} {}} D:/AXI/src/axi_bridge/rtl/legacy/serv_bridge/serv_axi_dualbus_adapter.v {1 {vlog -work work -stats=none D:/AXI/src/axi_bridge/rtl/legacy/serv_bridge/serv_axi_dualbus_adapter.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module serv_axi_dualbus_adapter
+
+Top level modules:
+	serv_axi_dualbus_adapter
+
+} {} {}} D:/AXI/src/cores/riscv-axi-wrapper/original_backup/CONTROL_PIPELINE.v {1 {vlog -work work -stats=none D:/AXI/src/cores/riscv-axi-wrapper/original_backup/CONTROL_PIPELINE.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module CONTROL_PIPELINE
+
+Top level modules:
+	CONTROL_PIPELINE
 
 } {} {}}

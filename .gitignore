@@ -1,129 +1,131 @@
 # ==============================================================================
-# .gitignore for AXI Interconnect Project
+# .gitignore for AXI Interconnect Hardware Design Project
 # ==============================================================================
-# Purpose: Ignore build artifacts, simulation outputs, and temporary files
-# Updated: December 3, 2025
+# Generated: December 5, 2025
 # ==============================================================================
 
 # ==============================================================================
-# Build Artifacts
+# Build Outputs
 # ==============================================================================
-work/
 build/
-*.bak
-*.tmp
+*.out
+*.exe
+*.o
+*.obj
+*.elf
+*.bin
+*.hex.tmp
+*.mem.tmp
 
 # ==============================================================================
-# ModelSim / QuestaSim
+# Simulation Files
 # ==============================================================================
-sim/modelsim/work/
-sim/modelsim/*.wlf
-sim/modelsim/wlft*
-sim/modelsim/*.vcd
-sim/modelsim/*.cr.mti
-sim/modelsim/transcript
-sim/modelsim/*.mpf
-sim/modelsim/*.log
-sim/modelsim/vsim.dbg
-sim/modelsim/*.vstf
-sim/modelsim/*.ucdb
 
-# VCD waveform files (can be large)
-*.vcd
+# ModelSim
+work/
 *.wlf
-wlft*
+*.vstf
+*.wlft*
+transcript
+vsim.dbg
+*.vcd
+modelsim.ini
+*.mpf.bak
 
-# ==============================================================================
-# Quartus Prime (Intel)
-# ==============================================================================
-# Quartus database
-sim/quartus/db/
-sim/quartus/*/db/
-synthesis/quartus/db/
+# QuestaSim
 *.qdb
-
-# Quartus incremental database
-sim/quartus/incremental_db/
-sim/quartus/*/incremental_db/
-synthesis/quartus/incremental_db/
-
-# Quartus output files
-sim/quartus/output_files/
-sim/quartus/*/output_files/
-synthesis/quartus/output_files/
-*.sof
-*.pof
-*.jdi
-*.pin
-*.done
-
-# Quartus temporary files
-*.qws
-*.flock
-*.rdb
-*.hdb
-*.cdb
-*.logdb
-*.bpm
-*.qns
-*.tmw_info
-*.tdf
-*.mif
-*.qpg
 *.qtl
+*.qpg
+_*
 
-# Quartus reports (optional - comment out if you want to track)
-*.rpt
-*.smsg
-*.summary
-*.flow.rpt
+# VCS
+csrc/
+simv
+simv.daidir/
+ucli.key
+*.vpd
 
-# ==============================================================================
-# Vivado (Xilinx)
-# ==============================================================================
-# Vivado project files (keep .xpr but ignore temp)
-.Xil/
+# Vivado Simulator
+xsim.dir/
 *.jou
 *.log
 *.pb
 *.wdb
+xelab.*
+xvlog.*
 
-# Vivado synthesis
-*.runs/
+# ==============================================================================
+# Synthesis Files
+# ==============================================================================
+
+# Quartus
+*.rpt
+*.summary
+*.smsg
+*.done
+*.qws
+db/
+incremental_db/
+*.sof
+*.pof
+*.jdi
+*.pin
+*.qsf.bak
+
+# Vivado
+*.bit
+*.mcs
+*.prm
+*.ltx
+*.debug
+.Xil/
 *.cache/
 *.hw/
 *.ip_user_files/
-*.sim/
+*.runs/
 
-# Vivado implementation
-*.bit
-*.ltx
-*.mcs
-*.prm
-
-# ==============================================================================
-# Synthesis Outputs
-# ==============================================================================
-synthesis/outputs/
-synthesis/*/outputs/
-*.ngc
-*.ngd
-*.sdf
-*.v.bak
+# Synplify
+*.srr
+*.srm
+rev_*/
 
 # ==============================================================================
-# Simulation Outputs
+# Waveform Files
 # ==============================================================================
-sim/logs/*.log
-sim/waveforms/*.vcd
-sim/waveforms/*.wlf
-sim/waveforms/wlft*
+*.vcd
+*.fst
+*.ghw
+*.lxt
+*.lxt2
+*.sav
+*.evcd
+
+# ==============================================================================
+# Log Files
+# ==============================================================================
+*.log
+*.rpt
+*.summary
+*.transcript
+
+# ==============================================================================
+# Backup Files
+# ==============================================================================
+*~
+*.bak
+*.old
+*.orig
+*.swp
+*.swo
+*#
 
 # ==============================================================================
 # OS Files
 # ==============================================================================
+
 # Windows
 Thumbs.db
+ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 *.lnk
@@ -132,99 +134,116 @@ $RECYCLE.BIN/
 .DS_Store
 .AppleDouble
 .LSOverride
+._*
 
 # Linux
 *~
 .directory
 
 # ==============================================================================
-# IDE / Editor
+# IDE Files
 # ==============================================================================
-# VSCode
+
+# VS Code
 .vscode/
 *.code-workspace
-
-# Cursor
-.cursor/
 
 # Eclipse
 .project
 .cproject
 .settings/
 
+# IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Vim
+*.swp
+*.swo
+*~
+.netrwhist
+
+# ==============================================================================
+# Python (for scripts/tools)
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
 # ==============================================================================
 # Documentation Build
 # ==============================================================================
 docs/_build/
 docs/.doctrees/
-*.pdf~
+*.pdf.tmp
 
 # ==============================================================================
-# Backup Files
+# Temporary Files
 # ==============================================================================
-*.bak
-*.backup
-*~
-*.swp
-*.swo
-*_backup/
-*_old/
+tmp/
+temp/
+*.tmp
+*.temp
 
 # ==============================================================================
-# Verification
+# Archive Files (keep source only)
 # ==============================================================================
-verification/coverage/*.ucdb
-verification/coverage/html/
-verification/uvm/logs/
-verification/formal/results/
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
 
 # ==============================================================================
-# Deployment
+# Keep These (explicitly track)
 # ==============================================================================
-deployment/boards/*/bitstreams/*.bit
-deployment/boards/*/bitstreams/*.bin
-deployment/boards/*/logs/*.log
-deployment/boards/*/reports/*.rpt
+!.gitignore
+!README.md
+!LICENSE
+!Makefile
+
+# Keep hex files for test programs
+!*.hex
+
+# Keep constraint files
+!*.xdc
+!*.sdc
+!*.pcf
+
+# Keep scripts
+!*.tcl
+!*.sh
+!*.bat
+!*.ps1
+!*.py
 
 # ==============================================================================
-# IP Cores
+# Project-Specific Ignores
 # ==============================================================================
-ip_cores/*/vivado/
-ip_cores/*/quartus/
-ip_cores/*/.Xil/
 
-# ==============================================================================
-# Software
-# ==============================================================================
-software/build/
-software/*/build/
-*.elf
-*.o
-*.a
-*.so
-*.exe
+# Ignore generated netlists (keep source only)
+synthesis/netlists/*.v
+synthesis/netlists/*.vhd
 
-# ==============================================================================
-# Tools
-# ==============================================================================
-tools/lint/results/
-tools/*/temp/
+# Ignore synthesis reports (regenerate as needed)
+synthesis/reports/*.rpt
 
-# ==============================================================================
-# Keep These (Exceptions)
-# ==============================================================================
-!sim/modelsim/testdata/
-!sim/modelsim/*.tcl
-!sim/modelsim/README.md
-!docs/**/*.pdf
-
-# ==============================================================================
-# Project Specific
-# ==============================================================================
-# Keep compiled reports for reference (optional)
-# !synthesis/reports/*.rpt
+# Ignore old cores if archived
+src/cores/*-archive/
+src/cores/*-old/
+src/cores/*-backup/
 
 # ==============================================================================
 # End of .gitignore
 # ==============================================================================
-

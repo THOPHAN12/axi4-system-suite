@@ -1,0 +1,1244 @@
+﻿Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+
+# 10.1d
+
+# source compile_and_verify_friscv.tcl 
+
+======================================================================
+   AUTO-COMPILE AND VERIFY: FRISCV AXI SYSTEM
+======================================================================
+
+[1/5] Setting up work library...
+  Γ?? Work library ready
+
+[2/5] Compiling FRISCV core and dependencies...
+  Setting include path: ../../../src/cores/friscv/friscv/rtl
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+  Γ?? Compiled header: friscv_h.sv
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+  Γ?? Compiled header: friscv_debug_h.sv
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(22): (vlog-2730) Undefined variable: 'XLEN'.
+# 
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(68): (vlog-2163) Macro `SB is undefined.
+# 
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(68): near ")": syntax error, unexpected ')'
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(69): (vlog-2163) Macro `SH is undefined.
+# 
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(69): near ")": syntax error, unexpected ')'
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(70): (vlog-2163) Macro `SW is undefined.
+# 
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(70): near ")": syntax error, unexpected ')'
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(121): (vlog-2163) Macro `LB is undefined.
+# 
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(121): near ")": syntax error, unexpected ')'
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(122): (vlog-2163) Macro `LBU is undefined.
+# 
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(122): near ")": syntax error, unexpected ')'
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(123): (vlog-2163) Macro `LH is undefined.
+# 
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(123): near ")": syntax error, unexpected ')'
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(124): (vlog-2163) Macro `LHU is undefined.
+# 
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(124): near ")": syntax error, unexpected ')'
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(125): (vlog-2163) Macro `LW is undefined.
+# 
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(125): near ")": syntax error, unexpected ')'
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(142): (vlog-2163) Macro `LB is undefined.
+# 
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(142): near "||": syntax error, unexpected ||
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(142): (vlog-2163) Macro `LBU is undefined.
+# 
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(145): (vlog-2163) Macro `LH is undefined.
+# 
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(145): (vlog-2163) Macro `LHU is undefined.
+# 
+# ** Error: ../../../src/cores/friscv/friscv/rtl/friscv_memfy_h.sv(152): (vlog-2163) Macro `LW is undefined.
+# 
+  Γ?á∩╕Å  Could not compile friscv_memfy_h.sv (may be included only)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+  Γ?? Compiled header: friscv_control_h.sv
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+  Γ?? Compiled header: friscv_checkers.sv
+  Compiling 43 SystemVerilog files with +incdir...
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_alu
+# 
+# Top level modules:
+# 	friscv_alu
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_apb_interconnect
+# 
+# Top level modules:
+# 	friscv_apb_interconnect
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_axi_or_tracker
+# 
+# Top level modules:
+# 	friscv_axi_or_tracker
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_bit_sync
+# 
+# Top level modules:
+# 	friscv_bit_sync
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_bus_perf
+# 
+# Top level modules:
+# 	friscv_bus_perf
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_cache_blocks
+# 
+# Top level modules:
+# 	friscv_cache_blocks
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_cache_block_fetcher
+# 
+# Top level modules:
+# 	friscv_cache_block_fetcher
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_cache_flusher
+# 
+# Top level modules:
+# 	friscv_cache_flusher
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_cache_io_fetcher
+# 
+# Top level modules:
+# 	friscv_cache_io_fetcher
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_cache_memctrl
+# 
+# Top level modules:
+# 	friscv_cache_memctrl
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_cache_ooo_mgt
+# 
+# Top level modules:
+# 	friscv_cache_ooo_mgt
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_cache_prefetcher
+# 
+# Top level modules:
+# 	friscv_cache_prefetcher
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_cache_pusher
+# 
+# Top level modules:
+# 	friscv_cache_pusher
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_clint
+# 
+# Top level modules:
+# 	friscv_clint
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_control
+# 
+# Top level modules:
+# 	friscv_control
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_csr
+# 
+# Top level modules:
+# 	friscv_csr
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_dcache
+# 
+# Top level modules:
+# 	friscv_dcache
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_decoder
+# 
+# Top level modules:
+# 	friscv_decoder
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_div
+# 
+# Top level modules:
+# 	friscv_div
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_gpios
+# 
+# Top level modules:
+# 	friscv_gpios
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_icache
+# 
+# Top level modules:
+# 	friscv_icache
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_io_subsystem
+# 
+# Top level modules:
+# 	friscv_io_subsystem
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_memfy
+# 
+# Top level modules:
+# 	friscv_memfy
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_mem_router
+# 
+# Top level modules:
+# 	friscv_mem_router
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_mpu
+# 
+# Top level modules:
+# 	friscv_mpu
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_m_ext
+# 
+# Top level modules:
+# 	friscv_m_ext
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_pipeline
+# 
+# Top level modules:
+# 	--none--
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_pmp_region
+# 
+# Top level modules:
+# 	friscv_pmp_region
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_processing
+# 
+# Top level modules:
+# 	friscv_processing
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_pulser
+# 
+# Top level modules:
+# 	friscv_pulser
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_ram
+# 
+# Top level modules:
+# 	friscv_ram
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_rambe
+# 
+# Top level modules:
+# 	friscv_rambe
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_registers
+# 
+# Top level modules:
+# 	friscv_registers
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_rv32i_core
+# 
+# Top level modules:
+# 	friscv_rv32i_core
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_rv32i_platform
+# 
+# Top level modules:
+# 	friscv_rv32i_platform
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_scfifo
+# 
+# Top level modules:
+# 	friscv_scfifo
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_stats
+# 
+# Top level modules:
+# 	friscv_stats
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_uart
+# 
+# Top level modules:
+# 	friscv_uart
+  Γ?? FRISCV core compiled (43 files)
+
+[3/5] Compiling AXI width adapter bridge...
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module axi_width_adapter_128to32
+# 
+# Top level modules:
+# 	axi_width_adapter_128to32
+  Γ?? Width adapter compiled
+
+[4/5] Compiling AXI Interconnect and peripherals...
+  Γ?á∩╕Å  compile_full_rv32i_system.tcl not found
+  Compiling manually...
+
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Raising_Edge_Det
+# 
+# Top level modules:
+# 	Raising_Edge_Det
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Faling_Edge_Detc
+# 
+# Top level modules:
+# 	Faling_Edge_Detc
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Queue
+# 
+# Top level modules:
+# 	Queue
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Mux_2x1
+# 
+# Top level modules:
+# 	Mux_2x1
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Mux_4x1
+# 
+# Top level modules:
+# 	Mux_4x1
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module AW_MUX_2_1
+# 
+# Top level modules:
+# 	AW_MUX_2_1
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module WD_MUX_2_1
+# 
+# Top level modules:
+# 	WD_MUX_2_1
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module BReady_MUX_2_1
+# 
+# Top level modules:
+# 	BReady_MUX_2_1
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Demux_1_2
+# 
+# Top level modules:
+# 	Demux_1_2
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Demux_1x2
+# 
+# Top level modules:
+# 	Demux_1x2
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Demux_1x4
+# 
+# Top level modules:
+# 	Demux_1x4
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Read_Addr_Channel_Dec
+# 
+# Top level modules:
+# 	Read_Addr_Channel_Dec
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Write_Addr_Channel_Dec
+# 
+# Top level modules:
+# 	Write_Addr_Channel_Dec
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Write_Resp_Channel_Dec
+# 
+# Top level modules:
+# 	Write_Resp_Channel_Dec
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Write_Resp_Channel_Arb
+# 
+# Top level modules:
+# 	Write_Resp_Channel_Arb
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module AW_HandShake_Checker
+# 
+# Top level modules:
+# 	AW_HandShake_Checker
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module WD_HandShake
+# 
+# Top level modules:
+# 	WD_HandShake
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module WR_HandShake
+# 
+# Top level modules:
+# 	WR_HandShake
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Write_Arbiter
+# 
+# Top level modules:
+# 	Write_Arbiter
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Write_Arbiter_RR
+# 
+# Top level modules:
+# 	Write_Arbiter_RR
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Qos_Arbiter
+# 
+# Top level modules:
+# 	Qos_Arbiter
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Read_Arbiter
+# 
+# Top level modules:
+# 	Read_Arbiter
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module AW_Channel_Controller_Top
+# 
+# Top level modules:
+# 	AW_Channel_Controller_Top
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module WD_Channel_Controller_Top
+# 
+# Top level modules:
+# 	WD_Channel_Controller_Top
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module BR_Channel_Controller_Top
+# 
+# Top level modules:
+# 	BR_Channel_Controller_Top
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module AR_Channel_Controller_Top
+# 
+# Top level modules:
+# 	AR_Channel_Controller_Top
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Controller
+# 
+# Top level modules:
+# 	Controller
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module AXI_Interconnect_Full
+# 
+# Top level modules:
+# 	AXI_Interconnect_Full
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module AXI_Interconnect
+# 
+# Top level modules:
+# 	AXI_Interconnect
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module axi_lite_ram
+# 
+# Top level modules:
+# 	axi_lite_ram
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module axi_lite_gpio
+# 
+# Top level modules:
+# 	axi_lite_gpio
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module axi_lite_uart
+# 
+# Top level modules:
+# 	axi_lite_uart
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module axi_lite_spi
+# 
+# Top level modules:
+# 	axi_lite_spi
+  Γ?? Interconnect compiled
+
+[5/5] Compiling FRISCV system and testbench...
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module friscv_axi_system
+# 
+# Top level modules:
+# 	friscv_axi_system
+  Γ?? System compiled
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module tb_friscv_auto_verify
+# 
+# Top level modules:
+# 	tb_friscv_auto_verify
+  Γ?? Testbench compiled
+
+======================================================================
+  Γ?? COMPILATION COMPLETE - 0 ERRORS
+======================================================================
+
+======================================================================
+  STARTING AUTO-VERIFICATION
+======================================================================
+
+# vsim -voptargs=+acc work.tb_friscv_auto_verify 
+# Loading sv_std.std
+# Loading work.tb_friscv_auto_verify
+# Loading work.friscv_axi_system
+# Loading work.friscv_rv32i_core
+# Loading work.friscv_registers
+# Loading work.friscv_control
+# Loading work.friscv_decoder
+# Loading work.friscv_scfifo
+# Loading work.friscv_ram
+# Loading work.friscv_csr
+# Loading work.friscv_bit_sync
+# Loading work.friscv_pulser
+# Loading work.friscv_bus_perf
+# Loading work.friscv_mpu
+# Loading work.friscv_processing
+# Loading work.friscv_alu
+# Loading work.friscv_memfy
+# Loading work.axi_width_adapter_128to32
+# Loading work.AXI_Interconnect
+# Loading work.AXI_Interconnect_Full
+# Loading work.AW_Channel_Controller_Top
+# Loading work.Qos_Arbiter
+# Loading work.Faling_Edge_Detc
+# Loading work.Raising_Edge_Det
+# Loading work.AW_HandShake_Checker
+# Loading work.Demux_1_2
+# Loading work.AW_MUX_2_1
+# Loading work.Write_Addr_Channel_Dec
+# Loading work.WD_Channel_Controller_Top
+# Loading work.Queue
+# Loading work.WD_HandShake
+# Loading work.WD_MUX_2_1
+# Loading work.BR_Channel_Controller_Top
+# Loading work.WR_HandShake
+# Loading work.Write_Resp_Channel_Arb
+# Loading work.BReady_MUX_2_1
+# Loading work.Write_Resp_Channel_Dec
+# Loading work.AR_Channel_Controller_Top
+# Loading work.Read_Arbiter
+# Loading work.Mux_2x1
+# Loading work.Read_Addr_Channel_Dec
+# Loading work.Controller
+# Loading work.Demux_1x4
+# Loading work.Mux_4x1
+# Loading work.axi_lite_ram
+# Loading work.axi_lite_gpio
+# Loading work.axi_lite_uart
+# Loading work.axi_lite_spi
+# Loading work.friscv_m_ext
+# Loading work.friscv_div
+# Loading work.friscv_icache
+# Loading work.friscv_cache_block_fetcher
+# Loading work.friscv_cache_prefetcher
+# Loading work.friscv_cache_blocks
+# Loading work.friscv_rambe
+# Loading work.friscv_cache_flusher
+# Loading work.friscv_cache_memctrl
+# Loading work.friscv_dcache
+# Loading work.friscv_cache_pusher
+# Loading work.friscv_cache_ooo_mgt
+# ** Warning: (vsim-3017) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Too few port connections. Expected 152, found 136.
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_araddr' not found in the connected module (3rd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_arlen' not found in the connected module (4th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_arsize' not found in the connected module (5th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_arburst' not found in the connected module (6th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_arlock' not found in the connected module (7th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_arcache' not found in the connected module (8th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_arprot' not found in the connected module (9th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_arqos' not found in the connected module (10th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_arvalid' not found in the connected module (11th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_arready' not found in the connected module (12th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_rdata' not found in the connected module (13th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_rresp' not found in the connected module (14th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_rlast' not found in the connected module (15th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_rvalid' not found in the connected module (16th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_rready' not found in the connected module (17th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_awaddr' not found in the connected module (18th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_awlen' not found in the connected module (19th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_awsize' not found in the connected module (20th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_awburst' not found in the connected module (21st connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_awlock' not found in the connected module (22nd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_awcache' not found in the connected module (23rd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_awprot' not found in the connected module (24th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_awqos' not found in the connected module (25th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_awvalid' not found in the connected module (26th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_awready' not found in the connected module (27th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_wdata' not found in the connected module (28th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_wstrb' not found in the connected module (29th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_wlast' not found in the connected module (30th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_wvalid' not found in the connected module (31st connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_wready' not found in the connected module (32nd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_bresp' not found in the connected module (33rd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_bvalid' not found in the connected module (34th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M0_AXI_bready' not found in the connected module (35th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_awaddr' not found in the connected module (36th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_awlen' not found in the connected module (37th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_awsize' not found in the connected module (38th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_awburst' not found in the connected module (39th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_awlock' not found in the connected module (40th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_awcache' not found in the connected module (41st connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_awprot' not found in the connected module (42nd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_awqos' not found in the connected module (43rd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_awvalid' not found in the connected module (44th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_awready' not found in the connected module (45th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_wdata' not found in the connected module (46th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_wstrb' not found in the connected module (47th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_wlast' not found in the connected module (48th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_wvalid' not found in the connected module (49th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_wready' not found in the connected module (50th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_bresp' not found in the connected module (51st connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_bvalid' not found in the connected module (52nd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_bready' not found in the connected module (53rd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_araddr' not found in the connected module (54th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_arlen' not found in the connected module (55th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_arsize' not found in the connected module (56th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_arburst' not found in the connected module (57th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_arlock' not found in the connected module (58th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_arcache' not found in the connected module (59th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_arprot' not found in the connected module (60th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_arqos' not found in the connected module (61st connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_arvalid' not found in the connected module (62nd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_arready' not found in the connected module (63rd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_rdata' not found in the connected module (64th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_rresp' not found in the connected module (65th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_rlast' not found in the connected module (66th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_rvalid' not found in the connected module (67th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'M1_AXI_rready' not found in the connected module (68th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S0_AXI_awaddr' not found in the connected module (69th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S0_AXI_awvalid' not found in the connected module (70th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S0_AXI_awready' not found in the connected module (71st connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S0_AXI_wdata' not found in the connected module (72nd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S0_AXI_wstrb' not found in the connected module (73rd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S0_AXI_wvalid' not found in the connected module (74th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S0_AXI_wready' not found in the connected module (75th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S0_AXI_bresp' not found in the connected module (76th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S0_AXI_bvalid' not found in the connected module (77th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S0_AXI_bready' not found in the connected module (78th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S0_AXI_araddr' not found in the connected module (79th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S0_AXI_arvalid' not found in the connected module (80th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S0_AXI_arready' not found in the connected module (81st connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S0_AXI_rdata' not found in the connected module (82nd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S0_AXI_rresp' not found in the connected module (83rd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S0_AXI_rvalid' not found in the connected module (84th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S0_AXI_rready' not found in the connected module (85th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S1_AXI_awaddr' not found in the connected module (86th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S1_AXI_awvalid' not found in the connected module (87th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S1_AXI_awready' not found in the connected module (88th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S1_AXI_wdata' not found in the connected module (89th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S1_AXI_wstrb' not found in the connected module (90th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S1_AXI_wvalid' not found in the connected module (91st connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S1_AXI_wready' not found in the connected module (92nd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S1_AXI_bresp' not found in the connected module (93rd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S1_AXI_bvalid' not found in the connected module (94th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S1_AXI_bready' not found in the connected module (95th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S1_AXI_araddr' not found in the connected module (96th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S1_AXI_arvalid' not found in the connected module (97th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S1_AXI_arready' not found in the connected module (98th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S1_AXI_rdata' not found in the connected module (99th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S1_AXI_rresp' not found in the connected module (100th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S1_AXI_rvalid' not found in the connected module (101st connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S1_AXI_rready' not found in the connected module (102nd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S2_AXI_awaddr' not found in the connected module (103rd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S2_AXI_awvalid' not found in the connected module (104th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S2_AXI_awready' not found in the connected module (105th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S2_AXI_wdata' not found in the connected module (106th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S2_AXI_wstrb' not found in the connected module (107th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S2_AXI_wvalid' not found in the connected module (108th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S2_AXI_wready' not found in the connected module (109th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S2_AXI_bresp' not found in the connected module (110th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S2_AXI_bvalid' not found in the connected module (111th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S2_AXI_bready' not found in the connected module (112th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S2_AXI_araddr' not found in the connected module (113th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S2_AXI_arvalid' not found in the connected module (114th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S2_AXI_arready' not found in the connected module (115th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S2_AXI_rdata' not found in the connected module (116th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S2_AXI_rresp' not found in the connected module (117th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S2_AXI_rvalid' not found in the connected module (118th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S2_AXI_rready' not found in the connected module (119th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S3_AXI_awaddr' not found in the connected module (120th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S3_AXI_awvalid' not found in the connected module (121st connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S3_AXI_awready' not found in the connected module (122nd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S3_AXI_wdata' not found in the connected module (123rd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S3_AXI_wstrb' not found in the connected module (124th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S3_AXI_wvalid' not found in the connected module (125th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S3_AXI_wready' not found in the connected module (126th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S3_AXI_bresp' not found in the connected module (127th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S3_AXI_bvalid' not found in the connected module (128th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S3_AXI_bready' not found in the connected module (129th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S3_AXI_araddr' not found in the connected module (130th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S3_AXI_arvalid' not found in the connected module (131st connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S3_AXI_arready' not found in the connected module (132nd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S3_AXI_rdata' not found in the connected module (133rd connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S3_AXI_rresp' not found in the connected module (134th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S3_AXI_rvalid' not found in the connected module (135th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Error: (vsim-3063) ../../../src/systems/friscv_axi_system.sv(520): Port 'S3_AXI_rready' not found in the connected module (136th connection).
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_AWADDR'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_AWLEN'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_AWSIZE'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_AWBURST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_AWVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_AWREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_WDATA'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_WSTRB'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_WLAST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_WVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_WREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_BRESP'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_BVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_BREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_ARADDR'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_ARLEN'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_ARSIZE'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_ARBURST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_ARVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_ARREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_RDATA'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_RRESP'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_RLAST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_RVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M0_RREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_AWADDR'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_AWLEN'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_AWSIZE'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_AWBURST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_AWVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_AWREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_WDATA'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_WSTRB'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_WLAST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_WVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_WREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_BRESP'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_BVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_BREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_ARADDR'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_ARLEN'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_ARSIZE'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_ARBURST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_ARVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_ARREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_RDATA'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_RRESP'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_RLAST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_RVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'M1_RREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_AWADDR'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_AWLEN'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_AWSIZE'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_AWBURST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_AWVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_AWREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_WDATA'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_WSTRB'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_WLAST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_WVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_WREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_BRESP'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_BVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_BREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_ARADDR'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_ARLEN'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_ARSIZE'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_ARBURST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_ARVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_ARREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_RDATA'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_RRESP'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_RLAST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_RVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S0_RREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_AWADDR'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_AWLEN'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_AWSIZE'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_AWBURST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_AWVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_AWREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_WDATA'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_WSTRB'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_WLAST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_WVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_WREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_BRESP'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_BVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_BREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_ARADDR'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_ARLEN'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_ARSIZE'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_ARBURST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_ARVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_ARREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_RDATA'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_RRESP'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_RLAST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_RVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S1_RREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_AWADDR'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_AWLEN'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_AWSIZE'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_AWBURST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_AWVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_AWREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_WDATA'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_WSTRB'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_WLAST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_WVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_WREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_BRESP'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_BVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_BREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_ARADDR'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_ARLEN'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_ARSIZE'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_ARBURST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_ARVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_ARREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_RDATA'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_RRESP'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_RLAST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_RVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S2_RREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_AWADDR'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_AWLEN'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_AWSIZE'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_AWBURST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_AWVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_AWREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_WDATA'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_WSTRB'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_WLAST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_WVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_WREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_BRESP'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_BVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_BREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_ARADDR'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_ARLEN'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_ARSIZE'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_ARBURST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_ARVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_ARREADY'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_RDATA'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_RRESP'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_RLAST'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_RVALID'.
+# 
+# ** Warning: (vsim-3722) ../../../src/systems/friscv_axi_system.sv(520): [TFMPC] - Missing connection for port 'S3_RREADY'.
+# 
+# ** Warning: (vsim-3017) ../../../src/axi_interconnect/Verilog/rtl/core/AXI_Interconnect.v(528): [TFMPC] - Too few port connections. Expected 234, found 229.
+# 
+#         Region: /tb_friscv_auto_verify/dut/u_axi_interconnect/u_full_interconnect
+# ** Warning: (vsim-3722) ../../../src/axi_interconnect/Verilog/rtl/core/AXI_Interconnect.v(528): [TFMPC] - Missing connection for port 'S00_AXI_arregion'.
+# 
+# ** Warning: (vsim-3722) ../../../src/axi_interconnect/Verilog/rtl/core/AXI_Interconnect.v(528): [TFMPC] - Missing connection for port 'slave2_addr1'.
+# 
+# ** Warning: (vsim-3722) ../../../src/axi_interconnect/Verilog/rtl/core/AXI_Interconnect.v(528): [TFMPC] - Missing connection for port 'slave2_addr2'.
+# 
+# ** Warning: (vsim-3722) ../../../src/axi_interconnect/Verilog/rtl/core/AXI_Interconnect.v(528): [TFMPC] - Missing connection for port 'slave3_addr1'.
+# 
+# ** Warning: (vsim-3722) ../../../src/axi_interconnect/Verilog/rtl/core/AXI_Interconnect.v(528): [TFMPC] - Missing connection for port 'slave3_addr2'.
+# 
+# Error loading design
+vsim : Error loading design
+At line:1 char:127
++ ... olor Green; vsim -c -do "source compile_and_verify_friscv.tcl" 2>&1 | ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Error loading design:String) [],  
+   RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

@@ -6,7 +6,7 @@
 #==============================================================================
 
 puts "\n======================================================================"
-puts "   ADD ALL .V FILES TO PROJECT"
+puts "   ADD ALL .V FILES TO PROJECT (UPDATED WITH RV32I!)"
 puts "======================================================================\n"
 
 set SRC_BASE "../../../src"
@@ -25,7 +25,7 @@ set total_count 0
 #==============================================================================
 # 1. SERV RISC-V Core (16 files)
 #==============================================================================
-puts "\[1/6\] Adding SERV RISC-V Core files..."
+puts "\[1/7\] Adding SERV RISC-V Core files..."
 
 set SERV_DIR "${SRC_BASE}/cores/serv/rtl"
 set serv_files {
@@ -44,7 +44,7 @@ puts "  -> 16 files added\n"
 #==============================================================================
 # 2. AXI Interconnect (36 files)
 #==============================================================================
-puts "\[2/6\] Adding AXI Interconnect files..."
+puts "\[2/7\] Adding AXI Interconnect files..."
 
 set AXI_V "${SRC_BASE}/axi_interconnect/Verilog/rtl"
 
@@ -112,7 +112,7 @@ puts "  -> 36 files added\n"
 #==============================================================================
 # 3. AXI-Lite Peripherals (4 files)
 #==============================================================================
-puts "\[3/6\] Adding AXI-Lite Peripherals..."
+puts "\[3/7\] Adding AXI-Lite Peripherals..."
 
 project addfile ${SRC_BASE}/peripherals/axi_lite/axi_lite_ram.v
 project addfile ${SRC_BASE}/peripherals/axi_lite/axi_lite_gpio.v
@@ -125,7 +125,7 @@ puts "  -> 4 files added\n"
 #==============================================================================
 # 4. AXI Bridge (4 files)
 #==============================================================================
-puts "\[4/6\] Adding AXI Bridge files..."
+puts "\[4/7\] Adding AXI Bridge files..."
 
 project addfile ${SRC_BASE}/axi_bridge/rtl/legacy/serv_bridge/wb2axi_read.v
 project addfile ${SRC_BASE}/axi_bridge/rtl/legacy/serv_bridge/wb2axi_write.v
@@ -136,9 +136,35 @@ incr total_count 4
 puts "  -> 4 files added\n"
 
 #==============================================================================
-# 5. Top System (1 file)
+# 5. RV32I 5-Stage Pipeline AXI Wrapper (NEW!)
 #==============================================================================
-puts "\[5/6\] Adding Top System file..."
+puts "\[5/7\] Adding RV32I AXI Wrapper files..."
+
+set RV32I_DIR "${SRC_BASE}/cores/riscv-axi-wrapper"
+
+# Core wrapper files
+project addfile ${RV32I_DIR}/rtl/RV32I_PIPELINE_ext.v
+project addfile ${RV32I_DIR}/rtl/riscv_pipeline_axi_wrapper.v
+incr total_count 2
+
+# Supporting modules from original backup
+set rv32i_support_files {
+    MUX2v2.v MUX2.v PCv1.v ADD_PC.v IF_ID.v
+    CONTROL_PIPELINE.v registerfile_test.v EXTENDv1.v
+    ID_EX.v MUX41.v ALU.v ADD.v EX_ME.v ME_WB.v HAZARD_UNIT.v
+}
+
+foreach file $rv32i_support_files {
+    project addfile ${RV32I_DIR}/original_backup/$file
+    incr total_count
+}
+
+puts "  -> 17 files added (2 core + 15 support)\n"
+
+#==============================================================================
+# 6. Top System (1 file)
+#==============================================================================
+puts "\[6/7\] Adding Top System file..."
 
 project addfile ${SRC_BASE}/systems/dual_riscv_axi_system.v
 incr total_count
@@ -146,9 +172,9 @@ incr total_count
 puts "  -> 1 file added\n"
 
 #==============================================================================
-# 6. Testbench (1 file)
+# 7. Testbench (1 file)
 #==============================================================================
-puts "\[6/6\] Adding Testbench file..."
+puts "\[7/7\] Adding Testbench file..."
 
 project addfile tb_dual_riscv_axi_system.v
 incr total_count
@@ -161,6 +187,15 @@ puts "  -> 1 file added\n"
 puts "======================================================================"
 puts "   FILES ADDED TO PROJECT!"
 puts "======================================================================\n"
+puts "  Breakdown:"
+puts "    • SERV Core:          16 files"
+puts "    • AXI Interconnect:   36 files"
+puts "    • AXI Peripherals:     4 files"
+puts "    • AXI Bridge:          4 files"
+puts "    • RV32I AXI Wrapper:  17 files ✅ NEW!"
+puts "    • Top System:          1 file"
+puts "    • Testbench:           1 file"
+puts ""
 puts "  Total: $total_count files\n"
 puts "  Files are now visible in Project window\n"
 puts "======================================================================"
