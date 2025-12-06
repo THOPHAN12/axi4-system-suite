@@ -1,0 +1,33 @@
+@00000000
+// ============================================================================
+// BASIC SW/LW TEST - Simplest possible!
+// ============================================================================
+// Just test if CPU can execute SW and LW at all
+// Uses SAME pattern as working test_program.hex
+// ============================================================================
+
+13 00 00 00  // nop
+93 00 10 00  // li x1, 1           → x1 = 1
+13 01 20 00  // li x2, 2           → x2 = 2
+93 01 30 00  // li x3, 3           → x3 = 3
+
+// STORE to address 0x00000002 (x2=2)
+23 20 11 00  // sw x1, 0(x2)       @ addr=0x00000002 → Slave0
+
+// LOAD from address 0x00000002
+03 24 01 00  // lw x8, 0(x2)       @ addr=0x00000002 → Slave0
+
+// STORE to address 0x00000006 (x2+4)
+23 22 21 00  // sw x2, 4(x2)       @ addr=0x00000006 → Slave0
+
+// LOAD from address 0x00000006
+83 24 41 00  // lw x9, 4(x2)       @ addr=0x00000006 → Slave0
+
+// Mark completion
+13 05 E0 0D  // li x10, 0xDE       → x10 = 0xDE (DONE)
+
+// Loop forever
+6f 00 00 00  // j 0
+
+
+
