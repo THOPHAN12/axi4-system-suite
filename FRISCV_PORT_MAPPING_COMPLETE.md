@@ -80,3 +80,4 @@ Tất cả slave ports đều được cấu hình cho AXI-Lite:
 
 **File Updated**: `D:\AXI\src\systems\friscv_axi_system.sv`
 
+

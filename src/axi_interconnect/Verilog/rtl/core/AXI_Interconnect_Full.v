@@ -43,7 +43,7 @@ module AXI_Interconnect_Full #(
 
               // ====== Arbitration Mode Parameter ======
               // Added: Configurable arbitration for 2 masters
-              ARBITRATION_MODE = 1  // 0=FIXED_PRIORITY, 1=ROUND_ROBIN, 2=QOS_BASED
+              ARBITRATION_MODE = 1  // 0=FIXED_PRIORITY, 1=ROUND_ROBIN_1, 2=ROUND_ROBIN_2
 
 
 
@@ -438,11 +438,15 @@ wire             RREADY_S3_wire_2;
 
 // ============================================================================
 // ARBITRATION WIRES AND REGISTERS
-// Added: Support for 3 arbitration modes (FIXED, ROUND_ROBIN, QOS)
+// Added: Support for 3 arbitration modes (FIXED, ROUND_ROBIN_1, ROUND_ROBIN_2)
 // ============================================================================
-// Round-robin turn registers
+// Round-robin turn registers (for RR1)
 reg [1:0] wr_turn;  // Write arbitration turn (0=M0, 1=M1)
 reg [1:0] rd_turn;  // Read arbitration turn (0=M0, 1=M1)
+
+// Round-robin counter registers (for RR2 - sequential scan)
+reg [1:0] wr_counter;  // Write arbitration counter (0=M0, 1=M1, wraps)
+reg [1:0] rd_counter;  // Read arbitration counter (0=M0, 1=M1, wraps)
 
 // Master request signals
 wire m0_write_req = S00_AXI_awvalid && !AW_Access_Grant;
@@ -942,31 +946,38 @@ Mux_4x1 #(.width(1)) rresp_mux_M1 (
 );
 
 // ============================================================================
-// WRITE CHANNEL ARBITRATION (3 MODES)
-// Added: Configurable arbitration between 2 masters
+// WRITE CHANNEL ARBITRATION (3 MODES - theo tài liệu)
 // ============================================================================
 generate
     if (ARBITRATION_MODE == 0) begin : gen_fixed_write
         // MODE 0: FIXED PRIORITY (Master 0 > Master 1)
+        // MSB > LSB: M0 (higher index) > M1 (lower index)
         assign grant_m0_write = m0_write_req;
         assign grant_m1_write = m1_write_req && !m0_write_req;
         
-    end else if (ARBITRATION_MODE == 2) begin : gen_qos_write
-        // MODE 2: QOS-BASED (Higher QoS value wins)
-        wire m0_higher_qos = (S00_AXI_awqos >= S01_AXI_awqos);
-        assign grant_m0_write = m0_write_req && (!m1_write_req || m0_higher_qos);
-        assign grant_m1_write = m1_write_req && (!m0_write_req || !m0_higher_qos);
+    end else if (ARBITRATION_MODE == 2) begin : gen_rr2_write
+        // MODE 2: ROUND ROBIN 2 (Sequential counter scan)
+        // Quét tuần tự bằng counter, cấp quyền cho port gần nhất có request
+        // Counter chỉ tăng khi có request được grant
+        assign grant_m0_write = m0_write_req && (
+            (wr_counter == 2'b00) ||  // Counter đang ở M0
+            (wr_counter == 2'b01 && !m1_write_req)  // Counter ở M1 nhưng M1 không request
+        );
+        assign grant_m1_write = m1_write_req && (
+            (wr_counter == 2'b01) ||  // Counter đang ở M1
+            (wr_counter == 2'b00 && !m0_write_req)  // Counter ở M0 nhưng M0 không request
+        );
         
-    end else begin : gen_rr_write
-        // MODE 1: ROUND-ROBIN (Fair alternating - DEFAULT)
+    end else begin : gen_rr1_write
+        // MODE 1: ROUND ROBIN 1 (Chọn port gần nhất bên phải)
+        // Chọn master gần nhất bên phải so với master vừa được phục vụ
         assign grant_m0_write = m0_write_req && (!m1_write_req || (wr_turn == 2'b00));
         assign grant_m1_write = m1_write_req && (!m0_write_req || (wr_turn == 2'b01));
     end
 endgenerate
 
 // ============================================================================
-// READ CHANNEL ARBITRATION (3 MODES)
-// Added: Configurable arbitration between 2 masters
+// READ CHANNEL ARBITRATION (3 MODES - theo tài liệu)
 // ============================================================================
 generate
     if (ARBITRATION_MODE == 0) begin : gen_fixed_read
@@ -974,46 +985,75 @@ generate
         assign grant_m0_read = m0_read_req;
         assign grant_m1_read = m1_read_req && !m0_read_req;
         
-    end else if (ARBITRATION_MODE == 2) begin : gen_qos_read
-        // MODE 2: QOS-BASED (Higher QoS value wins)
-        wire m0_higher_qos = (S00_AXI_arqos >= S01_AXI_arqos);
-        assign grant_m0_read = m0_read_req && (!m1_read_req || m0_higher_qos);
-        assign grant_m1_read = m1_read_req && (!m0_read_req || !m0_higher_qos);
+    end else if (ARBITRATION_MODE == 2) begin : gen_rr2_read
+        // MODE 2: ROUND ROBIN 2 (Sequential counter scan)
+        // Quét tuần tự bằng counter, cấp quyền cho port gần nhất có request
+        // Counter chỉ tăng khi có request được grant
+        assign grant_m0_read = m0_read_req && (
+            (rd_counter == 2'b00) ||  // Counter đang ở M0
+            (rd_counter == 2'b01 && !m1_read_req)  // Counter ở M1 nhưng M1 không request
+        );
+        assign grant_m1_read = m1_read_req && (
+            (rd_counter == 2'b01) ||  // Counter đang ở M1
+            (rd_counter == 2'b00 && !m0_read_req)  // Counter ở M0 nhưng M0 không request
+        );
         
-    end else begin : gen_rr_read
-        // MODE 1: ROUND-ROBIN (Fair alternating - DEFAULT)
+    end else begin : gen_rr1_read
+        // MODE 1: ROUND ROBIN 1 (Chọn port gần nhất bên phải)
+        // Chọn master gần nhất bên phải so với master vừa được phục vụ
         assign grant_m0_read = m0_read_req && (!m1_read_req || (rd_turn == 2'b00));
         assign grant_m1_read = m1_read_req && (!m0_read_req || (rd_turn == 2'b01));
     end
 endgenerate
 
 // ============================================================================
-// TURN UPDATE LOGIC (For Round-Robin Mode)
-// Updated on each granted transaction
+// TURN/COUNTER UPDATE LOGIC (For Round-Robin Modes)
 // ============================================================================
 always @(posedge ACLK or negedge ARESETN) begin
     if (!ARESETN) begin
-        wr_turn <= 2'b01;  // Start with M1 having priority
+        // Reset: Initialize turns and counters
+        wr_turn <= 2'b01;      // RR1: Start with M1 (so M0 will be first)
         rd_turn <= 2'b01;
+        wr_counter <= 2'b00;   // RR2: Start with M0
+        rd_counter <= 2'b00;
     end else begin
-        // Update write turn (only in ROUND_ROBIN mode)
-        // FIX: Update turn immediately on grant, not waiting for ready
+        // ====================================================================
+        // MODE 1: ROUND ROBIN 1 - Update turn
+        // ====================================================================
         if (ARBITRATION_MODE == 1) begin
+            // Write turn update
             if (grant_m0_write) begin
                 wr_turn <= 2'b01;  // Next turn: M1
             end else if (grant_m1_write) begin
                 wr_turn <= 2'b00;  // Next turn: M0
             end
-        end
-        
-        // Update read turn (only in ROUND_ROBIN mode)
-        // FIX: Update turn immediately on grant, not waiting for ready
-        if (ARBITRATION_MODE == 1) begin
+            
+            // Read turn update
             if (grant_m0_read) begin
                 rd_turn <= 2'b01;  // Next turn: M1
             end else if (grant_m1_read) begin
                 rd_turn <= 2'b00;  // Next turn: M0
             end
+        end
+        
+        // ====================================================================
+        // MODE 2: ROUND ROBIN 2 - Update counter (sequential scan)
+        // Counter chỉ tăng khi có request được grant
+        // ====================================================================
+        if (ARBITRATION_MODE == 2) begin
+            // Write counter update
+            if (grant_m0_write || grant_m1_write) begin
+                // Có request được grant → tăng counter
+                wr_counter <= (wr_counter == 2'b00) ? 2'b01 : 2'b00;  // Wrap: 0→1, 1→0
+            end
+            // Nếu không có request được grant → counter không tăng
+            
+            // Read counter update
+            if (grant_m0_read || grant_m1_read) begin
+                // Có request được grant → tăng counter
+                rd_counter <= (rd_counter == 2'b00) ? 2'b01 : 2'b00;  // Wrap: 0→1, 1→0
+            end
+            // Nếu không có request được grant → counter không tăng
         end
     end
 end
