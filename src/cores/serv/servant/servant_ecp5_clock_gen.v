@@ -1,10 +1,10 @@
 `default_nettype none
 module servant_ecp5_clock_gen
   (
-   input  i_clk,
-   input  i_rst,
-   output o_clk,
-   output o_rst);
+   input  wire i_clk,
+   input  wire i_rst,
+   output wire o_clk,
+   output wire o_rst);
 
    wire   locked;
 
