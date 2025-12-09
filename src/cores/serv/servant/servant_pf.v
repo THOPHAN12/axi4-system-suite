@@ -5,12 +5,12 @@ module servant_pf (
 	input  wire resetb,
 	output wire o_led1,
 	output wire o_led2,
-	output wire o_led3 = 1'b0,
-	output wire o_led4 = 1'b0,
-	output wire o_led5 = 1'b0,
-	output wire o_led6 = 1'b0,
-	output wire o_led7 = 1'b0,
-	output wire o_led8 = 1'b0,
+	output wire o_led3,
+	output wire o_led4,
+	output wire o_led5,
+	output wire o_led6,
+	output wire o_led7,
+	output wire o_led8,
 	output wire o_uart_tx);
 
 	parameter memfile = "zephyr_hello.hex";
@@ -61,6 +61,12 @@ module servant_pf (
 	assign rst = ~resetb;
 	assign o_led1 = q;
 	assign o_led2 = heartbeat;
+	assign o_led3 = 1'b0;  // Default value assigned in module body
+	assign o_led4 = 1'b0;  // Default value assigned in module body
+	assign o_led5 = 1'b0;  // Default value assigned in module body
+	assign o_led6 = 1'b0;  // Default value assigned in module body
+	assign o_led7 = 1'b0;  // Default value assigned in module body
+	assign o_led8 = 1'b0;  // Default value assigned in module body
 	assign o_uart_tx = q;
 
 endmodule
