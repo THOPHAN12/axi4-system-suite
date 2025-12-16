@@ -10,7 +10,8 @@
 
 `timescale 1ns/1ps
 
-`include "../cores/serv/rtl/serv_top.v"
+// Note: serv_top module is already compiled into work library
+// No need for include statement when compiling from GUI
 
 module serv_axi_wrapper #(
     parameter DATA_WIDTH = 32,
@@ -64,6 +65,11 @@ module serv_axi_wrapper #(
     output wire                          m_axi_data_rready,
     
     // ========================================================================
+    // Busy Signal - Indicates core is actively processing
+    // ========================================================================
+    output wire                          o_busy,
+    
+    // ========================================================================
     // Debug Signals
     // ========================================================================
     output wire [31:0]                   debug_pc,
@@ -100,6 +106,14 @@ wire [W-1:0] wdata0, wdata1;
 wire [4:0]   rreg0, rreg1;
 wire [W-1:0] rdata0, rdata1;
 
+// Register file port connections (6 bits: [5:0] = {WITH_CSR, reg[4:0]})
+wire [5:0]   o_wreg0_conn, o_wreg1_conn;
+wire [5:0]   o_rreg0_conn, o_rreg1_conn;
+assign o_wreg0_conn = {(WITH_CSR ? 1'b1 : 1'b0), wreg0};
+assign o_wreg1_conn = {(WITH_CSR ? 1'b1 : 1'b0), wreg1};
+assign o_rreg0_conn = {(WITH_CSR ? 1'b1 : 1'b0), rreg0};
+assign o_rreg1_conn = {(WITH_CSR ? 1'b1 : 1'b0), rreg1};
+
 // ==============================================================================
 // SERV Core Instance
 // ==============================================================================
@@ -120,14 +134,14 @@ serv_top #(
     .o_rf_rreq(rf_rreq),
     .o_rf_wreq(rf_wreq),
     .i_rf_ready(rf_ready),
-    .o_wreg0({WITH_CSR, wreg0}),
-    .o_wreg1({WITH_CSR, wreg1}),
+    .o_wreg0(o_wreg0_conn),
+    .o_wreg1(o_wreg1_conn),
     .o_wen0(wen0),
     .o_wen1(wen1),
     .o_wdata0(wdata0),
     .o_wdata1(wdata1),
-    .o_rreg0({WITH_CSR, rreg0}),
-    .o_rreg1({WITH_CSR, rreg1}),
+    .o_rreg0(o_rreg0_conn),
+    .o_rreg1(o_rreg1_conn),
     .i_rdata0(rdata0),
     .i_rdata1(rdata1),
     
@@ -275,6 +289,21 @@ end
 assign rdata0 = rf_mem[rreg0][W-1:0];
 assign rdata1 = rf_mem[rreg1][W-1:0];
 assign rf_ready = 1'b1; // Always ready for now
+
+// ==============================================================================
+// Busy Signal Generation
+// ==============================================================================
+// Core is busy when:
+// 1. Instruction or Data bus has active cycle (wb_ibus_cyc or wb_dbus_cyc)
+// 2. There are pending AXI transactions (waiting for response)
+// 3. Register file is being accessed (optional - for more detailed status)
+
+wire instr_busy = wb_ibus_cyc || instr_read_pending;
+wire data_busy  = wb_dbus_cyc || data_read_pending || data_write_pending;
+wire rf_busy    = rf_rreq || rf_wreq;  // Register file access
+
+// Master busy when any of its buses or register file is active
+assign o_busy = instr_busy || data_busy || rf_busy;
 
 // ==============================================================================
 // Debug Signals

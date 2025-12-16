@@ -1,0 +1,37 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  -i "../../../../../../../../SystemVerilog/axi_interconnect" -i "../../../../../../../../SystemVerilog/axi_bridge" -i "../../../../../../../../SystemVerilog/axi_masters" -i "../../../../../../../../SystemVerilog/peripherals" \
+"../../../../../../../../SystemVerilog/axi_interconnect/channel_controllers/read/AR_Channel_Controller_Top.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/channel_controllers/write/AW_Channel_Controller_Top.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/handshake/AW_HandShake_Checker.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/datapath/mux/AW_MUX_2_1.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/core/AXI_Interconnect.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/core/AXI_Interconnect_Full.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/channel_controllers/write/BR_Channel_Controller_Top.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/datapath/mux/BReady_MUX_2_1.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/channel_controllers/read/Controller.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/datapath/demux/Demux_1_2.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/datapath/demux/Demux_1x4.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/utils/Faling_Edge_Detc.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/datapath/mux/Mux_2x1.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/datapath/mux/Mux_4x1.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/buffers/Queue.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/utils/Raising_Edge_Det.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/decoders/Read_Addr_Channel_Dec.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/channel_controllers/write/WD_Channel_Controller_Top.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/handshake/WD_HandShake.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/datapath/mux/WD_MUX_2_1.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/handshake/WR_HandShake.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/decoders/Write_Addr_Channel_Dec.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/decoders/Write_Resp_Channel_Arb.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/decoders/Write_Resp_Channel_Dec.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/arbitration/algorithms/arbiter_qos_based.sv" \
+"../../../../../../../../SystemVerilog/axi_masters/axi_master_0.sv" \
+"../../../../../../../../SystemVerilog/axi_masters/axi_master_1.sv" \
+"../../../../../../../../SystemVerilog/axi_interconnect/arbitration/algorithms/read_arbiter.sv" \
+"../../../../../../../../SystemVerilog/testbenches/axi_masters/comprehensive_system_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

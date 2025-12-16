@@ -1,0 +1,93 @@
+// Simple RISC-V Test Program for Dual Core System - Core 0
+// Address Map:
+//   RAM:  0x0000_0000 - 0x0000_1FFF
+//   GPIO: 0x4000_0000
+//   UART: 0x8000_0000
+//   SPI:  0xC000_0000
+
+// Core 0 Program (starts at 0x0000_0000)
+// Test: Write to GPIO, UART, SPI, then loop
+
+// Instruction format for RISC-V RV32I:
+// LUI: rd, imm[31:12] - U-type: imm[31:12] | rd | 0110111
+// ADDI: rd, rs1, imm[11:0] - I-type: imm[11:0] | rs1 | 000 | rd | 0010011
+// SW: rs2, offset(rs1) - S-type: imm[11:5] | rs2 | rs1 | 010 | imm[4:0] | 0100011
+// LW: rd, offset(rs1) - I-type: imm[11:0] | rs1 | 010 | rd | 0000011
+// JAL: rd, offset - J-type: imm[20|10:1|11|19:12] | rd | 1101111
+
+// Address 0x00000000: Initialize x1 = 0x40000000 (GPIO base)
+400000B7  // lui x1, 0x40000  -> x1 = 0x40000000
+
+// Address 0x00000004: Initialize x2 = 0xDEADBEEF
+DEADC137  // lui x2, 0xDEADC  -> x2 = 0xDEADC000
+EEF10113  // addi x2, x2, 0xEEF -> x2 = 0xDEADBEEF
+
+// Address 0x00000008: Store to GPIO (write 0xDEADBEEF to GPIO)
+0020A023  // sw x2, 0(x1)  -> MEM[0x40000000] = 0xDEADBEEF
+
+// Address 0x0000000C: Initialize x3 = 0x80000000 (UART base)
+800001B7  // lui x3, 0x80000  -> x3 = 0x80000000
+
+// Address 0x00000010: Write 'H' (0x48) to UART
+04800213  // addi x4, x0, 0x48  -> x4 = 0x48 ('H')
+0041A023  // sw x4, 0(x3)  -> UART TX = 'H'
+
+// Address 0x00000014: Write 'e' (0x65) to UART
+06500213  // addi x4, x0, 0x65  -> x4 = 0x65 ('e')
+0041A023  // sw x4, 0(x3)  -> UART TX = 'e'
+
+// Address 0x00000018: Write 'l' (0x6C) to UART
+06C00213  // addi x4, x0, 0x6C  -> x4 = 0x6C ('l')
+0041A023  // sw x4, 0(x3)  -> UART TX = 'l'
+
+// Address 0x0000001C: Write 'l' (0x6C) to UART
+06C00213  // addi x4, x0, 0x6C  -> x4 = 0x6C ('l')
+0041A023  // sw x4, 0(x3)  -> UART TX = 'l'
+
+// Address 0x00000020: Write 'o' (0x6F) to UART
+06F00213  // addi x4, x0, 0x6F  -> x4 = 0x6F ('o')
+0041A023  // sw x4, 0(x3)  -> UART TX = 'o'
+
+// Address 0x00000024: Write newline (0x0A) to UART
+00A00213  // addi x4, x0, 0x0A  -> x4 = 0x0A ('\n')
+0041A023  // sw x4, 0(x3)  -> UART TX = '\n'
+
+// Address 0x00000028: Initialize x5 = 0xC0000000 (SPI base)
+C00002B7  // lui x5, 0xC0000  -> x5 = 0xC0000000
+
+// Address 0x0000002C: Write 0xAA to SPI
+0AA00313  // addi x6, x0, 0xAA  -> x6 = 0xAA
+0062A023  // sw x6, 0(x5)  -> SPI TX = 0xAA
+
+// Address 0x00000030: Write 0x55 to SPI
+05500313  // addi x6, x0, 0x55  -> x6 = 0x55
+0062A023  // sw x6, 0(x5)  -> SPI TX = 0x55
+
+// Address 0x00000034: Write 0x12 to SPI
+01200313  // addi x6, x0, 0x12  -> x6 = 0x12
+0062A023  // sw x6, 0(x5)  -> SPI TX = 0x12
+
+// Address 0x00000038: Write 0x34 to SPI
+03400313  // addi x6, x0, 0x34  -> x6 = 0x34
+0062A023  // sw x6, 0(x5)  -> SPI TX = 0x34
+
+// Address 0x0000003C: Infinite loop (jump to self)
+0000006F  // jal x0, 0  -> PC = PC + 0 (infinite loop)
+
+// Fill rest with NOPs
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013

@@ -1,0 +1,129 @@
+// Comprehensive RISC-V Test Program for Dual Core System - Core 0
+// This program tests all peripherals and creates arbitration scenarios
+// Address Map:
+//   RAM:  0x0000_0000 - 0x0000_1FFF
+//   GPIO: 0x4000_0000
+//   UART: 0x8000_0000
+//   SPI:  0xC000_0000
+
+// Core 0 Program (starts at 0x0000_0000)
+// Comprehensive test: RAM R/W, GPIO, UART, SPI, multiple transactions
+
+// Address 0x00000000: Initialize x1 = 0x00000000 (RAM base)
+000000B7  // lui x1, 0x0  -> x1 = 0x00000000
+
+// Address 0x00000004: Initialize x2 = 0xDEADBEEF
+DEADC137  // lui x2, 0xDEADC  -> x2 = 0xDEADC000
+EEF10113  // addi x2, x2, 0xEEF -> x2 = 0xDEADBEEF
+
+// Address 0x00000008: Store 0xDEADBEEF to RAM address 0x00000200
+20000193  // addi x3, x0, 0x200  -> x3 = 0x200
+0021A023  // sw x2, 0(x3)  -> MEM[0x200] = 0xDEADBEEF
+
+// Address 0x0000000C: Read back from RAM address 0x200
+0021A283  // lw x5, 0(x3)  -> x5 = MEM[0x200]
+
+// Address 0x00000010: Initialize x6 = 0x40000000 (GPIO base)
+40000337  // lui x6, 0x40000  -> x6 = 0x40000000
+
+// Address 0x00000014: Write 0x11111111 to GPIO
+111113B7  // lui x7, 0x11111  -> x7 = 0x11111000
+11138393  // addi x7, x7, 0x111 -> x7 = 0x11111111
+00732023  // sw x7, 0(x6)  -> GPIO = 0x11111111
+
+// Address 0x00000018: Write 0x22222222 to GPIO
+222223B7  // lui x7, 0x22222  -> x7 = 0x22222000
+22238393  // addi x7, x7, 0x222 -> x7 = 0x22222222
+00732023  // sw x7, 0(x6)  -> GPIO = 0x22222222
+
+// Address 0x0000001C: Write 0x33333333 to GPIO
+333333B7  // lui x7, 0x33333  -> x7 = 0x33333000
+33338393  // addi x7, x7, 0x333 -> x7 = 0x33333333
+00732023  // sw x7, 0(x6)  -> GPIO = 0x33333333
+
+// Address 0x00000020: Initialize x8 = 0x80000000 (UART base)
+80000437  // lui x8, 0x80000  -> x8 = 0x80000000
+
+// Address 0x00000024: Write "Core0" to UART
+04300493  // addi x9, x0, 0x43  -> x9 = 'C'
+00942023  // sw x9, 0(x8)  -> UART TX = 'C'
+06F00493  // addi x9, x0, 0x6F  -> x9 = 'o'
+00942023  // sw x9, 0(x8)  -> UART TX = 'o'
+07200493  // addi x9, x0, 0x72  -> x9 = 'r'
+00942023  // sw x9, 0(x8)  -> UART TX = 'r'
+06500493  // addi x9, x0, 0x65  -> x9 = 'e'
+00942023  // sw x9, 0(x8)  -> UART TX = 'e'
+03000493  // addi x9, x0, 0x30  -> x9 = '0'
+00942023  // sw x9, 0(x8)  -> UART TX = '0'
+00A00493  // addi x9, x0, 0x0A  -> x9 = '\n'
+00942023  // sw x9, 0(x8)  -> UART TX = '\n'
+
+// Address 0x00000028: Write "Test" to UART
+05400493  // addi x9, x0, 0x54  -> x9 = 'T'
+00942023  // sw x9, 0(x8)  -> UART TX = 'T'
+06500493  // addi x9, x0, 0x65  -> x9 = 'e'
+00942023  // sw x9, 0(x8)  -> UART TX = 'e'
+07300493  // addi x9, x0, 0x73  -> x9 = 's'
+00942023  // sw x9, 0(x8)  -> UART TX = 's'
+07400493  // addi x9, x0, 0x74  -> x9 = 't'
+00942023  // sw x9, 0(x8)  -> UART TX = 't'
+00A00493  // addi x9, x0, 0x0A  -> x9 = '\n'
+00942023  // sw x9, 0(x8)  -> UART TX = '\n'
+
+// Address 0x0000002C: Initialize x10 = 0xC0000000 (SPI base)
+C0000537  // lui x10, 0xC0000  -> x10 = 0xC0000000
+
+// Address 0x00000030: Write multiple bytes to SPI
+00100593  // addi x11, x0, 0x1  -> x11 = 0x1
+00B52023  // sw x11, 0(x10)  -> SPI TX = 0x1
+00200593  // addi x11, x0, 0x2  -> x11 = 0x2
+00B52023  // sw x11, 0(x10)  -> SPI TX = 0x2
+00300593  // addi x11, x0, 0x3  -> x11 = 0x3
+00B52023  // sw x11, 0(x10)  -> SPI TX = 0x3
+00400593  // addi x11, x0, 0x4  -> x11 = 0x4
+00B52023  // sw x11, 0(x10)  -> SPI TX = 0x4
+00500593  // addi x11, x0, 0x5  -> x11 = 0x5
+00B52023  // sw x11, 0(x10)  -> SPI TX = 0x5
+
+// Address 0x00000034: Read from RAM again to create more transactions
+0021A283  // lw x5, 0(x3)  -> x5 = MEM[0x200]
+
+// Address 0x00000038: Write to GPIO again
+444443B7  // lui x7, 0x44444  -> x7 = 0x44444000
+44438393  // addi x7, x7, 0x444 -> x7 = 0x44444444
+00732023  // sw x7, 0(x6)  -> GPIO = 0x44444444
+
+// Address 0x0000003C: Write more to UART
+02000493  // addi x9, x0, 0x20  -> x9 = ' ' (space)
+00942023  // sw x9, 0(x8)  -> UART TX = ' '
+04400493  // addi x9, x0, 0x44  -> x9 = 'D'
+00942023  // sw x9, 0(x8)  -> UART TX = 'D'
+06F00493  // addi x9, x0, 0x6F  -> x9 = 'o'
+00942023  // sw x9, 0(x8)  -> UART TX = 'o'
+06E00493  // addi x9, x0, 0x6E  -> x9 = 'n'
+00942023  // sw x9, 0(x8)  -> UART TX = 'n'
+06500493  // addi x9, x0, 0x65  -> x9 = 'e'
+00942023  // sw x9, 0(x8)  -> UART TX = 'e'
+00A00493  // addi x9, x0, 0x0A  -> x9 = '\n'
+00942023  // sw x9, 0(x8)  -> UART TX = '\n'
+
+// Address 0x00000040: Infinite loop (jump to self)
+0000006F  // jal x0, 0  -> PC = PC + 0 (infinite loop)
+
+// Fill rest with NOPs
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013

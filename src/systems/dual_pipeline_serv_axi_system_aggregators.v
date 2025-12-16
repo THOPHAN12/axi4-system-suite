@@ -2,7 +2,9 @@
 // 4 masters (pipeline + serv, instr/data) -> 2 masters (AGG0 instr, AGG1 data)
 
 `timescale 1ns/1ps
-`include "../axi_interconnect/rtl/core/AXI_Master_Aggregator.v"
+
+// Note: AXI_Master_Aggregator module is already compiled into work library
+// No need for include statement when compiling from GUI
 
 module dual_pipeline_serv_aggregators #(
     parameter ADDR_WIDTH = 32,
