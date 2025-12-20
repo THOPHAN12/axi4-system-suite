@@ -10,7 +10,8 @@
 
 `timescale 1ns/1ps
 
-`include "../axi_interconnect/rtl/core/AXI_Interconnect.v"
+// Note: AXI_Interconnect module is already compiled into work library
+// No need for include statement when compiling from GUI
 
 module dual_axi_shell #(
     parameter ADDR_WIDTH = 32,

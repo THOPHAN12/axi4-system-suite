@@ -1,1 +1,386 @@
+{C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_bridge/friscv_axi_wrapper.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_bridge/friscv_axi_wrapper.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module friscv_axi_wrapper
 
+Top level modules:
+	friscv_axi_wrapper
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_rf_top.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_rf_top.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module serv_rf_top
+
+Top level modules:
+	serv_rf_top
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Dec.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Dec.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Write_Resp_Channel_Dec
+
+Top level modules:
+	Write_Resp_Channel_Dec
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_compdec.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_compdec.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module serv_compdec
+
+Top level modules:
+	serv_compdec
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_top.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_top.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module serv_top
+
+Top level modules:
+	serv_top
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/buffers/Queue.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/buffers/Queue.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Queue
+
+Top level modules:
+	Queue
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_ctrl.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_ctrl.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module serv_ctrl
+
+Top level modules:
+	serv_ctrl
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/demux/Demux_1x2.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/demux/Demux_1x2.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Demux_1x2
+
+Top level modules:
+	Demux_1x2
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/systems/dual_pipeline_serv_axi_system_aggregators.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/systems/dual_pipeline_serv_axi_system_aggregators.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module dual_pipeline_serv_aggregators
+
+Top level modules:
+	dual_pipeline_serv_aggregators
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/systems/dual_axi_shell.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/systems/dual_axi_shell.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module dual_axi_shell
+
+Top level modules:
+	dual_axi_shell
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/decoders/Read_Addr_Channel_Dec.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/decoders/Read_Addr_Channel_Dec.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Read_Addr_Channel_Dec
+
+Top level modules:
+	Read_Addr_Channel_Dec
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/channel_controllers/write/BR_Channel_Controller_Top.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/channel_controllers/write/BR_Channel_Controller_Top.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module BR_Channel_Controller_Top
+
+Top level modules:
+	BR_Channel_Controller_Top
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/arbitration/algorithms/read_arbiter.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/arbitration/algorithms/read_arbiter.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Read_Arbiter
+
+Top level modules:
+	Read_Arbiter
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/WD_MUX_2_1.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/WD_MUX_2_1.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module WD_MUX_2_1
+
+Top level modules:
+	WD_MUX_2_1
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/demux/Demux_1x2_en.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/demux/Demux_1x2_en.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Demux_1x2_en
+
+Top level modules:
+	Demux_1x2_en
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/arbitration/algorithms/arbiter_fixed_priority.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/arbitration/algorithms/arbiter_fixed_priority.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Write_Arbiter
+
+Top level modules:
+	Write_Arbiter
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Arb.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/decoders/Write_Resp_Channel_Arb.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Write_Resp_Channel_Arb
+
+Top level modules:
+	Write_Resp_Channel_Arb
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/buffers/Resp_Queue.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/buffers/Resp_Queue.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Resp_Queue
+
+Top level modules:
+	Resp_Queue
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/Mux_2x1.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/Mux_2x1.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Mux_2x1
+
+Top level modules:
+	Mux_2x1
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/demux/Demux_1_2.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/demux/Demux_1_2.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Demux_1_2
+
+Top level modules:
+	Demux_1_2
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/utils/Faling_Edge_Detc.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/utils/Faling_Edge_Detc.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Faling_Edge_Detc
+
+Top level modules:
+	Faling_Edge_Detc
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/Mux_4x1.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/Mux_4x1.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Mux_4x1
+
+Top level modules:
+	Mux_4x1
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/utils/Raising_Edge_Det.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/utils/Raising_Edge_Det.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Raising_Edge_Det
+
+Top level modules:
+	Raising_Edge_Det
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_csr.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_csr.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module serv_csr
+
+Top level modules:
+	serv_csr
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/core/AXI_Master_Aggregator.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/core/AXI_Master_Aggregator.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module AXI_Master_Aggregator
+
+Top level modules:
+	AXI_Master_Aggregator
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/handshake/WD_HandShake.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/handshake/WD_HandShake.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module WD_HandShake
+
+Top level modules:
+	WD_HandShake
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_alu.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_alu.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module serv_alu
+
+Top level modules:
+	serv_alu
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_bufreg.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_bufreg.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module serv_bufreg
+
+Top level modules:
+	serv_bufreg
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/channel_controllers/read/Controller.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/channel_controllers/read/Controller.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Controller
+
+Top level modules:
+	Controller
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_decode.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_decode.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module serv_decode
+
+Top level modules:
+	serv_decode
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_bufreg2.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_bufreg2.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module serv_bufreg2
+
+Top level modules:
+	serv_bufreg2
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/peripherals/axi_lite/axi_lite_ram.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/peripherals/axi_lite/axi_lite_ram.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module axi_lite_ram
+
+Top level modules:
+	axi_lite_ram
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/channel_controllers/write/AW_Channel_Controller_Top.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/channel_controllers/write/AW_Channel_Controller_Top.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module AW_Channel_Controller_Top
+
+Top level modules:
+	AW_Channel_Controller_Top
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/handshake/WR_HandShake.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/handshake/WR_HandShake.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module WR_HandShake
+
+Top level modules:
+	WR_HandShake
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_state.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_state.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module serv_state
+
+Top level modules:
+	serv_state
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/demux/Demux_1x4.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/demux/Demux_1x4.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Demux_1x4
+
+Top level modules:
+	Demux_1x4
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_aligner.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_aligner.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module serv_aligner
+
+Top level modules:
+	serv_aligner
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/BReady_MUX_2_1.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/BReady_MUX_2_1.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module BReady_MUX_2_1
+
+Top level modules:
+	BReady_MUX_2_1
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/channel_controllers/read/AR_Channel_Controller_Top.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/channel_controllers/read/AR_Channel_Controller_Top.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module AR_Channel_Controller_Top
+
+Top level modules:
+	AR_Channel_Controller_Top
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/AW_MUX_2_1.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/AW_MUX_2_1.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module AW_MUX_2_1
+
+Top level modules:
+	AW_MUX_2_1
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/peripherals/axi_lite/axi_lite_gpio.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/peripherals/axi_lite/axi_lite_gpio.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module axi_lite_gpio
+
+Top level modules:
+	axi_lite_gpio
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_rf_ram.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_rf_ram.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module serv_rf_ram
+
+Top level modules:
+	serv_rf_ram
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_immdec.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_immdec.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module serv_immdec
+
+Top level modules:
+	serv_immdec
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/core/AXI_Interconnect.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/core/AXI_Interconnect.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module AXI_Interconnect
+
+Top level modules:
+	AXI_Interconnect
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/Mux_2x1_en.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/datapath/mux/Mux_2x1_en.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Mux_2x1_en
+
+Top level modules:
+	Mux_2x1_en
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/handshake/AW_HandShake_Checker.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/handshake/AW_HandShake_Checker.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module AW_HandShake_Checker
+
+Top level modules:
+	AW_HandShake_Checker
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/decoders/Write_Addr_Channel_Dec.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/decoders/Write_Addr_Channel_Dec.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Write_Addr_Channel_Dec
+
+Top level modules:
+	Write_Addr_Channel_Dec
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/channel_controllers/write/WD_Channel_Controller_Top.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/channel_controllers/write/WD_Channel_Controller_Top.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module WD_Channel_Controller_Top
+
+Top level modules:
+	WD_Channel_Controller_Top
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/peripherals/axi_lite/axi_lite_uart.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/peripherals/axi_lite/axi_lite_uart.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module axi_lite_uart
+
+Top level modules:
+	axi_lite_uart
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_rf_if.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_rf_if.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module serv_rf_if
+
+Top level modules:
+	serv_rf_if
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/arbitration/algorithms/arbiter_qos_based.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/arbitration/algorithms/arbiter_qos_based.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Qos_Arbiter
+
+Top level modules:
+	Qos_Arbiter
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/arbitration/algorithms/arbiter_round_robin.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_interconnect/rtl/arbitration/algorithms/arbiter_round_robin.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Write_Arbiter_RR
+
+Top level modules:
+	Write_Arbiter_RR
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/peripherals/axi_lite/axi_lite_spi.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/peripherals/axi_lite/axi_lite_spi.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module axi_lite_spi
+
+Top level modules:
+	axi_lite_spi
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_mem_if.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_mem_if.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module serv_mem_if
+
+Top level modules:
+	serv_mem_if
+
+} {} {}} {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_rf_ram_if.v} {1 {vlog -work work {C:/Users/Nguyen Ha Hai/axi4-system-suite/src/cores/serv/rtl/serv_rf_ram_if.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module serv_rf_ram_if
+
+Top level modules:
+	serv_rf_ram_if
+
+} {} {}}

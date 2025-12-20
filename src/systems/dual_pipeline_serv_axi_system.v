@@ -9,14 +9,9 @@
 
 `timescale 1ns/1ps
 
-`include "../axi_bridge/riscv_pipeline_axi_wrapper.v"
-`include "../axi_bridge/serv_axi_wrapper.v"
-`include "../axi_interconnect/rtl/core/AXI_Master_Aggregator.v"
-`include "dual_axi_shell.v"
-`include "../peripherals/axi_lite/axi_lite_ram.v"
-`include "../peripherals/axi_lite/axi_lite_gpio.v"
-`include "../peripherals/axi_lite/axi_lite_uart.v"
-`include "../peripherals/axi_lite/axi_lite_spi.v"
+// Note: All modules are already compiled into work library
+// No need for include statements when compiling from GUI
+// Make sure to compile dependencies first
 
 module dual_pipeline_serv_axi_system #(
     parameter ADDR_WIDTH = 32,

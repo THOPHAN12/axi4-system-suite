@@ -1,0 +1,277 @@
+// Combined RISC-V Test Program for Dual Core System
+// Core 0 program starts at 0x00000000
+// Core 1 program starts at 0x00000100
+// Address Map:
+//   RAM:  0x0000_0000 - 0x0000_1FFF
+//   GPIO: 0x4000_0000
+//   UART: 0x8000_0000
+//   SPI:  0xC000_0000
+
+// ============================================================================
+// CORE 0 PROGRAM (0x00000000 - 0x000000FF)
+// ============================================================================
+
+// Address 0x00000000: Initialize x1 = 0x40000000 (GPIO base)
+400000B7  // lui x1, 0x40000  -> x1 = 0x40000000
+
+// Address 0x00000004: Initialize x2 = 0xDEADBEEF
+DEADC137  // lui x2, 0xDEADC  -> x2 = 0xDEADC000
+EEF10113  // addi x2, x2, 0xEEF -> x2 = 0xDEADBEEF
+
+// Address 0x00000008: Store to GPIO (write 0xDEADBEEF to GPIO)
+0020A023  // sw x2, 0(x1)  -> MEM[0x40000000] = 0xDEADBEEF
+
+// Address 0x0000000C: Initialize x3 = 0x80000000 (UART base)
+800001B7  // lui x3, 0x80000  -> x3 = 0x80000000
+
+// Address 0x00000010: Write 'H' (0x48) to UART
+04800213  // addi x4, x0, 0x48  -> x4 = 0x48 ('H')
+0041A023  // sw x4, 0(x3)  -> UART TX = 'H'
+
+// Address 0x00000014: Write 'e' (0x65) to UART
+06500213  // addi x4, x0, 0x65  -> x4 = 0x65 ('e')
+0041A023  // sw x4, 0(x3)  -> UART TX = 'e'
+
+// Address 0x00000018: Write 'l' (0x6C) to UART
+06C00213  // addi x4, x0, 0x6C  -> x4 = 0x6C ('l')
+0041A023  // sw x4, 0(x3)  -> UART TX = 'l'
+
+// Address 0x0000001C: Write 'l' (0x6C) to UART
+06C00213  // addi x4, x0, 0x6C  -> x4 = 0x6C ('l')
+0041A023  // sw x4, 0(x3)  -> UART TX = 'l'
+
+// Address 0x00000020: Write 'o' (0x6F) to UART
+06F00213  // addi x4, x0, 0x6F  -> x4 = 0x6F ('o')
+0041A023  // sw x4, 0(x3)  -> UART TX = 'o'
+
+// Address 0x00000024: Write newline (0x0A) to UART
+00A00213  // addi x4, x0, 0x0A  -> x4 = 0x0A ('\n')
+0041A023  // sw x4, 0(x3)  -> UART TX = '\n'
+
+// Address 0x00000028: Initialize x5 = 0xC0000000 (SPI base)
+C00002B7  // lui x5, 0xC0000  -> x5 = 0xC0000000
+
+// Address 0x0000002C: Write 0xAA to SPI
+0AA00313  // addi x6, x0, 0xAA  -> x6 = 0xAA
+0062A023  // sw x6, 0(x5)  -> SPI TX = 0xAA
+
+// Address 0x00000030: Write 0x55 to SPI
+05500313  // addi x6, x0, 0x55  -> x6 = 0x55
+0062A023  // sw x6, 0(x5)  -> SPI TX = 0x55
+
+// Address 0x00000034: Write 0x12 to SPI
+01200313  // addi x6, x0, 0x12  -> x6 = 0x12
+0062A023  // sw x6, 0(x5)  -> SPI TX = 0x12
+
+// Address 0x00000038: Write 0x34 to SPI
+03400313  // addi x6, x0, 0x34  -> x6 = 0x34
+0062A023  // sw x6, 0(x5)  -> SPI TX = 0x34
+
+// Address 0x0000003C: Infinite loop (jump to self)
+0000006F  // jal x0, 0  -> PC = PC + 0 (infinite loop)
+
+// Fill to 0x000000FF with NOPs
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+
+// ============================================================================
+// CORE 1 PROGRAM (0x00000100 - 0x000001FF)
+// ============================================================================
+
+// Address 0x00000100: Initialize x1 = 0x00000000 (RAM base for writes)
+000000B7  // lui x1, 0x0  -> x1 = 0x00000000
+
+// Address 0x00000104: Initialize x5 = 0xCAFEBABE
+CAFEB2B7  // lui x5, 0xCAFEB  -> x5 = 0xCAFEB000
+ABE28293  // addi x5, x5, 0xABE -> x5 = 0xCAFEBABE
+
+// Address 0x00000108: Store to RAM address 0x00000100
+0050A023  // sw x5, 0(x1)  -> MEM[0x00000100] = 0xCAFEBABE
+
+// Address 0x0000010C: Initialize x3 = 0x40000000 (GPIO base)
+400001B7  // lui x3, 0x40000  -> x3 = 0x40000000
+
+// Address 0x00000110: Write 0x12345678 to GPIO
+12345237  // lui x4, 0x12345  -> x4 = 0x12345000
+67820213  // addi x4, x4, 0x678 -> x4 = 0x12345678
+0041A023  // sw x4, 0(x3)  -> GPIO = 0x12345678
+
+// Address 0x00000114: Initialize x6 = 0x80000000 (UART base)
+80000337  // lui x6, 0x80000  -> x6 = 0x80000000
+
+// Address 0x00000118: Write 'C' (0x43) to UART
+04300393  // addi x7, x0, 0x43  -> x7 = 0x43 ('C')
+00732023  // sw x7, 0(x6)  -> UART TX = 'C'
+
+// Address 0x0000011C: Write 'o' (0x6F) to UART
+06F00393  // addi x7, x0, 0x6F  -> x7 = 0x6F ('o')
+00732023  // sw x7, 0(x6)  -> UART TX = 'o'
+
+// Address 0x00000120: Write 'r' (0x72) to UART
+07200393  // addi x7, x0, 0x72  -> x7 = 0x72 ('r')
+00732023  // sw x7, 0(x6)  -> UART TX = 'r'
+
+// Address 0x00000124: Write 'e' (0x65) to UART
+06500393  // addi x7, x0, 0x65  -> x7 = 0x65 ('e')
+00732023  // sw x7, 0(x6)  -> UART TX = 'e'
+
+// Address 0x00000128: Write '1' (0x31) to UART
+03100393  // addi x7, x0, 0x31  -> x7 = 0x31 ('1')
+00732023  // sw x7, 0(x6)  -> UART TX = '1'
+
+// Address 0x0000012C: Write newline (0x0A) to UART
+00A00393  // addi x7, x0, 0x0A  -> x7 = 0x0A ('\n')
+00732023  // sw x7, 0(x6)  -> UART TX = '\n'
+
+// Address 0x00000130: Initialize x8 = 0xC0000000 (SPI base)
+C0000437  // lui x8, 0xC0000  -> x8 = 0xC0000000
+
+// Address 0x00000134: Write 0xBB to SPI
+0BB00493  // addi x9, x0, 0xBB  -> x9 = 0xBB
+00942023  // sw x9, 0(x8)  -> SPI TX = 0xBB
+
+// Address 0x00000138: Write 0xCC to SPI
+0CC00493  // addi x9, x0, 0xCC  -> x9 = 0xCC
+00942023  // sw x9, 0(x8)  -> SPI TX = 0xCC
+
+// Address 0x0000013C: Write 0xDD to SPI
+0DD00493  // addi x9, x0, 0xDD  -> x9 = 0xDD
+00942023  // sw x9, 0(x8)  -> SPI TX = 0xDD
+
+// Address 0x00000140: Read from RAM address 0x00000100 to verify write
+0000A283  // lw x5, 0(x1)  -> x5 = MEM[0x00000100]
+
+// Address 0x00000144: Write read value to GPIO (should be 0xCAFEBABE)
+0051A023  // sw x5, 0(x3)  -> GPIO = x5
+
+// Address 0x00000148: Infinite loop (jump to self)
+0000006F  // jal x0, 0  -> PC = PC + 0 (infinite loop)
+
+// Fill rest with NOPs
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+00000013
+
