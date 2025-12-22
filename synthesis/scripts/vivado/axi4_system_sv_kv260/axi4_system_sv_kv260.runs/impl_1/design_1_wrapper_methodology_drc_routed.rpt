@@ -1,0 +1,155 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Sun Dec 21 22:07:53 2025
+| Host         : NGUYEN-HA-HAI running 64-bit major release  (build 9200)
+| Command      : report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -pb design_1_wrapper_methodology_drc_routed.pb -rpx design_1_wrapper_methodology_drc_routed.rpx
+| Design       : design_1_wrapper
+| Device       : xczu5ev-sfvc784-1-e
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max checks: <unlimited>
+             Checks found: 17
++--------+----------+--------------------------------------------------------+--------+
+| Rule   | Severity | Description                                            | Checks |
++--------+----------+--------------------------------------------------------+--------+
+| XDCC-1 | Warning  | Scoped Clock constraint overwritten with the same name | 11     |
+| XDCC-7 | Warning  | Scoped Clock constraint overwritten on the same source | 6      |
++--------+----------+--------------------------------------------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+XDCC-1#1 Warning
+Scoped Clock constraint overwritten with the same name  
+A new clock constraint create_clock overrides a previous scoped clock constraint with the same name. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_interconnect_0_0_1/src/axi_interconnect.xdc (Line: 19))
+Previous: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc (Line: 1))
+Related violations: <none>
+
+XDCC-1#2 Warning
+Scoped Clock constraint overwritten with the same name  
+A new clock constraint create_clock overrides a previous scoped clock constraint with the same name. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc (Line: 1))
+Previous: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_0_0/src/axi_interconnect.xdc (Line: 1))
+Related violations: <none>
+
+XDCC-1#3 Warning
+Scoped Clock constraint overwritten with the same name  
+A new clock constraint create_clock overrides a previous scoped clock constraint with the same name. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s1_0/src/axi_interconnect.xdc (Line: 1))
+Previous: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s1_0/src/design_1_axi_master_bridge_0_0/src/axi_interconnect.xdc (Line: 1))
+Related violations: <none>
+
+XDCC-1#4 Warning
+Scoped Clock constraint overwritten with the same name  
+A new clock constraint create_clock overrides a previous scoped clock constraint with the same name. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s1_0/src/design_1_axi_master_bridge_0_0/src/axi_interconnect.xdc (Line: 1))
+Previous: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s1_0/src/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc (Line: 1))
+Related violations: <none>
+
+XDCC-1#5 Warning
+Scoped Clock constraint overwritten with the same name  
+A new clock constraint create_clock overrides a previous scoped clock constraint with the same name. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s1_0/src/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc (Line: 1))
+Previous: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s3_0/src/axi_interconnect.xdc (Line: 1))
+Related violations: <none>
+
+XDCC-1#6 Warning
+Scoped Clock constraint overwritten with the same name  
+A new clock constraint create_clock overrides a previous scoped clock constraint with the same name. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s2_0/src/axi_interconnect.xdc (Line: 1))
+Previous: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s2_0/src/design_1_axi_master_bridge_0_0/src/axi_interconnect.xdc (Line: 1))
+Related violations: <none>
+
+XDCC-1#7 Warning
+Scoped Clock constraint overwritten with the same name  
+A new clock constraint create_clock overrides a previous scoped clock constraint with the same name. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s2_0/src/design_1_axi_master_bridge_0_0/src/axi_interconnect.xdc (Line: 1))
+Previous: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s2_0/src/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc (Line: 1))
+Related violations: <none>
+
+XDCC-1#8 Warning
+Scoped Clock constraint overwritten with the same name  
+A new clock constraint create_clock overrides a previous scoped clock constraint with the same name. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s2_0/src/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc (Line: 1))
+Previous: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_interconnect_0_0_1/src/axi_interconnect.xdc (Line: 19))
+Related violations: <none>
+
+XDCC-1#9 Warning
+Scoped Clock constraint overwritten with the same name  
+A new clock constraint create_clock overrides a previous scoped clock constraint with the same name. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s3_0/src/axi_interconnect.xdc (Line: 1))
+Previous: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s3_0/src/design_1_axi_master_bridge_0_0/src/axi_interconnect.xdc (Line: 1))
+Related violations: <none>
+
+XDCC-1#10 Warning
+Scoped Clock constraint overwritten with the same name  
+A new clock constraint create_clock overrides a previous scoped clock constraint with the same name. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s3_0/src/design_1_axi_master_bridge_0_0/src/axi_interconnect.xdc (Line: 1))
+Previous: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s3_0/src/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc (Line: 1))
+Related violations: <none>
+
+XDCC-1#11 Warning
+Scoped Clock constraint overwritten with the same name  
+A new clock constraint create_clock overrides a previous scoped clock constraint with the same name. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s3_0/src/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc (Line: 1))
+Previous: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s2_0/src/axi_interconnect.xdc (Line: 1))
+Related violations: <none>
+
+XDCC-7#1 Warning
+Scoped Clock constraint overwritten on the same source  
+A new clock constraint create_clock overrides a previous scoped clock constraint defined on the same source. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s1_0/src/design_1_axi_master_bridge_0_0/src/axi_interconnect.xdc (Line: 1))
+Previous: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s3_0/src/design_1_axi_master_bridge_0_0/src/axi_interconnect.xdc (Line: 1))
+Related violations: <none>
+
+XDCC-7#2 Warning
+Scoped Clock constraint overwritten on the same source  
+A new clock constraint create_clock overrides a previous scoped clock constraint defined on the same source. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s1_0/src/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc (Line: 1))
+Previous: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s3_0/src/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc (Line: 1))
+Related violations: <none>
+
+XDCC-7#3 Warning
+Scoped Clock constraint overwritten on the same source  
+A new clock constraint create_clock overrides a previous scoped clock constraint defined on the same source. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s2_0/src/design_1_axi_master_bridge_0_0/src/axi_interconnect.xdc (Line: 1))
+Previous: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_0_0/src/axi_interconnect.xdc (Line: 1))
+Related violations: <none>
+
+XDCC-7#4 Warning
+Scoped Clock constraint overwritten on the same source  
+A new clock constraint create_clock overrides a previous scoped clock constraint defined on the same source. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s2_0/src/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc (Line: 1))
+Previous: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc (Line: 1))
+Related violations: <none>
+
+XDCC-7#5 Warning
+Scoped Clock constraint overwritten on the same source  
+A new clock constraint create_clock overrides a previous scoped clock constraint defined on the same source. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s3_0/src/design_1_axi_master_bridge_0_0/src/axi_interconnect.xdc (Line: 1))
+Previous: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s2_0/src/design_1_axi_master_bridge_0_0/src/axi_interconnect.xdc (Line: 1))
+Related violations: <none>
+
+XDCC-7#6 Warning
+Scoped Clock constraint overwritten on the same source  
+A new clock constraint create_clock overrides a previous scoped clock constraint defined on the same source. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s3_0/src/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc (Line: 1))
+Previous: create_clock -period 10.000 -name ACLK [get_ports -scoped_to_current_instance ACLK] (Source: c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_slave_bridge_s2_0/src/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc (Line: 1))
+Related violations: <none>
+
+

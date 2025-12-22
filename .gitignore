@@ -1,144 +1,11 @@
 # ==============================================================================
 # .gitignore for AXI Interconnect Hardware Design Project
 # ==============================================================================
-# Generated: December 5, 2025
+# Modified: Allow most files to be committed
 # ==============================================================================
 
 # ==============================================================================
-# Build Outputs
-# ==============================================================================
-build/
-*.out
-*.exe
-*.o
-*.obj
-*.elf
-*.bin
-*.hex.tmp
-*.mem.tmp
-
-# ==============================================================================
-# Simulation Files
-# ==============================================================================
-
-# ModelSim
-work/
-*.wlf
-*.vstf
-*.wlft*
-transcript
-vsim.dbg
-*.vcd
-modelsim.ini
-*.mpf.bak
-# ModelSim work directories
-sim/modelsim/work/
-sim/modelsim/_*/
-
-# QuestaSim
-*.qdb
-*.qtl
-*.qpg
-_*
-
-# VCS
-csrc/
-simv
-simv.daidir/
-ucli.key
-*.vpd
-
-# Vivado Simulator
-xsim.dir/
-*.jou
-*.log
-*.pb
-*.wdb
-xelab.*
-xvlog.*
-
-# ==============================================================================
-# Synthesis Files
-# ==============================================================================
-
-# Quartus
-*.rpt
-*.summary
-*.smsg
-*.done
-*.qws
-db/
-incremental_db/
-*.sof
-*.pof
-*.jdi
-*.pin
-*.qsf.bak
-
-# Vivado
-*.bit
-*.mcs
-*.prm
-*.ltx
-*.debug
-.Xil/
-*.cache/
-*.hw/
-*.ip_user_files/
-*.runs/
-*.gen/
-*.tmp/
-# Vivado project directories (keep .xpr but ignore generated content)
-*.srcs/sources_1/ip/
-*.srcs/sources_1/bd/*/ip/
-*.srcs/sources_1/bd/*/ipshared/
-# Keep .bd files but ignore generated HDL
-!*.bd
-# Vivado simulation directories (keep testbenches, ignore results)
-*.sim/sim_1/behav/xsim/
-*.sim/sim_1/behav/xsim.dir/
-*.sim/sim_1/behav/*.wdb
-*.sim/sim_1/behav/*.vcd
-*.sim/sim_1/behav/*.mem
-*.sim/sim_1/behav/*.mif
-
-# Synplify
-*.srr
-*.srm
-rev_*/
-
-# ==============================================================================
-# Waveform Files
-# ==============================================================================
-*.vcd
-*.fst
-*.ghw
-*.lxt
-*.lxt2
-*.sav
-*.evcd
-
-# ==============================================================================
-# Log Files
-# ==============================================================================
-*.log
-*.rpt
-*.summary
-*.transcript
-
-# ==============================================================================
-# Backup Files
-# ==============================================================================
-*~
-*.bak
-*.old
-*.orig
-*.swp
-*.swo
-*#
-
-# ==============================================================================
-# OS Files
+# OS Files (keep ignored)
 # ==============================================================================
 
 # Windows
@@ -155,11 +22,21 @@ $RECYCLE.BIN/
 ._*
 
 # Linux
-*~
 .directory
 
 # ==============================================================================
-# IDE Files
+# Backup Files (keep ignored)
+# ==============================================================================
+*~
+*.bak
+*.old
+*.orig
+*.swp
+*.swo
+*#
+
+# ==============================================================================
+# IDE Files (keep ignored)
 # ==============================================================================
 
 # VS Code
@@ -178,13 +55,10 @@ $RECYCLE.BIN/
 *.ipr
 
 # Vim
-*.swp
-*.swo
-*~
 .netrwhist
 
 # ==============================================================================
-# Python (for scripts/tools)
+# Python (for scripts/tools) - keep ignored
 # ==============================================================================
 __pycache__/
 *.py[cod]
@@ -197,25 +71,9 @@ ENV/
 .pytest_cache/
 *.egg-info/
 dist/
-build/
 
 # ==============================================================================
-# Documentation Build
-# ==============================================================================
-docs/_build/
-docs/.doctrees/
-*.pdf.tmp
-
-# ==============================================================================
-# Temporary Files
-# ==============================================================================
-tmp/
-temp/
-*.tmp
-*.temp
-
-# ==============================================================================
-# Archive Files (keep source only)
+# Archive Files (keep ignored)
 # ==============================================================================
 *.zip
 *.tar
@@ -224,47 +82,7 @@ temp/
 *.7z
 
 # ==============================================================================
-# Keep These (explicitly track)
-# ==============================================================================
-!.gitignore
-!README.md
-!LICENSE
-!Makefile
-
-# Keep hex files for test programs
-!*.hex
-
-# Keep constraint files
-!*.xdc
-!*.sdc
-!*.pcf
-
-# Keep scripts
-!*.tcl
-!*.sh
-!*.bat
-!*.ps1
-!*.py
-
-# ==============================================================================
-# Project-Specific Ignores
-# ==============================================================================
-
-# Ignore generated netlists (keep source only)
-synthesis/netlists/*.v
-synthesis/netlists/*.vhd
-
-# Ignore synthesis reports (regenerate as needed)
-synthesis/reports/*.rpt
-
-# Ignore old cores if archived
-src/cores/*-archive/
-src/cores/*-old/
-src/cores/*-backup/
-
-# Vivado project files (can regenerate, but keep .xpr for reference)
-# *.xpr  # Uncomment if you want to ignore project files
-
-# ==============================================================================
-# End of .gitignore
+# NOTE: Most build outputs, simulation files, and synthesis files are now
+# allowed to be committed. Only OS files, backup files, IDE files, and archives
+# are ignored.
 # ==============================================================================

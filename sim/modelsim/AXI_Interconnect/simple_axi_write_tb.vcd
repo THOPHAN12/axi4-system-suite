@@ -1,0 +1,1171 @@
+$date
+	Wed Dec 10 06:01:41 2025
+$end
+$version
+	ModelSim Version 10.1d
+$end
+$timescale
+	1ps
+$end
+$scope module simple_axi_write_tb $end
+$var parameter 32 ! ADDR_WIDTH $end
+$var parameter 32 " DATA_WIDTH $end
+$var parameter 32 # MEM_WORDS $end
+$var parameter 32 $ CLK_PERIOD $end
+$var parameter 32 % SLAVE2_BASE_ADDR $end
+$var parameter 3 & IDLE $end
+$var parameter 3 ' WRITE_REQ $end
+$var parameter 3 ( WRITE_WAIT $end
+$var parameter 3 ) WRITE_DONE $end
+$var reg 1 * ACLK $end
+$var reg 1 + ARESETN $end
+$var reg 32 , M_AXI_awaddr [31:0] $end
+$var reg 3 - M_AXI_awprot [2:0] $end
+$var reg 1 . M_AXI_awvalid $end
+$var wire 1 / M_AXI_awready $end
+$var reg 32 0 M_AXI_wdata [31:0] $end
+$var reg 4 1 M_AXI_wstrb [3:0] $end
+$var reg 1 2 M_AXI_wvalid $end
+$var wire 1 3 M_AXI_wready $end
+$var wire 1 4 M_AXI_bresp [1] $end
+$var wire 1 5 M_AXI_bresp [0] $end
+$var wire 1 6 M_AXI_bvalid $end
+$var reg 1 7 M_AXI_bready $end
+$var wire 1 8 S_AXI_awaddr [31] $end
+$var wire 1 9 S_AXI_awaddr [30] $end
+$var wire 1 : S_AXI_awaddr [29] $end
+$var wire 1 ; S_AXI_awaddr [28] $end
+$var wire 1 < S_AXI_awaddr [27] $end
+$var wire 1 = S_AXI_awaddr [26] $end
+$var wire 1 > S_AXI_awaddr [25] $end
+$var wire 1 ? S_AXI_awaddr [24] $end
+$var wire 1 @ S_AXI_awaddr [23] $end
+$var wire 1 A S_AXI_awaddr [22] $end
+$var wire 1 B S_AXI_awaddr [21] $end
+$var wire 1 C S_AXI_awaddr [20] $end
+$var wire 1 D S_AXI_awaddr [19] $end
+$var wire 1 E S_AXI_awaddr [18] $end
+$var wire 1 F S_AXI_awaddr [17] $end
+$var wire 1 G S_AXI_awaddr [16] $end
+$var wire 1 H S_AXI_awaddr [15] $end
+$var wire 1 I S_AXI_awaddr [14] $end
+$var wire 1 J S_AXI_awaddr [13] $end
+$var wire 1 K S_AXI_awaddr [12] $end
+$var wire 1 L S_AXI_awaddr [11] $end
+$var wire 1 M S_AXI_awaddr [10] $end
+$var wire 1 N S_AXI_awaddr [9] $end
+$var wire 1 O S_AXI_awaddr [8] $end
+$var wire 1 P S_AXI_awaddr [7] $end
+$var wire 1 Q S_AXI_awaddr [6] $end
+$var wire 1 R S_AXI_awaddr [5] $end
+$var wire 1 S S_AXI_awaddr [4] $end
+$var wire 1 T S_AXI_awaddr [3] $end
+$var wire 1 U S_AXI_awaddr [2] $end
+$var wire 1 V S_AXI_awaddr [1] $end
+$var wire 1 W S_AXI_awaddr [0] $end
+$var wire 1 X S_AXI_awprot [2] $end
+$var wire 1 Y S_AXI_awprot [1] $end
+$var wire 1 Z S_AXI_awprot [0] $end
+$var wire 1 [ S_AXI_awvalid $end
+$var wire 1 \ S_AXI_awready $end
+$var wire 1 ] S_AXI_wdata [31] $end
+$var wire 1 ^ S_AXI_wdata [30] $end
+$var wire 1 _ S_AXI_wdata [29] $end
+$var wire 1 ` S_AXI_wdata [28] $end
+$var wire 1 a S_AXI_wdata [27] $end
+$var wire 1 b S_AXI_wdata [26] $end
+$var wire 1 c S_AXI_wdata [25] $end
+$var wire 1 d S_AXI_wdata [24] $end
+$var wire 1 e S_AXI_wdata [23] $end
+$var wire 1 f S_AXI_wdata [22] $end
+$var wire 1 g S_AXI_wdata [21] $end
+$var wire 1 h S_AXI_wdata [20] $end
+$var wire 1 i S_AXI_wdata [19] $end
+$var wire 1 j S_AXI_wdata [18] $end
+$var wire 1 k S_AXI_wdata [17] $end
+$var wire 1 l S_AXI_wdata [16] $end
+$var wire 1 m S_AXI_wdata [15] $end
+$var wire 1 n S_AXI_wdata [14] $end
+$var wire 1 o S_AXI_wdata [13] $end
+$var wire 1 p S_AXI_wdata [12] $end
+$var wire 1 q S_AXI_wdata [11] $end
+$var wire 1 r S_AXI_wdata [10] $end
+$var wire 1 s S_AXI_wdata [9] $end
+$var wire 1 t S_AXI_wdata [8] $end
+$var wire 1 u S_AXI_wdata [7] $end
+$var wire 1 v S_AXI_wdata [6] $end
+$var wire 1 w S_AXI_wdata [5] $end
+$var wire 1 x S_AXI_wdata [4] $end
+$var wire 1 y S_AXI_wdata [3] $end
+$var wire 1 z S_AXI_wdata [2] $end
+$var wire 1 { S_AXI_wdata [1] $end
+$var wire 1 | S_AXI_wdata [0] $end
+$var wire 1 } S_AXI_wstrb [3] $end
+$var wire 1 ~ S_AXI_wstrb [2] $end
+$var wire 1 !! S_AXI_wstrb [1] $end
+$var wire 1 "! S_AXI_wstrb [0] $end
+$var wire 1 #! S_AXI_wvalid $end
+$var wire 1 $! S_AXI_wready $end
+$var wire 1 %! S_AXI_bresp [1] $end
+$var wire 1 &! S_AXI_bresp [0] $end
+$var wire 1 '! S_AXI_bvalid $end
+$var wire 1 (! S_AXI_bready $end
+$var wire 1 )! S_AXI_araddr [31] $end
+$var wire 1 *! S_AXI_araddr [30] $end
+$var wire 1 +! S_AXI_araddr [29] $end
+$var wire 1 ,! S_AXI_araddr [28] $end
+$var wire 1 -! S_AXI_araddr [27] $end
+$var wire 1 .! S_AXI_araddr [26] $end
+$var wire 1 /! S_AXI_araddr [25] $end
+$var wire 1 0! S_AXI_araddr [24] $end
+$var wire 1 1! S_AXI_araddr [23] $end
+$var wire 1 2! S_AXI_araddr [22] $end
+$var wire 1 3! S_AXI_araddr [21] $end
+$var wire 1 4! S_AXI_araddr [20] $end
+$var wire 1 5! S_AXI_araddr [19] $end
+$var wire 1 6! S_AXI_araddr [18] $end
+$var wire 1 7! S_AXI_araddr [17] $end
+$var wire 1 8! S_AXI_araddr [16] $end
+$var wire 1 9! S_AXI_araddr [15] $end
+$var wire 1 :! S_AXI_araddr [14] $end
+$var wire 1 ;! S_AXI_araddr [13] $end
+$var wire 1 <! S_AXI_araddr [12] $end
+$var wire 1 =! S_AXI_araddr [11] $end
+$var wire 1 >! S_AXI_araddr [10] $end
+$var wire 1 ?! S_AXI_araddr [9] $end
+$var wire 1 @! S_AXI_araddr [8] $end
+$var wire 1 A! S_AXI_araddr [7] $end
+$var wire 1 B! S_AXI_araddr [6] $end
+$var wire 1 C! S_AXI_araddr [5] $end
+$var wire 1 D! S_AXI_araddr [4] $end
+$var wire 1 E! S_AXI_araddr [3] $end
+$var wire 1 F! S_AXI_araddr [2] $end
+$var wire 1 G! S_AXI_araddr [1] $end
+$var wire 1 H! S_AXI_araddr [0] $end
+$var wire 1 I! S_AXI_arprot [2] $end
+$var wire 1 J! S_AXI_arprot [1] $end
+$var wire 1 K! S_AXI_arprot [0] $end
+$var wire 1 L! S_AXI_arvalid $end
+$var wire 1 M! S_AXI_arready $end
+$var wire 1 N! S_AXI_rdata [31] $end
+$var wire 1 O! S_AXI_rdata [30] $end
+$var wire 1 P! S_AXI_rdata [29] $end
+$var wire 1 Q! S_AXI_rdata [28] $end
+$var wire 1 R! S_AXI_rdata [27] $end
+$var wire 1 S! S_AXI_rdata [26] $end
+$var wire 1 T! S_AXI_rdata [25] $end
+$var wire 1 U! S_AXI_rdata [24] $end
+$var wire 1 V! S_AXI_rdata [23] $end
+$var wire 1 W! S_AXI_rdata [22] $end
+$var wire 1 X! S_AXI_rdata [21] $end
+$var wire 1 Y! S_AXI_rdata [20] $end
+$var wire 1 Z! S_AXI_rdata [19] $end
+$var wire 1 [! S_AXI_rdata [18] $end
+$var wire 1 \! S_AXI_rdata [17] $end
+$var wire 1 ]! S_AXI_rdata [16] $end
+$var wire 1 ^! S_AXI_rdata [15] $end
+$var wire 1 _! S_AXI_rdata [14] $end
+$var wire 1 `! S_AXI_rdata [13] $end
+$var wire 1 a! S_AXI_rdata [12] $end
+$var wire 1 b! S_AXI_rdata [11] $end
+$var wire 1 c! S_AXI_rdata [10] $end
+$var wire 1 d! S_AXI_rdata [9] $end
+$var wire 1 e! S_AXI_rdata [8] $end
+$var wire 1 f! S_AXI_rdata [7] $end
+$var wire 1 g! S_AXI_rdata [6] $end
+$var wire 1 h! S_AXI_rdata [5] $end
+$var wire 1 i! S_AXI_rdata [4] $end
+$var wire 1 j! S_AXI_rdata [3] $end
+$var wire 1 k! S_AXI_rdata [2] $end
+$var wire 1 l! S_AXI_rdata [1] $end
+$var wire 1 m! S_AXI_rdata [0] $end
+$var wire 1 n! S_AXI_rresp [1] $end
+$var wire 1 o! S_AXI_rresp [0] $end
+$var wire 1 p! S_AXI_rvalid $end
+$var wire 1 q! S_AXI_rlast $end
+$var wire 1 r! S_AXI_rready $end
+$var reg 32 s! write_addr [31:0] $end
+$var reg 32 t! write_data [31:0] $end
+$var reg 4 u! write_strb [3:0] $end
+$var reg 1 v! write_req $end
+$var reg 32 w! expected_data [31:0] $end
+$var integer 32 x! test_pass $end
+$var integer 32 y! test_fail $end
+$var integer 32 z! mem_file $end
+$var reg 3 {! master_state [2:0] $end
+$scope module u_slave_ram $end
+$var parameter 32 |! ADDR_WIDTH $end
+$var parameter 32 }! DATA_WIDTH $end
+$var parameter 32 ~! MEM_WORDS $end
+$var parameter 144 !" INIT_HEX $end
+$var parameter 32 "" ADDR_LSB $end
+$var parameter 32 #" MEM_ADDR_WIDTH $end
+$var wire 1 $" ACLK $end
+$var wire 1 %" ARESETN $end
+$var wire 1 8 S_AXI_awaddr [31] $end
+$var wire 1 9 S_AXI_awaddr [30] $end
+$var wire 1 : S_AXI_awaddr [29] $end
+$var wire 1 ; S_AXI_awaddr [28] $end
+$var wire 1 < S_AXI_awaddr [27] $end
+$var wire 1 = S_AXI_awaddr [26] $end
+$var wire 1 > S_AXI_awaddr [25] $end
+$var wire 1 ? S_AXI_awaddr [24] $end
+$var wire 1 @ S_AXI_awaddr [23] $end
+$var wire 1 A S_AXI_awaddr [22] $end
+$var wire 1 B S_AXI_awaddr [21] $end
+$var wire 1 C S_AXI_awaddr [20] $end
+$var wire 1 D S_AXI_awaddr [19] $end
+$var wire 1 E S_AXI_awaddr [18] $end
+$var wire 1 F S_AXI_awaddr [17] $end
+$var wire 1 G S_AXI_awaddr [16] $end
+$var wire 1 H S_AXI_awaddr [15] $end
+$var wire 1 I S_AXI_awaddr [14] $end
+$var wire 1 J S_AXI_awaddr [13] $end
+$var wire 1 K S_AXI_awaddr [12] $end
+$var wire 1 L S_AXI_awaddr [11] $end
+$var wire 1 M S_AXI_awaddr [10] $end
+$var wire 1 N S_AXI_awaddr [9] $end
+$var wire 1 O S_AXI_awaddr [8] $end
+$var wire 1 P S_AXI_awaddr [7] $end
+$var wire 1 Q S_AXI_awaddr [6] $end
+$var wire 1 R S_AXI_awaddr [5] $end
+$var wire 1 S S_AXI_awaddr [4] $end
+$var wire 1 T S_AXI_awaddr [3] $end
+$var wire 1 U S_AXI_awaddr [2] $end
+$var wire 1 V S_AXI_awaddr [1] $end
+$var wire 1 W S_AXI_awaddr [0] $end
+$var wire 1 X S_AXI_awprot [2] $end
+$var wire 1 Y S_AXI_awprot [1] $end
+$var wire 1 Z S_AXI_awprot [0] $end
+$var wire 1 [ S_AXI_awvalid $end
+$var reg 1 &" S_AXI_awready $end
+$var wire 1 ] S_AXI_wdata [31] $end
+$var wire 1 ^ S_AXI_wdata [30] $end
+$var wire 1 _ S_AXI_wdata [29] $end
+$var wire 1 ` S_AXI_wdata [28] $end
+$var wire 1 a S_AXI_wdata [27] $end
+$var wire 1 b S_AXI_wdata [26] $end
+$var wire 1 c S_AXI_wdata [25] $end
+$var wire 1 d S_AXI_wdata [24] $end
+$var wire 1 e S_AXI_wdata [23] $end
+$var wire 1 f S_AXI_wdata [22] $end
+$var wire 1 g S_AXI_wdata [21] $end
+$var wire 1 h S_AXI_wdata [20] $end
+$var wire 1 i S_AXI_wdata [19] $end
+$var wire 1 j S_AXI_wdata [18] $end
+$var wire 1 k S_AXI_wdata [17] $end
+$var wire 1 l S_AXI_wdata [16] $end
+$var wire 1 m S_AXI_wdata [15] $end
+$var wire 1 n S_AXI_wdata [14] $end
+$var wire 1 o S_AXI_wdata [13] $end
+$var wire 1 p S_AXI_wdata [12] $end
+$var wire 1 q S_AXI_wdata [11] $end
+$var wire 1 r S_AXI_wdata [10] $end
+$var wire 1 s S_AXI_wdata [9] $end
+$var wire 1 t S_AXI_wdata [8] $end
+$var wire 1 u S_AXI_wdata [7] $end
+$var wire 1 v S_AXI_wdata [6] $end
+$var wire 1 w S_AXI_wdata [5] $end
+$var wire 1 x S_AXI_wdata [4] $end
+$var wire 1 y S_AXI_wdata [3] $end
+$var wire 1 z S_AXI_wdata [2] $end
+$var wire 1 { S_AXI_wdata [1] $end
+$var wire 1 | S_AXI_wdata [0] $end
+$var wire 1 } S_AXI_wstrb [3] $end
+$var wire 1 ~ S_AXI_wstrb [2] $end
+$var wire 1 !! S_AXI_wstrb [1] $end
+$var wire 1 "! S_AXI_wstrb [0] $end
+$var wire 1 #! S_AXI_wvalid $end
+$var reg 1 '" S_AXI_wready $end
+$var reg 2 (" S_AXI_bresp [1:0] $end
+$var reg 1 )" S_AXI_bvalid $end
+$var wire 1 (! S_AXI_bready $end
+$var wire 1 )! S_AXI_araddr [31] $end
+$var wire 1 *! S_AXI_araddr [30] $end
+$var wire 1 +! S_AXI_araddr [29] $end
+$var wire 1 ,! S_AXI_araddr [28] $end
+$var wire 1 -! S_AXI_araddr [27] $end
+$var wire 1 .! S_AXI_araddr [26] $end
+$var wire 1 /! S_AXI_araddr [25] $end
+$var wire 1 0! S_AXI_araddr [24] $end
+$var wire 1 1! S_AXI_araddr [23] $end
+$var wire 1 2! S_AXI_araddr [22] $end
+$var wire 1 3! S_AXI_araddr [21] $end
+$var wire 1 4! S_AXI_araddr [20] $end
+$var wire 1 5! S_AXI_araddr [19] $end
+$var wire 1 6! S_AXI_araddr [18] $end
+$var wire 1 7! S_AXI_araddr [17] $end
+$var wire 1 8! S_AXI_araddr [16] $end
+$var wire 1 9! S_AXI_araddr [15] $end
+$var wire 1 :! S_AXI_araddr [14] $end
+$var wire 1 ;! S_AXI_araddr [13] $end
+$var wire 1 <! S_AXI_araddr [12] $end
+$var wire 1 =! S_AXI_araddr [11] $end
+$var wire 1 >! S_AXI_araddr [10] $end
+$var wire 1 ?! S_AXI_araddr [9] $end
+$var wire 1 @! S_AXI_araddr [8] $end
+$var wire 1 A! S_AXI_araddr [7] $end
+$var wire 1 B! S_AXI_araddr [6] $end
+$var wire 1 C! S_AXI_araddr [5] $end
+$var wire 1 D! S_AXI_araddr [4] $end
+$var wire 1 E! S_AXI_araddr [3] $end
+$var wire 1 F! S_AXI_araddr [2] $end
+$var wire 1 G! S_AXI_araddr [1] $end
+$var wire 1 H! S_AXI_araddr [0] $end
+$var wire 1 I! S_AXI_arprot [2] $end
+$var wire 1 J! S_AXI_arprot [1] $end
+$var wire 1 K! S_AXI_arprot [0] $end
+$var wire 1 L! S_AXI_arvalid $end
+$var wire 1 M! S_AXI_arready $end
+$var reg 32 *" S_AXI_rdata [31:0] $end
+$var reg 2 +" S_AXI_rresp [1:0] $end
+$var reg 1 ," S_AXI_rvalid $end
+$var wire 1 q! S_AXI_rlast $end
+$var wire 1 r! S_AXI_rready $end
+$var reg 1 -" write_busy $end
+$var reg 32 ." awaddr_q [31:0] $end
+$var integer 32 /" byte_idx $end
+$var integer 32 0" mem_idx $end
+$var reg 1 1" read_pending $end
+$var reg 32 2" araddr_q [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0*
+0+
+b0 ,
+b0 -
+0.
+b0 0
+b0 1
+02
+07
+b0 s!
+b0 t!
+b1111 u!
+0v!
+b0 w!
+b0 {!
+0&"
+0'"
+b0 ("
+0)"
+b0 *"
+b0 +"
+0,"
+0-"
+bx ."
+01"
+b0 2"
+b100000 !
+b100000 "
+b10000000000 #
+b1010 $
+b10000000000000000000000000000000 %
+b0 &
+b1 '
+b10 (
+b11 )
+b100000 |!
+b100000 }!
+b10000000000 ~!
+b10 ""
+b1010 #"
+b11011010110010101101101010111110110100101101110011010010111010001011111011101110111001001101001011101000110010100101110011010000110010101111000 !"
+b0 x!
+b0 y!
+b10000000000000000000000000000100 z!
+bx /"
+bx 0"
+0/
+03
+05
+04
+06
+0W
+0V
+0U
+0T
+0S
+0R
+0Q
+0P
+0O
+0N
+0M
+0L
+0K
+0J
+0I
+0H
+0G
+0F
+0E
+0D
+0C
+0B
+0A
+0@
+0?
+0>
+0=
+0<
+0;
+0:
+09
+08
+0Z
+0Y
+0X
+0[
+0\
+0|
+0{
+0z
+0y
+0x
+0w
+0v
+0u
+0t
+0s
+0r
+0q
+0p
+0o
+0n
+0m
+0l
+0k
+0j
+0i
+0h
+0g
+0f
+0e
+0d
+0c
+0b
+0a
+0`
+0_
+0^
+0]
+0"!
+0!!
+0~
+0}
+0#!
+0$!
+0&!
+0%!
+0'!
+0(!
+0H!
+0G!
+0F!
+0E!
+0D!
+0C!
+0B!
+0A!
+0@!
+0?!
+0>!
+0=!
+0<!
+0;!
+0:!
+09!
+08!
+07!
+06!
+05!
+04!
+03!
+02!
+01!
+00!
+0/!
+0.!
+0-!
+0,!
+0+!
+0*!
+0)!
+0K!
+0J!
+0I!
+0L!
+1M!
+0m!
+0l!
+0k!
+0j!
+0i!
+0h!
+0g!
+0f!
+0e!
+0d!
+0c!
+0b!
+0a!
+0`!
+0_!
+0^!
+0]!
+0\!
+0[!
+0Z!
+0Y!
+0X!
+0W!
+0V!
+0U!
+0T!
+0S!
+0R!
+0Q!
+0P!
+0O!
+0N!
+0o!
+0n!
+0p!
+1q!
+1r!
+0%"
+0$"
+$end
+#5000
+1*
+1$"
+#10000
+0*
+0$"
+#15000
+1*
+1$"
+#20000
+0*
+0$"
+#25000
+1*
+1$"
+#30000
+0*
+0$"
+#35000
+1*
+1$"
+#40000
+0*
+0$"
+#45000
+1*
+1$"
+#50000
+1+
+0*
+1%"
+0$"
+#55000
+1*
+1$"
+#60000
+0*
+0$"
+#65000
+1*
+1$"
+#70000
+0*
+0$"
+#75000
+1*
+1$"
+#80000
+0*
+0$"
+#85000
+1*
+1$"
+#90000
+0*
+0$"
+#95000
+1*
+1$"
+#100000
+0*
+0$"
+#105000
+1*
+1$"
+#110000
+0*
+0$"
+#115000
+1*
+1$"
+#120000
+0*
+0$"
+#125000
+1*
+1$"
+#130000
+0*
+0$"
+#135000
+1*
+1$"
+#140000
+0*
+0$"
+#145000
+1*
+1$"
+#150000
+b10000000000000000000000000000000 s!
+b11011110101011011011111011101111 t!
+b11011110101011011011111011101111 w!
+0*
+0$"
+#155000
+1*
+1$"
+1v!
+#160000
+0*
+0$"
+#165000
+1*
+1$"
+b1 {!
+#170000
+0*
+0$"
+#175000
+1*
+1$"
+b10000000000000000000000000000000 ,
+1.
+b11011110101011011011111011101111 0
+b1111 1
+12
+1[
+1"!
+1!!
+1~
+1}
+1|
+1{
+1z
+1y
+1w
+1v
+1u
+1s
+1r
+1q
+1p
+1o
+1m
+1l
+1j
+1i
+1g
+1e
+1c
+1b
+1a
+1`
+1^
+1]
+18
+1#!
+#180000
+0*
+0$"
+#185000
+1*
+1$"
+b0 /"
+b1 /"
+b10 /"
+b11 /"
+b100 /"
+b10000000000000000000000000000000 ."
+1-"
+1&"
+1'"
+1)"
+1\
+1$!
+1'!
+1/
+13
+16
+#190000
+0*
+0$"
+#195000
+1*
+1$"
+0&"
+0'"
+b10 {!
+0.
+02
+0\
+0$!
+0[
+0#!
+0/
+03
+#200000
+0*
+0$"
+#205000
+1*
+1$"
+17
+1(!
+#210000
+0*
+0$"
+#215000
+1*
+1$"
+0)"
+0-"
+b11 {!
+07
+0'!
+0(!
+06
+#220000
+0*
+0$"
+#225000
+1*
+1$"
+b0 {!
+0v!
+#230000
+0*
+0$"
+#235000
+1*
+1$"
+#240000
+0*
+0$"
+#245000
+1*
+1$"
+b1 x!
+b0 s!
+#250000
+0*
+0$"
+#255000
+1*
+1$"
+#260000
+0*
+0$"
+#265000
+1*
+1$"
+#270000
+0*
+0$"
+#275000
+1*
+1$"
+#280000
+0*
+0$"
+#285000
+1*
+1$"
+#290000
+0*
+0$"
+#295000
+1*
+1$"
+b10000000000000000000000000000100 s!
+b11001010111111101011101010111110 t!
+b11001010111111101011101010111110 w!
+#300000
+0*
+0$"
+#305000
+1*
+1$"
+1v!
+#310000
+0*
+0$"
+#315000
+1*
+1$"
+b1 {!
+#320000
+0*
+0$"
+#325000
+1*
+1$"
+b10000000000000000000000000000100 ,
+1.
+b11001010111111101011101010111110 0
+12
+1[
+0|
+1x
+0v
+0r
+0l
+1k
+1h
+1f
+0b
+0`
+1U
+1#!
+#330000
+0*
+0$"
+#335000
+1*
+1$"
+b0 /"
+b1 /"
+b10 /"
+b11 /"
+b100 /"
+b10000000000000000000000000000100 ."
+1-"
+1&"
+1'"
+1)"
+1\
+1$!
+1'!
+1/
+13
+16
+#340000
+0*
+0$"
+#345000
+1*
+1$"
+0&"
+0'"
+b10 {!
+0.
+02
+0\
+0$!
+0[
+0#!
+0/
+03
+#350000
+0*
+0$"
+#355000
+1*
+1$"
+17
+1(!
+#360000
+0*
+0$"
+#365000
+1*
+1$"
+0)"
+0-"
+b11 {!
+07
+0'!
+0(!
+06
+#370000
+0*
+0$"
+#375000
+1*
+1$"
+b0 {!
+0v!
+#380000
+0*
+0$"
+#385000
+1*
+1$"
+#390000
+0*
+0$"
+#395000
+1*
+1$"
+b10 x!
+b0 s!
+#400000
+0*
+0$"
+#405000
+1*
+1$"
+#410000
+0*
+0$"
+#415000
+1*
+1$"
+#420000
+0*
+0$"
+#425000
+1*
+1$"
+#430000
+0*
+0$"
+#435000
+1*
+1$"
+#440000
+0*
+0$"
+#445000
+1*
+1$"
+b10000000000000000000000000001000 s!
+b10010001101000101011001111000 t!
+b10010001101000101011001111000 w!
+#450000
+0*
+0$"
+#455000
+1*
+1$"
+1v!
+#460000
+0*
+0$"
+#465000
+1*
+1$"
+b1 {!
+#470000
+0*
+0$"
+#475000
+1*
+1$"
+b10000000000000000000000000001000 ,
+1.
+b10010001101000101011001111000 0
+12
+1[
+0{
+0z
+1v
+0u
+1r
+0q
+0o
+1n
+0m
+0k
+0i
+0f
+0e
+0a
+1`
+0^
+0]
+0U
+1T
+1#!
+#480000
+0*
+0$"
+#485000
+1*
+1$"
+b0 /"
+b1 /"
+b10 /"
+b11 /"
+b100 /"
+b10000000000000000000000000001000 ."
+1-"
+1&"
+1'"
+1)"
+1\
+1$!
+1'!
+1/
+13
+16
+#490000
+0*
+0$"
+#495000
+1*
+1$"
+0&"
+0'"
+b10 {!
+0.
+02
+0\
+0$!
+0[
+0#!
+0/
+03
+#500000
+0*
+0$"
+#505000
+1*
+1$"
+17
+1(!
+#510000
+0*
+0$"
+#515000
+1*
+1$"
+0)"
+0-"
+b11 {!
+07
+0'!
+0(!
+06
+#520000
+0*
+0$"
+#525000
+1*
+1$"
+b0 {!
+0v!
+#530000
+0*
+0$"
+#535000
+1*
+1$"
+#540000
+0*
+0$"
+#545000
+1*
+1$"
+b11 x!
+b0 s!
+#550000
+0*
+0$"
+#555000
+1*
+1$"
+#560000
+0*
+0$"
+#565000
+1*
+1$"
+#570000
+0*
+0$"
+#575000
+1*
+1$"
+#580000
+0*
+0$"
+#585000
+1*
+1$"
+#590000
+0*
+0$"
+#595000
+1*
+1$"
+#600000
+0*
+0$"
+#605000
+1*
+1$"
+#610000
+0*
+0$"
+#615000
+1*
+1$"
+#620000
+0*
+0$"
+#625000
+1*
+1$"
+#630000
+0*
+0$"
+#635000
+1*
+1$"
+#640000
+0*
+0$"
+#645000
+1*
+1$"
+#650000
+0*
+0$"
+#655000
+1*
+1$"
+#660000
+0*
+0$"
+#665000
+1*
+1$"
+#670000
+0*
+0$"
+#675000
+1*
+1$"
+#680000
+0*
+0$"
+#685000
+1*
+1$"
+#690000
+0*
+0$"

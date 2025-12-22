@@ -1,0 +1,81 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Tue Dec 16 22:19:12 2025
+# Process ID         : 16648
+# Current directory  : C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado
+# Command line       : vivado.exe -mode batch -source C:\Users\Nguyen Ha Hai\axi4-system-suite\synthesis\scripts\vivado\run_simulation_batch.tcl
+# Log file           : C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/vivado.log
+# Journal file       : C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado\vivado.jou
+# Running On         : NGUYEN-HA-HAI
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 7 5800H with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16483 MB
+# Swap memory        : 16673 MB
+# Total Virtual      : 33157 MB
+# Available Virtual  : 2165 MB
+#-----------------------------------------------------------
+source {C:\Users\Nguyen Ha Hai\axi4-system-suite\synthesis\scripts\vivado\run_simulation_batch.tcl}
+# set tb_name "comprehensive_system_tb"
+# puts "============================================================================"
+============================================================================
+# puts "Running Comprehensive System Testbench (Batch Mode)"
+Running Comprehensive System Testbench (Batch Mode)
+# puts "============================================================================"
+============================================================================
+# puts ""
+
+# set script_dir [file dirname [file normalize [info script]]]
+# set project_dir [file join $script_dir "axi4_system_sv_kv260"]
+# set project_file [file join $project_dir "axi4_system_sv_kv260.xpr"]
+# set project_file [file normalize $project_file]
+# puts "Project file: $project_file"
+Project file: C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.xpr
+# if {![file exists $project_file]} {
+#     puts "ERROR: Project file not found: $project_file"
+#     exit 1
+# }
+# puts "Opening project..."
+Opening project...
+# open_project $project_file
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260'
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+open_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 389.930 ; gain = 88.062
+# set sim_fileset [get_filesets sim_1]
+# if {[string length $sim_fileset] == 0} {
+#     puts "ERROR: No simulation fileset found!"
+#     exit 1
+# }
+# puts "Closing any existing simulation..."
+Closing any existing simulation...
+# catch {close_sim -force}
+# set_property top $tb_name [get_filesets sim_1]
+# puts "  ✓ Set top module: $tb_name"
+  ✓ Set top module: comprehensive_system_tb
+# set_property -name {xsim.elaborate.debug_level} -value {all} -objects $sim_fileset
+# set_property -name {xsim.simulate.log_all_signals} -value {true} -objects $sim_fileset
+# set_property -name {xsim.simulate.runtime} -value {1ms} -objects $sim_fileset
+# puts ""
+
+# puts "Starting simulation..."
+Starting simulation...
+# puts ""
+
+# launch_simulation -mode behavioral
+Command: launch_simulation  -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'comprehensive_system_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+boost::filesystem::remove: The process cannot access the file because it is being used by another process: "C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.sim/sim_1/behav/xsim/simulate.log"
+    while executing
+"launch_simulation -mode behavioral"
+    (file "C:\Users\Nguyen Ha Hai\axi4-system-suite\synthesis\scripts\vivado\run_simulation_batch.tcl" line 59)
+INFO: [Common 17-206] Exiting Vivado at Tue Dec 16 22:19:23 2025...

@@ -1,0 +1,26 @@
+module WR_HandShake  (
+    input logic  ACLK,
+    input logic  ARESETN,
+    input logic  Valid_Signal,
+    input logic  Ready_Signal,
+    input logic  HandShake_En,
+    output logic HandShake_Done  
+);
+    always_ff @(posedge ACLK or negedge ARESETN) begin
+    if (!ARESETN) begin
+        HandShake_Done<='b1;
+    end else if(HandShake_En && !(Valid_Signal && Ready_Signal)) begin
+        // Reset HandShake_Done when there's a new request, but not if handshake is completing
+        HandShake_Done<='b0;
+    end else if(Valid_Signal && Ready_Signal) begin
+        // Set HandShake_Done when handshake completes, even if HandShake_En is still high
+        HandShake_Done<='b1;
+    end
+end
+
+endmodule
+
+
+
+
+

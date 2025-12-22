@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_bridge/axi_slave_bridge.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_slave_bridge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/testbenches/axi_bridge/axi_slave_bridge_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_slave_bridge_tb

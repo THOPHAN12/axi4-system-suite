@@ -1,0 +1,12 @@
+
+{ 
+    crc :  1733842835520273142  , 
+    ccp_crc :  0  , 
+    cmdline : " --incr --debug all --relax --mt 2 -L xil_defaultlib -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot axi_master_bridge_tb_behav xil_defaultlib.axi_master_bridge_tb xil_defaultlib.glbl" , 
+    buildDate : "Nov  8 2024" , 
+    buildTime : "22:36:57" , 
+    linkCmd : "D:\\Xilink\\Vivado\\2024.2\\data\\..\\tps\\mingw\\6.2.0\\win64.o\\nt\\bin\\gcc.exe -Wa,-W  -O -Wl,--stack,104857600 -o \"xsim.dir/axi_master_bridge_tb_behav/xsimk.exe\"   \"xsim.dir/axi_master_bridge_tb_behav/obj/xsim_0.win64.obj\" \"xsim.dir/axi_master_bridge_tb_behav/obj/xsim_1.win64.obj\" -L\"D:\\Xilink\\Vivado\\2024.2\\lib\\win64.o\" -lxv_simulator_kernel   -lxv_simbridge_kernel" , 
+    aggregate_nets : 
+    [ 
+    ] 
+} 

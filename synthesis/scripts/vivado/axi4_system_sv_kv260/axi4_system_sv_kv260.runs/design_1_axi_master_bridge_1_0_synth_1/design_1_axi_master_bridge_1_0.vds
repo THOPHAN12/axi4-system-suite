@@ -1,0 +1,619 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Sun Dec 21 14:58:57 2025
+# Process ID         : 12152
+# Current directory  : C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.runs/design_1_axi_master_bridge_1_0_synth_1
+# Command line       : vivado.exe -log design_1_axi_master_bridge_1_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_axi_master_bridge_1_0.tcl
+# Log file           : C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.runs/design_1_axi_master_bridge_1_0_synth_1/design_1_axi_master_bridge_1_0.vds
+# Journal file       : C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.runs/design_1_axi_master_bridge_1_0_synth_1\vivado.jou
+# Running On         : NGUYEN-HA-HAI
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 7 5800H with Radeon Graphics         
+# CPU Frequency      : 3194 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16483 MB
+# Swap memory        : 16483 MB
+# Total Virtual      : 32967 MB
+# Available Virtual  : 10102 MB
+#-----------------------------------------------------------
+source design_1_axi_master_bridge_1_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 388.438 ; gain = 85.688
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilink/Vivado/2024.2/data/ip'.
+WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
+Current IP cache path is c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.cache/ip 
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: design_1_axi_master_bridge_1_0
+Command: synth_design -top design_1_axi_master_bridge_1_0 -part xczu5ev-sfvc784-1-e -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xczu5ev'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu5ev'
+INFO: [Device 21-403] Loading part xczu5ev-sfvc784-1-e
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 8988
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1621.336 ; gain = 179.121
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_master_bridge_1_0' [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/synth/design_1_axi_master_bridge_1_0.sv:53]
+INFO: [Synth 8-6157] synthesizing module 'axi_master_bridge' [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ipshared/7d94/src/axi_master_bridge.sv:20]
+INFO: [Synth 8-6155] done synthesizing module 'axi_master_bridge' (0#1) [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ipshared/7d94/src/axi_master_bridge.sv:20]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_master_bridge_1_0' (0#1) [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/synth/design_1_axi_master_bridge_1_0.sv:53]
+WARNING: [Synth 8-7129] Port s_axi_awlock[0] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awcache[3] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awcache[2] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awcache[1] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awcache[0] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awprot[2] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awprot[1] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awprot[0] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awqos[3] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awqos[2] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awqos[1] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awqos[0] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awregion[3] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awregion[2] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awregion[1] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awregion[0] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[15] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[14] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[13] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[12] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[11] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[10] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[9] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[8] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[7] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[6] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[5] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[4] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[3] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[2] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[1] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[0] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[15] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[14] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[13] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[12] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[11] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[10] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[9] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[8] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[7] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[6] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[5] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[4] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[3] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[2] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[1] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wuser[0] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arlock[0] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arcache[3] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arcache[2] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arcache[1] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arcache[0] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arprot[2] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arprot[1] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arprot[0] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arqos[3] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arqos[2] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arqos[1] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arqos[0] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arregion[3] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arregion[2] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arregion[1] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arregion[0] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_aruser[15] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_aruser[14] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_aruser[13] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_aruser[12] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_aruser[11] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_aruser[10] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_aruser[9] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_aruser[8] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_aruser[7] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_aruser[6] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_aruser[5] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_aruser[4] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_aruser[3] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_aruser[2] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_aruser[1] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_aruser[0] in module axi_master_bridge is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1732.113 ; gain = 289.898
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1732.113 ; gain = 289.898
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1732.113 ; gain = 289.898
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1732.113 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc] for cell 'inst'
+create_clock: Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 1825.141 ; gain = 0.117
+WARNING: [Vivado 12-584] No ports matched 'M0_AWADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:5]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M0_AWADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:5]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M0_AWADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:6]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M0_AWADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:6]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M0_ARADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:7]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M0_ARADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:7]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M0_ARADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:8]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M0_ARADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:8]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M0_WDATA*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:9]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M0_WDATA*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:9]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M0_WDATA*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:10]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M0_WDATA*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:10]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M0_AWVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:11]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M0_AWVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:11]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M0_AWVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:12]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M0_AWVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:12]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M0_ARVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:13]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M0_ARVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:13]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M0_ARVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:14]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M0_ARVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:14]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M0_WVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:15]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M0_WVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:15]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M0_WVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:16]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M0_WVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:16]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M0_BREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:17]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M0_BREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:17]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M0_BREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:18]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M0_BREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:18]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M0_RREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:19]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M0_RREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:19]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M0_RREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:20]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M0_RREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:20]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M1_AWADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:21]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M1_AWADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:21]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M1_AWADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:22]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M1_AWADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:22]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M1_ARADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:23]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M1_ARADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:23]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M1_ARADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:24]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M1_ARADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:24]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M1_WDATA*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:25]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M1_WDATA*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:25]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M1_WDATA*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:26]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M1_WDATA*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:26]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M1_AWVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:27]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M1_AWVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:27]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M1_AWVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:28]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M1_AWVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:28]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M1_ARVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:29]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M1_ARVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:29]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M1_ARVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:30]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M1_ARVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:30]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M1_WVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:31]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M1_WVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:31]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M1_WVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:32]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M1_WVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:32]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M1_BREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:33]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M1_BREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:33]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M1_BREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:34]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M1_BREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:34]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M1_RREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:35]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M1_RREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:35]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'M1_RREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:36]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-objects [get_ports M1_RREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:36]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S0_AWADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:37]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S0_AWADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:37]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S0_AWADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:38]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S0_AWADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:38]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S0_ARADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:39]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S0_ARADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S0_ARADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:40]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S0_ARADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:40]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S0_WDATA*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:41]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S0_WDATA*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:41]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S0_WDATA*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:42]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S0_WDATA*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:42]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S0_AWVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:43]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S0_AWVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:43]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S0_AWVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:44]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S0_AWVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:44]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S0_ARVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:45]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S0_ARVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:45]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S0_ARVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:46]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S0_ARVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:46]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S0_WVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:47]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S0_WVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:47]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S0_WVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:48]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S0_WVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:48]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S0_BREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:49]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S0_BREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:49]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S0_BREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:50]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S0_BREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:50]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S0_RREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:51]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S0_RREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:51]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S0_RREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:52]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S0_RREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:52]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S1_AWADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:53]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S1_AWADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:53]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S1_AWADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:54]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S1_AWADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:54]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S1_ARADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:55]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S1_ARADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:55]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S1_ARADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:56]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S1_ARADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:56]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S1_WDATA*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:57]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S1_WDATA*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:57]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S1_WDATA*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:58]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S1_WDATA*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:58]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S1_AWVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:59]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S1_AWVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:59]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S1_AWVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:60]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S1_AWVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:60]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S1_ARVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:61]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S1_ARVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:61]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S1_ARVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:62]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S1_ARVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:62]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S1_WVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:63]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S1_WVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:63]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S1_WVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:64]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S1_WVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:64]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S1_BREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:65]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S1_BREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:65]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S1_BREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:66]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S1_BREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:66]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S1_RREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:67]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S1_RREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:67]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S1_RREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:68]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S1_RREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:68]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S2_AWADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:70]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S2_AWADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:70]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S2_AWADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:71]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S2_AWADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:71]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S2_ARADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:72]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S2_ARADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:72]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S2_ARADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:73]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S2_ARADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:73]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S2_WDATA*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:74]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S2_WDATA*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:74]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S2_WDATA*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:75]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S2_WDATA*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:75]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S2_AWVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:76]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S2_AWVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:76]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S2_AWVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:77]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S2_AWVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:77]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S2_ARVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:78]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S2_ARVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:78]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S2_ARVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:79]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S2_ARVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:79]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S2_WVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:80]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S2_WVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:80]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S2_WVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:81]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S2_WVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:81]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S2_BREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:82]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S2_BREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:82]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S2_BREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:83]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S2_BREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:83]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S2_RREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:84]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S2_RREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:84]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S2_RREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:85]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S2_RREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:85]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S3_AWADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:87]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S3_AWADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:87]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S3_AWADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:88]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S3_AWADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:88]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S3_ARADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:89]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S3_ARADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:89]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S3_ARADDR*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:90]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S3_ARADDR*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:90]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S3_WDATA*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:91]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S3_WDATA*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:91]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S3_WDATA*'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:92]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S3_WDATA*]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:92]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S3_AWVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:93]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S3_AWVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:93]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S3_AWVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:94]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S3_AWVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:94]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S3_ARVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:95]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S3_ARVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:95]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S3_ARVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:96]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S3_ARVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:96]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S3_WVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:97]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S3_WVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:97]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S3_WVALID'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:98]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S3_WVALID]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:98]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S3_BREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:99]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S3_BREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:99]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S3_BREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:100]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S3_BREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:100]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S3_RREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:101]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S3_RREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:101]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'S3_RREADY'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:102]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-objects [get_ports S3_RREADY]'. [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc:102]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+Finished Parsing XDC File [c:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.gen/sources_1/bd/design_1/ip/design_1_axi_master_bridge_1_0/src/axi_interconnect.xdc] for cell 'inst'
+Parsing XDC File [C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.runs/design_1_axi_master_bridge_1_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.runs/design_1_axi_master_bridge_1_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1825.141 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 1825.141 ; gain = 0.000
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 1825.141 ; gain = 382.926
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xczu5ev-sfvc784-1-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 1825.141 ; gain = 382.926
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  {C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.runs/design_1_axi_master_bridge_1_0_synth_1/dont_touch.xdc}, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 1825.141 ; gain = 382.926
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 1825.141 ; gain = 382.926
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1248 (col length:96)
+BRAMs: 288 (col length: RAMB18 96 RAMB36 48)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port s_axi_awlock[0] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awcache[3] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awcache[2] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awcache[1] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awcache[0] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awprot[2] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awprot[1] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awprot[0] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awqos[3] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awqos[2] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awqos[1] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awqos[0] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awregion[3] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awregion[2] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awregion[1] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awregion[0] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[15] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[14] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[13] in module axi_master_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awuser[12] in module axi_master_bridge is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 1825.141 ; gain = 382.926
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:55 ; elapsed = 00:00:58 . Memory (MB): peak = 2450.965 ; gain = 1008.750
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:55 ; elapsed = 00:00:58 . Memory (MB): peak = 2451.113 ; gain = 1008.898
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:55 ; elapsed = 00:00:59 . Memory (MB): peak = 2461.012 ; gain = 1018.797
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:01 ; elapsed = 00:01:05 . Memory (MB): peak = 2677.559 ; gain = 1235.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:01 ; elapsed = 00:01:05 . Memory (MB): peak = 2677.559 ; gain = 1235.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:01 ; elapsed = 00:01:05 . Memory (MB): peak = 2677.559 ; gain = 1235.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:01 ; elapsed = 00:01:05 . Memory (MB): peak = 2677.559 ; gain = 1235.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:01 ; elapsed = 00:01:05 . Memory (MB): peak = 2677.559 ; gain = 1235.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:01 ; elapsed = 00:01:05 . Memory (MB): peak = 2677.559 ; gain = 1235.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT1 |     1|
+|2     |LUT2 |     2|
+|3     |FDRE |    32|
++------+-----+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:01 ; elapsed = 00:01:05 . Memory (MB): peak = 2677.559 ; gain = 1235.344
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 81 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:38 ; elapsed = 00:00:55 . Memory (MB): peak = 2677.559 ; gain = 1142.316
+Synthesis Optimization Complete : Time (s): cpu = 00:01:02 ; elapsed = 00:01:06 . Memory (MB): peak = 2677.559 ; gain = 1235.344
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 2677.559 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2677.559 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 22d942cd
+INFO: [Common 17-83] Releasing license: Synthesis
+23 Infos, 198 Warnings, 96 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:14 ; elapsed = 00:01:21 . Memory (MB): peak = 2677.559 ; gain = 2228.664
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.runs/design_1_axi_master_bridge_1_0_synth_1/design_1_axi_master_bridge_1_0.dcp' has been generated.
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.runs/design_1_axi_master_bridge_1_0_synth_1/design_1_axi_master_bridge_1_0.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file design_1_axi_master_bridge_1_0_utilization_synth.rpt -pb design_1_axi_master_bridge_1_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Dec 21 15:00:33 2025...

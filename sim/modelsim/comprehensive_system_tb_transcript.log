@@ -1,0 +1,146 @@
+# ============================================================================
+# Comprehensive System Testbench
+# Testing AXI Interconnect with 2 Masters and 4 Slaves
+# ============================================================================
+# 
+# [0] Applying reset...
+# [150000] Reset released
+# 
+# 
+# ============================================================================
+# Test 1: Basic Sequential Operations
+# ============================================================================
+# [150000] Starting M0...
+# [195000] M0 Read:  addr=0x00000004
+# [255000] M0 Write: addr=0x00000000
+# [265000] M0 Write: addr=0x00000000
+# [355000] M0 completed: instruction=0xxxxxxxxx, result=0xdeadbeef
+# [355000] [PASS] M0 sequential operation
+# [405000] Starting M1...
+# [465000] M1 Read:  addr=0x00000000
+# [525000] M1 Write: addr=0x4000beef
+# [535000] M1 Write: addr=0x4000beef
+# [665000] M1 completed
+# [665000] [PASS] M1 sequential operation
+# 
+# ============================================================================
+# Test 2: Concurrent Operations - Different Slaves
+# ============================================================================
+# [765000] Starting M0 first...
+# [765000] Note: M1 needs M0 to complete first (reads from S0[0] written by M0)
+# [805000] M0 Read:  addr=0x00000004
+# [875000] M0 Write: addr=0x00000000
+# [885000] M0 Write: addr=0x00000000
+# [975000] M0 completed, now starting M1...
+# [1035000] M1 Read:  addr=0x00000000
+# [1095000] M1 Write: addr=0x4000beef
+# [1105000] M1 Write: addr=0x4000beef
+# [1235000] M1 completed
+# [1235000] [PASS] Concurrent different slaves
+# 
+# ============================================================================
+# Test 3: Contention - Same Slave (S0)
+# ============================================================================
+# [1335000] Starting M0...
+# [1355000] M0 is busy, starting M1 (will contend for S0)...
+# [1375000] M0 Read:  addr=0x00000004
+# [1445000] M0 Write: addr=0x00000000
+# [1455000] M0 Write: addr=0x00000000
+# [1545000] M0 completed, M1 should start now...
+# [1565000] M1 Read:  addr=0x00000000
+# [1625000] M1 Write: addr=0x4000beef
+# [1635000] M1 Write: addr=0x4000beef
+# [1765000] [PASS] Contention same slave
+# 
+# ============================================================================
+# Test 4: Busy Flag Monitoring
+# ============================================================================
+# [1865000] [PASS] Initial idle state
+# [1895000] [PASS] M0 busy after start
+# [1895000] [PASS] M1 idle when M0 busy
+# [1905000] M0 Read:  addr=0x00000004
+# [1975000] M0 Write: addr=0x00000000
+# [1985000] M0 Write: addr=0x00000000
+# [2075000] [PASS] M0 idle after complete
+# [2105000] [PASS] M1 busy after start
+# [2135000] M1 Read:  addr=0x00000000
+# [2195000] M1 Write: addr=0x4000beef
+# [2205000] M1 Write: addr=0x4000beef
+# [2335000] [PASS] M1 idle after complete
+# 
+# ============================================================================
+# Test 5: All Slaves Coverage (S2-UART, S3-SPI)
+# ============================================================================
+# [2435000] [PASS] S0 (RAM) accessible
+# [2435000] [PASS] S2 base address correct
+# [2435000] [PASS] S3 base address correct
+# [2435000] [PASS] All 4 slaves configured
+# [2435000] Note: S2 (UART) and S3 (SPI) are configured in interconnect
+# [2435000] Full transaction testing requires master modules with S2/S3 support
+# 
+# ============================================================================
+# Test 6: Multiple Concurrent Transactions
+# ============================================================================
+# [2535000] Starting M0 and M1 concurrently...
+# [2575000] M0 Read:  addr=0x00000004
+# [2645000] M0 Write: addr=0x00000000
+# [2655000] M0 Write: addr=0x00000000
+# [2765000] M1 Read:  addr=0x00000000
+# [2825000] M1 Write: addr=0x4000beef
+# [2835000] M1 Write: addr=0x4000beef
+# [2965000] [PASS] M0 completed in concurrent mode
+# [2965000] [PASS] M1 completed in concurrent mode
+# [2965000] [PASS] Both masters completed concurrently
+# 
+# ============================================================================
+# Test 7: Stress Test - Rapid Sequential Requests
+# ============================================================================
+# [3105000] M0 Read:  addr=0x00000004
+# [3175000] M0 Write: addr=0x00000000
+# [3185000] M0 Write: addr=0x00000000
+# [3335000] M0 Read:  addr=0x00000004
+# [3395000] M0 Write: addr=0x00000000
+# [3405000] M0 Write: addr=0x00000000
+# [3555000] M0 Read:  addr=0x00000004
+# [3615000] M0 Write: addr=0x00000000
+# [3625000] M0 Write: addr=0x00000000
+# [3775000] M0 Read:  addr=0x00000004
+# [3835000] M0 Write: addr=0x00000000
+# [3845000] M0 Write: addr=0x00000000
+# [3995000] M0 Read:  addr=0x00000004
+# [4055000] M0 Write: addr=0x00000000
+# [4065000] M0 Write: addr=0x00000000
+# [4175000] [PASS] Stress test: all rapid requests completed
+# [4175000] Completed 5/5 rapid requests
+# 
+# ============================================================================
+# Test 8: Arbitration Fairness
+# ============================================================================
+# [4275000] Testing arbitration fairness (both to S0)...
+# [4315000] M0 Read:  addr=0x00000004
+# [4375000] M0 Write: addr=0x00000000
+# [4385000] M0 Write: addr=0x00000000
+# [4475000] [PASS] M0 completed first in contention
+# [4495000] M1 Read:  addr=0x00000000
+# [4555000] M1 Write: addr=0x4000beef
+# [4565000] M1 Write: addr=0x4000beef
+# [4695000] [PASS] M1 completed after M0
+# [4695000] [PASS] Arbitration handled contention correctly
+# 
+# ============================================================================
+# Test Statistics
+# ============================================================================
+# Test Scenarios:  8
+# Total Test Cases: 21
+# Passed:           21
+# Failed:           0
+# Pass Rate:        100.0%
+# ============================================================================
+# 
+# ============================================================================
+# All Tests Complete!
+# ============================================================================
+# Simulation finished successfully at time 4795000
+# ============================================================================
+# ** Note: $finish    : C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/testbenches/axi_masters/comprehensive_system_tb.sv(1039)
+#    Time: 4795 ns  Iteration: 0  Instance: /comprehensive_system_tb

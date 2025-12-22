@@ -1,0 +1,7 @@
+Running: xsim.dir/axi_master_bridge_tb_behav/xsimk.exe -simmode gui -wdb axi_master_bridge_tb_behav.wdb -simrunnum 0 -socket 58172
+Design successfully loaded
+Design Loading Memory Usage: 30172 KB (Peak: 30172 KB)
+Design Loading CPU Usage: 1999 ms
+Simulation completed
+Simulation Memory Usage: 32532 KB (Peak: 32532 KB)
+Simulation CPU Usage: 2140 ms
