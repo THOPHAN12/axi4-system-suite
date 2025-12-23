@@ -1001,3 +1001,8 @@ Chương 1 đã trình bày:
 SystemVerilog đã chứng minh là lựa chọn phù hợp cho dự án AXI Interconnect, giúp tạo ra một thiết kế rõ ràng, dễ maintain, và được verify toàn diện với 21 test cases đạt 100% pass rate.
 
 
+
+
+
+
+

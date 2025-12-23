@@ -119,6 +119,370 @@ Hệ thống AXI Interconnect sử dụng **4 Channel Controllers** chuyên bi�
    - Address decoding để chọn slave
    - Handshake protocol control
 
+**Lưu ý**: Kênh **R (Read Data)** không có Controller_Top riêng, mà được xử lý bởi module `Controller.sv` với logic MUX/DEMUX và FSM đơn giản, vì routing của R phụ thuộc trực tiếp vào AR channel.
+
+---
+
+### 🔄 Chi Tiết FSM (Finite State Machine) của 5 Kênh AXI
+
+Hệ thống AXI Interconnect có **5 kênh AXI** nhưng chỉ có **4 Controller_Top modules** vì kênh R được xử lý bởi `Controller.sv` (không phải Controller_Top riêng). Dưới đây là giải thích chi tiết về FSM của từng kênh:
+
+---
+
+#### 1. Write Address (AW) Channel Controller FSM
+
+**Module**: `AW_Channel_Controller_Top.sv`  
+**Mục đích**: Điều khiển Write Address Channel, thực hiện arbitration và routing địa chỉ write từ masters đến slaves.
+
+**Các trạng thái:**
+
+| Trạng thái | Mô tả | Màu sắc |
+|------------|-------|---------|
+| **IDLE** | Trạng thái nghỉ, không có transaction đang xử lý | ⚫ |
+| **WAIT_REQ** | Chờ request từ master (AWVALID) | 🟢 |
+| **ARBITRATE** | Thực hiện arbitration giữa các master | 🔵 |
+| **DECODE** | Giải mã địa chỉ để chọn slave đích | 🟡 |
+| **TRANSFER** | Truyền địa chỉ đến slave đã chọn | 🔴 |
+| **WAIT_READY** | Chờ slave sẵn sàng (AWREADY) | ⚪ |
+
+**Luồng chính:**
+```
+IDLE → WAIT_REQ → ARBITRATE → DECODE → TRANSFER → WAIT_READY → IDLE
+```
+
+**Điều kiện chuyển trạng thái:**
+
+1. **IDLE → WAIT_REQ**
+   - Điều kiện: `Request from Master`
+   - Tín hiệu: `S00_AXI_awvalid = 1` hoặc `S01_AXI_awvalid = 1`
+   - Mô tả: Khi có master gửi write address request
+
+2. **WAIT_REQ → ARBITRATE**
+   - Điều kiện: `Multiple Masters` hoặc `Single Master`
+   - Tín hiệu: `AW_Channel_Request = 1`
+   - Mô tả: Luôn chuyển sang ARBITRATE để xử lý thống nhất (kể cả khi chỉ có 1 master)
+
+3. **ARBITRATE → DECODE**
+   - Điều kiện: `Select Master`
+   - Tín hiệu: `AW_Selected_Slave` được xác định (0 hoặc 1)
+   - Mô tả: Sau khi QoS Arbiter chọn master
+
+4. **ARBITRATE → IDLE**
+   - Điều kiện: `No Pending`
+   - Tín hiệu: `AW_Channel_Request = 0`
+   - Mô tả: Không còn request nào đang chờ
+
+5. **DECODE → TRANSFER**
+   - Điều kiện: `Address Decoded`
+   - Logic: 
+     - `0x0000_0000 - 0x1FFF_FFFF` → Slave 0 (RAM)
+     - `0x4000_0000 - 0x5FFF_FFFF` → Slave 1 (GPIO)
+     - `0x8000_0000 - 0x9FFF_FFFF` → Slave 2 (UART)
+     - `0xC000_0000 - 0xDFFF_FFFF` → Slave 3 (SPI)
+   - Tín hiệu: `Sel_Slave_Ready_Signal` được set
+
+6. **TRANSFER → WAIT_READY**
+   - Điều kiện: `Send to Slave`
+   - Tín hiệu: `M0x_AXI_awvalid = 1` (với x là slave index)
+
+7. **WAIT_READY → IDLE**
+   - Điều kiện: `AWREADY = 1`
+   - Tín hiệu: `M0x_AXI_awready = 1` và `AWVALID = 1` (handshake)
+   - Kết quả: `AW_HandShake_Done = 1`, transaction hoàn thành
+
+**Luồng đặc biệt:**
+- Single Master: `WAIT_REQ → ARBITRATE → DECODE` (vẫn qua ARBITRATE nhưng không cần chọn)
+- No Pending: `ARBITRATE → IDLE` (không có request → quay về IDLE)
+
+---
+
+#### 2. Read Address (AR) Channel Controller FSM
+
+**Module**: `AR_Channel_Controller_Top.sv`  
+**Mục đích**: Điều khiển Read Address Channel, tương tự AW nhưng cho read transactions.
+
+**Các trạng thái:**
+
+| Trạng thái | Mô tả | Màu sắc |
+|------------|-------|---------|
+| **IDLE** | Trạng thái nghỉ | ⚫ |
+| **WAIT_REQ** | Chờ read request từ master | 🟢 |
+| **ARBITRATE** | Arbitration giữa các master | 🔵 |
+| **DECODE** | Decode địa chỉ để chọn slave | 🟡 |
+| **TRANSFER** | Truyền địa chỉ read đến slave | 🔴 |
+| **WAIT_READY** | Chờ ARREADY từ slave | ⚪ |
+
+**Luồng chính:**
+```
+IDLE → WAIT_REQ → ARBITRATE → DECODE → TRANSFER → WAIT_READY → IDLE
+```
+
+**Điều kiện chuyển trạng thái:**
+
+1. **IDLE → WAIT_REQ**
+   - Điều kiện: `ARVALID from Master`
+   - Tín hiệu: `S00_AXI_arvalid = 1` hoặc `S01_AXI_arvalid = 1`
+
+2. **WAIT_REQ → ARBITRATE**
+   - Điều kiện: `Multiple/Single Master`
+   - Tín hiệu: `AR_Channel_Request = 1`
+
+3. **ARBITRATE → DECODE**
+   - Điều kiện: `Select Master`
+   - Tín hiệu: `AR_Selected_Slave` được xác định
+
+4. **DECODE → TRANSFER**
+   - Điều kiện: `Address Decoded`
+   - Logic: Tương tự AW channel, decode address để chọn slave
+
+5. **TRANSFER → WAIT_READY**
+   - Điều kiện: `Send to Slave`
+   - Tín hiệu: `M0x_AXI_arvalid = 1`
+
+6. **WAIT_READY → IDLE**
+   - Điều kiện: `ARREADY = 1`
+   - Tín hiệu: `M0x_AXI_arready = 1` và `ARVALID = 1` (handshake)
+   - Kết quả: `AR_HandShake_Done = 1`
+
+**Luồng phụ:**
+- Single master: `WAIT_REQ → DECODE` (có thể bỏ qua arbitration nếu chỉ có 1 master)
+
+---
+
+#### 3. Write Data (W) Channel Controller FSM
+
+**Module**: `WD_Channel_Controller_Top.sv`  
+**Mục đích**: Điều khiển Write Data Channel, route write data từ master đến slave đã được chọn bởi AW channel.
+
+**Các trạng thái:**
+
+| Trạng thái | Mô tả | Màu sắc |
+|------------|-------|---------|
+| **IDLE** | Trạng thái nghỉ | ⚫ |
+| **WAIT_SELECT** | Chờ slave được chọn từ AW channel | 🟢 |
+| **ROUTE_DATA** | Route dữ liệu đến slave đúng | 🟡 |
+| **TRANSFER** | Truyền dữ liệu (data beat) | 🔴 |
+| **WAIT_LAST** | Chờ WLAST từ master | 🔵 |
+| **DONE** | Hoàn thành write data | ⚪ |
+
+**Luồng chính:**
+```
+IDLE → WAIT_SELECT → ROUTE_DATA → TRANSFER → WAIT_LAST → DONE → IDLE
+```
+
+**Điều kiện chuyển trạng thái:**
+
+1. **IDLE → WAIT_SELECT**
+   - Điều kiện: `AW_Access_Grant = 1`
+   - Mô tả: Chờ AW channel hoàn thành và xác định slave đích
+
+2. **WAIT_SELECT → ROUTE_DATA**
+   - Điều kiện: `AW_Selected_Slave` đã được xác định
+   - Tín hiệu: `Q_Enable_W_Data_In[slave_index] = 1`
+   - Mô tả: Slave đã được chọn, bắt đầu route data
+
+3. **ROUTE_DATA → TRANSFER**
+   - Điều kiện: `WVALID = 1` và slave ready
+   - Tín hiệu: `Sel_S_AXI_wvalid = 1` và `M0x_AXI_wready = 1`
+   - Mô tả: Data đã được route đến slave, bắt đầu transfer
+
+4. **TRANSFER → WAIT_LAST**
+   - Điều kiện: `WVALID && WREADY` (handshake)
+   - Tín hiệu: `Write_Data_HandShake_En_Pulse = 1`
+   - Mô tả: Một data beat đã được transfer
+
+5. **WAIT_LAST → TRANSFER** (Burst tiếp tục)
+   - Điều kiện: `WLAST = 0`
+   - Tín hiệu: `Sel_S_AXI_wlast = 0`
+   - Mô tả: Còn data beats trong burst, tiếp tục transfer
+
+6. **WAIT_LAST → DONE** (Burst hoàn thành)
+   - Điều kiện: `WLAST = 1`
+   - Tín hiệu: `Sel_S_AXI_wlast = 1`
+   - Mô tả: Đã transfer hết data beats trong burst
+
+7. **DONE → IDLE**
+   - Điều kiện: `Write_Data_Finsh = 1`
+   - Mô tả: Write data channel hoàn thành
+
+**Luồng burst:**
+- `TRANSFER → TRANSFER`: Nhiều data beats (WLAST=0) - self-loop trong TRANSFER state
+
+**Đặc điểm:**
+- Phụ thuộc vào AW channel: Routing dựa trên `AW_Selected_Slave`
+- Queue management: Sử dụng Queue để track master và slave mapping
+- Burst support: Hỗ trợ burst transfers với WLAST signal
+
+---
+
+#### 4. Write Response (BR) Channel Controller FSM
+
+**Module**: `BR_Channel_Controller_Top.sv`  
+**Mục đích**: Điều khiển Write Response Channel, route write response từ slaves về đúng master dựa trên BID matching.
+
+**Các trạng thái:**
+
+| Trạng thái | Mô tả | Màu sắc |
+|------------|-------|---------|
+| **IDLE** | Trạng thái nghỉ | ⚫ |
+| **WAIT_RESP** | Chờ response từ slave | 🟢 |
+| **ARBITRATE** | Arbitrate giữa nhiều responses | 🔵 |
+| **ROUTE_RESP** | Match BID với master và route | 🟡 |
+| **TRANSFER** | Truyền response đến master | 🔴 |
+| **DONE** | Hoàn thành | ⚪ |
+
+**Luồng chính:**
+```
+IDLE → WAIT_RESP → ARBITRATE → ROUTE_RESP → TRANSFER → DONE → IDLE
+```
+
+**Điều kiện chuyển trạng thái:**
+
+1. **IDLE → WAIT_RESP**
+   - Điều kiện: `Write_Data_Finsh = 1` (Write Data channel đã hoàn thành)
+   - Tín hiệu: `Write_Data_Finsh` rising edge
+   - Mô tả: Chờ slave gửi write response
+
+2. **WAIT_RESP → ARBITRATE**
+   - Điều kiện: `BVALID from Slave`
+   - Tín hiệu: `M0x_AXI_bvalid = 1` (từ bất kỳ slave nào)
+   - Mô tả: Có response từ slave, bắt đầu arbitration
+
+3. **ARBITRATE → ROUTE_RESP**
+   - Điều kiện: `Select Response`
+   - Tín hiệu: `Channel_Request_From_Arb = 1`
+   - Mô tả: Arbiter đã chọn response để xử lý
+
+4. **ROUTE_RESP → TRANSFER**
+   - Điều kiện: `BID Matched`
+   - Logic: Match `M0x_AXI_BID` với master ID từ `Write_Data_Master`
+   - Tín hiệu: `Sel_M_ID_Signal` được xác định
+   - Mô tả: Đã xác định master đích dựa trên BID
+
+5. **TRANSFER → DONE**
+   - Điều kiện: `BVALID && BREADY` (handshake)
+   - Tín hiệu: `Write_Res_HandShake_Done = 1`
+   - Mô tả: Response đã được truyền đến master
+
+6. **DONE → IDLE**
+   - Điều kiện: Handshake hoàn thành
+   - Mô tả: Transaction hoàn thành, quay về IDLE
+
+**Luồng lỗi:**
+- `WAIT_RESP → IDLE`: Timeout hoặc error (nếu không có response sau thời gian chờ)
+
+**Đặc điểm:**
+- BID Matching: Sử dụng BID (Bus ID) để match response với master đúng
+- Arbitration: Có thể có nhiều responses từ nhiều slaves cùng lúc
+- Response routing: Route response về đúng master dựa trên BID
+
+**Ví dụ:**
+```
+Master 0 gửi write đến Slave 0:
+1. WAIT_RESP: Chờ Slave 0 gửi BVALID
+2. ARBITRATE: Chọn response từ Slave 0
+3. ROUTE_RESP: Match BID với Master 0
+4. TRANSFER: Gửi BRESP về Master 0
+5. DONE: Handshake hoàn thành
+```
+
+---
+
+#### 5. Read Data (R) Channel Controller FSM
+
+**Module**: `Controller.sv` (trong `read/` directory)  
+**Mục đích**: Điều khiển Read Data Channel, route read data từ slaves về masters. **KHÔNG có Controller_Top riêng** vì logic đơn giản hơn và phụ thuộc vào AR channel.
+
+**Kiến trúc đặc biệt:**
+- **2 FSM độc lập**: Mỗi master (M0, M1) có FSM riêng để route read data
+- **Parallel operation**: Cả 2 masters có thể đọc từ các slaves khác nhau đồng thời
+- **Address-based routing**: Routing dựa trên address decode từ AR channel
+
+**Các trạng thái (cho mỗi Master):**
+
+| Trạng thái | Mô tả | Màu sắc |
+|------------|-------|---------|
+| **IDLE** | Trạng thái nghỉ, chờ AR handshake hoàn thành | ⚫ |
+| **SLAVE0** | Route read data từ Slave 0 (RAM) | 🟡 |
+| **SLAVE1** | Route read data từ Slave 1 (GPIO) | 🟡 |
+| **SLAVE2** | Route read data từ Slave 2 (UART) | 🟡 |
+| **SLAVE3** | Route read data từ Slave 3 (SPI) | 🟡 |
+
+**Luồng chính (Master 0):**
+```
+IDLE → [SLAVE0|SLAVE1|SLAVE2|SLAVE3] → IDLE
+```
+
+**Điều kiện chuyển trạng thái:**
+
+1. **IDLE → SLAVEx** (x = 0, 1, 2, 3)
+   - Điều kiện: `ARVALID && ARREADY` (AR handshake hoàn thành) và address decode
+   - Logic:
+     - `M_ADDR` trong `slave0_addr1..slave0_addr2` → **SLAVE0**
+     - `M_ADDR` trong `slave1_addr1..slave1_addr2` → **SLAVE1**
+     - `M_ADDR` trong `slave2_addr1..slave2_addr2` → **SLAVE2**
+     - `M_ADDR` trong `slave3_addr1..slave3_addr2` → **SLAVE3**
+   - Tín hiệu: `M0_ARVALID && Sx_ARREADY` (với x là slave index)
+   - Mô tả: AR channel đã hoàn thành, xác định slave đích, bắt đầu route data
+
+2. **SLAVEx → SLAVEx** (Self-loop - Burst tiếp tục)
+   - Điều kiện: `RREADY && RVALID && !RLAST`
+   - Tín hiệu: `M0_RREADY && Sx_RVALID && !Sx_RLAST`
+   - Mô tả: Burst transaction đang tiếp diễn, còn data beats
+
+3. **SLAVEx → IDLE** (Burst hoàn thành)
+   - Điều kiện: `RREADY && RVALID && RLAST`
+   - Tín hiệu: `M0_RREADY && Sx_RVALID && Sx_RLAST`
+   - Mô tả: Đã nhận hết data beats trong burst, hoàn thành transaction
+
+**Outputs:**
+- `select_data_M0[1:0]`: Select line cho MUX routing data từ slave về Master 0
+  - `00`: Slave 0 (RAM)
+  - `01`: Slave 1 (GPIO)
+  - `10`: Slave 2 (UART)
+  - `11`: Slave 3 (SPI)
+- `select_data_M1[1:0]`: Select line cho MUX routing data từ slave về Master 1
+- `en_S0/S1/S2/S3[1:0]`: Enable signal để chọn master đích (00=M0, 01=M1)
+
+**Đặc điểm:**
+- **Fixed-Priority Arbitration**: Master 0 có priority khi cả 2 masters cùng active (trong AR channel)
+- **Address-based routing**: Routing dựa trên address decode từ AR channel
+- **Burst support**: Hỗ trợ burst transfers với RLAST signal
+- **Independent operation**: Mỗi master có thể đọc từ slave khác nhau đồng thời
+
+**Ví dụ thực tế:**
+
+**Scenario 1: Master 0 đọc từ RAM (Slave 0)**
+```
+1. IDLE → SLAVE0: M0_ARVALID && S0_ARREADY, address = 0x0000_0000
+2. SLAVE0 → SLAVE0: M0_RREADY && S0_RVALID && !S0_RLAST (burst tiếp tục)
+3. SLAVE0 → IDLE: M0_RREADY && S0_RVALID && S0_RLAST (burst hoàn thành)
+```
+
+**Scenario 2: Cả 2 masters đọc đồng thời**
+```
+Master 0: IDLE → SLAVE0 (đọc từ RAM)
+Master 1: IDLE → SLAVE1 (đọc từ GPIO)
+→ Cả 2 FSM hoạt động độc lập, không ảnh hưởng lẫn nhau
+```
+
+---
+
+### 📊 Tổng Kết FSM của 5 Kênh AXI
+
+| Kênh | Module | Số Trạng Thái | Đặc Điểm Chính |
+|------|--------|---------------|----------------|
+| **AW** | `AW_Channel_Controller_Top` | 6 | Arbitration, Address Decode, Handshake |
+| **AR** | `AR_Channel_Controller_Top` | 6 | Tương tự AW nhưng cho Read |
+| **W** | `WD_Channel_Controller_Top` | 6 | Phụ thuộc AW, Queue Management, Burst Support |
+| **BR** | `BR_Channel_Controller_Top` | 6 | BID Matching, Response Arbitration |
+| **R** | `Controller.sv` | 5 (mỗi master) | 2 FSM độc lập, Address-based Routing, Burst Support |
+
+**Lưu ý quan trọng:**
+- Kênh **R** không có Controller_Top riêng vì logic đơn giản hơn và phụ thuộc vào AR channel
+- Mỗi master có FSM riêng cho R channel để hỗ trợ parallel operations
+- Tất cả các kênh đều hỗ trợ burst transactions với LAST signals
+
 ---
 
 ## 🚀 Hướng Dẫn Sử Dụng
@@ -487,41 +851,110 @@ Pass Rate:        100.0%
 
 ### AXI Bridge Testbenches
 
+Dự án bao gồm comprehensive testbenches cho cả **AXI Master Bridge** và **AXI Slave Bridge** với tổng cộng **20 test tasks** (10 cho mỗi bridge) và **48 test assertions**, tất cả đã được verify thành công với **100% pass rate**.
+
+#### Tổng Kết Test Cases
+
+| Bridge | Test Tasks | Test Assertions | Pass Rate | Trạng Thái |
+|--------|------------|-----------------|-----------|------------|
+| **AXI Master Bridge** | 10 | **22** | 100% | ✅ PASS |
+| **AXI Slave Bridge** | 10 | **26** | 100% | ✅ PASS |
+| **Tổng Cộng** | **20** | **48** | **100%** | ✅ **PASS** |
+
+**Lưu ý**: 
+- **Test Tasks**: Số lượng test functions/tasks được định nghĩa (mỗi task kiểm tra một chức năng cụ thể)
+- **Test Assertions**: Tổng số lần gọi `check_test()` trong tất cả các test tasks (mỗi assertion kiểm tra một điều kiện cụ thể)
+
+---
+
 #### AXI Master Bridge Testbench
 
 **File**: `SystemVerilog/testbenches/axi_bridge/axi_master_bridge_tb.sv`
 
-**Test Cases**:
-1. Write Transaction - ID Handling
-2. Read Transaction - ID Handling
-3. Protocol Conversion - ID Signal Removal
-4. Burst Write Transaction
-5. Signal Pass-through Verification
+**Mục đích**: Kiểm tra chức năng chuyển đổi từ AXI4 GP (có ID) sang AXI4 Full (không ID) và xử lý ID signals.
+
+**Tổng hợp 10 Test Tasks (22 Test Assertions)**:
+
+| # | Test Case | Mô Tả | Số Assertions | Kiểm Tra |
+|---|-----------|-------|---------------|----------|
+| **1** | **Write Transaction - ID Handling** | Ghi dữ liệu với ID | 3 | ID được trả về trong response, dữ liệu được ghi đúng, Read ID đúng |
+| **2** | **Read Transaction - ID Handling** | Đọc dữ liệu với ID | 2 | ID được trả về đúng, dữ liệu đọc đúng |
+| **3** | **Protocol Conversion - ID Signal Handling** | Chuyển đổi AXI4 GP → AXI4 Full | 1 | ID signals bị loại bỏ ở master interface |
+| **4** | **Burst Write Transaction** | Ghi burst (4 beats) | 2 | ID trả về đúng, response OKAY |
+| **5** | **Signal Pass-through Verification** | Kiểm tra pass-through | 2 | Address và data được truyền qua đúng |
+| **6** | **Burst Read Transaction** | Đọc burst (4 beats) | 3 | RLAST được assert, response OKAY, ID đúng |
+| **7** | **Multiple Outstanding Transactions** | Nhiều transaction đồng thời với ID khác nhau | 1 | Các transaction không bị nhiễu, ID được match đúng |
+| **8** | **Error Response Handling** | Xử lý error response (SLVERR) | 3 | Normal write/read OKAY, error response handling verified |
+| **9** | **Backpressure Testing** | Slave không ready | 2 | Bridge xử lý backpressure đúng, transaction completed |
+| **10** | **Concurrent Read and Write** | Đọc và ghi đồng thời | 3 | Concurrent read/write completed, không nhiễu |
+
+**Phân loại theo chức năng**:
+- **ID Handling**: Test 1, 2, 3, 7
+- **Burst Transactions**: Test 4, 6
+- **Protocol Conversion**: Test 3
+- **Error Handling**: Test 8
+- **Concurrency**: Test 7, 9, 10
+- **Signal Pass-through**: Test 5
 
 **Cách chạy**:
 ```tcl
-source "C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/run_bridge_tb.tcl"
-# Trong simulation console:
+source "C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/run_master_bridge_tb_auto.tcl"
+# Hoặc trong simulation console:
 run -all
 ```
+
+---
 
 #### AXI Slave Bridge Testbench
 
 **File**: `SystemVerilog/testbenches/axi_bridge/axi_slave_bridge_tb.sv`
 
-**Test Cases**:
-1. Single Write - Protocol Conversion
-2. Single Read - Protocol Conversion
-3. Burst Rejection - Write (should reject bursts)
-4. Signal Conversion - AXI4 Full to AXI4-Lite
-5. WLAST/RLAST Signal Enforcement
+**Mục đích**: Kiểm tra chức năng chuyển đổi từ AXI4 Full (hỗ trợ Burst) sang AXI4-Lite (single-beat only) và rejection của burst transactions.
+
+**Tổng hợp 10 Test Tasks (26 Test Assertions)**:
+
+| # | Test Case | Mô Tả | Số Assertions | Kiểm Tra |
+|---|-----------|-------|---------------|----------|
+| **1** | **Single Write - Protocol Conversion** | Ghi single-beat (AWLEN=0) | 3 | Write response OKAY, dữ liệu được ghi đúng, Read response OKAY |
+| **2** | **Single Read - Protocol Conversion** | Đọc single-beat (ARLEN=0) | 2 | Dữ liệu đọc đúng, RLAST=1 |
+| **3** | **Burst Write Rejection** | Thử ghi burst (AWLEN>0) | 1 | Bị reject với SLVERR response |
+| **4** | **Signal Conversion Verification** | Chuyển đổi AXI4 Full → AXI4-Lite | 3 | Master interface không có AWLEN, có AWPROT, address pass-through |
+| **5** | **WLAST/RLAST Signal Enforcement** | Kiểm tra WLAST/RLAST | 2 | WLAST=1 và RLAST=1 cho single transaction |
+| **6** | **Burst Read Rejection** | Thử đọc burst (ARLEN>0) | 1 | Bị reject với SLVERR response |
+| **7** | **Multiple Sequential Transactions** | Nhiều transaction tuần tự | 3 | First/Second/Third read data đều đúng |
+| **8** | **Address Alignment Verification** | Kiểm tra address alignment | 2 | 4-byte aligned addresses hoạt động đúng (2 addresses) |
+| **9** | **Write/Read Response Codes** | Kiểm tra response codes | 3 | Write/Read response OKAY, response codes verified |
+| **10** | **Protocol Compliance - AXI4-Lite Requirements** | Tuân thủ AXI4-Lite | 6 | AWLEN=0, ARLEN=0, WLAST=1, RLAST=1, không có burst signals, có AWPROT/ARPROT |
+
+**Phân loại theo chức năng**:
+- **Protocol Conversion**: Test 1, 2, 4, 10
+- **Burst Rejection**: Test 3, 6
+- **Signal Enforcement**: Test 5
+- **Error Handling**: Test 3, 6, 9
+- **Sequential Operations**: Test 7
+- **Address Handling**: Test 8
 
 **Cách chạy**:
 ```tcl
-source "C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/run_slave_bridge_tb.tcl"
-# Trong simulation console:
+source "C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/run_slave_bridge_tb_auto.tcl"
+# Hoặc trong simulation console:
 run -all
 ```
+
+---
+
+#### So Sánh Master Bridge vs Slave Bridge
+
+| Đặc Điểm | Master Bridge | Slave Bridge |
+|----------|---------------|--------------|
+| **Input Protocol** | AXI4 GP (có ID) | AXI4 Full (không ID) |
+| **Output Protocol** | AXI4 Full (không ID) | AXI4-Lite (single-beat) |
+| **ID Handling** | ✅ Lưu và trả về ID | ❌ Không có ID |
+| **Burst Support** | ✅ Hỗ trợ burst | ❌ Reject burst (SLVERR) |
+| **Focus Areas** | ID matching, concurrency | Protocol compliance, burst rejection |
+| **Test Tasks** | 10 | 10 |
+| **Test Assertions** | **22** | **26** |
+| **Pass Rate** | 100% | 100% |
 
 ### Design_1_Wrapper Testbench
 
@@ -728,6 +1161,8 @@ set_property top_lib xil_defaultlib [get_filesets sim_1]
 **FPGA**: Zynq UltraScale+ MPSoC (ZU5EV)  
 **Tool**: Vivado 2020.2 or later  
 **Status**: ✅ Ready for deployment
+
+> **📖 Hướng Dẫn Chi Tiết**: Xem file [`KV260_LINUX_PROGRAMMING_GUIDE.md`](./KV260_LINUX_PROGRAMMING_GUIDE.md) để biết cách nạp bitstream/XSA vào KV260 sau khi boot Linux 22.04 LTS.
 
 #### Board Specifications
 

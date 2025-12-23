@@ -106,6 +106,10 @@ set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
   set_param chipscope.maxJobs 4
+  set_param power.BramSDPPropagationFix 1
+  set_param power.enableUnconnectedCarry8PinPower 1
+  set_param power.enableCarry8RouteBelPower 1
+  set_param power.enableLutRouteBelPower 1
   set_param runs.launchOptions { -jobs 8  }
   open_checkpoint design_1_wrapper_routed.dcp
   set_property webtalk.parent_dir {C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.cache/wt} [current_project]

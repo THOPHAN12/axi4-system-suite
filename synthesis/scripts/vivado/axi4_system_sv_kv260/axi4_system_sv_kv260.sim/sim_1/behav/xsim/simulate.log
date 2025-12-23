@@ -13,7 +13,7 @@ Test 1: Single Write - Protocol Conversion
 ============================================================================
 [225000] [PASS] Write response OKAY
 [275000] [PASS] Data written correctly
-[275000] [FAIL] Read response OKAY
+[275000] [PASS] Read response OKAY
 
 ============================================================================
 Test 2: Single Read - Protocol Conversion
@@ -24,3 +24,68 @@ Test 2: Single Read - Protocol Conversion
 ============================================================================
 Test 3: Burst Write Rejection (AWLEN > 0)
 ============================================================================
+[625000] [PASS] Burst write rejected with SLVERR
+
+============================================================================
+Test 4: Signal Conversion - AXI4 Full to AXI4-Lite
+============================================================================
+[795000] [PASS] Master interface has no AWLEN
+[795000] [PASS] Master interface has AWPROT
+[795000] [PASS] Address passed through
+
+============================================================================
+Test 5: WLAST/RLAST Signal Enforcement
+============================================================================
+[945000] [PASS] WLAST is 1 for single transaction
+[995000] [PASS] RLAST is 1 for single transaction
+
+============================================================================
+Test 6: Burst Read Rejection (ARLEN > 0)
+============================================================================
+[1115000] [PASS] Burst read rejected with SLVERR
+
+============================================================================
+Test 7: Multiple Sequential Transactions
+============================================================================
+[1455000] [PASS] First read data correct
+[1505000] [PASS] Second read data correct
+[1555000] [PASS] Third read data correct
+
+============================================================================
+Test 8: Address Alignment Verification
+============================================================================
+[1755000] [PASS] 4-byte aligned address works
+[1865000] [PASS] Another aligned address works
+
+============================================================================
+Test 9: Write/Read Response Codes
+============================================================================
+[2035000] [PASS] Write response is OKAY
+[2065000] [PASS] Read response is OKAY
+[2065000] [PASS] Response codes verified
+
+============================================================================
+Test 10: Protocol Compliance - AXI4-Lite Requirements
+============================================================================
+[2225000] [PASS] AWLEN is 0 for single transaction
+[2265000] [PASS] ARLEN is 0 for single transaction
+[2265000] [PASS] WLAST is always 1
+[2265000] [PASS] RLAST is always 1
+[2265000] [PASS] Master interface has no AWLEN/ARLEN
+[2265000] [PASS] Master interface has AWPROT/ARPROT
+
+============================================================================
+Test Statistics
+============================================================================
+Total Tests:  26
+Passed:       26
+Failed:       0
+Pass Rate:    100.0%
+
+============================================================================
+ALL TESTS PASSED!
+============================================================================
+
+Simulation finished at time 2365000
+============================================================================
+$finish called at time : 3365 ns : File "C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/testbenches/axi_bridge/axi_slave_bridge_tb.sv" Line 766

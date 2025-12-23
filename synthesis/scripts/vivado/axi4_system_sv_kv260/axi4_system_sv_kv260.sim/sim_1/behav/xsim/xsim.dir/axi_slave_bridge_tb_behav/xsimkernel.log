@@ -1,7 +1,7 @@
-Running: xsim.dir/axi_slave_bridge_tb_behav/xsimk.exe -simmode gui -wdb axi_slave_bridge_tb_behav.wdb -simrunnum 0 -socket 49217
+Running: xsim.dir/axi_slave_bridge_tb_behav/xsimk.exe -simmode gui -wdb axi_slave_bridge_tb_behav.wdb -simrunnum 0 -socket 55607
 Design successfully loaded
-Design Loading Memory Usage: 30132 KB (Peak: 30132 KB)
-Design Loading CPU Usage: 1968 ms
+Design Loading Memory Usage: 29308 KB (Peak: 29308 KB)
+Design Loading CPU Usage: 984 ms
 Simulation completed
-Simulation Memory Usage: 33020 KB (Peak: 33020 KB)
-Simulation CPU Usage: 2374 ms
+Simulation Memory Usage: 31820 KB (Peak: 31820 KB)
+Simulation CPU Usage: 1125 ms

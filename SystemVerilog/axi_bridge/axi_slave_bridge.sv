@@ -107,16 +107,65 @@ logic read_is_single_beat;
 assign write_is_single_beat = (s_axi_awlen == 8'h00);
 assign read_is_single_beat  = (s_axi_arlen == 8'h00);
 
+// Burst rejection state machines
+logic write_burst_reject;
+logic read_burst_reject;
+logic write_burst_bvalid;
+logic read_burst_rvalid;
+
+// Detect burst write rejection
+always_ff @(posedge ACLK) begin
+    if (!ARESETN) begin
+        write_burst_reject <= 1'b0;
+        write_burst_bvalid <= 1'b0;
+    end else begin
+        // Set when burst write address is accepted
+        if (s_axi_awvalid && s_axi_awready && !write_is_single_beat) begin
+            write_burst_reject <= 1'b1;
+        end
+        // Generate B response when write data is received
+        if (s_axi_wvalid && s_axi_wready && write_burst_reject && !write_burst_bvalid) begin
+            write_burst_bvalid <= 1'b1;
+        end
+        // Clear after response handshake
+        if (s_axi_bvalid && s_axi_bready && write_burst_reject) begin
+            write_burst_reject <= 1'b0;
+            write_burst_bvalid <= 1'b0;
+        end
+    end
+end
+
+// Detect burst read rejection
+always_ff @(posedge ACLK) begin
+    if (!ARESETN) begin
+        read_burst_reject <= 1'b0;
+        read_burst_rvalid <= 1'b0;
+    end else begin
+        // Set when burst read address is accepted and generate R response immediately
+        if (s_axi_arvalid && s_axi_arready && !read_is_single_beat) begin
+            read_burst_reject <= 1'b1;
+            read_burst_rvalid <= 1'b1;
+        end
+        // Clear after read response handshake
+        if (s_axi_rvalid && s_axi_rready && read_burst_reject) begin
+            read_burst_reject <= 1'b0;
+            read_burst_rvalid <= 1'b0;
+        end
+    end
+end
+
 //==============================================================================
 // Write Address Channel - Convert to AXI4-Lite
 //==============================================================================
 // AXI4-Lite: No AWLEN, AWSIZE, AWBURST
-// Only accept single-beat transactions (AWLEN=0)
+// Accept address handshake even for bursts (to reject with SLVERR)
 
 assign m_axi_awaddr  = s_axi_awaddr;
 assign m_axi_awprot  = 3'b000;  // Default protection (normal, secure, data)
 assign m_axi_awvalid = s_axi_awvalid && write_is_single_beat;
-assign s_axi_awready = m_axi_awready && write_is_single_beat;
+// Accept address handshake for bursts too (to generate error response)
+assign s_axi_awready = (m_axi_awready && write_is_single_beat) || 
+                       (s_axi_awvalid && !write_is_single_beat);
 
 // Note: Dropping s_axi_awlen, s_axi_awsize, s_axi_awburst (not in AXI4-Lite)
 
@@ -128,41 +177,45 @@ assign s_axi_awready = m_axi_awready && write_is_single_beat;
 assign m_axi_wdata  = s_axi_wdata;
 assign m_axi_wstrb  = s_axi_wstrb;
 assign m_axi_wvalid = s_axi_wvalid && write_is_single_beat;
-assign s_axi_wready = m_axi_wready && write_is_single_beat;
+// Accept write data for bursts too (to complete transaction and generate error)
+assign s_axi_wready = (m_axi_wready && write_is_single_beat) || 
+                      (s_axi_wvalid && !write_is_single_beat);
 
 // Note: WLAST is not in AXI4-Lite (implicitly always last)
 
 //==============================================================================
-// Write Response Channel - Pass through
+// Write Response Channel - Generate SLVERR for bursts
 //==============================================================================
 
-assign s_axi_bresp  = m_axi_bresp;
-assign s_axi_bvalid = m_axi_bvalid;
-assign m_axi_bready = s_axi_bready;
+assign s_axi_bresp  = write_burst_reject ? 2'b10 : m_axi_bresp;  // SLVERR for bursts
+assign s_axi_bvalid = write_burst_reject ? write_burst_bvalid : m_axi_bvalid;
+assign m_axi_bready = s_axi_bready && !write_burst_reject;
 
 //==============================================================================
 // Read Address Channel - Convert to AXI4-Lite
 //==============================================================================
 // AXI4-Lite: No ARLEN, ARSIZE, ARBURST
-// Only accept single-beat transactions (ARLEN=0)
+// Accept address handshake even for bursts (to reject with SLVERR)
 
 assign m_axi_araddr  = s_axi_araddr;
 assign m_axi_arprot  = 3'b000;  // Default protection (normal, secure, data)
 assign m_axi_arvalid = s_axi_arvalid && read_is_single_beat;
-assign s_axi_arready = m_axi_arready && read_is_single_beat;
+// Accept address handshake for bursts too (to generate error response)
+assign s_axi_arready = (m_axi_arready && read_is_single_beat) || 
+                      (s_axi_arvalid && !read_is_single_beat);
 
 // Note: Dropping s_axi_arlen, s_axi_arsize, s_axi_arburst (not in AXI4-Lite)
 
 //==============================================================================
-// Read Data Channel - Pass through and enforce RLAST=1
+// Read Data Channel - Generate SLVERR for bursts
 //==============================================================================
 // AXI4-Lite always returns single data beat, so RLAST is always 1
 
-assign s_axi_rdata  = m_axi_rdata;
-assign s_axi_rresp  = m_axi_rresp;
+assign s_axi_rdata  = read_burst_reject ? 32'h0 : m_axi_rdata;
+assign s_axi_rresp  = read_burst_reject ? 2'b10 : m_axi_rresp;  // SLVERR for bursts
 assign s_axi_rlast  = 1'b1;  // AXI4-Lite always has single beat, so RLAST always 1
-assign s_axi_rvalid = m_axi_rvalid;
-assign m_axi_rready = s_axi_rready;
+assign s_axi_rvalid = read_burst_reject ? read_burst_rvalid : m_axi_rvalid;
+assign m_axi_rready = s_axi_rready && !read_burst_reject;
 
 endmodule
 
