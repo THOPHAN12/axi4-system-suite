@@ -1,0 +1,218 @@
+# do run_comprehensive_system_tb.tcl 
+# .
+# C:/Users/Nguyen Ha Hai/axi4-system-suite
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_masters
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_bridge
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/peripherals
+# -sv -work work
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/utils/Faling_Edge_Detc.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/utils/Raising_Edge_Det.sv
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/buffers/Queue.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/buffers/Resp_Queue.sv
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/handshake/AW_HandShake_Checker.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/handshake/WD_HandShake.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/handshake/WR_HandShake.sv
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Read_Addr_Channel_Dec.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Write_Addr_Channel_Dec.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Write_Resp_Channel_Arb.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Write_Resp_Channel_Dec.sv
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/arbiter_fixed_priority.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/arbiter_qos_based.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/arbiter_round_robin.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/read_arbiter.sv
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1x2.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1x2_en.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1x4.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1_2.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/AW_MUX_2_1.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/BReady_MUX_2_1.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/Mux_2x1.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/Mux_2x1_en.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/Mux_4x1.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/WD_MUX_2_1.sv
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/read/AR_Channel_Controller_Top.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/read/Controller.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/write/AW_Channel_Controller_Top.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/write/BR_Channel_Controller_Top.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/write/WD_Channel_Controller_Top.sv
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Interconnect.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Interconnect_Full.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Master_Aggregator.sv
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_masters/axi_master_0.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_masters/axi_master_1.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_masters/master_controller.sv
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/peripherals/axi_lite/axi_lite_gpio.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/peripherals/axi_lite/axi_lite_ram.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/peripherals/axi_lite/axi_lite_spi.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/peripherals/axi_lite/axi_lite_uart.sv
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/testbenches/axi_masters/comprehensive_system_tb.sv
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: (vlog-19) Failed to access library 'work' at "work".
+# 
+# No such file or directory. (errno = ENOENT)

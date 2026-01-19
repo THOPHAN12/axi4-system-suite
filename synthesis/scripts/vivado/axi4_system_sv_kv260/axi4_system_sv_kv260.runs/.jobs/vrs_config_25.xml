@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="design_1_zynq_ultra_ps_e_0_0_synth_1" LaunchDir="C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.runs/design_1_zynq_ultra_ps_e_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_axi_master_bridge_0_0_synth_1" LaunchDir="C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.runs/design_1_axi_master_bridge_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_axi_master_bridge_1_0_synth_1" LaunchDir="C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.runs/design_1_axi_master_bridge_1_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="design_1_axi_master_bridge_0_0_synth_1"/>
+	</Run>
+	<Run Id="design_1_axi_slave_bridge_s2_0_synth_1" LaunchDir="C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.runs/design_1_axi_slave_bridge_s2_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_axi_slave_bridge_s3_0_synth_1" LaunchDir="C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.runs/design_1_axi_slave_bridge_s3_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="design_1_axi_slave_bridge_s2_0_synth_1"/>
+	</Run>
+	<Run Id="design_1_axi_slave_bridge_s1_0_synth_1" LaunchDir="C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.runs/design_1_axi_slave_bridge_s1_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="design_1_axi_slave_bridge_s2_0_synth_1"/>
+	</Run>
+	<Run Id="synth_1" LaunchDir="C:/Users/Nguyen Ha Hai/axi4-system-suite/synthesis/scripts/vivado/axi4_system_sv_kv260/axi4_system_sv_kv260.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="design_1_zynq_ultra_ps_e_0_0_synth_1"/>
+		<Parent Id="design_1_axi_master_bridge_0_0_synth_1"/>
+		<Parent Id="design_1_axi_master_bridge_1_0_synth_1"/>
+		<Parent Id="design_1_axi_slave_bridge_s2_0_synth_1"/>
+		<Parent Id="design_1_axi_slave_bridge_s3_0_synth_1"/>
+		<Parent Id="design_1_axi_slave_bridge_s1_0_synth_1"/>
+	</Run>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+		<Parameter Name="runs.enableClusterConf" Val="true" Type="bool"/>
+		<Parameter Name="general.shortenLongPath" Val="true" Type="bool"/>
+	</Parameters>
+	<ProductInfo Name="vivado"/>
+</Runs>
+

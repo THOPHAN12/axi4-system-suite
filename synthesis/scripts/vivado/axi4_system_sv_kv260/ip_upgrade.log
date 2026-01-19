@@ -1,0 +1,100 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Sun Dec 21 01:01:33 2025
+| Host         : NGUYEN-HA-HAI running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xczu5ev-sfvc784-1-e
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_axi_slave_bridge_s3_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_axi_slave_bridge_s3_0 (user.org:user:axi_slave_bridge:1.0) from (Rev. 1) to (Rev. 2)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Sun Dec 21 01:01:33 2025
+| Host         : NGUYEN-HA-HAI running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xczu5ev-sfvc784-1-e
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_axi_slave_bridge_s2_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_axi_slave_bridge_s2_0 (user.org:user:axi_slave_bridge:1.0) from (Rev. 1) to (Rev. 2)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Sun Dec 21 01:01:33 2025
+| Host         : NGUYEN-HA-HAI running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xczu5ev-sfvc784-1-e
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_axi_slave_bridge_s1_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_axi_slave_bridge_s1_0 (user.org:user:axi_slave_bridge:1.0) from (Rev. 1) to (Rev. 2)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Sun Dec 21 01:01:33 2025
+| Host         : NGUYEN-HA-HAI running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xczu5ev-sfvc784-1-e
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_axi_master_bridge_1_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_axi_master_bridge_1_0 (user.org:user:axi_master_bridge:1.0) from (Rev. 1) to (Rev. 2)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Sun Dec 21 01:01:33 2025
+| Host         : NGUYEN-HA-HAI running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xczu5ev-sfvc784-1-e
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_axi_master_bridge_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_axi_master_bridge_0_0 (user.org:user:axi_master_bridge:1.0) from (Rev. 1) to (Rev. 2)
+

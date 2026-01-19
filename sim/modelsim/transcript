@@ -1,0 +1,247 @@
+# do run_comprehensive_tb_simple.tcl 
+# .
+# C:/Users/Nguyen Ha Hai/axi4-system-suite
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/testbenches/axi_masters/comprehensive_system_tb.sv
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_masters
+# reading modelsim.ini
+# Modifying modelsim.ini
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Write_Arbiter
+# 
+# Top level modules:
+# 	Write_Arbiter
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Qos_Arbiter
+# 
+# Top level modules:
+# 	Qos_Arbiter
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Write_Arbiter_RR
+# 
+# Top level modules:
+# 	Write_Arbiter_RR
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Read_Arbiter
+# 
+# Top level modules:
+# 	Read_Arbiter
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Queue
+# 
+# Top level modules:
+# 	Queue
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Resp_Queue
+# 
+# Top level modules:
+# 	Resp_Queue
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module AR_Channel_Controller_Top
+# 
+# Top level modules:
+# 	AR_Channel_Controller_Top
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Controller
+# 
+# Top level modules:
+# 	Controller
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module AW_Channel_Controller_Top
+# 
+# Top level modules:
+# 	AW_Channel_Controller_Top
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module BR_Channel_Controller_Top
+# 
+# Top level modules:
+# 	BR_Channel_Controller_Top
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module WD_Channel_Controller_Top
+# 
+# Top level modules:
+# 	WD_Channel_Controller_Top
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module AXI_Interconnect
+# 
+# Top level modules:
+# 	AXI_Interconnect
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module AXI_Interconnect_Full
+# 
+# Top level modules:
+# 	AXI_Interconnect_Full
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module AXI_Master_Aggregator
+# 
+# Top level modules:
+# 	AXI_Master_Aggregator
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Demux_1x2
+# 
+# Top level modules:
+# 	Demux_1x2
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Demux_1x2_en
+# 
+# Top level modules:
+# 	Demux_1x2_en
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Demux_1x4
+# 
+# Top level modules:
+# 	Demux_1x4
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Demux_1_2
+# 
+# Top level modules:
+# 	Demux_1_2
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module AW_MUX_2_1
+# 
+# Top level modules:
+# 	AW_MUX_2_1
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module BReady_MUX_2_1
+# 
+# Top level modules:
+# 	BReady_MUX_2_1
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Mux_2x1
+# 
+# Top level modules:
+# 	Mux_2x1
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Mux_2x1_en
+# 
+# Top level modules:
+# 	Mux_2x1_en
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Mux_4x1
+# 
+# Top level modules:
+# 	Mux_4x1
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module WD_MUX_2_1
+# 
+# Top level modules:
+# 	WD_MUX_2_1
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Read_Addr_Channel_Dec
+# 
+# Top level modules:
+# 	Read_Addr_Channel_Dec
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Write_Addr_Channel_Dec
+# 
+# Top level modules:
+# 	Write_Addr_Channel_Dec
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Write_Resp_Channel_Arb
+# 
+# Top level modules:
+# 	Write_Resp_Channel_Arb
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Write_Resp_Channel_Dec
+# 
+# Top level modules:
+# 	Write_Resp_Channel_Dec
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module AW_HandShake_Checker
+# 
+# Top level modules:
+# 	AW_HandShake_Checker
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module WD_HandShake
+# 
+# Top level modules:
+# 	WD_HandShake
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module WR_HandShake
+# 
+# Top level modules:
+# 	WR_HandShake
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Faling_Edge_Detc
+# 
+# Top level modules:
+# 	Faling_Edge_Detc
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Raising_Edge_Det
+# 
+# Top level modules:
+# 	Raising_Edge_Det
+# 33
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module axi_master_0
+# 
+# Top level modules:
+# 	axi_master_0
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module axi_master_1
+# 
+# Top level modules:
+# 	axi_master_1
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module master_controller
+# -- Compiling interface master_controller_if
+# -- Compiling package master_controller_sv_unit
+# -- Compiling interface master_controller_if
+# 
+# Top level modules:
+# 	master_controller
+# 3
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/testbenches/axi_masters/comprehensive_system_tb.sv
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module comprehensive_system_tb
+# -- Compiling module axi_simple_slave_model_comprehensive
+# 
+# Top level modules:
+# 	comprehensive_system_tb
+# vsim -voptargs=\"+acc\" work.comprehensive_system_tb 
+# Loading sv_std.std
+# Loading work.comprehensive_system_tb
+# Loading work.axi_master_0
+# Loading work.axi_master_1
+# Loading work.AXI_Interconnect
+# Loading work.AXI_Interconnect_Full
+# Loading work.AW_Channel_Controller_Top
+# Loading work.Qos_Arbiter
+# Loading work.Faling_Edge_Detc
+# Loading work.Raising_Edge_Det
+# Loading work.AW_HandShake_Checker
+# Loading work.Demux_1_2
+# Loading work.AW_MUX_2_1
+# Loading work.Write_Addr_Channel_Dec
+# Loading work.WD_Channel_Controller_Top
+# Loading work.Queue
+# Loading work.WD_HandShake
+# Loading work.WD_MUX_2_1
+# Loading work.BR_Channel_Controller_Top
+# Loading work.WR_HandShake
+# Loading work.Write_Resp_Channel_Arb
+# Loading work.BReady_MUX_2_1
+# Loading work.Write_Resp_Channel_Dec
+# Loading work.AR_Channel_Controller_Top
+# Loading work.Read_Arbiter
+# Loading work.Mux_2x1
+# Loading work.Read_Addr_Channel_Dec
+# Loading work.Controller
+# Loading work.Demux_1x4
+# Loading work.Mux_4x1
+# Loading work.axi_simple_slave_model_comprehensive
+# ** Warning: (vsim-3017) C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Interconnect.sv(529): [TFMPC] - Too few port connections. Expected 234, found 229.
+# 
+#         Region: /comprehensive_system_tb/dut/u_full_interconnect
+# ** Warning: (vsim-3722) C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Interconnect.sv(529): [TFMPC] - Missing connection for port 'S00_AXI_arregion'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Interconnect.sv(529): [TFMPC] - Missing connection for port 'slave2_addr1'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Interconnect.sv(529): [TFMPC] - Missing connection for port 'slave2_addr2'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Interconnect.sv(529): [TFMPC] - Missing connection for port 'slave3_addr1'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Interconnect.sv(529): [TFMPC] - Missing connection for port 'slave3_addr2'.
+# 
+# ./comprehensive_system_tb_transcript.log

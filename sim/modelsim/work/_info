@@ -1,0 +1,919 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Nguyen Ha Hai\axi4-system-suite\sim\modelsim
+vAR_Channel_Controller_Top
+Z1 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+Z2 I=4Il=VFGMXK2KMHQ=QP2A2
+Z3 VY_Bk:A3Y6<[OQEkaT>cQ^1
+S1
+Z4 dC:\Users\Nguyen Ha Hai\axi4-system-suite\sim\modelsim
+Z5 w1765538647
+Z6 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/read/AR_Channel_Controller_Top.sv
+Z7 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/read/AR_Channel_Controller_Top.sv
+L0 17
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 o-work work -sv -O0
+Z10 n@a@r_@channel_@controller_@top
+Z11 !s100 1]L?kQhjgjbSJZY1Plz@L0
+Z12 !s105 AR_Channel_Controller_Top_sv_unit
+Z13 !s108 1765907632.918000
+Z14 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/read/AR_Channel_Controller_Top.sv|
+Z15 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/read/AR_Channel_Controller_Top.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vAW_Channel_Controller_Top
+R1
+Z16 I]9[JYbgEo0eAzRiXIN8AN0
+Z17 V]dJ4liQmmYOLHzY2ZDL7R3
+S1
+R4
+Z18 w1765906943
+Z19 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/write/AW_Channel_Controller_Top.sv
+Z20 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/write/AW_Channel_Controller_Top.sv
+L0 2
+R8
+r1
+31
+R9
+Z21 n@a@w_@channel_@controller_@top
+Z22 !s100 Y8`C?O1Z>]GWYOZhXDI]K2
+Z23 !s105 AW_Channel_Controller_Top_sv_unit
+Z24 !s108 1765907633.145000
+Z25 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/write/AW_Channel_Controller_Top.sv|
+Z26 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/write/AW_Channel_Controller_Top.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vAW_HandShake_Checker
+R1
+Z27 IQjA@OQ31EdHGkk[W]CejR2
+Z28 VbE_cBa0Qi1LLd_d02j>KZ2
+S1
+R4
+Z29 w1765906171
+Z30 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/handshake/AW_HandShake_Checker.sv
+Z31 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/handshake/AW_HandShake_Checker.sv
+L0 1
+R8
+r1
+31
+R9
+Z32 n@a@w_@hand@shake_@checker
+Z33 !s100 KKYabK`nI?kLe[ia3;O9E1
+Z34 !s105 AW_HandShake_Checker_sv_unit
+Z35 !s108 1765907635.447000
+Z36 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/handshake/AW_HandShake_Checker.sv|
+Z37 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/handshake/AW_HandShake_Checker.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vAW_MUX_2_1
+R1
+Z38 IY9C<<Nh8UnR>XB53d<UG11
+Z39 VjO^VD[]U@WccGPVh@@gM:0
+S1
+R4
+R5
+Z40 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/AW_MUX_2_1.sv
+Z41 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/AW_MUX_2_1.sv
+L0 2
+R8
+r1
+31
+R9
+Z42 n@a@w_@m@u@x_2_1
+Z43 !s100 <<I^`RYeGk=zH<@mmNecj1
+Z44 !s105 AW_MUX_2_1_sv_unit
+Z45 !s108 1765907634.328000
+Z46 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/AW_MUX_2_1.sv|
+Z47 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/AW_MUX_2_1.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vAXI_Interconnect
+R1
+Z48 ICQGB=L?JCe4PC:_KX]4K01
+Z49 Va<noz^H4iQ7T6[gCLgm@Q0
+S1
+R4
+R29
+Z50 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Interconnect.sv
+Z51 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Interconnect.sv
+L0 12
+R8
+r1
+31
+R9
+Z52 n@a@x@i_@interconnect
+Z53 !s100 @2dV6`gYMlS_c_2BhfV@I2
+Z54 !s105 AXI_Interconnect_sv_unit
+Z55 !s108 1765907633.479000
+Z56 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Interconnect.sv|
+Z57 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Interconnect.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vAXI_Interconnect_Full
+R1
+Z58 Ih[lMMkn<TdK[8=d:ZV==f0
+Z59 VWfR[2:PVC6QTf=MJU:hc13
+S1
+R4
+R5
+Z60 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Interconnect_Full.sv
+Z61 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Interconnect_Full.sv
+L0 1
+R8
+r1
+31
+R9
+Z62 n@a@x@i_@interconnect_@full
+Z63 !s100 TQP4Ol<bn;>a?>U3Db^[W0
+Z64 !s105 AXI_Interconnect_Full_sv_unit
+Z65 !s108 1765907633.630000
+Z66 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Interconnect_Full.sv|
+Z67 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Interconnect_Full.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vaxi_master_0
+R1
+Z68 IIj691Gj3id@0k<jLiURW31
+Z69 V16YeTOi=^<J1KD=O@fddj3
+S1
+R4
+Z70 w1765901304
+Z71 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_masters/axi_master_0.sv
+Z72 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_masters/axi_master_0.sv
+L0 14
+R8
+r1
+31
+R9
+Z73 !s100 LfnSzAJNjDRFY8O0JBADo1
+Z74 !s105 axi_master_0_sv_unit
+Z75 !s108 1765907635.954000
+Z76 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_masters/axi_master_0.sv|
+Z77 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_masters/axi_master_0.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vaxi_master_1
+R1
+Z78 IXOU7>lh9ChJQIz>z1K2=h1
+Z79 V]19cjk6PSjF>n2Q]F7Y^S3
+S1
+R4
+R18
+Z80 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_masters/axi_master_1.sv
+Z81 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_masters/axi_master_1.sv
+L0 15
+R8
+r1
+31
+R9
+Z82 !s100 JTVDW[Xe0a3Qi9Dfz;zaE0
+Z83 !s105 axi_master_1_sv_unit
+Z84 !s108 1765907636.062000
+Z85 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_masters/axi_master_1.sv|
+Z86 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_masters/axi_master_1.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vAXI_Master_Aggregator
+R1
+Z87 I3cSz0iUFne?<gk6z=6^m@2
+Z88 VCAY2aH1QOGIUzW^eTHa:72
+S1
+R4
+R5
+Z89 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Master_Aggregator.sv
+Z90 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Master_Aggregator.sv
+L0 15
+R8
+r1
+31
+R9
+Z91 n@a@x@i_@master_@aggregator
+Z92 !s100 ;oYHGEHgGWdD`Fnl=P6jb1
+Z93 !s105 AXI_Master_Aggregator_sv_unit
+Z94 !s108 1765907633.765000
+Z95 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Master_Aggregator.sv|
+Z96 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/core/AXI_Master_Aggregator.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vaxi_simple_slave_model_comprehensive
+R1
+!i10b 1
+!s100 M3jJjH]P]JehUaNoKP7Fk2
+IGPGlFj`5eBGb7VV6dohRX2
+VD>7K[1e9eKc=DSC9Un^lY2
+Z97 !s105 comprehensive_system_tb_sv_unit
+S1
+R4
+Z98 w1765907628
+Z99 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/testbenches/axi_masters/comprehensive_system_tb.sv
+Z100 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/testbenches/axi_masters/comprehensive_system_tb.sv
+L0 1079
+R8
+r1
+!s85 0
+31
+Z101 !s108 1765907636.418000
+Z102 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/testbenches/axi_masters/comprehensive_system_tb.sv|
+Z103 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/testbenches/axi_masters/comprehensive_system_tb.sv|
+!s101 -O0
+R9
+vBR_Channel_Controller_Top
+R1
+Z104 Iogzd[Vc<1lRWzYkfMgiJL3
+Z105 VN?];Vzo5@c4>m`WcCm]`S0
+S1
+R4
+R29
+Z106 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/write/BR_Channel_Controller_Top.sv
+Z107 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/write/BR_Channel_Controller_Top.sv
+L0 1
+R8
+r1
+31
+R9
+Z108 n@b@r_@channel_@controller_@top
+Z109 !s100 lgRLKAn:UjEDji69Pj<ak1
+Z110 !s105 BR_Channel_Controller_Top_sv_unit
+Z111 !s108 1765907633.253000
+Z112 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/write/BR_Channel_Controller_Top.sv|
+Z113 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/write/BR_Channel_Controller_Top.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vBReady_MUX_2_1
+R1
+Z114 I=HW<Ab72_0?R@S=B8P54U2
+Z115 V=k^@f?mYYK`_:[oK2jiNP1
+S1
+R4
+R5
+Z116 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/BReady_MUX_2_1.sv
+Z117 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/BReady_MUX_2_1.sv
+L0 1
+R8
+r1
+31
+R9
+Z118 n@b@ready_@m@u@x_2_1
+Z119 !s100 k8IRZOk1EF7;FZLNMa95l0
+Z120 !s105 BReady_MUX_2_1_sv_unit
+Z121 !s108 1765907634.424000
+Z122 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/BReady_MUX_2_1.sv|
+Z123 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/BReady_MUX_2_1.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vcomprehensive_system_tb
+R1
+!i10b 1
+!s100 Z4jG_9N5GRYFV9oY;n0Co3
+IN3kJ:5>fRaF]iVmzS@i2g2
+V`7ZAjTA::^EOggdd8?K280
+R97
+S1
+R4
+R98
+R99
+R100
+L0 14
+R8
+r1
+!s85 0
+31
+R101
+R102
+R103
+!s101 -O0
+R9
+vController
+R1
+Z124 IVzE>IX_D:=TC21Cmo6CW@3
+Z125 ViYUCOa=7l3:Si]P7^f3a11
+S1
+R4
+R5
+Z126 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/read/Controller.sv
+Z127 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/read/Controller.sv
+L0 1
+R8
+r1
+31
+R9
+Z128 n@controller
+Z129 !s100 6h5YmUQb]4PmiTRGRFE<B2
+Z130 !s105 Controller_sv_unit
+Z131 !s108 1765907633.033000
+Z132 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/read/Controller.sv|
+Z133 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/read/Controller.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vDemux_1_2
+R1
+Z134 Ikz2PLhnlKVLAjNni_oaMi0
+Z135 V6Gb]LgAkF;@U<GW2N0R`[0
+S1
+R4
+R5
+Z136 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1_2.sv
+Z137 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1_2.sv
+L0 1
+R8
+r1
+31
+R9
+Z138 n@demux_1_2
+Z139 !s100 _QT8KD1T2OZ>X;0HeTG141
+Z140 !s105 Demux_1_2_sv_unit
+Z141 !s108 1765907634.216000
+Z142 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1_2.sv|
+Z143 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1_2.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vDemux_1x2
+R1
+Z144 I0A=NF4d9:H:`@64G8LH7T1
+Z145 VBE=Wc34[Lh?H=:aojlcS23
+S1
+R4
+Z146 w1765559936
+Z147 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1x2.sv
+Z148 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1x2.sv
+L0 1
+R8
+r1
+31
+R9
+Z149 n@demux_1x2
+Z150 !s100 h7gKhcFeeSb]o1n>FgH[;0
+Z151 !s105 Demux_1x2_sv_unit
+Z152 !s108 1765907633.899000
+Z153 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1x2.sv|
+Z154 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1x2.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vDemux_1x2_en
+R1
+Z155 IUWGb_^7bkE<LdH[KWBVg>1
+Z156 Vc?JLb5lS5Z0]8R>Pf`8k:0
+S1
+R4
+R146
+Z157 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1x2_en.sv
+Z158 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1x2_en.sv
+L0 1
+R8
+r1
+31
+R9
+Z159 n@demux_1x2_en
+Z160 !s100 BnzA`Ld]O<7A^mUiiT8=K3
+Z161 !s105 Demux_1x2_en_sv_unit
+Z162 !s108 1765907633.996000
+Z163 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1x2_en.sv|
+Z164 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1x2_en.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vDemux_1x4
+R1
+Z165 Ij8kVbndmdC?CA5c?<T83D3
+Z166 VU0Md@1eT4SVz8P86NeRh12
+S1
+R4
+R5
+Z167 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1x4.sv
+Z168 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1x4.sv
+L0 19
+R8
+r1
+31
+R9
+Z169 n@demux_1x4
+Z170 !s100 O>4zdB1PYg^bSV7LmT:KW3
+Z171 !s105 Demux_1x4_sv_unit
+Z172 !s108 1765907634.113000
+Z173 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1x4.sv|
+Z174 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/demux/Demux_1x4.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vFaling_Edge_Detc
+R1
+Z175 I^hmW^0olM>o?Qc26BEM`J3
+Z176 VgHAcNRm[k[Z@FS>T@YlQC2
+S1
+R4
+R5
+Z177 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/utils/Faling_Edge_Detc.sv
+Z178 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/utils/Faling_Edge_Detc.sv
+L0 1
+R8
+r1
+31
+R9
+Z179 n@faling_@edge_@detc
+Z180 !s100 W3JZ?n6Ca<Wl^Z4iQ7:9?2
+Z181 !s105 Faling_Edge_Detc_sv_unit
+Z182 !s108 1765907635.749000
+Z183 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/utils/Faling_Edge_Detc.sv|
+Z184 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/utils/Faling_Edge_Detc.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vmaster_controller
+R1
+Z185 IK9ZJA_0DWNKEaz=HBkG^z2
+Z186 VCKRVA;L_XOdDI;kJ@N8?_1
+Z187 !s105 master_controller_sv_unit
+S1
+R4
+Z188 w1765608964
+Z189 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_masters/master_controller.sv
+Z190 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_masters/master_controller.sv
+L0 17
+R8
+r1
+31
+Z191 !s108 1765907636.223000
+Z192 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_masters/master_controller.sv|
+Z193 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_masters/master_controller.sv|
+R9
+!i10b 1
+Z194 !s100 KfTg>?NjYjGYH>6AzXWDh0
+!s85 0
+!s101 -O0
+Ymaster_controller_if
+R1
+Z195 DXx4 work 25 master_controller_sv_unit 0 22 J7_1<Z5LTNhlmR0Qc6nO11
+Z196 VTiGITG5gYE_`0hojNi=4<2
+r1
+31
+Z197 I_N8K59lda^XmPAT]?3M^10
+R187
+S1
+R4
+R188
+R189
+R190
+Z198 L0 339
+R8
+R191
+R192
+R193
+R9
+!s85 0
+!i10b 1
+Z199 !s100 C4XSRPL=[=5VY`KQ1k]MU3
+!s101 -O0
+Xmaster_controller_sv_unit
+R1
+Z200 VJ7_1<Z5LTNhlmR0Qc6nO11
+r1
+31
+Z201 IJ7_1<Z5LTNhlmR0Qc6nO11
+S1
+R4
+R188
+R189
+R190
+Z202 L0 215
+R8
+R191
+R192
+R193
+R9
+!s85 0
+!i10b 1
+Z203 !s100 Qgn04;dme6EhiAOQgcY1b1
+!i103 1
+!s101 -O0
+vMux_2x1
+R1
+Z204 ICfRTC3haWIlKPXe_NFo1c0
+Z205 V=JT=JY]c]zVD1Gc4Z@lkc1
+S1
+R4
+R146
+Z206 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/Mux_2x1.sv
+Z207 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/Mux_2x1.sv
+L0 1
+R8
+r1
+31
+R9
+Z208 n@mux_2x1
+Z209 !s100 EF3kA9Y[9;VZb7@oWa@cM1
+Z210 !s105 Mux_2x1_sv_unit
+Z211 !s108 1765907634.519000
+Z212 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/Mux_2x1.sv|
+Z213 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/Mux_2x1.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vMux_2x1_en
+R1
+Z214 IFKPIRA3`eHlIe=4W2VMf42
+Z215 V@7RPnBPLI@fD_aTg_mZ0l3
+S1
+R4
+R146
+Z216 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/Mux_2x1_en.sv
+Z217 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/Mux_2x1_en.sv
+L0 1
+R8
+r1
+31
+R9
+Z218 n@mux_2x1_en
+Z219 !s100 >h0zFK>iX3MF[nS:P5]3N1
+Z220 !s105 Mux_2x1_en_sv_unit
+Z221 !s108 1765907634.628000
+Z222 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/Mux_2x1_en.sv|
+Z223 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/Mux_2x1_en.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vMux_4x1
+R1
+Z224 ICML31D1[B=QVLgU[ZX?_m2
+Z225 VChDNViLEg:RQcWhm<1gJY0
+S1
+R4
+R5
+Z226 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/Mux_4x1.sv
+Z227 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/Mux_4x1.sv
+L0 22
+R8
+r1
+31
+R9
+Z228 n@mux_4x1
+Z229 !s100 M8Pl2C^OnaNlVTV<Vn]FY2
+Z230 !s105 Mux_4x1_sv_unit
+Z231 !s108 1765907634.728000
+Z232 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/Mux_4x1.sv|
+Z233 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/Mux_4x1.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vQos_Arbiter
+R1
+Z234 IYZn3]6<nQe120_EhXUf4N3
+Z235 V46BkFdD9beGAUdN[0CaFM2
+S1
+R4
+R18
+Z236 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/arbiter_qos_based.sv
+Z237 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/arbiter_qos_based.sv
+L0 1
+R8
+r1
+31
+R9
+Z238 n@qos_@arbiter
+Z239 !s100 _YZ>6DgaBfSc1JoH@J^je3
+Z240 !s105 arbiter_qos_based_sv_unit
+Z241 !s108 1765907632.366000
+Z242 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/arbiter_qos_based.sv|
+Z243 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/arbiter_qos_based.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vQueue
+R1
+Z244 Ij7W_g49D]o9FOfF7CNGTC0
+Z245 VM38=O9;5]5e3zfFkbX?JK3
+S1
+R4
+R5
+Z246 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/buffers/Queue.sv
+Z247 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/buffers/Queue.sv
+L0 1
+R8
+r1
+31
+R9
+Z248 n@queue
+Z249 !s100 SY>BFGdLlfVWzH^4@eQ^[0
+Z250 !s105 Queue_sv_unit
+Z251 !s108 1765907632.696000
+Z252 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/buffers/Queue.sv|
+Z253 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/buffers/Queue.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vRaising_Edge_Det
+R1
+Z254 IBi_ZH6?[EzNINn4NN96_h2
+Z255 VePcO8M7jVzBYomfi6UGfM2
+S1
+R4
+R5
+Z256 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/utils/Raising_Edge_Det.sv
+Z257 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/utils/Raising_Edge_Det.sv
+L0 1
+R8
+r1
+31
+R9
+Z258 n@raising_@edge_@det
+Z259 !s100 cH?K6li^=bQ?l]V31SdOP3
+Z260 !s105 Raising_Edge_Det_sv_unit
+Z261 !s108 1765907635.856000
+Z262 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/utils/Raising_Edge_Det.sv|
+Z263 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/utils/Raising_Edge_Det.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vRead_Addr_Channel_Dec
+R1
+Z264 II6MUQSW_hmPJ1TFa>k03;1
+Z265 V1URAM20ZWg^n^gW3]D4BF2
+S1
+R4
+R18
+Z266 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Read_Addr_Channel_Dec.sv
+Z267 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Read_Addr_Channel_Dec.sv
+L0 23
+R8
+r1
+31
+R9
+Z268 n@read_@addr_@channel_@dec
+Z269 !s100 ?_jMeAE2TH98P4aKUfKc43
+Z270 !s105 Read_Addr_Channel_Dec_sv_unit
+Z271 !s108 1765907634.939000
+Z272 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Read_Addr_Channel_Dec.sv|
+Z273 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Read_Addr_Channel_Dec.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vRead_Arbiter
+R1
+Z274 IgSGzeRnTiR@4kVSJHPRJC3
+Z275 VL0>07nn[JN=7b7B<[afT30
+S1
+R4
+R5
+Z276 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/read_arbiter.sv
+Z277 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/read_arbiter.sv
+L0 21
+R8
+r1
+31
+R9
+Z278 n@read_@arbiter
+Z279 !s100 BdOW1?48ek9c0UhVLF=I11
+Z280 !s105 read_arbiter_sv_unit
+Z281 !s108 1765907632.598000
+Z282 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/read_arbiter.sv|
+Z283 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/read_arbiter.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vResp_Queue
+R1
+Z284 I`5NPXDJ0>GA@k^P50Kj[W2
+Z285 VJICXEZnc1X[K8o`b;OTFj0
+S1
+R4
+R5
+Z286 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/buffers/Resp_Queue.sv
+Z287 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/buffers/Resp_Queue.sv
+L0 1
+R8
+r1
+31
+R9
+Z288 n@resp_@queue
+Z289 !s100 k]z360H1_36NB954jP5GC0
+Z290 !s105 Resp_Queue_sv_unit
+Z291 !s108 1765907632.809000
+Z292 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/buffers/Resp_Queue.sv|
+Z293 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/buffers/Resp_Queue.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vWD_Channel_Controller_Top
+R1
+Z294 I[Ph3V7_]Wd1:<JGmjQNPG2
+Z295 V6izn3;b=:ez2hBWB7GGW81
+S1
+R4
+R18
+Z296 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/write/WD_Channel_Controller_Top.sv
+Z297 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/write/WD_Channel_Controller_Top.sv
+L0 1
+R8
+r1
+31
+R9
+Z298 n@w@d_@channel_@controller_@top
+Z299 !s100 DMKG0bcG]^dAAoE[DP[@22
+Z300 !s105 WD_Channel_Controller_Top_sv_unit
+Z301 !s108 1765907633.378000
+Z302 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/write/WD_Channel_Controller_Top.sv|
+Z303 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/channel_controllers/write/WD_Channel_Controller_Top.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vWD_HandShake
+R1
+Z304 I9moVcWig;PGg`UzA^dCcW0
+Z305 V]ZM42h734JEHoCG=XR7lW2
+S1
+R4
+R5
+Z306 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/handshake/WD_HandShake.sv
+Z307 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/handshake/WD_HandShake.sv
+L0 2
+R8
+r1
+31
+R9
+Z308 n@w@d_@hand@shake
+Z309 !s100 bMKNUA`X]3lU=A2WN`[d51
+Z310 !s105 WD_HandShake_sv_unit
+Z311 !s108 1765907635.553000
+Z312 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/handshake/WD_HandShake.sv|
+Z313 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/handshake/WD_HandShake.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vWD_MUX_2_1
+R1
+Z314 I5VRWi@BDTK_dDnMPKX17c1
+Z315 V7Yk_k2:jihh1fUK^I8Q<:3
+S1
+R4
+R5
+Z316 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/WD_MUX_2_1.sv
+Z317 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/WD_MUX_2_1.sv
+L0 1
+R8
+r1
+31
+R9
+Z318 n@w@d_@m@u@x_2_1
+Z319 !s100 0REE@EhWnP^3M;FD40jUP1
+Z320 !s105 WD_MUX_2_1_sv_unit
+Z321 !s108 1765907634.839000
+Z322 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/WD_MUX_2_1.sv|
+Z323 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/datapath/mux/WD_MUX_2_1.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vWR_HandShake
+R1
+Z324 I>P38fFEO^K?jcHdE66T@_1
+Z325 V@>FR4?<<Abon5Y^5IO>`Q3
+S1
+R4
+R29
+Z326 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/handshake/WR_HandShake.sv
+Z327 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/handshake/WR_HandShake.sv
+L0 1
+R8
+r1
+31
+R9
+Z328 n@w@r_@hand@shake
+Z329 !s100 DKVMB6;V`lIVZ<8C:NNT11
+Z330 !s105 WR_HandShake_sv_unit
+Z331 !s108 1765907635.651000
+Z332 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/handshake/WR_HandShake.sv|
+Z333 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/handshake/WR_HandShake.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vWrite_Addr_Channel_Dec
+R1
+Z334 ICF7AziehV3=;UVf<o_3AK1
+Z335 VS5_T<ZCJi[R9i8VHGSl<M1
+S1
+R4
+R18
+Z336 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Write_Addr_Channel_Dec.sv
+Z337 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Write_Addr_Channel_Dec.sv
+L0 1
+R8
+r1
+31
+R9
+Z338 n@write_@addr_@channel_@dec
+Z339 !s100 d=CK20`E>Ii>Il:aCPB772
+Z340 !s105 Write_Addr_Channel_Dec_sv_unit
+Z341 !s108 1765907635.067000
+Z342 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Write_Addr_Channel_Dec.sv|
+Z343 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Write_Addr_Channel_Dec.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vWrite_Arbiter
+R1
+Z344 I3bC9?UST>38]o4RDPQHBT0
+Z345 VGUG6kA>]S2<>ON1X2d53`1
+S1
+R4
+R5
+Z346 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/arbiter_fixed_priority.sv
+Z347 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/arbiter_fixed_priority.sv
+L0 22
+R8
+r1
+31
+R9
+Z348 n@write_@arbiter
+Z349 !s100 NkIzV0X_S@b>fM4bSnT6A3
+Z350 !s105 arbiter_fixed_priority_sv_unit
+Z351 !s108 1765907632.251000
+Z352 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/arbiter_fixed_priority.sv|
+Z353 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/arbiter_fixed_priority.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vWrite_Arbiter_RR
+R1
+Z354 I3[k]KQd[ieCbk7C[6`f?;2
+Z355 VIG[g>T;R7_a3ADZWRfm9^2
+S1
+R4
+R5
+Z356 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/arbiter_round_robin.sv
+Z357 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/arbiter_round_robin.sv
+L0 24
+R8
+r1
+31
+R9
+Z358 n@write_@arbiter_@r@r
+Z359 !s100 A^MU30z=g@f;am8[:jOdI1
+Z360 !s105 arbiter_round_robin_sv_unit
+Z361 !s108 1765907632.480000
+Z362 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/arbiter_round_robin.sv|
+Z363 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/arbitration/algorithms/arbiter_round_robin.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vWrite_Resp_Channel_Arb
+R1
+Z364 I0@76R0MolK^mV0eoPIB[U2
+Z365 VUEQVf6FzlLH`FgGUf2odl0
+S1
+R4
+R18
+Z366 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Write_Resp_Channel_Arb.sv
+Z367 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Write_Resp_Channel_Arb.sv
+L0 1
+R8
+r1
+31
+R9
+Z368 n@write_@resp_@channel_@arb
+Z369 !s100 2o@QJ1FFP:UdeP799>NEa1
+Z370 !s105 Write_Resp_Channel_Arb_sv_unit
+Z371 !s108 1765907635.207000
+Z372 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Write_Resp_Channel_Arb.sv|
+Z373 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Write_Resp_Channel_Arb.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vWrite_Resp_Channel_Dec
+R1
+Z374 IM4Oenl_SP=a=PB:_[Se=R0
+Z375 V8`_J]B4ogFWO_fWk?8DN71
+S1
+R4
+R5
+Z376 8C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Write_Resp_Channel_Dec.sv
+Z377 FC:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Write_Resp_Channel_Dec.sv
+L0 1
+R8
+r1
+31
+R9
+Z378 n@write_@resp_@channel_@dec
+Z379 !s100 m8<WlB?dG`;7SkWlEL_SD0
+Z380 !s105 Write_Resp_Channel_Dec_sv_unit
+Z381 !s108 1765907635.344000
+Z382 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Write_Resp_Channel_Dec.sv|
+Z383 !s90 -work|work|-sv|C:/Users/Nguyen Ha Hai/axi4-system-suite/SystemVerilog/axi_interconnect/decoders/Write_Resp_Channel_Dec.sv|
+!i10b 1
+!s85 0
+!s101 -O0

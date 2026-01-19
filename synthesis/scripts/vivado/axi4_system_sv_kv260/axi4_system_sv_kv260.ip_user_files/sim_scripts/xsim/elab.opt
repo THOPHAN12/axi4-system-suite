@@ -1,0 +1,1 @@
+--incr --debug all --relax --mt 2  -L xil_defaultlib -L xilinx_vip -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip --snapshot comprehensive_system_tb xil_defaultlib.comprehensive_system_tb xil_defaultlib.glbl -log elaborate.log

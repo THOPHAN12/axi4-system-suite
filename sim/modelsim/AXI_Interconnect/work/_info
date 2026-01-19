@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Nguyen Ha Hai\axi4-system-suite\sim\modelsim\AXI_Interconnect
+vaxi_lite_ram
+Z1 IB6KG>SlT>5<HP6Am?;HP:3
+Z2 V1ofd?9:fjN6K_F1ESmP0_1
+Z3 dC:\Users\Nguyen Ha Hai\axi4-system-suite\sim\modelsim\AXI_Interconnect
+Z4 w1765319982
+Z5 8C:/Users/Nguyen Ha Hai/axi4-system-suite/src/peripherals/axi_lite/axi_lite_ram.v
+Z6 FC:/Users/Nguyen Ha Hai/axi4-system-suite/src/peripherals/axi_lite/axi_lite_ram.v
+L0 3
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 o-work work -O0
+Z9 !s100 I`?2Q1V`STJ0gSAo<7:X73
+Z10 !s108 1765528543.632000
+Z11 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/src/peripherals/axi_lite/axi_lite_ram.v|
+Z12 !s90 -reportprogress|300|-work|work|C:/Users/Nguyen Ha Hai/axi4-system-suite/src/peripherals/axi_lite/axi_lite_ram.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vaxi_master_0
+Z13 ICl]>NX46W5UL9VY?39QEm0
+Z14 V16YeTOi=^<J1KD=O@fddj3
+R3
+Z15 w1765526773
+Z16 8C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_masters/axi_master_0.v
+Z17 FC:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_masters/axi_master_0.v
+L0 14
+R7
+r1
+31
+R8
+Z18 !s100 a3Ei^h_]f<lAG:Q]jI?SU0
+Z19 !s108 1765528543.784000
+Z20 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_masters/axi_master_0.v|
+Z21 !s90 -reportprogress|300|-work|work|C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_masters/axi_master_0.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vaxi_master_1
+Z22 IA[[PGPM[RD6JiZI6LnN2l1
+Z23 V]19cjk6PSjF>n2Q]F7Y^S3
+R3
+R15
+Z24 8C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_masters/axi_master_1.v
+Z25 FC:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_masters/axi_master_1.v
+L0 15
+R7
+r1
+31
+R8
+!i10b 1
+Z26 !s100 c]mejYZ4dZomY0Xc0oTn43
+!s85 0
+Z27 !s108 1765528543.887000
+Z28 !s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_masters/axi_master_1.v|
+Z29 !s90 -reportprogress|300|-work|work|C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_masters/axi_master_1.v|
+!s101 -O0
+vbusy_test_tb
+!i10b 1
+!s100 GhLm[iPD6^DmYHVIzVgmI0
+Iz7_hno^5IzP[X6UZe>JIO3
+Ve<kh>60M`Qh;Cn@E=kWfH0
+R3
+w1765528519
+8C:/Users/Nguyen Ha Hai/axi4-system-suite/verification/testbenches/busy_test_tb/busy_test_tb.v
+FC:/Users/Nguyen Ha Hai/axi4-system-suite/verification/testbenches/busy_test_tb/busy_test_tb.v
+L0 13
+R7
+r1
+!s85 0
+31
+!s108 1765528543.983000
+!s107 C:/Users/Nguyen Ha Hai/axi4-system-suite/verification/testbenches/busy_test_tb/busy_test_tb.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Nguyen Ha Hai/axi4-system-suite/verification/testbenches/busy_test_tb/busy_test_tb.v|
+!s101 -O0
+R8

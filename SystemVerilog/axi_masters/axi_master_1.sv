@@ -75,6 +75,9 @@ module axi_master_1 #(
     logic aw_handshake_done;
     logic w_handshake_done;
     
+    // Temporary variable for address calculation
+    logic [31:0] calculated_addr;
+    
     // Busy signal: high when not in IDLE state
     assign busy = (state != IDLE);
     
@@ -132,7 +135,9 @@ module axi_master_1 #(
                 READ_S0_WAIT: begin
                     M_AXI_rready <= 1'b1;
                     if (M_AXI_rvalid && M_AXI_rready) begin
-                        address_offset <= M_AXI_rdata;
+                        // Use only lower 16 bits as offset to avoid overflow
+                        // This limits offset to 64KB range, which is reasonable
+                        address_offset <= {16'h0, M_AXI_rdata[15:0]};
                         state <= SEND_REQ;
                         M_AXI_rready <= 1'b0;
                     end
@@ -142,7 +147,10 @@ module axi_master_1 #(
                     // Use address_offset as offset to S1 base address
                     // Set address and data on first cycle, keep valid high until handshake
                     if (!aw_handshake_done) begin
-                        M_AXI_awaddr <= SLAVE1_BASE + address_offset;
+                        // Calculate address using only lower 16 bits of offset to avoid overflow
+                        // This ensures address stays within S1 range (0x40000000 - 0x5FFFFFFF)
+                        calculated_addr = SLAVE1_BASE + {16'h0, address_offset[15:0]};
+                        M_AXI_awaddr <= calculated_addr;
                         M_AXI_awprot <= 3'b000;
                         M_AXI_awvalid <= 1'b1;
                     end else begin

@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  -i "../../../../../../../../SystemVerilog/axi_interconnect" -i "../../../../../../../../SystemVerilog/axi_bridge" -i "../../../../../../../../SystemVerilog/axi_masters" -i "../../../../../../../../SystemVerilog/peripherals" --include "../../../../axi4_system_sv_kv260.gen/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../axi4_system_sv_kv260.gen/sources_1/bd/design_1/ipshared/6f8f/hdl" --include "../../../../axi4_system_sv_kv260.gen/sources_1/bd/uart_wrapper/ipshared/ec67/hdl" --include "../../../../axi4_system_sv_kv260.gen/sources_1/bd/gpio_wrapper/ipshared/ec67/hdl" --include "D:/Xilink/Vivado/2024.2/data/xilinx_vip/include" \
+"../../../../../../../../SystemVerilog/axi_bridge/axi_slave_bridge.sv" \
+"../../../../../../../../SystemVerilog/testbenches/axi_bridge/axi_slave_bridge_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

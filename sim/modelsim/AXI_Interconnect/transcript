@@ -1,0 +1,89 @@
+# do run_busy_test_tb.tcl 
+# reading modelsim.ini
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/sim/modelsim/AXI_Interconnect
+# C:/Users/Nguyen Ha Hai/axi4-system-suite
+# Modifying modelsim.ini
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/sim/modelsim/AXI_Interconnect/mem_init_s0_busy.hex
+# file91e5d28
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/sim/modelsim/AXI_Interconnect/mem_init_s1_busy.hex
+# file91e5c88
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/peripherals/axi_lite/axi_lite_ram.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module axi_lite_ram
+# 
+# Top level modules:
+# 	axi_lite_ram
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_masters/axi_master_0.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module axi_master_0
+# 
+# Top level modules:
+# 	axi_master_0
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/src/axi_masters/axi_master_1.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module axi_master_1
+# 
+# Top level modules:
+# 	axi_master_1
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/verification/testbenches/busy_test_tb
+# C:/Users/Nguyen Ha Hai/axi4-system-suite/verification/testbenches/busy_test_tb/busy_test_tb.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module busy_test_tb
+# 
+# Top level modules:
+# 	busy_test_tb
+# vsim -voptargs=\"+acc=npr\" -t ps work.busy_test_tb 
+# Loading work.busy_test_tb
+# Loading work.axi_master_0
+# Loading work.axi_master_1
+# Loading work.axi_lite_ram
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: Nguyen Ha Hai  Hostname: NGUYEN-HA-HAI  ProcessID: 11356
+# 
+#           Attempting to use alternate WLF file "./wlftjvw1n6".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftjvw1n6
+# 
+# run -all
+# [TB] Created mem_init_s0_busy.hex
+# [TB] Created mem_init_s1_busy.hex
+# [axi_lite_ram] Loading mem_init_s0_busy.hex
+# [axi_lite_ram] mem[0] = 0x00000000
+# [axi_lite_ram] mem[1] = 0x01123456
+# [axi_lite_ram] mem[2] = 0xxxxxxxxx
+# [axi_lite_ram] Loading mem_init_s1_busy.hex
+# [axi_lite_ram] mem[0] = 0x00000000
+# [axi_lite_ram] mem[1] = 0xxxxxxxxx
+# [axi_lite_ram] mem[2] = 0xxxxxxxxx
+# [TB] Reset released at time 50000
+# 
+# ========================================
+# [TB] Starting Busy Signal Test
+# ========================================
+# 
+# [TEST 1] Checking M0 busy = 0 in IDLE state
+# [TEST 1] PASS: M0 busy = 0 in IDLE
+# 
+# [TEST 2] Starting M0 and checking busy = 1
+# [TEST 2] PASS: M0 busy = 1 after start
+# 
+# ========================================
+# [TB] Test Summary
+# ========================================
+# [TB] Tests Passed: 2
+# [TB] Tests Failed: 0
+# [TB] Total Simulation Time: 45000 ns
+# ========================================
+# 
+# [TB] ALL TESTS PASSED! Busy signals work correctly.
+# [axi_lite_ram] AR handshake: addr=0x00000004, arready=1
+# [axi_lite_ram] Read: addr=0x00000004, mem_idx=1, data=0x01123456
+# ** Note: $finish    : C:/Users/Nguyen Ha Hai/axi4-system-suite/verification/testbenches/busy_test_tb/busy_test_tb.v(458)
+#    Time: 245 ns  Iteration: 0  Instance: /busy_test_tb
+# Break key hit 
+# Break key hit 
+# Break key hit 
+# Break key hit 
+# Break key hit 

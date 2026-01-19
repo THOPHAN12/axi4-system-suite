@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"spi_wrapper": {
+			"proto_instances": {
+			}
+		}
+	}
+}

@@ -1,0 +1,15 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xczu5ev-sfvc784-1-e",
+      "gen_directory": "../../../../axi4_system_sv_kv260.gen/sources_1/bd/spi_wrapper",
+      "name": "spi_wrapper",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2024.2",
+      "validated": "true"
+    },
+    "design_tree": {}
+  }
+}
