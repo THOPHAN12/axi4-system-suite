@@ -1,0 +1,45 @@
+library verilog;
+use verilog.vl_types.all;
+entity AXI_Interconnect_tb is
+    generic(
+        Address_width   : integer := 32;
+        Masters_Num     : integer := 2;
+        Slaves_ID_Size  : vl_notype;
+        S00_Aw_len      : integer := 8;
+        S00_Write_data_bus_width: integer := 32;
+        S00_Write_data_bytes_num: vl_notype;
+        S00_AR_len      : integer := 8;
+        S00_Read_data_bus_width: integer := 32;
+        S01_Aw_len      : integer := 8;
+        S01_AR_len      : integer := 8;
+        M00_Aw_len      : integer := 8;
+        M00_Write_data_bus_width: integer := 32;
+        M00_Write_data_bytes_num: vl_notype;
+        M00_AR_len      : integer := 8;
+        M00_Read_data_bus_width: integer := 32;
+        M01_Aw_len      : integer := 8;
+        M01_AR_len      : integer := 8;
+        Num_Of_Masters  : integer := 2;
+        Master_ID_Width : vl_notype
+    );
+    attribute mti_svvh_generic_type : integer;
+    attribute mti_svvh_generic_type of Address_width : constant is 1;
+    attribute mti_svvh_generic_type of Masters_Num : constant is 1;
+    attribute mti_svvh_generic_type of Slaves_ID_Size : constant is 3;
+    attribute mti_svvh_generic_type of S00_Aw_len : constant is 1;
+    attribute mti_svvh_generic_type of S00_Write_data_bus_width : constant is 1;
+    attribute mti_svvh_generic_type of S00_Write_data_bytes_num : constant is 3;
+    attribute mti_svvh_generic_type of S00_AR_len : constant is 1;
+    attribute mti_svvh_generic_type of S00_Read_data_bus_width : constant is 1;
+    attribute mti_svvh_generic_type of S01_Aw_len : constant is 1;
+    attribute mti_svvh_generic_type of S01_AR_len : constant is 1;
+    attribute mti_svvh_generic_type of M00_Aw_len : constant is 1;
+    attribute mti_svvh_generic_type of M00_Write_data_bus_width : constant is 1;
+    attribute mti_svvh_generic_type of M00_Write_data_bytes_num : constant is 3;
+    attribute mti_svvh_generic_type of M00_AR_len : constant is 1;
+    attribute mti_svvh_generic_type of M00_Read_data_bus_width : constant is 1;
+    attribute mti_svvh_generic_type of M01_Aw_len : constant is 1;
+    attribute mti_svvh_generic_type of M01_AR_len : constant is 1;
+    attribute mti_svvh_generic_type of Num_Of_Masters : constant is 1;
+    attribute mti_svvh_generic_type of Master_ID_Width : constant is 3;
+end AXI_Interconnect_tb;
